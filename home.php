@@ -1,1 +1,4 @@
-<a class=navLink href='../admin/logout.php' class='logout'>Log out</a>
+<?php
+    session_start();
+    include "sections/sidebar.php"
+?>
