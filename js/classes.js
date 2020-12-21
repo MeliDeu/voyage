@@ -1,6 +1,7 @@
 "use strict";
 
 // hajsan alnur
+// test 2
 
 class PolaroidBase{
     constructor(data){
