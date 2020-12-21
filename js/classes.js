@@ -1,5 +1,7 @@
 "use strict";
 
+// hajsan alnur
+
 class PolaroidBase{
     constructor(data){
         this.postID = data.postID;
