@@ -1,8 +1,12 @@
 "use strict";
+<<<<<<< HEAD
 
 // hajsan alnur
 // test 2
 
+=======
+//hej jasse bror, n riktig bror
+>>>>>>> 066fed96bee268c4d42dbc6c7e5c00c9499f20e0
 class PolaroidBase{
     constructor(data){
         this.postID = data.postID;
