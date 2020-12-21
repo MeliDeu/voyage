@@ -1,53 +1,82 @@
 "use strict";
 
 class PolaroidBase{
-    //Endast bas till resterande classes
     constructor(data){
         this.postID = data.postID;
-        this.creatorID = data.creatorID;
         this.coverIMG = data.coverIMG;
-        this.albumID = data.albumID;
+        this.creatorID = data.creatorID; //Username, UserPic
         this.country = data.country;
-        this.travelCategory = data.travelCategory;
         this.title = data.title;
-        thid.description = data.description;
+        this.albumID = data.albumID;
+        this.travelCategory = data.travelCategory;
+        this.description = data.description;
     }
 }
-class PostsUser extends PolaroidBase{
-    //Skapar Polaroid elementen
+class PolaroidStatic extends PolaroidBase{
     constructor(data){
         super(data);
     }
-    createPolaroidUser(){
-        let polaroidBoxWrapper = document.createElement("div")
-        let polaroidImgWraper = document.createElement("div")
-        let polaroidInfoWrapper = document.createElement("div")
-        //Saknas CoverIMG +  all text!
-    }
 }
-class PostsOther extends PolaroidBase{
-    //Skapar Tips elementen
+class PolaroidActive extends PolaroidStatic{
     constructor(data){
         super(data);
-        this.tips;
+
     }
-    createPolaroidOther(){
-        let tipsBoxWrapper = document.createElement("div")
-        let tipsImgWrapper = document.createElement("div")
-        let tipsInfoWrapper = document.createElement("div")
-        //Saknas CoverIMG + all text!
-    }
+    //Metod där polaroiden får en hover effekt, description ska synas
+    //Click event på hela polaroiden som gör att posten öppnas
 }
-class PostsShow extends PolaroidBase{
-    //Skapar element när man visar en post
+class PolaroidUser extends PolaroidActive{
+    constructor(data){
+        super(data)
+    }
+    //this.icon = soptunna
+}
+class PolaroidFeed extends PolaroidActive{
+    constructor(data){
+        super(data);
+    }
+    //Spara symbol
+}
+class PostStructure extends PolaroidBase{
+    constructor(data){
+        super(data);
+    }
+    //Stor vit ruta, Stor vit bild, antingen ifylld eller ej, div för mindre bilder under stor bild, höger-spalt som är tom
+    //kryss ovanför vit ruta, 
+}
+
+class PostShow extends PostStructure{
     constructor(data){
         super(data);
         this.images = data.images;
+        //HTML för show
     }
-    createPostsShow(){
-        let postsBoxWrapper = document.createElement("div")
-        let postsImgWrapper = document.createElement("div")
-        let postsGalleryWrapper = document.createElement("div")
-        let postsInfpWrapper = document.createElement("div")
+    //Vad som ska finnas i höge-spalt : div som innehåller, userPic, UserName, date
+    //Spara knapp, land, album, titel, description + 2 knappar : visa land, visa profil
+}
+class CreatePost extends PostStructure{
+    constructor(data){
+        super(data);
+    }
+    //Funktioner: Klick funktioner, ladda upp bilder, postknapp, Välj coverIMG!
+    //Högerspalt: Skapa inputfält, select counrty, description, travelCategory, skriv titel, select album (new!!), postknapp
+    //
+}
+class CategoryBox{
+    //Skapa div categoryBox, innehåller 1 cirkeldiv categoryIcon + div med cetegoryTitle
+    //Här får de hover effekt + click event för att visa alla under samma category!
+}
+class TravelCategory extends CategoryBox{
+    constructor(data){
+        this.travelCategory = data.travelCategory;//Detta avser antingen resekategori eller albumnamn
+        this.categoryTitle = data.categoryTitle;
+        this.categoryIcon = data.categoryIcon;
+    }
+}
+class Album extends CategoryBox{
+    constructor(data){
+        this.albumID = data.albumID;
+        this.albumTitle = data.albumTitle;
+        this.albumCoverIMG = data.albumCoverIMG;
     }
 }
