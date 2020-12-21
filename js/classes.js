@@ -1,5 +1,5 @@
 "use strict";
-
+//hej jasse bror, riktig bror
 class PolaroidBase{
     constructor(data){
         this.postID = data.postID;
