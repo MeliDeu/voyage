@@ -1,0 +1,44 @@
+"use strict";
+
+//Click event för registration!
+let register = document.getElementById("register");
+register.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    let UserName = document.getElementById("newUsername").value;
+    let UserPassword = document.getElementById("newPassword").value;
+    let UserEmail = document.getElementById("newEmail").value;
+    let UserTravelStatus = document.getElementById("travelStatus").value;
+
+    let request = new Request("../admin/api.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({
+            username: UserName,
+            password: UserPassword,
+            email: UserEmail,
+            travelStatus: UserTravelStatus,
+        })
+    })
+    fetch(request)
+    .then(response => {
+        return response.json();
+    })
+    .then(resource =>{
+        if (resource.errors !== undefined) {
+            let errorRegister = document.getElementById("errorRegister")
+            errorRegister.innerHTML(resource.errors)
+            document.getElementById("newUsername").value = "";
+            document.getElementById("newPassword").value = "";
+            document.getElementById("newEmail").value = "";        
+        }  else if (resource.data !== undefined) {
+            // Om användaren fyllt i input fälten korrekt så skapas en ny användare med feedback om att det går att logga in
+            let errorRegister = document.getElementById("errorRegister")
+            errorRegister.innerHTML(resource.data)
+            document.getElementById("newUsername").value = "";
+            document.getElementById("newPassword").value = "";
+            document.getElementById("newEmail").value = "";  
+            console.log("hej")
+        }
+    })
+})

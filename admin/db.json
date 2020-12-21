@@ -1,15 +1,1 @@
-{
-    "users": [
-        {
-            "id": 1,
-            "username": "test1",
-            "password": "1234"
-        },
-        {
-            "id": 2,
-            "username": "test2",
-            "password": "1234"
-        }
-    ]
-
-}
+{"users":[{"id":1,"username":"alnur","password":"1234","email":"alnur.email","travelStatus":"on"},{"id":2,"username":"elinor","password":"1234","email":"elinormail","travelStatus":"on"},{"id":3,"username":"test","password":"1234","email":"emailtest","travelStatus":"on"},{"id":4,"username":"test1","password":"1234","email":"emailtest1","travelStatus":"on"}]}

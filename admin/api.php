@@ -4,8 +4,15 @@
 session_start();
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
-$file = "db.json";
-$database = [];
+$file = "../admin/db.json";
+$database = [
+    [
+        "users" => []
+    ],
+    [
+        "posts" => []
+    ]
+];
 if (file_exists($file)) {
   $data = file_get_contents($file);
   // Gör om database till PHP
@@ -69,7 +76,8 @@ if ($method === "GET") {
 }
 
 // Denna kontroll sträcker sig över hela POST, PATCH, DELETE
-if ($_SESSION[”loggedIn”]){
+//Kanske inte ska göra det, pga registrering sker här...
+//if ($_SESSION[”loggedIn”]){
 //-------------------------------------------- POST ------------------------------
 
 if ($method === "POST") {
@@ -78,6 +86,62 @@ if ($method === "POST") {
         // Innehåll i input (fås från login.php)
         // Skapa nytt ID
         // Skapa ett nytt object och pusha in i DB
+        //if (isset($json["registration"])){
+            if ($json["username"] === "" || $json["password"] === "" || $json["email"] === ""){
+                http_response_code(400);
+                header("Content-Type: application/json");
+                echo json_encode(["errors" => "All fields must to be filled out"]);
+                exit();
+            }
+            if (!isset($json["username"]) || !isset($json["password"])) {
+                http_response_code(400);
+                header("Content-Type: application/json");
+                echo json_encode(["errors" => "All fields must to be filled out)"]);
+                exit();
+            }
+    
+            if (preg_match('/\s/',$json["username"])) {
+                http_response_code(400);
+                header("Content-Type: application/json");
+                echo json_encode(["errors" => "No spaces allowed in username"]);
+                exit();
+            }
+            //Loopa igenom users för att kolla så att användarnamnet ej redan finns!
+            foreach ($database["users"] as $user => $value) {
+                if ($value["username"] == $json["username"]) {
+                    http_response_code(400);
+                    header("Content-Type: application/json");
+                    echo json_encode(["errors" => "Username already exists"]);
+                    exit();
+                }
+            }
+            $highestID = 0; 
+            //Letar efter det högsta existerande ID:et 
+            foreach ($database["users"] as $user) {
+                if ($user["id"] > $highestID) {
+                    $highestID = $user["id"];
+                }
+            } 
+            // Lägg till det nya ID:et 
+            $okId = $highestID + 1;
+
+            //Sparar "on " om man tickat i, annars kommer inte nyckeln med!
+            $travelStatus = $json["travelStatus"];
+
+            $user = ["id" => $okId, "username" => $json["username"], "password" => $json["password"], "email" => $json["email"], "travelStatus" => $travelStatus];
+            $database["users"][] = $user;
+
+            $dataAsJSON = json_encode($database);
+            file_put_contents($file, $dataAsJSON);
+            http_response_code(201);
+            header("Content-Type: application/json");
+            $message = [
+                "data" => $user
+            ];
+            echo json_encode($message);
+            exit();
+
+        //}
 
     // NY PROFLBILD
         // kommer….
@@ -99,7 +163,7 @@ if ($method === "POST") {
         // postID (fås från klickad post)
         // Lägg i ny array och spara på user i DB
 
-}
+//}
 
 //-------------------------------------------- PATCH ------------------------------
 
