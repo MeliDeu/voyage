@@ -1,0 +1,16 @@
+:root {
+    /*FÄRGER*/
+    --darkgrey: #2C2E32; /*wrappens bakgrundfärg när man är inloggad*/
+    --blue: #1B474A; /*sidans signaturfärg, används i tex knappar, i navBar för markera*/
+    --lighterBlue: #3A5A5D; /*för text i login/join ruta, text ovanför inputfält*/
+    --darkTextColor: #414141; /*standard för texter*/
+    --lightTextColor: #6E6E6E; /*ljusare text, tex i nav*/
+    --orange: #7B461D; /*knappar och borders*/
+    --lightGrey: #e2e2e2; /*ikoner i nave i sideBar*/
+    --beige: #E1CFB6; /*För cirkel-ikoner*/
+    --greyBackground: #8C8B92; /*Backgrund för feedGrid samt vald travelCategory/Album*/
+
+    /*FONTER*/
+    --styleFont: "Mulish"; /*lite tjockare text, passar bra vid titlar, finns i weight: 300;400;500;600;700;800;900*/
+    --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
+}
