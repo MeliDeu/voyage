@@ -4,7 +4,7 @@
     --blue: #1B474A; /*sidans signaturfärg, används i tex knappar, i navBar för markera*/
     --lighterBlue: #3A5A5D; /*för text i login/join ruta, text ovanför inputfält*/
     --darkTextColor: #414141; /*standard för texter*/
-    --lightTextColor: #6E6E6E; /*ljusare text, tex i nav*/
+    --lightTextColor: #4c4c4c; /*ljusare text, tex i nav*/
     --orange: #7B461D; /*knappar och borders*/
     --lightGrey: #e2e2e2; /*ikoner i nave i sideBar*/
     --beige: #E1CFB6; /*För cirkel-ikoner*/
@@ -13,4 +13,92 @@
     /*FONTER*/
     --styleFont: "Mulish"; /*lite tjockare text, passar bra vid titlar, finns i weight: 300;400;500;600;700;800;900*/
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
+}
+
+* {
+    margin: 0;
+}
+
+/*STARTSIDA LOGIN/JOIN*/
+#wrapper {
+    position: relative;
+    font-family: var(--standardFont);
+    color: var(--darkTextColor);
+    min-height: 100vh;
+    width: 100%;
+}
+
+#bgStart {
+    background-image: url(../images/stockImages/pexels-zakaria-boumliha-2827374.jpg);
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.3;
+    height: 100vh;
+    width: 100vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .startNav {
+     padding: 20px;
+     justify-content: space-between;
+ }
+
+ .startNav a {
+     color: var(--lightTextColor);
+     font-family: var(--standardFont);
+     font-weight: 600;
+     font-size: 1em;
+     margin-right: 20px;
+ }
+
+ .button {
+     background-color: var(--blue);
+     border: 0;
+     padding: 8px 15px;
+     border-radius: 30px;
+     color: white;
+     font-size: 0.85em;
+     font-weight: 700;
+     font-family: var(--styleFont);
+     box-shadow: 1px 3px 10px rgb(213, 213, 213);
+ }
+
+ button:hover {
+     cursor: pointer;
+ }
+
+ #logo {
+     height: 50px;
+     width: 50px;
+     border-radius: 100%;
+     background-color: var(--darkTextColor);
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 2em;
+     box-shadow: 1px 3px 10px rgb(216, 216, 216);
+ }
+
+ .startTitle {
+    font-family: var(--styleFont);
+}
+
+.startTitle span {
+    color: var(--blue);
+    font-weight: 800;
 }
