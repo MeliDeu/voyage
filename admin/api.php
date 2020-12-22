@@ -91,6 +91,7 @@ if ($method === "POST") {
                 http_response_code(400);
                 header("Content-Type: application/json");
                 echo json_encode(["errors" => "All fields must to be filled out"]);
+                //header("Location: /index.php");
                 exit();
             }
             if (!isset($json["username"]) || !isset($json["password"])) {
@@ -163,7 +164,7 @@ if ($method === "POST") {
         // postID (fås från klickad post)
         // Lägg i ny array och spara på user i DB
 
-//}
+}
 
 //-------------------------------------------- PATCH ------------------------------
 
@@ -208,7 +209,7 @@ if ($method === "DELETE") {
 
 }
 
-} // Denna stänger if session loggedin
+//} // Denna stänger if session loggedin
 
 
 //Annat:

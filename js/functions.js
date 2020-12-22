@@ -10,14 +10,14 @@ register.addEventListener('submit', function(event){
     let UserEmail = document.getElementById("newEmail").value;
     let UserTravelStatus = document.getElementById("travelStatus").value;
 
-    let request = new Request("../admin/api.php", {
+    let request = new Request("/admin/api.php", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({
             username: UserName,
             password: UserPassword,
             email: UserEmail,
-            travelStatus: UserTravelStatus,
+            travelStatus: UserTravelStatus
         })
     })
     fetch(request)
@@ -25,6 +25,7 @@ register.addEventListener('submit', function(event){
         return response.json();
     })
     .then(resource =>{
+        console.log(resource)
         if (resource.errors !== undefined) {
             let errorRegister = document.getElementById("errorRegister")
             errorRegister.innerHTML(resource.errors)

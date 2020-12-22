@@ -19,7 +19,7 @@
         <input type="password" name="password" placeholder="Enter your password"><br>
         <button type="submit">Log in</button>
     </form>
-    <form id="register" action="home.php" method="POST">
+    <form id="register" action="/home.php" method="POST">
         <h2 class="formTitle">Sign up</h2>
         <p id="errorRegister"></p>
                         
@@ -32,7 +32,7 @@
         <p class="forSmallTitle">Intreseted in new travel friends</p>
         <p>Yes</p>
         <input id="travelStatus" type="checkbox" name="travelStatus">
-        <button class="register" type="submit">Register</button>
+        <button class="registerButton" type="submit">Register</button>
     </form>
 
 <?php
