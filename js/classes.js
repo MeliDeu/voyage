@@ -1,23 +1,7 @@
 "use strict";
-<<<<<<< HEAD
-//<<<<<<< HEAD
-//hej jasse bror, riktig bror
-//hola senor
-//=======
-//<<<<<<< HEAD
-
-// hajsan alnur
-// test 2
-
-//=======
-//hej jasse bror, n riktig bror
-//>>>>>>> 066fed96bee268c4d42dbc6c7e5c00c9499f20e0
-//>>>>>>> c1bb632e50d1a386d2bdf73a700bb62fe2a1692c
-=======
 
 
 //BASEN TILL BÅDE POLAROIDFOTON PÅ STARTSIDA, HEM/PROFIL FEED & MODAL NÄR MAN KLICKAR PÅ POLAROID
->>>>>>> 11cab6611360f17da21464eddc888f379e91b46f
 class PolaroidBase{
     constructor(data){
         this.postID = data.postID;
