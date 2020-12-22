@@ -61,6 +61,8 @@
     
     </div>
 
+    <script src='../js/startGrid.js'></script>
+
 <?php
     include "sections/footer.php";
 ?>
