@@ -129,7 +129,7 @@ if ($method === "POST") {
             //Sparar "on " om man tickat i, annars kommer inte nyckeln med!
             $travelStatus = $json["travelStatus"];
 
-            $user = ["id" => $okId, "username" => $json["username"], "password" => $json["password"], "email" => $json["email"], "travelStatus" => $travelStatus];
+            $user = ["id" => $okId, "username" => $json["username"], "password" => $json["password"], "email" => $json["email"], "travelStatus" => $travelStatus, "profilePic" => false, "bio" => false, "top3Wishes" => false, "top3Favs" => false];
             $database["users"][] = $user;
 
             $dataAsJSON = json_encode($database);
@@ -217,8 +217,6 @@ if ($method === "DELETE") {
 // Kontrollera contenttype,  tillåtna filtyper osv
 // ! OBS !  Begränsa resultat från API (posts) till MAX 20 st? View more…
 // ! OBS !  Spara en kopia av gamla DB  
-
-
 ?>
 
   
