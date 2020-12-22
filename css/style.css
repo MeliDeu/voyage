@@ -15,12 +15,32 @@
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
 }
 
+/*GENERELLT*/
 * {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.9;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
 /*STARTSIDA LOGIN/JOIN*/
-#wrapper {
+#startWrapper {
     position: relative;
     font-family: var(--standardFont);
     color: var(--darkTextColor);
@@ -40,16 +60,6 @@
     opacity: 0.3;
     height: 100vh;
     width: 100vw;
-}
-
-a {
-    text-decoration: none;
-}
-
-.flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
  .startNav {
@@ -77,10 +87,6 @@ a {
      box-shadow: 1px 3px 10px rgb(213, 213, 213);
  }
 
- button:hover {
-     cursor: pointer;
- }
-
  #logo {
      height: 50px;
      width: 50px;
@@ -91,14 +97,26 @@ a {
      justify-content: center;
      align-items: center;
      font-size: 2em;
-     box-shadow: 1px 3px 10px rgb(216, 216, 216);
  }
 
- .startTitle {
+ .startTitle h1 {
     font-family: var(--styleFont);
+    font-weight: 600;
 }
 
 .startTitle span {
     color: var(--blue);
     font-weight: 800;
+}
+
+#loginModal {
+    display: none;
+}
+
+.startGrid {
+    margin: 50px auto 0;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 10vw);
+    grid-gap: 20px;
 }
