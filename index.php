@@ -52,7 +52,7 @@
         </div>
 
         <!--polaroidGrid-->
-        <div class="startGrid"></div>
+        <div id="startGrid"></div>
 
         <!--LOGGA IN-->
         <div id="loginModal">
@@ -91,9 +91,12 @@
     
     </div>
 
+<<<<<<< HEAD
+=======
     <script src='../js/startGrid.js'></script>
 >>>>>>> 11cab6611360f17da21464eddc888f379e91b46f
 
+>>>>>>> 70e6592746912effa00329ced7d6cbd0d2de58bd
 <?php
     include "sections/footer.php";
 ?>

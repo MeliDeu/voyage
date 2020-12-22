@@ -103,9 +103,8 @@ let adminPolaroidArray = [
         title: 'One year abroad',
     },
     {
+        creatorID: '3',
         coverImg: '../images/stockImages/travel_15.jpg',
-        avatar: '../images/stockImages/person_3.jpg',
-        avatarName: 'backpacker_maher',
         country: '?',
         title: 'My favourite ancient places',
     },
