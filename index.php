@@ -6,6 +6,7 @@
 ?>
     <div id="bgStart"></div>
     <div id="startWrapper">
+        <div id="bgDark"><div id="x">x</div></div>
 
         <!--nav på startsida-->
         <nav class="flexCenter startNav">
@@ -58,7 +59,7 @@
             </form>
         </div>
     
-    
+        <footer></footer>
     </div>
 
 

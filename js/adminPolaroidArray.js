@@ -11,7 +11,7 @@ let adminUsersArray = [
         },
         {
             id: '3',
-            userName: 'backpacker_maher',
+            userName: 'backpacker_m',
             userPic: '../images/stockImages/person_3.jpg',
         },
     ]

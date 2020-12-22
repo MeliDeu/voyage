@@ -40,6 +40,8 @@ class PolaroidStatic extends PolaroidBase{
         //.polaroid
         let html = document.createElement("div");
         html.classList.add("polaroid");
+        let filter = document.createElement("div");
+        filter.classList.add("filter");
 
             //.polaroidPic
             let pic = document.createElement("div");
@@ -68,7 +70,7 @@ class PolaroidStatic extends PolaroidBase{
 
                     //.polaroidText
                     let polaroidText = document.createElement("div");
-                    polaroidText.classList.add("polaroidText");
+                    polaroidText.classList.add("polaroidText", "flexCenter");
                         //.polaroidCountry
                         let polaroidCountry = document.createElement("div");
                         polaroidCountry.innerHTML = `${this.country}`;
@@ -82,7 +84,7 @@ class PolaroidStatic extends PolaroidBase{
 
                 this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
                 this.polaroidBottom.append(this.polaroidInfo); // här ska även .polaroidDescription appendas men den skapas i active
-                html.append(pic, this.polaroidBottom);
+                html.append(filter, pic, this.polaroidBottom);
 
                 return html;
             

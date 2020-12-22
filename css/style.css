@@ -13,11 +13,17 @@
     /*FONTER*/
     --styleFont: "Mulish"; /*lite tjockare text, passar bra vid titlar, finns i weight: 300;400;500;600;700;800;900*/
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
+    --polaroidFontSize: 0.75vw;
+    --polaroidTitleSize: 0.75vw;
 }
 
 /*GENERELLT*/
 * {
     margin: 0;
+}
+
+body {
+    min-height: 200vh;
 }
 
 a {
@@ -39,6 +45,12 @@ button:hover {
     opacity: 0.9;
 }
 
+footer {
+    height: 35px;
+    background-color: var(--darkgrey);
+    margin-top: 40px;
+}
+
 /*STARTSIDA LOGIN/JOIN*/
 #startWrapper {
     position: relative;
@@ -52,13 +64,31 @@ button:hover {
     background-image: url(../images/stockImages/pexels-zakaria-boumliha-2827374.jpg);
     background-size: cover;
     background-position: top;
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
     opacity: 0.3;
 }
+
+#bgDark {
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgb(46, 36, 32);
+    opacity: 0;
+    z-index: 100;
+    animation: bgDark 0.5s forwards;
+}
+
+@keyframes bgDark {
+    from {opacity: 0;}
+   to { opacity: 0.5;}
+ }
 
  .startNav {
      padding: 20px;
@@ -98,6 +128,7 @@ button:hover {
  }
 
  .startTitle h1 {
+     font-size: 2vw;
     font-family: var(--styleFont);
     font-weight: 600;
 }
@@ -113,21 +144,88 @@ button:hover {
 
 #startGrid {
     margin: 50px auto 0;
-    width: 90%;
+    width: 95%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    grid-gap: 30px;
 }
+
+#startGrid:nth-child(even) {}
 
 .polaroid {
     background-color: white;
-    height: 20vw;
+    height: 23vw;
     width: 17vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 3px 5px rgb(191, 191, 191);
+    margin-bottom: 30px;
 }
 
 .polaroidPic {
-    width: 90%;
-    height: 15vw;
+    width: calc(100% - 4%);
+    flex-basis: 82%;
     background-size: cover;
     background-position: center;
+    margin: 2% 2% 0 2%;
+}
+
+.polaroidBottom {
+    width: calc(100% - 16px);
+    padding: 0 8px;
+    flex-grow: 1;
+}
+
+.polaroidInfo {
+    display: flex;
+    font-size: var(--polaroidFontSize);
+    height: 100%;
+}
+
+.polaroidUserPic {
+    width: 3vw;
+    height: 3vw;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+.polaroidUser {
+    display: flex;
+    flex-direction: column;
+    margin-top: -10%;
+    flex-basis: 4.5vw;
+    align-items: center;
+}
+
+.polaroidUserName {
+    color: var(--lightTextColor);
+    font-size: 0.7vw;
+    margin-top: 1.5px;
+}
+
+.polaroidText {
+    flex-direction: column;
+    align-items: unset;
+    padding: 5px 5px 5px 13px;
+    font-family: var(--styleFont);
+    font-size: 0.63vw;
+    font-weight: 500;
+}
+
+.polaroidCountry {
+    font-weight: 800;
+    font-family: var(--styleFont);
+    font-size: var(--polaroidTitleSize);
+    margin-bottom: 2px;
+}
+
+.filter {
+    width: 17vw;
+    height: 23vw;
+    background-color: white;
+    position: absolute;
+    opacity: 0.3;
 }

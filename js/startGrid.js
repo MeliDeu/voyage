@@ -9,4 +9,20 @@ function loadStartGrid(){
     })
 }
 
+let bgDark = document.getElementById("bgDark");
+
+let darkOnScroll = function() {
+  let y = window.scrollY;
+  if (y >= 500) {
+      bgDark.style.display = "block";
+  }
+};
+
+let x = document.getElementById("x");
+
+window.addEventListener("scroll", darkOnScroll);
+x.addEventListener("click", function(){
+    bgDark.style.display = "none";
+});
+
 loadStartGrid();
