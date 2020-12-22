@@ -20,30 +20,72 @@ class PolaroidBase{
 class PolaroidStatic extends PolaroidBase{
     constructor(data){
         super(data);
+
         this.polaroidBottom = document.createElement("div");
         this.polaroidBottom.classList.add("polaroidBottom");
+
+        this.polaroidInfo = document.createElement("div");
+        this.polaroidInfo.classList.add("polaroidInfo");
     }
 
     createPolaroidBase(){
+        let userInfo
+
+        adminUsersArray.forEach(user => {
+            if (user.id == this.creatorID) {
+               userInfo = user;
+            }
+         });
+
         //.polaroid
         let html = document.createElement("div");
         html.classList.add("polaroid");
+
             //.polaroidPic
             let pic = document.createElement("div");
             pic.style.backgroundImage = `url('${this.coverImg}')`;
+            pic.classList.add("polaroidPic");
 
             //.polaroidBottom --> KOMMA ÅT I ACTIVE
+            //skapas på i constructorn
 
                 //.polaroidInfo --> KOMMA ÅT I POLAROIDUSER & FEED
-                    //.polaroidUser
-                        //.polaroidUserPic
-                        //.polaroidUserName
-                    //.polaroidText
-                        //.polaroidCountry
-                        //.polaroidTitle
-                    //(.polaroidIcon)
+                //skapas på i constructorn
 
-                //(.polaroidDescription)
+                    //.polaroidUser
+                    let polaroidUser = document.createElement("div");
+                    polaroidUser.classList.add("polaroidUser");
+                        //.polaroidUserPic
+                        let polaroidUserPic = document.createElement("div");
+                        polaroidUserPic.style.backgroundImage = `url('${userInfo.userPic}')`;
+                        polaroidUserPic.classList.add("polaroidUserPic");
+                        //.polaroidUserName
+                        let polaroidUserName = document.createElement("div");
+                        polaroidUserName.innerHTML = `${userInfo.userName}`;
+                        polaroidUserName.classList.add("polaroidUserName");
+
+                    polaroidUser.append(polaroidUserPic, polaroidUserName);    
+
+                    //.polaroidText
+                    let polaroidText = document.createElement("div");
+                    polaroidText.classList.add("polaroidText");
+                        //.polaroidCountry
+                        let polaroidCountry = document.createElement("div");
+                        polaroidCountry.innerHTML = `${this.country}`;
+                        polaroidCountry.classList.add("polaroidCountry");
+                        //.polaroidTitle
+                        let polaroidTitle = document.createElement("div");
+                        polaroidTitle.innerHTML = `${this.title}`;
+                        polaroidTitle.classList.add("polaroidTitle");
+
+                    polaroidText.append(polaroidCountry, polaroidTitle);    
+
+                this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
+                this.polaroidBottom.append(this.polaroidInfo); // här ska även .polaroidDescription appendas men den skapas i active
+                html.append(pic, this.polaroidBottom);
+
+                return html;
+            
     }
 }
 
