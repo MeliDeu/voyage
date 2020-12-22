@@ -1,7 +1,7 @@
 
 
-<?php   
-session_start();
+<?php
+//session_start();
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
 $file = "../admin/db.json";
@@ -140,6 +140,7 @@ if ($method === "POST") {
                 "data" => $user
             ];
             echo json_encode($message);
+            var_dump($message);
             exit();
 
         //}

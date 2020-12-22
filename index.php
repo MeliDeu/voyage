@@ -71,7 +71,7 @@
             </form>
 
             <!--REGISTRERA-->
-            <form id="register" action="home.php" method="POST">
+            <form id="register">
                 <h2 class="formTitle">Sign up</h2>
                 <p id="errorRegister"></p>
                                 
