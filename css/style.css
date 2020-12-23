@@ -13,8 +13,8 @@
     /*FONTER*/
     --styleFont: "Mulish"; /*lite tjockare text, passar bra vid titlar, finns i weight: 300;400;500;600;700;800;900*/
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
-    --polaroidFontSize: 0.75vw;
-    --polaroidTitleSize: 0.75vw;
+    --polaroidFontSize: 0.7vw;
+    --polaroidTitleSize: 0.7vw;
 }
 
 /*GENERELLT*/
@@ -79,7 +79,7 @@ footer {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-color: rgb(46, 36, 32);
+    background-color: rgb(22, 18, 16);
     opacity: 0;
     z-index: 100;
     animation: bgDark 0.5s forwards;
@@ -103,7 +103,7 @@ footer {
      margin-right: 20px;
  }
 
- .button {
+ #navLoginBtn {
      background-color: var(--blue);
      border: 0;
      padding: 8px 15px;
@@ -138,8 +138,37 @@ footer {
     font-weight: 800;
 }
 
+#startModalWrapper {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #loginModal {
     display: none;
+    background-color: white;
+    border-radius: 5px;
+    width: 25vw;
+    height: 35vw;
+    box-shadow: 1px 3px 20px rgba(10, 10, 10, 0.333);
+}
+
+#close {
+    display: none;
+    color: white;
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-left: 24vw;
+    font-family: var(--styleFont);
+}
+
+#close:hover {
+    cursor: pointer;
 }
 
 #startGrid {
@@ -150,12 +179,10 @@ footer {
     grid-gap: 30px;
 }
 
-#startGrid:nth-child(even) {}
-
 .polaroid {
     background-color: white;
-    height: 23vw;
-    width: 17vw;
+    height: 22vw;
+    width: 16.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,9 +190,13 @@ footer {
     margin-bottom: 30px;
 }
 
+.polaroid1, .polaroid3, .polaroid5, .polaroid6, .polaroid8, .polaroid10, .polaroid11, .polaroid13, .polaroid15 {
+    margin-top: 40px;
+}
+
 .polaroidPic {
     width: calc(100% - 4%);
-    flex-basis: 82%;
+    flex-basis: 84%;
     background-size: cover;
     background-position: center;
     margin: 2% 2% 0 2%;
@@ -184,8 +215,8 @@ footer {
 }
 
 .polaroidUserPic {
-    width: 3vw;
-    height: 3vw;
+    width: 2.5vw;
+    height: 2.5vw;
     background-size: cover;
     background-position: center;
     border-radius: 100%;
@@ -196,20 +227,20 @@ footer {
     display: flex;
     flex-direction: column;
     margin-top: -10%;
-    flex-basis: 4.5vw;
+    flex-basis: 4vw;
     align-items: center;
 }
 
 .polaroidUserName {
     color: var(--lightTextColor);
-    font-size: 0.7vw;
+    font-size: 0.65vw;
     margin-top: 1.5px;
 }
 
 .polaroidText {
     flex-direction: column;
     align-items: unset;
-    padding: 5px 5px 5px 13px;
+    padding: 2px 5px 5px 13px;
     font-family: var(--styleFont);
     font-size: 0.63vw;
     font-weight: 500;
@@ -223,9 +254,13 @@ footer {
 }
 
 .filter {
-    width: 17vw;
-    height: 23vw;
+    width: 16.5vw;
+    height: 22vw;
     background-color: white;
     position: absolute;
     opacity: 0.3;
+}
+
+.filter3, .filter5, .filter6, .filter14 {
+    opacity: 0;
 }

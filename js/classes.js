@@ -39,9 +39,9 @@ class PolaroidStatic extends PolaroidBase{
 
         //.polaroid
         let html = document.createElement("div");
-        html.classList.add("polaroid");
+        html.classList.add("polaroid", `polaroid${this.postID}`);
         let filter = document.createElement("div");
-        filter.classList.add("filter");
+        filter.classList.add("filter", `filter${this.postID}`);
 
             //.polaroidPic
             let pic = document.createElement("div");
