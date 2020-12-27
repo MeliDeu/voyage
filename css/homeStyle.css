@@ -1,0 +1,204 @@
+/* HOME PAGE */
+
+/* ska mergas med style.css sen, men måste nog använda en class 
+(för det som skiljer sig, tex. att det där är min-height 200vh) 
+på bodyn på starsidan för att den inte ska krocka med denna sida 
+(om de ska lyssna till samma css-fil) // jass */
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+#homeBody {
+    display: flex;
+    flex-direction: row;
+    height: 100%
+}
+
+#homeSearchBox, #homeCategoryBar, #homeBarTitle, #homeBarCategories, #homeCategoryBox, #homeCategoryIcon, #homeCategoryTitle, #homefeedBox, #homeFeedGrid, #homeFeedInfo, #homeFeedTitle, #homeFeedView  {
+    border: 1px solid black;
+}
+
+#sideBar {
+    background-color: white;
+    height: 100%;
+    width: 7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sideBar .icon, #sideBarLogo {
+    margin: 1vw 0 1vw 0;
+    border-radius: 50px;
+    background-color: lightgrey;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#sideBarNav, #sideBarLogo {
+    margin: 3vw 0 3vw 0;
+}
+
+#homeWrapper {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+#homeInnerWrapper {
+    background-color: rgb(45, 47, 49);
+    border-radius: 15px 0 0 15px;
+    max-height: 100%;
+    width: 100%;
+    padding: 2vw;
+    margin: 1vw 0 1vw 0;
+}
+
+#homeSearchBox {
+    display: flex;
+    align-items: center;
+}
+#homeSearchField {
+    width: 10vw;
+    background-color: grey;
+    border-radius: 5px;
+    border: none;
+    height: 1.5vw;
+    cursor: text;
+    color: white;
+    font-size: .6rem;
+}
+
+.barCaterories, .categoryBar {
+    margin: .5vw 0 .5vw 0;
+}
+
+.barTitle {
+    color: beige;
+}
+
+
+.categoryBox {
+    height: 4.2vw;
+    width: 3.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.categoryIcon {
+    background-color: beige;
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50px;
+}
+.categoryTitle {
+    font-size: .6rem;
+    text-align: center;
+    color: beige;
+}
+
+.feedBox {
+    height: 69vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: grey;
+    border-radius: 15px 15px 0 0;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feedInfo {
+    display: flex;
+    color: beige;
+}
+
+.feedGrid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1vw;
+}
+
+
+/* samma som standard css, ska mergas sen och då kan detta 
+tas bort då det är samma classer för båda sidor. // jass */
+.polaroid {
+    background-color: white;
+    height: 22vw;
+    width: 16.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 3px 5px rgb(191, 191, 191);
+    margin-bottom: 30px;
+}
+
+.polaroidPic {
+    width: calc(100% - 4%);
+    flex-basis: 84%;
+    background-size: cover;
+    background-position: center;
+    margin: 2% 2% 0 2%;
+}
+
+.polaroidBottom {
+    width: calc(100% - 16px);
+    padding: 0 8px;
+    flex-grow: 1;
+}
+
+.polaroidInfo {
+    display: flex;
+    font-size: var(--polaroidFontSize);
+    height: 100%;
+}
+
+.polaroidUserPic {
+    width: 2.5vw;
+    height: 2.5vw;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+.polaroidUser {
+    display: flex;
+    flex-direction: column;
+    margin-top: -10%;
+    flex-basis: 4vw;
+    align-items: center;
+}
+
+.polaroidUserName {
+    color: var(--lightTextColor);
+    font-size: 0.65vw;
+    margin-top: 1.5px;
+}
+
+.polaroidText {
+    flex-direction: column;
+    align-items: unset;
+    padding: 2px 5px 5px 13px;
+    font-family: var(--styleFont);
+    font-size: 0.63vw;
+    font-weight: 500;
+}
+
+.polaroidCountry {
+    font-weight: 800;
+    font-family: var(--styleFont);
+    font-size: var(--polaroidTitleSize);
+    margin-bottom: 2px;
+}
