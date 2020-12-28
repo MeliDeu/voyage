@@ -10,9 +10,9 @@ register.addEventListener('submit', function(event){
     let UserEmail = document.getElementById("newEmail").value;
     let UserTravelStatus = document.getElementById("travelStatus").value;
 
-    let request = new Request("/admin/api.php", {
+    let request = new Request("../admin/api.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             username: UserName,
             password: UserPassword,
@@ -28,18 +28,20 @@ register.addEventListener('submit', function(event){
     .then(response => {
         return response.json();
     })
-    .then(resource =>{
+    .then(resource => {
         console.log(resource)
         if (resource.errors !== undefined) {
-            let errorRegister = document.getElementById("errorRegister")
-            errorRegister.innerHTML(resource.errors)
+            let errorRegister = document.getElementById("errorRegister");
+            let message = document.createTextNode(resource.errors)
+            errorRegister.appendChild(message)
             document.getElementById("newUsername").value = "";
             document.getElementById("newPassword").value = "";
             document.getElementById("newEmail").value = "";        
         }  else if (resource.data !== undefined) {
             // Om användaren fyllt i input fälten korrekt så skapas en ny användare med feedback om att det går att logga in
-            let errorRegister = document.getElementById("errorRegister")
-            errorRegister.innerHTML(resource.data)
+            let errorRegister = document.getElementById("errorRegister");
+            let message = document.createTextNode("Register successful")
+            errorRegister.appendChild(message)
             document.getElementById("newUsername").value = "";
             document.getElementById("newPassword").value = "";
             document.getElementById("newEmail").value = "";  

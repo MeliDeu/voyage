@@ -1,1 +1,37 @@
-{"users":[{"id":1,"username":"Mason","password":"1234","email":"mason@gmail.com","travelStatus":"on","profilePic":false,"bio":false,"top3Wishes":false,"top3Favs":false},{"id":2,"username":"Ashley","password":"1234","email":"ahsley@hotmail.com","travelStatus":"on","profilePic":false,"bio":false,"top3Wishes":false,"top3Favs":false},{"id":3,"username":"Brennan","password":"1234","email":"brennan_93@hotmail.com","travelStatus":"on","profilePic":false,"bio":false,"top3Wishes":false,"top3Favs":false}]}
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "Mason",
+            "password": "1234",
+            "email": "mason@gmail.com",
+            "travelStatus": "on",
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
+        },
+        {
+            "id": 2,
+            "username": "Ashley",
+            "password": "1234",
+            "email": "ahsley@hotmail.com",
+            "travelStatus": "on",
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
+        },
+        {
+            "id": 3,
+            "username": "Brennan",
+            "password": "1234",
+            "email": "brennan_93@hotmail.com",
+            "travelStatus": "on",
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
+        }
+    ]
+}

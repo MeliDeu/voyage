@@ -4,7 +4,7 @@
 //session_start();
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
-$file = "../admin/db.json";
+$file = "db.json";
 $database = [
     [
         "users" => []
@@ -14,15 +14,15 @@ $database = [
     ]
 ];
 if (file_exists($file)) {
-  $data = file_get_contents($file);
-  // Gör om database till PHP
-  $database = json_decode($data, true);
+    $data = file_get_contents($file);
+    // Gör om database till PHP
+    $database = json_decode($data, true);
 }
 
 // Kolla vilken metod som använts
-$method = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER["REQUEST_METHOD"];
 // Säger att det endast är metoderna POST, GET, PATCH och DELETE som är godkända
-if ( $method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !== "DELETE" ) {
+if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !== "DELETE" ){
     http_response_code(401);
     header("Content-Type: application/json");
     echo json_encode(["message" => "Ingen giltig metod"]);
@@ -86,62 +86,60 @@ if ($method === "POST") {
         // Innehåll i input (fås från login.php)
         // Skapa nytt ID
         // Skapa ett nytt object och pusha in i DB
-        //if (isset($json["registration"])){
-            if ($json["username"] === "" || $json["password"] === "" || $json["email"] === ""){
+
+            if ($json["username"] === "" || $json["password"] === "" || $json["email"] === "") {
                 http_response_code(400);
-                header("Content-Type: application/json");
+                //header("Content-Type: application/json");
                 echo json_encode(["errors" => "All fields must to be filled out"]);
-                //header("Location: /index.php");
                 exit();
             }
-            if (!isset($json["username"]) || !isset($json["password"])) {
+            if (!isset($json["username"]) || !isset($json["password"]) || !isset($json["email"])) {
                 http_response_code(400);
-                header("Content-Type: application/json");
+                //header("Content-Type: application/json");
                 echo json_encode(["errors" => "All fields must to be filled out)"]);
                 exit();
             }
-    
             if (preg_match('/\s/',$json["username"])) {
                 http_response_code(400);
-                header("Content-Type: application/json");
+                //header("Location: /index.php");
                 echo json_encode(["errors" => "No spaces allowed in username"]);
                 exit();
             }
-            //Loopa igenom users för att kolla så att användarnamnet ej redan finns!
             foreach ($database["users"] as $user => $value) {
                 if ($value["username"] == $json["username"]) {
                     http_response_code(400);
-                    header("Content-Type: application/json");
+                    //header("Content-Type: application/json");
                     echo json_encode(["errors" => "Username already exists"]);
                     exit();
                 }
             }
-            $highestID = 0; 
+            $highestID = 0;
             //Letar efter det högsta existerande ID:et 
             foreach ($database["users"] as $user) {
                 if ($user["id"] > $highestID) {
                     $highestID = $user["id"];
                 }
-            } 
+            }
             // Lägg till det nya ID:et 
             $okId = $highestID + 1;
 
-            //Sparar "on " om man tickat i, annars kommer inte nyckeln med!
-            $travelStatus = $json["travelStatus"];
+            $username = $json["username"];
 
             $user = ["id" => $okId, "username" => $json["username"], "password" => $json["password"], "email" => $json["email"], "travelStatus" => $travelStatus, "profilePic" => false, "bio" => false, "top3Wishes" => false, "top3Favs" => false];
+            //$user = ["id" => $okId, "username" => $username];
             $database["users"][] = $user;
 
-            $dataAsJSON = json_encode($database);
-            file_put_contents($file, $dataAsJSON);
+            $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
+            file_put_contents($file, $dataJSON);
             http_response_code(201);
-            header("Content-Type: application/json");
+            //header("Location: /home.php");
             $message = [
                 "data" => $user
             ];
             echo json_encode($message);
-            var_dump($message);
+            //var_dump($message);
             exit();
+
 
         //}
 

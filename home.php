@@ -12,7 +12,7 @@
     <body>
     <div id='homeBody'>
 
-        <?php session_start(); include "sections/sidebar.php"?>
+        <?php  include "sections/sidebar.php"?>
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
