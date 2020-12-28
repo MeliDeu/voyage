@@ -22,10 +22,6 @@
     margin: 0;
 }
 
-body {
-    min-height: 200vh;
-}
-
 a {
     text-decoration: none;
     color: var(--darkTextColor);
@@ -76,7 +72,7 @@ footer {
     position: relative;
     font-family: var(--standardFont);
     color: var(--darkTextColor);
-    min-height: 100vh;
+    min-height: 200vh;
     width: 100%;
 }
 
