@@ -23,9 +23,19 @@ let darkOnScroll = function() {
   if (y >= 700) {
       document.getElementById("bgDark").style.display = "block";
       document.getElementById("startModalWrapper").style.display = "flex";
-      document.getElementById("loginModal").style.display = "block";
+      document.getElementById("loginModal").style.display = "flex";
       document.getElementById("close").style.display = "block";
   }
+};
+
+// Show an element
+let show = function (elem, setting) {
+	elem.style.display = setting;
+};
+
+// Hide an element
+let hide = function (elem) {
+	elem.style.display = "none";
 };
 
 //Event handlers för startsida
@@ -44,13 +54,40 @@ document.getElementById("close").addEventListener("click", function(){
     document.getElementById("startModalWrapper").style.display = "none";
     document.getElementById("loginModal").style.display = "none";
     document.getElementById("close").style.display = "none";
+
+    document.querySelector(".error").innerHTML = "";
+    document.getElementById("errorRegister").innerHTML = "";
 });
 
 document.getElementById("navLoginBtn").addEventListener("click", function(){
     document.getElementById("bgDark").style.display = "block";
     document.getElementById("startModalWrapper").style.display = "flex";
-    document.getElementById("loginModal").style.display = "block";
+    document.getElementById("loginModal").style.display = "flex";
     document.getElementById("close").style.display = "block";
+})
+
+document.getElementById("modalLoginBtn").addEventListener("click", function(event){
+    let elementShow = document.getElementById("login");
+    let elementHide = document.getElementById("join");
+    show(elementShow, "flex");
+    hide(elementHide);
+    document.getElementById("modalJoinBtn").parentElement.classList.remove("active");
+    this.parentElement.classList.add("active");
+
+    document.querySelector(".error").innerHTML = "";
+    document.getElementById("errorRegister").innerHTML = "";
+})
+
+document.getElementById("modalJoinBtn").addEventListener("click", function(){
+    let elementShow = document.getElementById("join");
+    let elementHide = document.getElementById("login");
+    show(elementShow, "flex");
+    hide(elementHide);
+    document.getElementById("modalLoginBtn").parentElement.classList.remove("active");
+    this.parentElement.classList.add("active");
+
+    document.querySelector(".error").innerHTML = "";
+    document.getElementById("errorRegister").innerHTML = "";
 })
 
 loadStartGrid();

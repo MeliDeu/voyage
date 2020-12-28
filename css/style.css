@@ -28,6 +28,14 @@ body {
 
 a {
     text-decoration: none;
+    color: var(--darkTextColor);
+}
+
+.error {
+    font-size: 0.8vw;
+    margin-bottom: 10px;
+    color: rgb(98, 8, 8);
+    font-weight: 400;
 }
 
 a:hover {
@@ -40,9 +48,21 @@ a:hover {
     align-items: center;
 }
 
+button {
+    background-color: var(--blue);
+    border: 0;
+    padding: 12px 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1vw;
+    font-weight: 600;
+    font-family: var(--styleFont);
+    box-shadow: 1px 3px 8px rgb(213, 213, 213);
+}
+
 button:hover {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 footer {
@@ -151,11 +171,126 @@ footer {
 
 #loginModal {
     display: none;
-    background-color: white;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     width: 25vw;
-    height: 35vw;
+    min-height: 35vw;
     box-shadow: 1px 3px 20px rgba(10, 10, 10, 0.333);
+}
+
+#loginModal h1 {
+    margin: 40px auto 30px;
+    text-align: center;
+    font-size: 1.8vw;
+    font-family: var(--styleFont);
+    font-weight: 600;
+}
+
+#loginModal h1 span {
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.tabMenu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    font-family: var(--styleFont);
+    font-size: 1.1vw;
+    font-weight: 600;
+}
+
+.tabMenu .tab {
+    flex-basis: 50%;
+    background-color: var(--lightGrey);
+}
+
+.tabMenu .tab:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+.tabMenu li:first-child {
+    border-top-left-radius: 5px;
+}
+
+.tabMenu li:last-child {
+    border-top-right-radius: 5px;
+}
+
+.tabMenu .active {
+    background-color: white;
+}
+
+.tabMenu .active:hover {
+    background-color: white;
+}
+
+.tabMenu .active::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    border-bottom: 2px solid var(--orange);
+}
+
+.tab p {
+    display: inline-block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    text-align: center;
+}
+
+.tabContent {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    font-family: var(--styleFont);
+}
+
+.tabContent > div {
+    width: 67%;
+}
+
+.formInputTitle {
+    font-size: 0.9vw;
+    font-weight: 600;
+    color: #133436;
+}
+
+.tabContent input[type=text], .tabContent input[type=password] {
+    font-size: 0.9vw;
+    border-radius: 5px;
+    background-color: #13343608;
+    border: 1px solid #13343626;
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin: 5px 0 20px;
+    color: #0a1c1d90;
+    transition: box-shadow 200ms ease;
+}
+
+.tabContent input[type=text]:hover, .tabContent input[type=password]:hover {
+    box-shadow: 0 0 0 4px #95c5c726;
+}
+
+.tabContent button {
+    margin: 20px auto 0;
+    min-width: 60%;
+}
+
+#login, #join, #register {
+    display: flex;
+    flex-direction: column;
+}
+
+#register button {
+    margin-bottom: 30px;
+}
+
+#join {
+    display: none;
 }
 
 #close {
@@ -171,6 +306,63 @@ footer {
     cursor: pointer;
 }
 
+/*slidern i register för new travel friends*/
+.switch {
+    margin: 10px 0;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+  
+input:checked + .slider {
+    background-color: var(--darkgrey);
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--darkgrey);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/*STARTSIDA GRID + POLAROIDER STYLE*/
 #startGrid {
     margin: 50px auto 0;
     width: 95%;

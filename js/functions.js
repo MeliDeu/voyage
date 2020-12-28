@@ -32,6 +32,7 @@ register.addEventListener('submit', function(event){
         console.log(resource)
         if (resource.errors !== undefined) {
             let errorRegister = document.getElementById("errorRegister");
+            errorRegister.innerHTML = "";
             let message = document.createTextNode(resource.errors)
             errorRegister.appendChild(message)
             document.getElementById("newUsername").value = "";

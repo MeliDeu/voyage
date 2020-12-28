@@ -32,6 +32,17 @@
             "bio": false,
             "top3Wishes": false,
             "top3Favs": false
+        },
+        {
+            "id": 4,
+            "username": "kojala",
+            "password": "kaj1234",
+            "email": "travelGirl95@gmail.com",
+            "travelStatus": null,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
         }
     ]
 }
