@@ -31,7 +31,7 @@ body {
 
 #sideBar .icon, #sideBarLogo {
     margin: 1vw 0 1vw 0;
-    border-radius: 50px;
+    border-radius: 100px;
     background-color: lightgrey;
     height: 40px;
     width: 40px;
@@ -98,7 +98,7 @@ body {
     background-color: beige;
     height: 3vw;
     width: 3vw;
-    border-radius: 50px;
+    border-radius: 100px;
 }
 .categoryTitle {
     font-size: .6rem;
@@ -201,4 +201,83 @@ tas bort då det är samma classer för båda sidor. // jass */
     font-family: var(--styleFont);
     font-size: var(--polaroidTitleSize);
     margin-bottom: 2px;
+}
+
+/* PROFILE TOP */
+
+#profileContainer {
+    margin-top: .5vw;
+    padding: 1vw 2vw;
+    display: flex;
+    color: white;
+}
+#profileBox{
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+}
+#profileInfo {
+    padding: .5vw;
+    display: flex;
+    flex-direction: column;
+    max-width: 20vw;
+}
+
+#profileInfo > div {
+    margin-bottom: .5vw;
+}
+
+#profileName {
+    font-size: 1.4rem;
+}
+
+#profilePic {
+    height: 8vw;
+    width: 8vw;
+    background-color: beige;
+    border-radius: 100px;
+}
+
+#profileBox, #profileFavs, #profileInterest {
+    display: flex;
+}
+
+#profileInterest {
+    justify-content: space-between;
+}
+
+#interestIcon, #topFavs {
+    margin-right: 1vw;
+}
+
+#interestIcon {
+    height: 1.5vw;
+    width: 1.5vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/stockImages/icon_envelope.png);
+}
+
+#profileFavs {
+    margin-left: 3vw;
+}
+#profileFavs > div > span {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-top: .55vw;
+}
+
+#profileInfo, #profileName, #profileBio, #profileInterest, #profileFavs, #profileBox, #profilePic, #profileInfo, #profileContainer {
+    border: 1px solid black;
+}
+
+#profileSettings {
+    margin-left: 38vw;
+    height: 1.5vw;
+    width: 1.5vw;
+    background-image: url(../images/stockImages/icon_settings.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
