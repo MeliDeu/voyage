@@ -59,7 +59,7 @@
                             <input id="newEmail" type="text" name="email" placeholder="Email address">
                             <p class="formInputTitle">Password</p>
                             <input id="newPassword" type="password" name="password" placeholder="New password"><br>
-                            <p class="formInputTitle">I'm intreseted in new travel friends</p>
+                            <p class="formInputTitle">I'm interested in new travel friends</p>
 
                             <label class="switch">
                                 <input id="travelStatus" type="checkbox" name="travelStatus">
