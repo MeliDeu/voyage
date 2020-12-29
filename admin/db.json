@@ -56,14 +56,47 @@
     "posts": [
         {
             "postID": 1,
-            "creatorID": 11,
-            "title": "Adevnture in Cappadocia",
+            "creatorID": 1,
+            "title": "Adventure in Cappadocia",
             "coverImg": "../images/stockImages/travel_1.jpg",
             "images": [],
             "albumID": false,
-            "country": "turkey",
-            "travelCategory": "Vacation",
-            "description": "här var det skoj hejsna hoppsan"
+            "country": "Turkey",
+            "travelCategory": "Vacation", 
+            "description": "här var det skoj hejsna hoppsan. Tittade på ballonger åh så fina dem var. Ni kan aldrig ana. Så himlans vackert."
+        },
+        {
+            "postID": 2,
+            "creatorID": 1,
+            "title": "Exploring Morocco",
+            "coverImg": "../images/stockImages/travel_11.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Morocco",
+            "travelCategory": "Culture trip", 
+            "description": "Marocko, wow. Alla färger, dofter och det vänliga folket. Hit ska jag absolut igen!"
+        },
+        {
+            "postID": 3,
+            "creatorID": 2,
+            "title": "Ö-hoppning i Grekland",
+            "coverImg": "../images/stockImages/travel_12.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Greece",
+            "travelCategory": "Boat adventure", 
+            "description": "Åka båt är skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
+        },
+        {
+            "postID": 4,
+            "creatorID": 3,
+            "title": "Hugo och jag i Spanien",
+            "coverImg": "../images/stockImages/travel_4.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Spain",
+            "travelCategory": "Vacation", 
+            "description": "Att få visa Hugo mitt hemland var verkligen något alldeles speciellt. Han kände sig hemma direkt och började nästan voffa på spanska. Vi har verkligen fått ett starkare band efter denna fantastiska resa!"
         }
     ]
 }
