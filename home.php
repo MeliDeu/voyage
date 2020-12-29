@@ -25,8 +25,12 @@
                     if (isset($_GET["profile"])){
                         // $loggedInAs är nu användarnamnet på den klickade (tex. Mandy1)
                         $clickedUseId = $_GET["profile"];
+
+                        //ska bara synas vid besök på en profil
+                        include "sections/profileTop.php";
+
                         // Hämta och gå igenom users i DB för att hitta personens userId
-                        $file = "admin/db.json";
+                        $file = "admin/db.json";  //detta gör vi typ likadant i alla filer just nu så borde skapa en funktion som vi kallar på som hämtar databasen
                         $database = [];
                         if (file_exists($file)) {
                             $data = file_get_contents($file);
@@ -48,9 +52,6 @@
                     <div id='homeSearchBox' class='searchBox'>
                         <input id='homeSearchField' placeholder=' Search country'>
                     </div>
-
-                    <!-- ska bara synas vid besök på en profil -->
-                    <?php  include "sections/profileTop.php"?>
 
                     <!-- olika innehåll beroende på om man är på home eller profil -->
                     <div id='homeCategoryBar' class='categoryBar'>
