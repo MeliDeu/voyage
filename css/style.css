@@ -27,6 +27,19 @@ a {
     color: var(--darkTextColor);
 }
 
+.logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: var(--darkTextColor);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: "Dancing Script";
+}
+
 .error {
     font-size: 0.8vw;
     margin-bottom: 10px;
@@ -129,18 +142,6 @@ footer {
      font-weight: 700;
      font-family: var(--styleFont);
      box-shadow: 1px 3px 10px rgb(213, 213, 213);
- }
-
- #logo {
-     height: 50px;
-     width: 50px;
-     border-radius: 100%;
-     background-color: var(--darkTextColor);
-     color: white;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 2em;
  }
 
  .startTitle h1 {

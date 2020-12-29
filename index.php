@@ -78,7 +78,7 @@
 
         <!--nav på startsida-->
         <nav class="flexCenter startNav">
-            <div id="logo">V</div>
+            <div class="logo">V</div>
             <div id="links">
                 <a href="/" class="navAboutBtn">About</a>
                 <button id="navLoginBtn">Login/Join</button>

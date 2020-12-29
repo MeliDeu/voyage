@@ -9,6 +9,19 @@ body {
     margin: 0;
 }
 
+.logo {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    background-color: #2C2E32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: "Dancing Script";
+}
+
 #homeBody {
     display: flex;
     flex-direction: row;
@@ -29,14 +42,72 @@ body {
     align-items: center;
 }
 
-#sideBar .icon, #sideBarLogo {
+#sideBar .icon {
     margin: 1vw 0 1vw 0;
     border-radius: 100px;
-    background-color: lightgrey;
-    height: 40px;
-    width: 40px;
+    background-color: rgb(235, 235, 235);
+    height: 45px;
+    width: 45px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+#sideBar .icon:hover {
+    cursor: pointer;
+    background-color: rgba(199, 199, 199, 0.517);
+}
+
+#sideBarNav .active {
+    background-color: #1B474A;
+    box-shadow: 1px 3px 5px rgb(191, 191, 191);
+}
+
+/*detta borde göras i JS och lägga till "_white" i filvägen till bilden*/
+#sideBarNav .active > div {
+    background-image: url(../images/stockImages/icons/home_white.png);
+}
+
+.icon #home {
+    background-image: url(../images/stockImages/icons/home.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.icon #countries {
+    background-image: url(../images/stockImages/icons/globe.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.icon #profile {
+    background-image: url(../images/stockImages/icons/user.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.icon #add {
+    background-image: url(../images/stockImages/icons/plus.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.icon #saved {
+    background-image: url(../images/stockImages/icons/bookmark.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.icon #logout {
+    background-image: url(../images/stockImages/icons/log-out.png);
+    background-size: contain;
+    width: 25px;
+    height: 25px;
 }
 
 #sideBarNav, #sideBarLogo {
