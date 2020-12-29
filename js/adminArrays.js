@@ -125,3 +125,55 @@ let adminPolaroidArray = [
     },
 
 ]
+
+
+//array för resekategorier som visas som cirklar på homepage
+//Fråga: lägga till en array för varje kategori där vi appendar postIDs eller ska vi ladda upp polaroiderna
+//genom att jämföra alla postIDs travelCategory med den travelcategory man klickat på?
+let travelCategoriesArray = [
+    {
+        travelCategory: "Backpacking",
+        categoryID: "1",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Boat adventure",
+        categoryID: "2",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Cultural travel",
+        categoryID: "3",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Safari",
+        categoryID: "4",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Vacation",
+        categoryID: "5",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Skiing",
+        categoryID: "6",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Hiking",
+        categoryID: "7",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Road trip",
+        categoryID: "8",
+        categoryIcon: "länk till bild"
+    },
+    {
+        travelCategory: "Other",
+        categoryID: "9",
+        categoryIcon: "länk till bild"
+    },
+]
