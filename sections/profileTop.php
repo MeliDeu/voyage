@@ -37,6 +37,6 @@
         </div>
     </div>
 
-    <div id='profileSettings'>Edit</div>
+    <div id='profileSettings'></div>
 </div>
 

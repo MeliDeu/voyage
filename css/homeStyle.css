@@ -353,7 +353,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     margin-left: 38vw;
     height: 1.5vw;
     width: 1.5vw;
-    background-image: url(../images/stockImages/icon_settings.png);
+    background-image: url(../images/stockImages/icons/icon_settings.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
