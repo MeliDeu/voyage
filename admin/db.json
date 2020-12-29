@@ -143,5 +143,18 @@
             "savedPosts": [],
             "album": []
         }
+    ],
+    "posts": [
+        {
+            "postID": 1,
+            "creatorID": 11,
+            "title": "Adevnture in Cappadocia",
+            "coverImg": "../images/stockImages/travel_1.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "turkey",
+            "travelCategory": "Vacation",
+            "description": "här var det skoj hejsna hoppsan"
+        }
     ]
 }
