@@ -42,7 +42,7 @@ register.addEventListener('submit', function(event){
             // Om användaren fyllt i input fälten korrekt så skapas en ny användare med feedback om att det går att logga in
             let errorRegister = document.getElementById("errorRegister");
             errorRegister.innerHTML = "";
-            let message = document.createTextNode("Register successful")
+            let message = document.createTextNode("Registration successful. Welcome to Voyage!")
             errorRegister.appendChild(message)
             document.getElementById("newUsername").value = "";
             document.getElementById("newPassword").value = "";

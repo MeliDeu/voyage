@@ -87,6 +87,28 @@
             "bio": false,
             "top3Wishes": false,
             "top3Favs": false
+        },
+        {
+            "id": 9,
+            "username": "kajTravels",
+            "password": "kaj1234",
+            "email": "travelGirl95@gmail.com",
+            "travelStatus": true,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
+        },
+        {
+            "id": 10,
+            "username": "spanishPineiro",
+            "password": "pinne1234",
+            "email": "pinne@gmail.com",
+            "travelStatus": false,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false
         }
     ]
 }
