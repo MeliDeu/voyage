@@ -8,7 +8,7 @@ register.addEventListener('submit', function(event){
     let UserName = document.getElementById("newUsername").value;
     let UserPassword = document.getElementById("newPassword").value;
     let UserEmail = document.getElementById("newEmail").value;
-    let UserTravelStatus = document.getElementById("travelStatus").value;
+    let UserTravelStatus = document.getElementById("travelStatus").checked;
 
     let request = new Request("../admin/api.php", {
         method: "POST",
@@ -41,12 +41,13 @@ register.addEventListener('submit', function(event){
         }  else if (resource.data !== undefined) {
             // Om användaren fyllt i input fälten korrekt så skapas en ny användare med feedback om att det går att logga in
             let errorRegister = document.getElementById("errorRegister");
+            errorRegister.innerHTML = "";
             let message = document.createTextNode("Register successful")
             errorRegister.appendChild(message)
             document.getElementById("newUsername").value = "";
             document.getElementById("newPassword").value = "";
-            document.getElementById("newEmail").value = "";  
-            console.log("hej")
+            document.getElementById("newEmail").value = ""; 
+            
         }
     })
 })
