@@ -1,5 +1,7 @@
 "use strict";
 
+
+
 /*function editProfile(){
     let profileBio = document.getElementById("profileBio");
     let bioText = profileBio.innerHTML; // Hämtar innehållet från bio text
@@ -68,3 +70,28 @@ register.addEventListener('submit', function(event){
         }
     })
 })
+
+
+// HMMMM INGET ANNAT VERAR FUNKA PÅ DENNA SIDA...typ som detta här udner funkar ej
+
+// Funktioner för profileTop --------------------->
+  
+  // clickevent på profil i sidebar och på users på polariod
+  // loopa db users och hitta den profil som är klickad på via namnet eller id?
+  // ta dens top3Wishes och top3Favs - loopa dem
+  // loopa element med class='topWantsList' och class='topFavsList'
+  // placera användrens top tre på respektive
+
+  let profileBtn = document.getElementById("profile");
+  profileBtn.addEventListener("click", function(){
+      // för den som är inloggad
+      
+      let path = window.location.search;
+      console.log(path);
+
+  })
+
+
+  let path = window.location.search;
+  console.log(path);
+  console.log('path');
