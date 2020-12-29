@@ -63,6 +63,11 @@ body {
     box-shadow: 1px 3px 5px rgb(191, 191, 191);
 }
 
+#sideBarNav .active:hover {
+    background-color: #1B474A;
+}
+
+
 /*detta borde göras i JS och lägga till "_white" i filvägen till bilden*/
 #sideBarNav .active > div {
     background-image: url(../images/stockImages/icons/home_white.png);
