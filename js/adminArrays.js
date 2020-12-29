@@ -142,7 +142,7 @@ let travelCategoriesArray = [
         categoryIcon: "länk till bild"
     },
     {
-        travelCategory: "Cultural travel",
+        travelCategory: "Culture trip",
         categoryID: "3",
         categoryIcon: "länk till bild"
     },
