@@ -16,10 +16,43 @@
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
+                
+                <!-- kollar om användaren är inloggad -->
+                <?php if ($_SESSION["IsLoggedIn"]){
+                    $loggedIn = true;
+                    // Om en user är klickad ska dens content synas
+                    // parametern profile + userName måste fås vid klicket
+                    if (isset($_GET["profile"])){
+                        // $loggedInAs är nu användarnamnet på den klickade (tex. Mandy1)
+                        $clickedUseId = $_GET["profile"];
+                        // Hämta och gå igenom users i DB för att hitta personens userId
+                        $file = "admin/db.json";
+                        $database = [];
+                        if (file_exists($file)) {
+                            $data = file_get_contents($file);
+                            $database = json_decode($data, true);
+                        }
+                        $loggedInId = false;
+                        foreach($database['users'] as $index => $user){
+                            if($user['id'] == $clickedUseId){
+                            // Id:t kan vi nu använda för att få fram den personens content
+                                $loggedInId = $user['id'];
+                            }
+                            // Loopa postArray för att se vilka som har matchande creatorId med $loggedInId
+
+                        }
+                    } 
+                ?> 
+                
+                <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
                 <div id='homeSearchBox' class='searchBox'>
                     <input id='homeSearchField' placeholder=' Search country'>
                 </div>
+                
+                <!-- ska bara synas vid besök på en profil -->
+                 <?php  include "sections/profileTop.php"?>
 
+                <!-- olika innehåll beroende på om man är på home eller profil -->
                 <div id='homeCategoryBar' class='categoryBar'>
                     <div class='barTitle'>Travel categories</div>
                     <div class='barCaterories'>
