@@ -150,8 +150,8 @@ class CategoryBox{
 }
 class TravelCategory extends CategoryBox{
     constructor(data){
-        this.travelCategory = data.travelCategory;//Detta avser antingen resekategori eller albumnamn
-        this.categoryTitle = data.categoryTitle;
+        this.travelCategory = data.travelCategory;
+        this.categoryID = data.categoryID;
         this.categoryIcon = data.categoryIcon;
     }
 }
