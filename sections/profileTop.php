@@ -1,14 +1,18 @@
+<?php
+session_start();
+$username = $_SESSION["username"];
+?>
 <div id='profileContainer'>
 
 <div id='profileBox'>
 
         <div id='profilePic'></div>
         <div id='profileInfo'>
-            <div id='profileName'>Mandy1</div>
+            <div id='profileName'><?php echo $username; ?></div>
             <div id='profileBio'>Hejsan hoppsan här kommer en kort presentation om vem jag är typ</div>
             <div id='profileInterest'>
                 <div id='interestIcon'></div>
-                <div id='interestText'>$name is interested in new travel friends</div>
+                <div id='interestText'><?php echo $username; ?> is interested in new travel friends</div>
             </div>
         </div>
     </div>
@@ -34,6 +38,6 @@
         </div>
     </div>
 
-    <div id='profileSettings'></div>
+    <div id='profileSettings'>Edit</div>
 </div>
 

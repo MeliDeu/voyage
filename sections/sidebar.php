@@ -1,3 +1,4 @@
+
 <div id='sideBar'>
     <div id=sideBarLogo>V</div>
     <div id=sideBarNav>

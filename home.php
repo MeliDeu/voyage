@@ -16,16 +16,10 @@
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
-
-                <!-- ska bara synas vid home deafault (inte countries eller profile) -->
                 <div id='homeSearchBox' class='searchBox'>
                     <input id='homeSearchField' placeholder=' Search country'>
                 </div>
 
-                <!-- ska bara synas vid besök på en profil -->
-                <?php  include "sections/profileTop.php"?>
-
-                <!-- olika innehåll beroende på om man är på home eller profil -->
                 <div id='homeCategoryBar' class='categoryBar'>
                     <div class='barTitle'>Travel categories</div>
                     <div class='barCaterories'>

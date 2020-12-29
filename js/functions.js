@@ -1,5 +1,21 @@
 "use strict";
 
+function editProfile(){
+    let profileBio = document.getElementById("profileBio");
+    let bioText = profileBio.innerHTML; // Hämtar innehållet från bio text
+    //Byt ut bioDiv till ett input fält med det innehållet som fanns sedan innan
+    //Sen när användaren trycker på spara så byt tillbaka till en vanlig div igen
+    
+}
+
+//Click event för att ändra på sin profil
+let edit = document.getElementById("profileSettings");
+edit.addEventListener('click', function(event){
+    editProfile()
+})
+
+
+
 //Click event för registration!
 let register = document.getElementById("register");
 register.addEventListener('submit', function(event){
