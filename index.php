@@ -66,7 +66,6 @@
                                 <span class="slider round"></span>
                             </label>
 
-                            <!--<input id="travelStatus" type="checkbox" name="travelStatus"><span class="formInputTitle">Yes</span><br>-->
                             <button class="register" type="submit">Bon voyage!</button>
                         </form>
                     </div>

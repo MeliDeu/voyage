@@ -9,7 +9,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 2,
@@ -20,7 +22,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 3,
@@ -31,7 +35,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 4,
@@ -42,7 +48,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 5,
@@ -53,7 +61,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 6,
@@ -64,7 +74,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 7,
@@ -75,7 +87,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 8,
@@ -86,7 +100,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 9,
@@ -97,7 +113,9 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         },
         {
             "id": 10,
@@ -108,7 +126,22 @@
             "profilePic": false,
             "bio": false,
             "top3Wishes": false,
-            "top3Favs": false
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
+        },
+        {
+            "id": 11,
+            "username": "sunLover",
+            "password": "1234",
+            "email": "sunislife@gmail.com",
+            "travelStatus": true,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         }
     ]
 }

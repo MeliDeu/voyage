@@ -1,6 +1,6 @@
 <?php 
     //Här ska vi hämta den inloggade användarens ID för att kunna sätta det som en variabel i nedan länkar
-    $userID = 1;
+    $userID = $_SESSION["userID"];
 ?>
 <div id='sideBar'>
     <div id="sideBarLogo" class="logo">V</div>

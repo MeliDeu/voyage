@@ -1,6 +1,6 @@
 "use strict";
 
-function editProfile(){
+/*function editProfile(){
     let profileBio = document.getElementById("profileBio");
     let bioText = profileBio.innerHTML; // Hämtar innehållet från bio text
     //Byt ut bioDiv till ett input fält med det innehållet som fanns sedan innan
@@ -12,7 +12,7 @@ function editProfile(){
 let edit = document.getElementById("profileSettings");
 edit.addEventListener('click', function(event){
     editProfile()
-})
+})*/ //var tvungen att släcka denna då den gör att denna js.fil inte fungerar, något är fel i ovan kod som gör att nedan inte körts/kaj
 
 
 
@@ -33,11 +33,12 @@ register.addEventListener('submit', function(event){
             username: UserName,
             password: UserPassword,
             email: UserEmail,
-            travelStatus: UserTravelStatus,
-            profilePic: false,
-            bio: false,
-            top3Wishes: false,
-            top3Favs: false
+            travelStatus: UserTravelStatus
+            //profilePic: false,
+            //bio: false,
+            //top3Wishes: false,
+            //top3Favs: false
+            //ovan behövs ej då det skaoas i apin /kaj
         })
     })
     fetch(request)

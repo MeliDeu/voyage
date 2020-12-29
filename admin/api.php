@@ -125,7 +125,20 @@ if ($method === "POST") {
 
             $username = $json["username"];
 
-            $user = ["id" => $okId, "username" => $json["username"], "password" => $json["password"], "email" => $json["email"], "travelStatus" => $json["travelStatus"], "profilePic" => false, "bio" => false, "top3Wishes" => false, "top3Favs" => false];
+            $user = ["id" => $okId, 
+                    "username" => $json["username"], 
+                    "password" => $json["password"], 
+                    "email" => $json["email"], 
+                    "travelStatus" => $json["travelStatus"], 
+                    "profilePic" => false, 
+                    "bio" => false, 
+                    "top3Wishes" => false, 
+                    "top3Favs" => false,
+                    "savedPosts" => [], //sparade postIDs
+                    "album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
+                    ];
+
+
             //$user = ["id" => $okId, "username" => $username];
             $database["users"][] = $user;
 

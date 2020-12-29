@@ -17,7 +17,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
     //Om användaren finns så skicka användaren till home sidan
     if ($foundUser !== null) {
-        $_SESSION["username"] = $foundUser["username"];
+        $_SESSION["userID"] = $foundUser["id"]; //ändrat till ID istället för användarnamn då det är mer användbart
         $_SESSION["IsLoggedIn"] = true;
         header("Location: /home.php");
         exit();
