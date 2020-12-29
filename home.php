@@ -16,7 +16,7 @@
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
-                
+
                 <!-- kollar om användaren är inloggad -->
                 <?php if ($_SESSION["IsLoggedIn"]){
                     $loggedIn = true;
@@ -43,246 +43,70 @@
                         }
                     } 
                 ?> 
-                
-                <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
-                <div id='homeSearchBox' class='searchBox'>
-                    <input id='homeSearchField' placeholder=' Search country'>
-                </div>
-                
-                <!-- ska bara synas vid besök på en profil -->
-                 <?php  include "sections/profileTop.php"?>
 
-                <!-- olika innehåll beroende på om man är på home eller profil -->
-                <div id='homeCategoryBar' class='categoryBar'>
-                    <div class='barTitle'>Travel categories</div>
-                    <div class='barCaterories'>
-                        <div class='categoryBox'>
-                            <div class='categoryIcon'></div>
-                            <div class='categoryTitle'>Backpacking</div>
+                    <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
+                    <div id='homeSearchBox' class='searchBox'>
+                        <input id='homeSearchField' placeholder=' Search country'>
+                    </div>
+
+                    <!-- ska bara synas vid besök på en profil -->
+                    <?php  include "sections/profileTop.php"?>
+
+                    <!-- olika innehåll beroende på om man är på home eller profil -->
+                    <div id='homeCategoryBar' class='categoryBar'>
+                        <div class='barTitle'>Travel categories</div>
+                        <div class='barCategories'>
+                            <div class='categoryBox'>
+                                <div class='categoryIcon'></div>
+                                <div class='categoryTitle'>Backpacking</div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 
-                <div id='homefeedBox' class='feedBox'>
-                    <div id='homeFeedInfo' class='feedInfo'>
-                        <div id='homeFeedTitle' class='feedTitle'>Feed</div>
-                        <div id='homeFeedView' class='feedView'>All Posts</div>
+                    <div id='homefeedBox' class='feedBox'>
+                        <div id='homeFeedInfo' class='feedInfo'>
+                            <div id='homeFeedTitle' class='feedTitle'>Feed</div>
+                            <div id='homeFeedView' class='feedView'>All Posts</div>
+                        </div>
+
+                        <div id='homeFeedGrid' class='feedGrid'>
+                            <!-- test, ska byggas i js sen -->
+                            <div class='polaroid'>
+                                <div class='polaroidPic'></div>
+                                <div class='polaroidBottom'>
+                                    <div class='polaroidInfo'>
+                                        <div class='polaroidUser'>
+                                            <div class='polaroidUserPic'></div>
+                                            <div class='polaroidUserName'>Jasmine_test</div>
+                                        </div>
+                                        <div class='polaroidText'>
+                                            <div class='polaroidCountry'>Indonesia</div>
+                                            <div class='polaroidTitle'>Min resa var bäst</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class='polaroid'>
+                                <div class='polaroidPic'></div>
+                                <div class='polaroidBottom'>
+                                    <div class='polaroidInfo'>
+                                        <div class='polaroidUser'>
+                                            <div class='polaroidUserPic'></div>
+                                            <div class='polaroidUserName'>Jasmine_test</div>
+                                        </div>
+                                        <div class='polaroidText'>
+                                            <div class='polaroidCountry'>Indonesia</div>
+                                            <div class='polaroidTitle'>Min resa var bäst</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div> <!-- stänger homeFeedGrid-->
                     </div>
-                    <div id='homeFeedGrid' class='feedGrid'>
-
-                        <!-- test, ska byggas i js sen -->
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class='polaroid'>
-                            <div class='polaroidPic'></div>
-                            <div class='polaroidBottom'>
-                                <div class='polaroidInfo'>
-                                    <div class='polaroidUser'>
-                                        <div class='polaroidUserPic'></div>
-                                        <div class='polaroidUserName'>Jasmine_test</div>
-                                    </div>
-                                    <div class='polaroidText'>
-                                        <div class='polaroidCountry'>Indonesia</div>
-                                        <div class='polaroidTitle'>Min resa var bäst</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+                <?php }?> <!-- stänger if ($_SESSION["IsLoggedIn"] -->
             </div>
         </div>
     </div>
