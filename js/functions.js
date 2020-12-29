@@ -95,3 +95,4 @@ register.addEventListener('submit', function(event){
   let path = window.location.search;
   console.log(path);
   console.log('path');
+  
