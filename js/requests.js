@@ -5,7 +5,11 @@ let STATE = {
     users: [], //En array av alla users som finns i databasen
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
-    allPosts: [] //alla posts
+    allPosts: [], //alla posts
+    pictureUpload: {
+        clickedDiv: false,
+        newPics: []
+        }
 };
 
 
