@@ -36,7 +36,6 @@
                         include "sections/profileTop.php";
 
                         $db = getDatabase();
-
                         // Hämta och gå igenom users i DB för att hitta personens userId
 
                         $loggedInId = false;
@@ -44,7 +43,6 @@
                             if($user['id'] == $clickedUseId){
                             // Id:t kan vi nu använda för att få fram den personens content
                                 $loggedInId = $user['id'];
-                                echo $user;
                             }
                             // Loopa postArray för att se vilka som har matchande creatorId med $loggedInId
 
