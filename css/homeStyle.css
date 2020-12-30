@@ -357,3 +357,9 @@ tas bort då det är samma classer för båda sidor. // jass */
     background-size: cover;
     background-repeat: no-repeat;
 }
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

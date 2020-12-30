@@ -12,3 +12,20 @@ function getCountries(){
         });
     })
 }
+
+function patchBio(newBio){
+    let request = new Request("/admin/api.php", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            bio: newBio
+        })
+    })
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource => {
+
+    })
+}
