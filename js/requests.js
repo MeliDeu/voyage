@@ -42,8 +42,7 @@ window.onload = function(){
         });
 
         console.log(STATE);
-        //Här ska det kallas på en funktion som kör ut alla posts i feedet på home.php by default eftersom den körs direkt när man loggar in
-        //loadOthersPalettes(STATE.palettesOthers); = Pineiros kod       
+        loadPosts(STATE.allPosts)
     });
 }
 

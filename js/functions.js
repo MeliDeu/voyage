@@ -1,11 +1,36 @@
 "use strict";
 
-<<<<<<< HEAD
+//Funktion för att appenda posts i feed
+
+function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vilken user/land/travelCategory/sökrutans val(), filer = vad den ska jämföra med tex creatorID/countryName
+    let grid = document.getElementById("homeFeedGrid");
+    grid.innerHTML = ""; //tömmer gridden
+    let copyPosts = [...posts]; //kopierar arrayen som skickats så vi inte håller på med den
+
+    //let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
+    //viewing.innerHTML = "All posts";
+
+    if (sort !== undefined) { //hur sätter man nyckel som en variabel?
+        copyPosts = copyPosts.filter(p => p[filter] == sort); 
+
+        //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
+        //viewing.innerHTML = "show all posts"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+
+        /*function viewAll(){
+            loadPosts(STATE.allPosts);
+            viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
+        }*/
+
+        //viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
+    }
+
+    copyPosts.forEach(post => {
+        grid.append(post);
+    });
+}
+
+
 // Redigera sin profil
-=======
-
-
->>>>>>> e9daef909a8f8c2624b6016d9d375ba2ad2a3c99
 function editProfile(){
     let profileBio = document.getElementById("profileBio");
     let bioText = profileBio.innerHTML;

@@ -61,8 +61,9 @@ class PolaroidStatic extends PolaroidBase{
                         let polaroidUserPic = document.createElement("div");
                         polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
                         polaroidUserPic.classList.add("polaroidUserPic");
-                        //.polaroidUserName
-                        let polaroidUserName = document.createElement("div");
+                        //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
+                        let polaroidUserName = document.createElement("a");
+                        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`)
                         polaroidUserName.innerHTML = `${userInfo.username}`;
                         polaroidUserName.classList.add("polaroidUserName");
 
