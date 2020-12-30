@@ -23,8 +23,11 @@
                     // Om en user är klickad ska dens content synas
                     // parametern profile + userName måste fås vid klicket
                     if (isset($_GET["profile"])){
+                        
                         // $loggedInAs är nu användarnamnet på den klickade (tex. Mandy1)
                         $clickedUseId = $_GET["profile"];
+                        // en till if som kollar om , jämför detta id med den sessionuserID
+                        // om det är samma -> redigerbar profil + spotunna
 
                         //ska bara synas vid besök på en profil
                         include "sections/profileTop.php";
