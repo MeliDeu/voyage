@@ -63,7 +63,7 @@
             "albumID": false,
             "country": "Turkey",
             "travelCategory": "Vacation", 
-            "description": "här var det skoj hejsna hoppsan. Tittade på ballonger åh så fina dem var. Ni kan aldrig ana. Så himlans vackert."
+            "description": "Här var det skoj hejsan hoppsan. Tittade på ballonger åh så fina dem var. Ni kan aldrig ana. Så himlans vackert."
         },
         {
             "postID": 2,
@@ -97,6 +97,39 @@
             "country": "Spain",
             "travelCategory": "Vacation", 
             "description": "Att få visa Hugo mitt hemland var verkligen något alldeles speciellt. Han kände sig hemma direkt och började nästan voffa på spanska. Vi har verkligen fått ett starkare band efter denna fantastiska resa!"
+        },
+        {
+            "postID": 5,
+            "creatorID": 3,
+            "title": "Jag och bergen",
+            "coverImg": "../images/stockImages/travel_2.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Italy",
+            "travelCategory": "Hiking", 
+            "description": "Ojojoj vilken dag uppe i bergen. Vi var ovanför molnen till och med, det var väldigt häftigt. Och vilka magiska utsikter. Rekommenderar alla att åka hit för att få nya perspektiv på livet."
+        },
+        {
+            "postID": 6,
+            "creatorID": 4,
+            "title": "Backpacking i Costa Rica",
+            "coverImg": "../images/stockImages/travel_14.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Costa Rica",
+            "travelCategory": "Backpacking",
+            "description": "Backpackar med min vän i Costa Rica. Vi har precis påbörjat vår resa och imorgon ska vi ut till olika öar och simma med hajar."
+        },
+        {
+            "postID": 7,
+            "creatorID": 4,
+            "title": "Vattenfall i Costa Rica",
+            "coverImg": "../images/stockImages/travel_6.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Costa Rica",
+            "travelCategory": "Backpacking",
+            "description": "Idag har vi badat i vattenfall och sett så sjukt coola djur, men ack så farliga. Det gäller att vara försiktig här om man vill komma hem i skick. MEN DET ÄR SÅ FINT HÄR HERREGUD!"
         }
     ]
 }
