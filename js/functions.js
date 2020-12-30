@@ -1,6 +1,6 @@
 "use strict";
 
-
+// Redigera sin profil
 function editProfile(){
     let profileBio = document.getElementById("profileBio");
     let bioText = profileBio.innerHTML; // Hämtar innehållet från bio text

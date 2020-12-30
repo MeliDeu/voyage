@@ -22,7 +22,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     if ($foundUser !== null) {
         $_SESSION["username"] = $foundUser["username"];
         $_SESSION["userID"] = $foundUser["id"];
-        $_SESSION["IsLoggedIn"] = true;
+        $_SESSION["isLoggedIn"] = true;
         header("Location: /home.php");
         exit();
     }

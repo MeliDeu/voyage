@@ -16,12 +16,15 @@
             include "sections/sidebar.php";
             include "admin/functions.php";
         ?>
+        <script> //detta hämtar den inloggades ID från PHP till js så att nyckeln mainUserID i STATE fungerar
+            let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
+        </script> 
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
 
                 <!-- kollar om användaren är inloggad -->
-                <?php if ($_SESSION["IsLoggedIn"]){
+                <?php if ($_SESSION["isLoggedIn"]){
                     $loggedIn = true;
                     // Om en user är klickad ska dens content synas
                     // parametern profile + userName måste fås vid klicket
@@ -109,7 +112,7 @@
 
                         </div> <!-- stänger homeFeedGrid-->
                     </div>
-                <?php }?> <!-- stänger if ($_SESSION["IsLoggedIn"] -->
+                <?php }?> <!-- stänger if ($_SESSION["isLoggedIn"] -->
             </div>
         </div>
     </div>
