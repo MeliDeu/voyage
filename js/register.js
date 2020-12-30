@@ -1,41 +1,3 @@
-"use strict";
-
-
-
-function editProfile(){
-    let profileBio = document.getElementById("profileBio");
-    let bioText = profileBio.innerHTML;
-    console.log(bioText);
-    profileBio.classList.add("hide");
-    let patchBio = document.getElementById("patchBio");
-    patchBio.innerHTML = bioText;
-    patchBio.classList.remove("hide");
-    patchBio.classList.add("show");
-    let saveBio = document.createElement("button");
-    saveBio.setAttribute("id", "saveBio");
-    document.getElementById("profileContainer").appendChild(saveBio);
-
-
-     // Hämtar innehållet från bio text
-    //Byt ut bioDiv till ett input fält med det innehållet som fanns sedan innan
-    //Sen när användaren trycker på spara så byt tillbaka till en vanlig div igen
-    console.log(bioText)
-}
-
-//Click event för att spara den nya informationen i bio
-let saveBio = document.getElementById("saveBio");
-saveBio.addEventListener('click', function(){
-    //kalla på patch funktionen för att uppdatera databasen
-})
-
-//Click event för att ändra på sin profil
-let edit = document.getElementById("profileSettings");
-edit.addEventListener('click', function(event){
-    editProfile()
-}) //var tvungen att släcka denna då den gör att denna js.fil inte fungerar, något är fel i ovan kod som gör att nedan inte körts/kaj
-
-
-
 //Click event för registration!
 let register = document.getElementById("register");
 register.addEventListener('submit', function(event){
@@ -89,6 +51,4 @@ register.addEventListener('submit', function(event){
     })
 })
 
-
-
-
+// OBS! inget får vara under denna

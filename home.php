@@ -12,7 +12,10 @@
     <body>
     <div id='homeBody'>
 
-        <?php  include "sections/sidebar.php"?>
+        <?php  
+            include "sections/sidebar.php";
+            include "admin/functions.php";
+        ?>
 
         <div id='homeWrapper'>
             <div id='homeInnerWrapper'>
@@ -23,21 +26,20 @@
                     // Om en user är klickad ska dens content synas
                     // parametern profile + userName måste fås vid klicket
                     if (isset($_GET["profile"])){
+                        
                         // $loggedInAs är nu användarnamnet på den klickade (tex. Mandy1)
                         $clickedUseId = $_GET["profile"];
+                        // en till if som kollar om , jämför detta id med den sessionuserID
+                        // om det är samma -> redigerbar profil + spotunna
 
                         //ska bara synas vid besök på en profil
                         include "sections/profileTop.php";
 
+                        $db = getDatabase();
                         // Hämta och gå igenom users i DB för att hitta personens userId
-                        $file = "admin/db.json";  //detta gör vi typ likadant i alla filer just nu så borde skapa en funktion som vi kallar på som hämtar databasen
-                        $database = [];
-                        if (file_exists($file)) {
-                            $data = file_get_contents($file);
-                            $database = json_decode($data, true);
-                        }
+
                         $loggedInId = false;
-                        foreach($database['users'] as $index => $user){
+                        foreach($db['users'] as $index => $user){
                             if($user['id'] == $clickedUseId){
                             // Id:t kan vi nu använda för att få fram den personens content
                                 $loggedInId = $user['id'];

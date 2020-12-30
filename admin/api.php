@@ -2,22 +2,10 @@
 
 <?php
 //session_start();
+include "functions.php";
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
-$file = "db.json";
-$database = [
-    [
-        "users" => []
-    ],
-    [
-        "posts" => []
-    ]
-];
-if (file_exists($file)) {
-    $data = file_get_contents($file);
-    // Gör om database till PHP
-    $database = json_decode($data, true);
-}
+$database = getDatabase();
 
 // Kolla vilken metod som använts
 $method = $_SERVER["REQUEST_METHOD"];
