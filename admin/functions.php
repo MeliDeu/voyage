@@ -1,7 +1,9 @@
 <?php
 
+    $file = dirname(__FILE__) . "/db.json"; 
+
     function getDatabase() {
-        $file = dirname(__FILE__) . "/db.json";
+        global $file;
         $database = ["users" => [], "posts" => []];
     
         if (!file_exists($file)) {
