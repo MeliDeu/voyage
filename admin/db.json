@@ -6,10 +6,18 @@
             "password": "1234",
             "email": "mandy89@live.com",
             "travelStatus": true,
-            "profilePic": "../images/stockImages/person_1.jpg",
+            "profilePic": "..\/images\/stockImages\/person_1.jpg",
             "bio": "Hey guys, Mandy1 here. Travel is my passion and I would love to explore the world with new travel buddies",
-            "top3Wishes": ["Machu Pichu", "Iceland", "Costa Rica"],
-            "top3Favs": ["Spain", "Japan", "Italy"],
+            "top3Wishes": [
+                "Machu Pichu",
+                "Iceland",
+                "Costa Rica"
+            ],
+            "top3Favs": [
+                "Spain",
+                "Japan",
+                "Italy"
+            ],
             "savedPosts": [],
             "album": []
         },
@@ -19,10 +27,18 @@
             "password": "kaj1234",
             "email": "travelGirl95@gmail.com",
             "travelStatus": true,
-            "profilePic": "../images/stockImages/person_2.jpg",
+            "profilePic": "..\/images\/stockImages\/person_2.jpg",
             "bio": "Hello, I'm writing a book about my travels and I've collected some moments from my journeys here!",
-            "top3Wishes": ["Paris", "New York", "Costa Rica"],
-            "top3Favs": ["Thailand", "Spain", "Morocco"],
+            "top3Wishes": [
+                "Paris",
+                "New York",
+                "Costa Rica"
+            ],
+            "top3Favs": [
+                "Thailand",
+                "Spain",
+                "Morocco"
+            ],
             "savedPosts": [],
             "album": []
         },
@@ -32,7 +48,7 @@
             "password": "pinne1234",
             "email": "pinne@gmail.com",
             "travelStatus": false,
-            "profilePic": "../images/stockImages/travel_4.jpg",
+            "profilePic": "..\/images\/stockImages\/travel_4.jpg",
             "bio": "Hi there! I'm exploring the world with my dog Hugo. Come along!",
             "top3Wishes": false,
             "top3Favs": false,
@@ -45,8 +61,8 @@
             "password": "1234",
             "email": "sunislife@gmail.com",
             "travelStatus": true,
-            "profilePic": "../images/stockImages/person_3.jpg",
-            "bio": "Hej jag är 20 vårar och älskar solen, den ger mig livsglädje.",
+            "profilePic": "..\/images\/stockImages\/person_3.jpg",
+            "bio": "Hej jag \u00e4r 20 v\u00e5rar och \u00e4lskar solen, den ger mig livsgl\u00e4dje.",
             "top3Wishes": false,
             "top3Favs": false,
             "savedPosts": [],
@@ -58,78 +74,78 @@
             "postID": 1,
             "creatorID": 1,
             "title": "Adventure in Cappadocia",
-            "coverImg": "../images/stockImages/travel_1.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_1.jpg",
             "images": [],
             "albumID": false,
             "country": "Turkey",
-            "travelCategory": "Vacation", 
-            "description": "Här var det skoj hejsan hoppsan. Tittade på ballonger åh så fina dem var. Ni kan aldrig ana. Så himlans vackert."
+            "travelCategory": "Vacation",
+            "description": "H\u00e4r var det skoj hejsan hoppsan. Tittade p\u00e5 ballonger \u00e5h s\u00e5 fina dem var. Ni kan aldrig ana. S\u00e5 himlans vackert."
         },
         {
             "postID": 2,
             "creatorID": 1,
             "title": "Exploring Morocco",
-            "coverImg": "../images/stockImages/travel_11.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_11.jpg",
             "images": [],
             "albumID": false,
             "country": "Morocco",
-            "travelCategory": "Culture trip", 
-            "description": "Marocko, wow. Alla färger, dofter och det vänliga folket. Hit ska jag absolut igen!"
+            "travelCategory": "Culture trip",
+            "description": "Marocko, wow. Alla f\u00e4rger, dofter och det v\u00e4nliga folket. Hit ska jag absolut igen!"
         },
         {
             "postID": 3,
             "creatorID": 2,
-            "title": "Ö-hoppning i Grekland",
-            "coverImg": "../images/stockImages/travel_12.jpg",
+            "title": "\u00d6-hoppning i Grekland",
+            "coverImg": "..\/images\/stockImages\/travel_12.jpg",
             "images": [],
             "albumID": false,
             "country": "Greece",
-            "travelCategory": "Boat adventure", 
-            "description": "Åka båt är skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
+            "travelCategory": "Boat adventure",
+            "description": "\u00c5ka b\u00e5t \u00e4r skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
         },
         {
             "postID": 4,
             "creatorID": 3,
             "title": "Hugo och jag i Spanien",
-            "coverImg": "../images/stockImages/travel_4.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_4.jpg",
             "images": [],
             "albumID": false,
             "country": "Spain",
-            "travelCategory": "Vacation", 
-            "description": "Att få visa Hugo mitt hemland var verkligen något alldeles speciellt. Han kände sig hemma direkt och började nästan voffa på spanska. Vi har verkligen fått ett starkare band efter denna fantastiska resa!"
+            "travelCategory": "Vacation",
+            "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
         },
         {
             "postID": 5,
             "creatorID": 3,
             "title": "Jag och bergen",
-            "coverImg": "../images/stockImages/travel_2.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_2.jpg",
             "images": [],
             "albumID": false,
             "country": "Italy",
-            "travelCategory": "Hiking", 
-            "description": "Ojojoj vilken dag uppe i bergen. Vi var ovanför molnen till och med, det var väldigt häftigt. Och vilka magiska utsikter. Rekommenderar alla att åka hit för att få nya perspektiv på livet."
+            "travelCategory": "Hiking",
+            "description": "Ojojoj vilken dag uppe i bergen. Vi var ovanf\u00f6r molnen till och med, det var v\u00e4ldigt h\u00e4ftigt. Och vilka magiska utsikter. Rekommenderar alla att \u00e5ka hit f\u00f6r att f\u00e5 nya perspektiv p\u00e5 livet."
         },
         {
             "postID": 6,
             "creatorID": 4,
             "title": "Backpacking i Costa Rica",
-            "coverImg": "../images/stockImages/travel_14.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_14.jpg",
             "images": [],
             "albumID": false,
             "country": "Costa Rica",
             "travelCategory": "Backpacking",
-            "description": "Backpackar med min vän i Costa Rica. Vi har precis påbörjat vår resa och imorgon ska vi ut till olika öar och simma med hajar."
+            "description": "Backpackar med min v\u00e4n i Costa Rica. Vi har precis p\u00e5b\u00f6rjat v\u00e5r resa och imorgon ska vi ut till olika \u00f6ar och simma med hajar."
         },
         {
             "postID": 7,
             "creatorID": 4,
             "title": "Vattenfall i Costa Rica",
-            "coverImg": "../images/stockImages/travel_6.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_6.jpg",
             "images": [],
             "albumID": false,
             "country": "Costa Rica",
             "travelCategory": "Backpacking",
-            "description": "Idag har vi badat i vattenfall och sett så sjukt coola djur, men ack så farliga. Det gäller att vara försiktig här om man vill komma hem i skick. MEN DET ÄR SÅ FINT HÄR HERREGUD!"
+            "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"
         }
     ]
 }
