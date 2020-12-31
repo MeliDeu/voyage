@@ -1,5 +1,18 @@
 "use strict";
 
+
+let STATE = {
+    mainUserID, //denna får ett värde i home.php genom att den kollar $_SESSION["userID"]. Den kommer antingen vara en siffra eller false 
+    users: [], //En array av alla users som finns i databasen
+    mainUserPosts: [], //användarens posts
+    mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
+    allPosts: [], //alla posts
+    pictureUpload: {
+        clickedDiv: false,
+        newPics: []
+        }
+};
+
 //Funktion för att appenda posts i feed
 
 function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vilken user/land/travelCategory/sökrutans val(), filer = vad den ska jämföra med tex creatorID/countryName
@@ -28,7 +41,6 @@ function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vil
         grid.append(post);
     });
 }
-
 
 // Redigera sin profil
 function editProfile(){

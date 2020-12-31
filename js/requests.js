@@ -1,17 +1,5 @@
 "use strict";
 
-let STATE = {
-    mainUserID, //denna får ett värde i home.php genom att den kollar $_SESSION["userID"]. Den kommer antingen vara en siffra eller false 
-    users: [], //En array av alla users som finns i databasen
-    mainUserPosts: [], //användarens posts
-    mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
-    allPosts: [], //alla posts
-    pictureUpload: {
-        clickedDiv: false,
-        newPics: []
-        }
-};
-
 
 window.onload = function(){
 
