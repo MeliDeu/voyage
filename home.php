@@ -18,6 +18,7 @@
         ?>
         <script> //detta hämtar den inloggades ID från PHP till js så att nyckeln mainUserID i STATE fungerar
             let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
+            let profileParameter = "<?php echo isset($_GET["profile"]) ? $_GET["profile"] : "false";?>"; //av någon anledning behövde jag kaninöron utanför../kaj
         </script> 
 
         <div id='homeWrapper'>
@@ -32,15 +33,13 @@
                     if (isset($_GET["profile"])){ //innehåller id:et för användaren man klickat på, eller mainUserID om man har klickat på profilknappen i navven
                         $clickedUserId = $_GET["profile"]; //get id:et
                         //ska bara synas vid besök på en profil
-                        include "sections/profileTop.php"; //denna måste justeras i dens fil för just nu hämtar den bara den inloggades info /kaj
+                        include "sections/profileTop.php";
                         
-                        if ($_GET["profile"] == $_SESSION["userID"]) { //detta innebär att man har klickat på profilikonen i navven
-                            //echo '<script type="text/javascript"> loadPosts(STATE.mainUserPosts); </script>'; //försök till att ladda upp alla posts som tillhör inloggade användaren i feeden på profilsidan
-                            //här kan man då också lägga in att man ska kunna redigera sin profil
+                        if ($_GET["profile"] == $_SESSION["userID"]) { //detta innebär att man är på den inloggades profilsida
+                            //här kan man då lägga in att man ska kunna redigera sin profil
                         }
 
                         //om id:et i GET inte är samma som den inloggades betyder det att vi visar en annan användares profil
-                        //echo "<script type='text/javascript'> loadPosts(STATE.allPosts, {$clickedUserId}, 'creatorID'); </script>"; //ett försök 
 
                         //$clickedUseId = $_GET["profile"];
                         // en till if som kollar om , jämför detta id med den sessionuserID
@@ -59,16 +58,17 @@
                             // Loopa postArray för att se vilka som har matchande creatorId med $loggedInId
 
                         }
-                    } else {
-                        //kalla på loadPosts(allPosts), om det inte finns en get parameter pga att det betyder att man har klickat på home i navven
-                        //echo "<script type='text/javascript'> loadPosts(STATE.allPosts); </script>"; //enligt google ska man kunna kalla på js-function såhär i php men fungerar inte just nu /kaj
-                    }
-                ?> 
+                    } else { ?>
+                        <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
+                        <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
+                        
+                        <div id='homeSearchBox' class='searchBox'>
+                            <input id='homeSearchField' placeholder=' Search country'>
+                        </div>  
 
-                    <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
-                    <div id='homeSearchBox' class='searchBox'>
-                        <input id='homeSearchField' placeholder=' Search country'>
-                    </div>
+                    <?php } ?> 
+
+
 
                     <!-- olika innehåll beroende på om man är på home eller profil -->
                     <div id='homeCategoryBar' class='categoryBar'>
