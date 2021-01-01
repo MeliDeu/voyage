@@ -19,14 +19,16 @@ function editProfile(){
      // Hämtar innehållet från bio text
     //Byt ut bioDiv till ett input fält med det innehållet som fanns sedan innan
     //Sen när användaren trycker på spara så byt tillbaka till en vanlig div igen
-    console.log(bioText)
 }
 
 //Click event för att spara den nya informationen i bio
-let saveBio = document.getElementById("saveBio");
-saveBio.addEventListener('click', function(){
+function saveNewBio(){
+    let saveBio = document.getElementById("saveBio");
+    saveBio.addEventListener('click', function(){
     //kalla på patch funktionen för att uppdatera databasen
 })
+}
+
 
 //Click event för att ändra på sin profil
 let edit = document.getElementById("profileSettings");
