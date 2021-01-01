@@ -50,7 +50,9 @@ function getCountries(){
     })
 }
 
-function patchBio(newBio){
+function patchBio(){
+    let newBio = document.getElementById("patchBio").value;
+    console.log(newBio);
     let request = new Request("/admin/api.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -63,6 +65,6 @@ function patchBio(newBio){
         return response.json();
     })
     .then(resource => {
-
+        console.log(resource);
     })
 }

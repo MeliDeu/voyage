@@ -55,6 +55,7 @@ function editProfile(){
     let saveBio = document.createElement("button");
     saveBio.setAttribute("id", "saveBio");
     document.getElementById("profileContainer").appendChild(saveBio);
+    saveNewBio();
 
 
      // Hämtar innehållet från bio text
@@ -67,6 +68,7 @@ function saveNewBio(){
     let saveBio = document.getElementById("saveBio");
     saveBio.addEventListener('click', function(){
     //kalla på patch funktionen för att uppdatera databasen
+    patchBio()
 })
 }
 
@@ -97,11 +99,6 @@ register.addEventListener('submit', function(event){
             password: UserPassword,
             email: UserEmail,
             travelStatus: UserTravelStatus
-            //profilePic: false,
-            //bio: false,
-            //top3Wishes: false,
-            //top3Favs: false
-            //ovan behövs ej då det skaoas i apin /kaj
         })
     })
     fetch(request)

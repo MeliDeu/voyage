@@ -1,8 +1,10 @@
 
 
 <?php
-//session_start();
+session_start();
 include "functions.php";
+
+$userID = $_SESSION["userID"];
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
 $database = getDatabase();
@@ -184,6 +186,33 @@ if ($method === "PATCH") {
 
     // ÄNDRA PROFIL(bio, top3wishes, top3favs)
     // $_PATCH[”changeProfile”] (changeProfile?=param) 
+
+    $currentUser = false;
+
+    foreach($database["users"] as $index => $user){
+        if ($user['id'] == $userID) {
+            $currentUser = $user;
+        }
+    }
+
+    $currentUser = '[
+        {"op":"replace", "path":"/bio", "value":$json[bio]}
+    ]';
+
+    $patch = new Patch($database, $currentUser);
+    $currentUser = $patch->apply();
+    
+
+    $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
+    file_put_contents($file, $dataJSON);
+    http_response_code(201);
+    //header("Content-Type: application/json");
+    $message = [
+        "data" => $currentUser
+    ];
+    echo json_encode($message);
+    //var_dump($message);
+    exit();
 
     // ÄNDRA PROFILBILD(kommer...)
     //$_PATCH[”changeAvatar”] (changeAvatar?=id) 
