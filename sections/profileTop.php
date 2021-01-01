@@ -52,9 +52,11 @@
             <span>Top favs</span>
             <ul>
             <?php
-            foreach($top3Favs as $index => $favs){
-                //Loopa igenom array med alla favs för att visa dessa som li element
-                echo "<li class='topFavsList'>$favs</li>";
+            if ($top3Favs) {
+                foreach($top3Favs as $index => $favs){
+                    //Loopa igenom array med alla favs för att visa dessa som li element
+                    echo "<li class='topFavsList'>$favs</li>";
+                }
             }
             ?>
                 
@@ -65,9 +67,11 @@
             <span>Top wants</span>
                 <ul>
                 <?php
-                foreach($top3Wishes as $index => $favs){
-                    //Loopa igenom array med alla favs för att visa dessa som li element
-                    echo "<li class='topFavsList'>$favs</li>";
+                if ($top3Wishes) {
+                    foreach($top3Wishes as $index => $favs){
+                        //Loopa igenom array med alla favs för att visa dessa som li element
+                        echo "<li class='topFavsList'>$favs</li>";
+                    }
                 }
                 ?>
                 </ul>

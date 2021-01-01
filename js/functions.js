@@ -10,11 +10,12 @@ let STATE = {
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        }
+        },
+    testArray: []    
 };
 
-//Funktion för att appenda posts i feed
 
+//Funktion för att appenda posts i feed
 function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vilken user/land/travelCategory/sökrutans val(), filer = vad den ska jämföra med tex creatorID/countryName
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
@@ -38,7 +39,7 @@ function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vil
     }
 
     copyPosts.forEach(post => {
-        grid.append(post);
+        grid.append(post.htmlElement(STATE.users));
     });
 }
 
@@ -99,6 +100,11 @@ register.addEventListener('submit', function(event){
             password: UserPassword,
             email: UserEmail,
             travelStatus: UserTravelStatus
+            //profilePic: false,
+            //bio: false,
+            //top3Wishes: false,
+            //top3Favs: false
+            //ovan behövs ej då det skapas i apin /kaj
         })
     })
     fetch(request)

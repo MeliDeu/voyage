@@ -13,26 +13,35 @@ window.onload = function(){
         db.data.users.forEach(user => { // pushar in användarens sparade i STATE saved
             if (user.id == STATE.mainUserID) {
                 user.savedPosts.forEach(post => {
-                    let constructedPost = new PolaroidUser(post);
-                    STATE.mainUserSavedPosts.push(constructedPost.htmlElement(STATE.users)); 
+                    STATE.mainUserSavedPosts.push(new PolaroidUser(post));
                 })
             }
         })
 
         db.data.posts.forEach(post =>{ // pushar in alla posts i allposts i STATE
-            let constructedPost = new PolaroidFeed(post);
-            STATE.allPosts.push(constructedPost.htmlElement(STATE.users)); //skapar instans i form av ett html-element som en polaroid med all info + en spara-ikon
-
+            STATE.allPosts.push(new PolaroidFeed(post));
             if (post.creatorID == STATE.mainUserID) { // pushar in inloggade användarens posts i mainuserposts array i STATE
-                let constructedPost = new PolaroidUser(post);
-                STATE.mainUserPosts.push(constructedPost.htmlElement(STATE.users)); //skapar instans i form av ett html-element som en polaroid med all info + en soptunna
+                STATE.mainUserPosts.push(new PolaroidUser(post));
             }
         });
 
-        console.log(STATE);
-        loadPosts(STATE.allPosts)
+
+        //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
+        //laddas om, och ikonerna i naven är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
+        //för att se vilka posts som ska visas. profileParameter skapas i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
+        if (profileParameter !== "false") {
+
+            if (profileParameter == mainUserID) {
+                loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
+            } else {
+                loadPosts(STATE.allPosts, profileParameter, "creatorID"); //laddar en annan användares posts, id:et finns i variabeln profileParameter
+            }
+        } else {
+            loadPosts(STATE.allPosts)
+        }
     });
 }
+
 
 
 function getCountries(){
