@@ -13,7 +13,7 @@
     $top3Wishes = false;
     $top3Favs = false;
     foreach($database['users'] as $index => $user){
-        if($user['id'] == $clickedUseId){
+        if($user['id'] == $clickedUserId){
             // Id:t kan vi nu använda för att få fram den personens content
             $loggedInId = $user['id'];
             $bio = $user['bio'];

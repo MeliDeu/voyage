@@ -12,7 +12,7 @@ function loadStartGrid(){
     adminPolaroidArray.forEach( polaroid => {
         let newPolaroid = new PolaroidStatic(polaroid);
         let grid = document.getElementById("startGrid");
-        grid.append(newPolaroid.createPolaroidBase());
+        grid.append(newPolaroid.createPolaroidBase(adminUsersArray));
     })
 }
 

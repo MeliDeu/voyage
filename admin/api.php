@@ -29,7 +29,8 @@ if ($method === "GET") {
     //DEFAULT(utan att vara inloggad): 
     //Alla posts (med ett max-antal?) 
 
-    if ($_SESSION[”loggedIn”]){
+    //Var tvungen att släcka denna del, till rad 68 för att GET skulle fungera och ge databasen som svar till requesten i request.js som fyller på allt i STATE
+    /*if ($_SESSION["isLoggedIn"]){
 
         // Om parametern country skickas med (om anv sorterar på land)
         if (isset($_GET["country"])){
@@ -53,6 +54,10 @@ if ($method === "GET") {
             $search = $_GET["search"];  
         }
 
+        //behövs verkligen ovan ifs för country, user, travelCategory, album och search?
+        //vid GET-req från requests.js svarar vi med hela databasen och lägger in alla posts i STATE,
+        //så sortering på tex country är ju något vi ställer in i home.php om det finns en get-parameter /kaj
+
         // GET by default om någon är inloggad - skicka tillbaka alla post
         http_response_code(200);
         header("Content-Type: application/json");
@@ -60,7 +65,14 @@ if ($method === "GET") {
         $message = ["data" => $database];
         echo json_encode($message);
         exit();
-    }
+    }*/
+
+    http_response_code(200);
+    header("Content-Type: application/json");
+    // Skicka med hela DB
+    $message = ["data" => $database];
+    echo json_encode($message);
+    exit();
 }
 
 // Denna kontroll sträcker sig över hela POST, PATCH, DELETE
@@ -169,9 +181,6 @@ if ($method === "POST") {
 //-------------------------------------------- PATCH ------------------------------
 
 if ($method === "PATCH") {
-  
-    // ÄNDRA EN EGEN POST(country, title, description)
-    // $_PATCH[”changePost”] (changePost?=param) 
 
     // ÄNDRA PROFIL(bio, top3wishes, top3favs)
     // $_PATCH[”changeProfile”] (changeProfile?=param) 

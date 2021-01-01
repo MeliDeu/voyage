@@ -28,10 +28,10 @@ class PolaroidStatic extends PolaroidBase{
         this.polaroidInfo.classList.add("polaroidInfo");
     }
 
-    createPolaroidBase(){
+    createPolaroidBase(arr){
         let userInfo
 
-        adminUsersArray.forEach(user => {
+        arr.forEach(user => {
             if (user.id == this.creatorID) {
                userInfo = user;
             }
@@ -59,11 +59,12 @@ class PolaroidStatic extends PolaroidBase{
                     polaroidUser.classList.add("polaroidUser");
                         //.polaroidUserPic
                         let polaroidUserPic = document.createElement("div");
-                        polaroidUserPic.style.backgroundImage = `url('${userInfo.userPic}')`;
+                        polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
                         polaroidUserPic.classList.add("polaroidUserPic");
-                        //.polaroidUserName
-                        let polaroidUserName = document.createElement("div");
-                        polaroidUserName.innerHTML = `${userInfo.userName}`;
+                        //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
+                        let polaroidUserName = document.createElement("a");
+                        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`)
+                        polaroidUserName.innerHTML = `${userInfo.username}`;
                         polaroidUserName.classList.add("polaroidUserName");
 
                     polaroidUser.append(polaroidUserPic, polaroidUserName);    
@@ -98,6 +99,8 @@ class PolaroidActive extends PolaroidStatic{
         super(data);
 
     }
+
+
     //Metod där polaroiden får en hover effekt, description ska synas
     //Click event på hela polaroiden som gör att posten öppnas
 }
@@ -105,11 +108,33 @@ class PolaroidUser extends PolaroidActive{
     constructor(data){
         super(data)
     }
+
+    htmlElement(arr) {
+        let html = super.createPolaroidBase(arr);
+        let iconDiv = document.createElement("div");
+        let icon = document.createElement("div");
+        icon.style.backgroundImage = "url('../images/stockImages/icons/trash.png')";
+        iconDiv.classList.add("polaroidIcon");
+        iconDiv.append(icon);
+        this.polaroidInfo.append(iconDiv);
+        return html;
+    }
     //this.icon = soptunna
 }
 class PolaroidFeed extends PolaroidActive{
     constructor(data){
         super(data);
+    }
+
+    htmlElement(arr) {
+        let html = super.createPolaroidBase(arr);
+        let iconDiv = document.createElement("div");
+        let icon = document.createElement("div");
+        icon.style.backgroundImage = "url('../images/stockImages/icons/bookmark.png')";
+        iconDiv.classList.add("polaroidIcon");
+        iconDiv.append(icon);
+        this.polaroidInfo.append(iconDiv);
+        return html;
     }
     //Spara symbol
 }
