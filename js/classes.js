@@ -171,20 +171,59 @@ class CreatePost extends PostStructure{
 
 //KATEGORI-/ALBUMCIRKLAR PÅ HOMEPAGE ELLER PROFILSIDA
 class CategoryBox{
+    constructor(data){
+        this.categoryBox = document.createElement("div");
+        this.categoryBox.classList.add("categoryBox");
+
+        this.icon = document.createElement("div");
+        this.icon.classList.add("categoryIcon");
+
+        this.title = document.createElement("div");
+        this.title.classList.add("categoryTitle");
+
+        this.categoryBox.append(this.icon, this.title);
+    }
+
     //Skapa div categoryBox, innehåller 1 cirkeldiv categoryIcon + div med cetegoryTitle
     //Här får de hover effekt + click event för att visa alla under samma category!
 }
+
 class TravelCategory extends CategoryBox{
     constructor(data){
+        super(data);
         this.travelCategory = data.travelCategory;
         this.categoryID = data.categoryID;
         this.categoryIcon = data.categoryIcon;
     }
+
+    html(){
+        this.categoryBox.id = "category_" + this.categoryID; 
+
+        let icon = document.createElement("div");
+        icon.style.backgroundImage = `url('${this.categoryIcon}')`;
+        this.icon.append(icon);
+
+        this.title.innerHTML = this.travelCategory;
+
+        return this.categoryBox;
+    }
 }
+
 class Album extends CategoryBox{
     constructor(data){
+        super(data);
         this.albumID = data.albumID;
         this.albumTitle = data.albumTitle;
         this.albumCoverImg = data.albumCoverImg;
+    }
+
+    html(){
+        this.categoryBox.id = "category_" + this.albumID; 
+        
+        this.icon.style.backgroundImage = `url('${this.albumCoverImg}')`;
+        
+        this.title.innerHTML = this.albumTitle;
+
+        return this.categoryBox;
     }
 }
