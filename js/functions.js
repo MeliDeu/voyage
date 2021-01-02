@@ -86,9 +86,11 @@ function editProfile(){
     patchBio.classList.remove("hide");
     patchBio.classList.add("show");
     //SAVE
-    let saveBio = document.createElement("button");
-    saveBio.setAttribute("id", "saveBio");
-    document.getElementById("profileContainer").appendChild(saveBio);
+    let saveBio = document.getElementById("saveBio");
+    saveBio.classList.remove('hide');
+    saveBio.classList.add('show');
+    //saveBio.setAttribute("id", "saveBio");
+    //document.getElementById("profileContainer").appendChild(saveBio);
     //TOP FAVS & WISHES
     let topFavs = document.getElementsByClassName("topFavsList");
     let topWishes = document.getElementsByClassName("topWishesList");
@@ -126,6 +128,8 @@ function saveNewBio(){
     patchBio()
 
     //Ändra tillbaka till vanliga div och li element
+    saveBio.classList.remove('show');
+    saveBio.classList.add('hide');
     let patchBioField = document.getElementById("patchBio")
     let patchBioText = patchBioField.value;
     patchBioField.classList.remove("show");
@@ -169,6 +173,18 @@ toggle.addEventListener('click', function() {
     let isOpen = slider.classList.contains('slide-in');
     slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
 });
+// placerar länder från adminArray.js -> countriesArray i sliden
+countriesArray.forEach(function(country){
+    let newLi = document.createElement("li");
+    newLi.innerHTML = country.name;
+    // click på ett land
+    newLi.addEventListener('click', function(){
+        window.location = `../home.php?country=${country.name}`;
+    }) 
+
+    let sliderList = document.getElementById("sliderList");
+    sliderList.append(newLi);
+})
 
 
 //Click event för att ändra på sin profil
