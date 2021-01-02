@@ -56,6 +56,7 @@ function editProfile(){
     let saveBio = document.createElement("button");
     saveBio.setAttribute("id", "saveBio");
     document.getElementById("profileContainer").appendChild(saveBio);
+    saveNewBio();
 
 
      // Hämtar innehållet från bio text
@@ -68,6 +69,7 @@ function saveNewBio(){
     let saveBio = document.getElementById("saveBio");
     saveBio.addEventListener('click', function(){
     //kalla på patch funktionen för att uppdatera databasen
+    patchBio()
 })
 }
 
