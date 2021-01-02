@@ -6,25 +6,25 @@ let STATE = {
     users: [], //En array av alla users som finns i databasen
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
+    clickedUserPosts: [],
     allPosts: [], //alla posts
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        },
-    testArray: []    
+        }
 };
 
 
 //Funktion för att appenda posts i feed
-function loadPosts(posts, sort, filter) { //posts = vilken array, sort = på vilken user/land/travelCategory/sökrutans val(), filer = vad den ska jämföra med tex creatorID/countryName
+function loadPosts(posts, sort, filter) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
-    let copyPosts = [...posts]; //kopierar arrayen som skickats så vi inte håller på med den
+    let copyPosts = [...posts]; //kopierar arrayen som skickats
 
     //let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
     //viewing.innerHTML = "All posts";
 
-    if (sort !== undefined) { //hur sätter man nyckel som en variabel?
+    if (sort !== undefined) { 
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering

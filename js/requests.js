@@ -27,21 +27,31 @@ window.onload = function(){
 
 
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
-        //laddas om, och ikonerna i naven är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
-        //för att se vilka posts som ska visas. profileParameter skapas i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
-        if (profileParameter !== "false") {
+        //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
+        //för att se vilka posts som ska visas:
+        checkURL()
 
-            if (profileParameter == mainUserID) {
-                loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
-            } else {
-                loadPosts(STATE.allPosts, profileParameter, "creatorID"); //laddar en annan användares posts, id:et finns i variabeln profileParameter
-            }
-        } else {
-            loadPosts(STATE.allPosts)
-        }
     });
 }
 
+function checkURL(){
+    if (profileParameter !== "false") { // profileParameter får sitt värde i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
+
+        if (profileParameter == mainUserID) {
+            loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
+        } else {
+            STATE.allPosts.forEach(post => {
+                if (post.creatorID == profileParameter) { // pushar in klickade användarens posts i clickedUserPosts i STATE
+                    STATE.clickedUserPosts.push(new PolaroidFeed(post));
+                }
+            })
+
+            loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
+        }
+    } else {
+        loadPosts(STATE.allPosts)
+    }
+}
 
 
 function getCountries(){
