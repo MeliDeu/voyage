@@ -10,7 +10,7 @@ class PolaroidBase{
         this.country = data.country;
         this.title = data.title;
         this.albumID = data.albumID;
-        this.travelCategory = data.travelCategory;
+        this.categoryID = data.categoryID;
         this.description = data.description;
     }
 }
@@ -111,6 +111,7 @@ class PolaroidUser extends PolaroidActive{
     }
 
     htmlElement(arr) {
+        this.polaroidInfo.innerHTML = "";
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
@@ -128,6 +129,7 @@ class PolaroidFeed extends PolaroidActive{
     }
 
     htmlElement(arr) {
+        this.polaroidInfo.innerHTML = "";
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
@@ -199,6 +201,11 @@ class TravelCategory extends CategoryBox{
     html(){
         this.categoryBox.id = "category_" + this.categoryID; 
 
+        this.categoryBox.addEventListener("click", function(){
+            let id = this.id.substr(9);
+            loadPosts(STATE.allPosts, "categoryID", id);
+        })
+
         let icon = document.createElement("div");
         icon.style.backgroundImage = `url('${this.categoryIcon}')`;
         this.icon.append(icon);
@@ -219,9 +226,19 @@ class Album extends CategoryBox{
 
     html(){
         this.categoryBox.id = "category_" + this.albumID; 
+
+        this.categoryBox.addEventListener("click", function(){
+            let id = this.id.substr(9);
+    
+            if (profileParameter == STATE.mainUserID) {
+                loadPosts(STATE.mainUserPosts, "albumID", id); 
+            } else {
+                loadPosts(STATE.clickedUserPosts, "albumID", id); 
+            }
+        })
         
         this.icon.style.backgroundImage = `url('${this.albumCoverImg}')`;
-        
+
         this.title.innerHTML = this.albumTitle;
 
         return this.categoryBox;

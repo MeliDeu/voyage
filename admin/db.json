@@ -88,7 +88,7 @@
             "images": [],
             "albumID": false,
             "country": "Turkey",
-            "travelCategory": "Vacation",
+            "categoryID": "5",
             "description": "H\u00e4r var det skoj hejsan hoppsan. Tittade p\u00e5 ballonger \u00e5h s\u00e5 fina dem var. Ni kan aldrig ana. S\u00e5 himlans vackert."
         },
         {
@@ -99,7 +99,7 @@
             "images": [],
             "albumID": false,
             "country": "Morocco",
-            "travelCategory": "Culture trip",
+            "categoryID": "3",
             "description": "Marocko, wow. Alla f\u00e4rger, dofter och det v\u00e4nliga folket. Hit ska jag absolut igen!"
         },
         {
@@ -110,7 +110,7 @@
             "images": [],
             "albumID": false,
             "country": "Greece",
-            "travelCategory": "Boat adventure",
+            "categoryID": "2",
             "description": "\u00c5ka b\u00e5t \u00e4r skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
         },
         {
@@ -121,7 +121,7 @@
             "images": [],
             "albumID": false,
             "country": "Spain",
-            "travelCategory": "Vacation",
+            "categoryID": "5",
             "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
         },
         {
@@ -132,7 +132,7 @@
             "images": [],
             "albumID": false,
             "country": "Italy",
-            "travelCategory": "Hiking",
+            "categoryID": "7",
             "description": "Ojojoj vilken dag uppe i bergen. Vi var ovanf\u00f6r molnen till och med, det var v\u00e4ldigt h\u00e4ftigt. Och vilka magiska utsikter. Rekommenderar alla att \u00e5ka hit f\u00f6r att f\u00e5 nya perspektiv p\u00e5 livet."
         },
         {
@@ -143,7 +143,7 @@
             "images": [],
             "albumID": 1,
             "country": "Costa Rica",
-            "travelCategory": "Backpacking",
+            "categoryID": "1",
             "description": "Backpackar med min v\u00e4n i Costa Rica. Vi har precis p\u00e5b\u00f6rjat v\u00e5r resa och imorgon ska vi ut till olika \u00f6ar och simma med hajar."
         },
         {
@@ -154,7 +154,7 @@
             "images": [],
             "albumID": 1,
             "country": "Costa Rica",
-            "travelCategory": "Backpacking",
+            "categoryID": "1",
             "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"
         }
     ]

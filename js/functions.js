@@ -21,21 +21,25 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     grid.innerHTML = ""; //tömmer gridden
     let copyPosts = [...posts]; //kopierar arrayen som skickats
 
-    //let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
-    //viewing.innerHTML = "All posts";
+    let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
+    viewing.innerHTML = "All posts";
 
     if (sort !== undefined) { 
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
-        //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
-        //viewing.innerHTML = "show all posts"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+        if (copyPosts.length == 0) {
+            grid.innerHTML = "No posts";
+        }
 
-        /*function viewAll(){
+        //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
+        viewing.innerHTML = "Reset filter"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+
+        function viewAll(){
             loadPosts(STATE.allPosts);
             viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
-        }*/
+        }
 
-        //viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
+        viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
     }
 
     copyPosts.forEach(post => {
