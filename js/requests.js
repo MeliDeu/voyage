@@ -75,12 +75,28 @@ function getCountries(){
 
 function patchBio(){
     let newBio = document.getElementById("patchBio").value;
-    console.log(newBio);
-    let request = new Request("/admin/api.php", {
+    let inputFavs = document.getElementsByClassName("patchFavs");
+    let inputWishes = document.getElementsByClassName("patchWishes");
+    let favsArray = [];
+    let wishesArray = [];
+    for(let i=0; i<3; i++){
+        let newWishes = inputWishes[i].value;
+        wishesArray.push(newWishes);
+    }
+    for(let i=0; i<3; i++){
+        let newFavs = inputFavs[i].value;
+        favsArray.push(newFavs);
+    }
+    console.log(favsArray);
+    console.log(wishesArray);
+    let request = new Request("../admin/api.php", {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
-            bio: newBio
+            id: mainUserID,
+            bio: newBio,
+            top3Wishes: wishesArray,
+            top3Favs: favsArray
         })
     })
     fetch(request)
@@ -91,3 +107,16 @@ function patchBio(){
         console.log(resource);
     })
 }
+function getDatabaseJS(data){
+    let request = new Request("../admin/api.php")
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        //console.log(resource)
+        data = resource
+        return data
+    })
+}
+getDatabaseJS()

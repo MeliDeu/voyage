@@ -72,6 +72,7 @@ function getUserObjectByID(id){
 
 // Redigera sin profil
 function editProfile(){
+    //BIO
     let profileBio = document.getElementById("profileBio");
     let bioText = profileBio.innerHTML;
     console.log(bioText);
@@ -80,9 +81,31 @@ function editProfile(){
     patchBio.innerHTML = bioText;
     patchBio.classList.remove("hide");
     patchBio.classList.add("show");
+    //SAVE
     let saveBio = document.createElement("button");
     saveBio.setAttribute("id", "saveBio");
     document.getElementById("profileContainer").appendChild(saveBio);
+    //TOP FAVS & WISHES
+    let topFavs = document.getElementsByClassName("topFavsList");
+    let topWishes = document.getElementsByClassName("topWishesList");
+    let inputFavs = document.getElementsByClassName("patchFavs");
+    let inputWishes = document.getElementsByClassName("patchWishes");
+    for(let i=0; i<3; i++){
+        //adderar classen hide på alla elementen & show till input fälten
+        let topFavsText = document.getElementsByClassName("topFavsList")[i].innerHTML;
+        topFavs[i].classList.add("hide");
+        inputFavs[i].value = topFavsText;
+        inputFavs[i].classList.remove("hide");
+        inputFavs[i].classList.add("show");
+        //inputFavs[i].innerHTML = topFavsText + [i];
+    }
+    for(let i=0; i<3; i++){
+        let topWishesText = document.getElementsByClassName("topWishesList")[i].innerHTML;
+        topWishes[i].classList.add("hide");
+        inputWishes[i].value = topWishesText;
+        inputWishes[i].classList.remove("add");
+        inputWishes[i].classList.add("show");
+    }
     saveNewBio();
 
 
@@ -97,6 +120,41 @@ function saveNewBio(){
     saveBio.addEventListener('click', function(){
     //kalla på patch funktionen för att uppdatera databasen
     patchBio()
+
+    //Ändra tillbaka till vanliga div och li element
+    let patchBioField = document.getElementById("patchBio")
+    let patchBioText = patchBioField.value;
+    patchBioField.classList.remove("show");
+    patchBioField.classList.add("hide");
+    let profileBio = document.getElementById("profileBio");
+    profileBio.innerHTML = patchBioText;
+    profileBio.classList.remove("hide");
+    profileBio.classList.add("show");
+    let topFavs = document.getElementsByClassName("topFavsList");
+    let topWishes = document.getElementsByClassName("topWishesList");
+    let inputFavs = document.getElementsByClassName("patchFavs");
+    let inputWishes = document.getElementsByClassName("patchWishes");
+    for(let i=0; i<3; i++){
+        //adderar classen hide på alla elementen & show till input fälten
+        let topFavsText = document.getElementsByClassName("patchFavs")[i].value;
+        topFavs[i].classList.remove("hide");
+        topFavs[i].classList.add("show");
+        topFavs[i].innerHTML = topFavsText;
+        inputFavs[i].classList.remove("show");
+        inputFavs[i].classList.add("hide");
+        //inputFavs[i].innerHTML = topFavsText + [i];
+    }
+    for(let i=0; i<3; i++){
+        let topWishesText = document.getElementsByClassName("patchWishes")[i].value;
+        topWishes[i].classList.remove("hide");
+        topWishes[i].classList.add("show");
+        topWishes[i].innerHTML = topWishesText;
+        inputWishes[i].classList.remove("show");
+        inputWishes[i].classList.add("hide");
+    }
+
+    
+    //profileBio.innerHTML = 
 })
 }
 
