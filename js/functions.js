@@ -100,12 +100,22 @@ function saveNewBio(){
 })
 }
 
+// click för att öppna/stänga slide i sidebar
+let slider = document.getElementById('slider');
+let toggle = document.getElementById('countriesNavBtn');
+toggle.addEventListener('click', function() {
+    let isOpen = slider.classList.contains('slide-in');
+    slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+});
+
 
 //Click event för att ändra på sin profil
 let edit = document.getElementById("profileSettings");
 edit.addEventListener('click', function(event){
     editProfile()
-}) //var tvungen att släcka denna då den gör att denna js.fil inte fungerar, något är fel i ovan kod som gör att nedan inte körts/kaj
+}) 
+//var tvungen att släcka denna då den gör att denna js.fil inte fungerar, något är fel i ovan kod som gör att nedan inte körts/kaj
+// måste vara för att edit blir null när man inte är på en profilsida / jas
 
 
 

@@ -7,6 +7,8 @@ på bodyn på starsidan för att den inte ska krocka med denna sida
 body {
     height: 100vh;
     margin: 0;
+
+    --styleFont: "Mulish";
 }
 
 .logo {
@@ -20,6 +22,7 @@ body {
     align-items: center;
     font-size: 2em;
     font-family: "Dancing Script";
+    margin-top: 35px;
 }
 
 #homeBody {
@@ -34,16 +37,15 @@ body {
 
 #sideBar {
     background-color: white;
-    height: 100%;
-    width: 7vw;
+    width: 70px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    z-index: 10;
 }
 
 #sideBar .icon {
-    margin: 1vw 0 1vw 0;
     border-radius: 100px;
     background-color: rgb(235, 235, 235);
     height: 45px;
@@ -51,11 +53,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 #sideBar .icon:hover {
     cursor: pointer;
     background-color: rgba(199, 199, 199, 0.517);
+}
+
+#sideBarNav{
+    margin-bottom: 35px;
 }
 
 #sideBarNav .active {
@@ -116,7 +123,6 @@ body {
 }
 
 #sideBarNav, #sideBarLogo {
-    margin: 3vw 0 3vw 0;
 }
 
 #homeWrapper {
@@ -124,26 +130,27 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: right;
+    align-items: center;
 }
 
 #homeInnerWrapper {
     background-color: rgb(45, 47, 49);
     border-radius: 15px 0 0 15px;
-    max-height: 100%;
+    height: 90vh;
     width: 100%;
-    padding: 2vw;
-    margin: 1vw 0 1vw 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #homeSearchBox {
     display: flex;
     align-items: center;
+    margin: .5vw;
 }
 #homeSearchField {
     width: 10vw;
     background-color: grey;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     height: 1.5vw;
     cursor: text;
@@ -152,7 +159,10 @@ body {
 }
 
 .barCaterories, .categoryBar {
-    margin: .5vw 0 .5vw 0;
+}
+
+.categoryBar {
+    margin: .5vw;
 }
 
 .barCategories {
@@ -160,7 +170,8 @@ body {
 }
 
 .barTitle {
-    color: beige;
+    color: white;
+    font-family: "Mulish";
 }
 
 
@@ -175,7 +186,7 @@ body {
     cursor: pointer;
 }
 .categoryIcon {
-    background-color: beige;
+    background-color: white;
     height: 80%;
     width: 80%;
     border: 3px solid rgba(50, 50, 50, 0.735);
@@ -195,17 +206,16 @@ body {
 
 .categoryTitle {
     font-size: 0.8vw;
+    font-family: "Mulish";
     text-align: center;
-    color: beige;
+    color: white;
 }
 
 .feedBox {
-    height: 69vh;
     overflow: scroll;
     overflow-x: hidden;
     background-color: grey;
-    border-radius: 15px 15px 0 0;
-    padding: 1vw;
+    border-radius: 15px 0 0 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -213,14 +223,14 @@ body {
 
 .feedInfo {
     display: flex;
-    color: beige;
+    color: white;
+    margin: .5vw;
 }
 
 .feedGrid {
-    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 1vw;
+    
 }
 
 
@@ -234,7 +244,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     flex-direction: column;
     align-items: center;
     box-shadow: 1px 3px 5px rgb(191, 191, 191);
-    margin-bottom: 30px;
+    margin: 1vw;
 }
 
 .polaroidPic {
@@ -278,6 +288,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     color: var(--lightTextColor);
     font-size: 0.65vw;
     margin-top: 1.5px;
+    font-family: "Mulish";
 }
 
 .polaroidText {
@@ -299,8 +310,6 @@ tas bort då det är samma classer för båda sidor. // jass */
 /* PROFILE TOP */
 
 #profileContainer {
-    margin-top: .5vw;
-    padding: 1vw 2vw;
     display: flex;
     color: white;
 }
@@ -308,16 +317,17 @@ tas bort då det är samma classer för båda sidor. // jass */
     width: 30vw;
     display: flex;
     justify-content: space-between;
+    margin: 1.5vw;
 }
 #profileInfo {
-    padding: .5vw;
     display: flex;
     flex-direction: column;
     max-width: 20vw;
+    padding: .5vw;
 }
 
 #profileInfo > div {
-    margin-bottom: .5vw;
+    margin-bottom: .7vw;
 }
 
 #profileName {
@@ -327,7 +337,7 @@ tas bort då det är samma classer för båda sidor. // jass */
 #profilePic {
     height: 8vw;
     width: 8vw;
-    background-color: beige;
+    background-color: white;
     border-radius: 100px;
 }
 
@@ -340,26 +350,27 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #interestIcon, #topFavs {
-    margin-right: 1vw;
 }
 
 #interestIcon {
-    height: 1vw;
-    width: 1.5vw;
+    height: 20px;
+    width: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../images/stockImages/icons/icon_envelope.png);
 }
 
 #profileFavs {
-    margin-left: 3vw;
+    margin: 25px 0 0 4vw;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
 }
 #profileFavs > div > span {
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 1.1rem;
-    margin-top: .55vw;
 }
 
 #profileInfo, #profileName, #profileBio, #profileInterest, #profileFavs, #profileBox, #profilePic, #profileInfo, #profileContainer {
@@ -367,16 +378,73 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileSettings {
-    margin-left: 38vw;
-    height: 1.5vw;
-    width: 1.5vw;
+    height: 25px;
+    width: 25px;
     background-image: url(../images/stockImages/icons/icon_settings.png);
     background-size: cover;
     background-repeat: no-repeat;
+    position: absolute;
+    margin: 2vw 0 0 85vw;
 }
 .hide{
     display: none;
 }
 .show{
     display: block;
+}
+
+#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings {
+    cursor: pointer;
+}
+
+.feedTitle, .feedView {
+    font-family: "Mulish";
+}
+
+.feedView {
+    margin-left: 10px;
+}
+
+/* slider -> sidebar */
+#slider {
+    position: absolute;
+    left: 2vw;
+    width: 10vw;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+#slider > ul {
+    margin-top: 4vw;
+}
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
 }

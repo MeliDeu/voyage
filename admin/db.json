@@ -63,7 +63,11 @@
             "travelStatus": true,
             "profilePic": "..\/images\/stockImages\/person_3.jpg",
             "bio": "Hej jag \u00e4r 20 v\u00e5rar och \u00e4lskar solen, den ger mig livsgl\u00e4dje.",
-            "top3Wishes": false,
+            "top3Wishes": [
+                "Los Angeles",
+                "Bali",
+                "Cuba"
+            ],
             "top3Favs": false,
             "savedPosts": [],
             "album": [
