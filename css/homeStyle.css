@@ -122,8 +122,6 @@ body {
     height: 25px;
 }
 
-#sideBarNav, #sideBarLogo {
-}
 
 #homeWrapper {
     background-color: white;
@@ -158,8 +156,6 @@ body {
     font-size: .6rem;
 }
 
-.barCaterories, .categoryBar {
-}
 
 .categoryBar {
     margin: .5vw;
@@ -349,8 +345,6 @@ tas bort då det är samma classer för båda sidor. // jass */
     justify-content: space-between;
 }
 
-#interestIcon, #topFavs {
-}
 
 #interestIcon {
     height: 20px;
@@ -421,6 +415,10 @@ tas bort då det är samma classer för båda sidor. // jass */
 
 #slider > ul {
     margin-top: 4vw;
+}
+
+#slider > ul > li {
+    cursor: pointer;
 }
 .slide-in {
     animation: slide-in 0.5s forwards;
