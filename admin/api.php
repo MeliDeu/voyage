@@ -1,10 +1,10 @@
 
 
 <?php
-session_start();
+//session_start();
 include "functions.php";
 
-$userID = $_SESSION["userID"];
+
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
 $database = getDatabase();
@@ -70,7 +70,7 @@ if ($method === "GET") {
     }*/
 
     http_response_code(200);
-    header("Content-Type: application/json");
+    //header("Content-Type: application/json");
     // Skicka med hela DB
     $message = ["data" => $database];
     echo json_encode($message);
@@ -188,19 +188,22 @@ if ($method === "PATCH") {
     // $_PATCH[”changeProfile”] (changeProfile?=param) 
 
     $currentUser = false;
+    //$userID = $_SESSION["userID"];
+    //var_dump($userID);
+    $thisOne = false;
 
     foreach($database["users"] as $index => $user){
-        if ($user['id'] == $userID) {
+        if ($user['id'] == $json['id']) {
             $currentUser = $user;
+            $thisOne = $index;
         }
     }
+    //Sparar den nya informationen i databasen
+    $newDataBio = $database["users"][$thisOne]["bio"] = $json["bio"];
+    $newWhises = $database["users"][$thisOne]["top3Wishes"] = $json["top3Wishes"];
+    $newFavs = $database["users"][$thisOne]["top3Favs"] = $json["top3Favs"];
 
-    $currentUser = '[
-        {"op":"replace", "path":"/bio", "value":$json[bio]}
-    ]';
-
-    $patch = new Patch($database, $currentUser);
-    $currentUser = $patch->apply();
+    $newData = $database["users"][$thisOne];
     
 
     $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
@@ -208,7 +211,7 @@ if ($method === "PATCH") {
     http_response_code(201);
     //header("Content-Type: application/json");
     $message = [
-        "data" => $currentUser
+        "data" => $newData
     ];
     echo json_encode($message);
     //var_dump($message);

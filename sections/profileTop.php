@@ -56,6 +56,7 @@
                 foreach($top3Favs as $index => $favs){
                     //Loopa igenom array med alla favs för att visa dessa som li element
                     echo "<li class='topFavsList'>$favs</li>";
+                    echo "<input class='hide patchFavs'></input>";
                 }
             }
             ?>
@@ -70,7 +71,8 @@
                 if ($top3Wishes) {
                     foreach($top3Wishes as $index => $favs){
                         //Loopa igenom array med alla favs för att visa dessa som li element
-                        echo "<li class='topFavsList'>$favs</li>";
+                        echo "<li class='topWishesList'>$favs</li>";
+                        echo "<input class='hide patchWishes'></input>";
                     }
                 }
                 ?>
