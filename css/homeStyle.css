@@ -192,7 +192,7 @@ body {
 }
 
 .feedBox {
-    height: 75vh;
+    height: 50vh;
     overflow: scroll;
     overflow-x: hidden;
     background-color: grey;
@@ -297,14 +297,17 @@ tas bort då det är samma classer för båda sidor. // jass */
     width: 30vw;
     display: flex;
     justify-content: space-between;
+    margin: 15px;
 }
 #profileInfo {
     display: flex;
     flex-direction: column;
     max-width: 20vw;
+    padding: 10px;
 }
 
 #profileInfo > div {
+    margin-bottom: 8px;
 }
 
 #profileName {
@@ -330,14 +333,18 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #interestIcon {
-    height: 1vw;
-    width: 1.5vw;
+    height: 20px;
+    width: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../images/stockImages/icons/icon_envelope.png);
 }
 
 #profileFavs {
+    margin: 25px 0 0 50px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
 }
 #profileFavs > div > span {
     display: flex;
@@ -351,11 +358,12 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileSettings {
-    height: 1.5vw;
-    width: 1.5vw;
+    height: 25px;
+    width: 25px;
     background-image: url(../images/stockImages/icons/icon_settings.png);
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 25px 0 0 43vw;
 }
 .hide{
     display: none;
