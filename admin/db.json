@@ -74,7 +74,7 @@
                 {
                     "albumID": 1,
                     "albumTitle": "Living Costa Rica",
-                    "albumCoverImg": "../images/stockImages/travel_6.jpg"
+                    "albumCoverImg": "..\/images\/stockImages\/travel_6.jpg"
                 }
             ]
         }
