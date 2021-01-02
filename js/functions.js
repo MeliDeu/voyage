@@ -80,6 +80,18 @@ toggle.addEventListener('click', function() {
     let isOpen = slider.classList.contains('slide-in');
     slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
 });
+// placerar länder från adminArray.js -> countriesArray i sliden
+countriesArray.forEach(function(country){
+    let newLi = document.createElement("li");
+    newLi.innerHTML = country.name;
+    // click på ett land
+    newLi.addEventListener('click', function(){
+        window.location = `../home.php?country=${country.name}`;
+    }) 
+
+    let sliderList = document.getElementById("sliderList");
+    sliderList.append(newLi);
+})
 
 
 //Click event för att ändra på sin profil

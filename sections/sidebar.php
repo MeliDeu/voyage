@@ -14,9 +14,5 @@
     </div>
 </div>
 <div id="slider" class="slide">
-    <ul>
-        <li>Lorem</li>
-        <li>Ipsum</li>
-        <li>Dolor</li>
-    </ul>
+    <ul id='sliderList'></ul>
 </div>
