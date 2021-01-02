@@ -7,6 +7,8 @@ på bodyn på starsidan för att den inte ska krocka med denna sida
 body {
     height: 100vh;
     margin: 0;
+
+    --styleFont: "Mulish";
 }
 
 .logo {
@@ -20,6 +22,7 @@ body {
     align-items: center;
     font-size: 2em;
     font-family: "Dancing Script";
+    margin-top: 35px;
 }
 
 #homeBody {
@@ -34,16 +37,14 @@ body {
 
 #sideBar {
     background-color: white;
-    height: 100%;
-    width: 7vw;
+    width: 70px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 #sideBar .icon {
-    margin: 1vw 0 1vw 0;
     border-radius: 100px;
     background-color: rgb(235, 235, 235);
     height: 45px;
@@ -51,11 +52,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 #sideBar .icon:hover {
     cursor: pointer;
     background-color: rgba(199, 199, 199, 0.517);
+}
+
+#sideBarNav{
+    margin-bottom: 35px;
 }
 
 #sideBarNav .active {
@@ -116,7 +122,6 @@ body {
 }
 
 #sideBarNav, #sideBarLogo {
-    margin: 3vw 0 3vw 0;
 }
 
 #homeWrapper {
@@ -124,26 +129,25 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: right;
+    align-items: center;
 }
 
 #homeInnerWrapper {
     background-color: rgb(45, 47, 49);
     border-radius: 15px 0 0 15px;
-    max-height: 100%;
+    height: 90vh;
     width: 100%;
-    padding: 2vw;
-    margin: 1vw 0 1vw 0;
 }
 
 #homeSearchBox {
     display: flex;
     align-items: center;
+    margin: .5vw;
 }
 #homeSearchField {
     width: 10vw;
     background-color: grey;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     height: 1.5vw;
     cursor: text;
@@ -152,11 +156,15 @@ body {
 }
 
 .barCaterories, .categoryBar {
-    margin: .5vw 0 .5vw 0;
+}
+
+.categoryBar {
+    margin: .5vw;
 }
 
 .barTitle {
     color: beige;
+    font-family: "Mulish";
 }
 
 
@@ -178,17 +186,17 @@ body {
 }
 .categoryTitle {
     font-size: .6rem;
+    font-family: "Mulish";
     text-align: center;
     color: beige;
 }
 
 .feedBox {
-    height: 69vh;
+    height: 75vh;
     overflow: scroll;
     overflow-x: hidden;
     background-color: grey;
-    border-radius: 15px 15px 0 0;
-    padding: 1vw;
+    border-radius: 15px 15px 15px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -197,13 +205,12 @@ body {
 .feedInfo {
     display: flex;
     color: beige;
+    margin: .5vw;
 }
 
 .feedGrid {
-    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 1vw;
 }
 
 
@@ -217,7 +224,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     flex-direction: column;
     align-items: center;
     box-shadow: 1px 3px 5px rgb(191, 191, 191);
-    margin-bottom: 30px;
+    margin: 1vw;
 }
 
 .polaroidPic {
@@ -261,6 +268,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     color: var(--lightTextColor);
     font-size: 0.65vw;
     margin-top: 1.5px;
+    font-family: "Mulish";
 }
 
 .polaroidText {
@@ -282,8 +290,6 @@ tas bort då det är samma classer för båda sidor. // jass */
 /* PROFILE TOP */
 
 #profileContainer {
-    margin-top: .5vw;
-    padding: 1vw 2vw;
     display: flex;
     color: white;
 }
@@ -293,14 +299,12 @@ tas bort då det är samma classer för båda sidor. // jass */
     justify-content: space-between;
 }
 #profileInfo {
-    padding: .5vw;
     display: flex;
     flex-direction: column;
     max-width: 20vw;
 }
 
 #profileInfo > div {
-    margin-bottom: .5vw;
 }
 
 #profileName {
@@ -323,7 +327,6 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #interestIcon, #topFavs {
-    margin-right: 1vw;
 }
 
 #interestIcon {
@@ -335,14 +338,12 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileFavs {
-    margin-left: 3vw;
 }
 #profileFavs > div > span {
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 1.1rem;
-    margin-top: .55vw;
 }
 
 #profileInfo, #profileName, #profileBio, #profileInterest, #profileFavs, #profileBox, #profilePic, #profileInfo, #profileContainer {
@@ -350,7 +351,6 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileSettings {
-    margin-left: 38vw;
     height: 1.5vw;
     width: 1.5vw;
     background-image: url(../images/stockImages/icons/icon_settings.png);
@@ -362,4 +362,16 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 .show{
     display: block;
+}
+
+#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings {
+    cursor: pointer;
+}
+
+.feedTitle, .feedView {
+    font-family: "Mulish";
+}
+
+.feedView {
+    margin-left: 10px;
 }
