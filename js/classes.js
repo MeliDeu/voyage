@@ -63,6 +63,7 @@ class PolaroidStatic extends PolaroidBase{
                         polaroidUserPic.classList.add("polaroidUserPic");
                         //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
                         let polaroidUserName = document.createElement("a");
+                        // Här sätts a länk som innehåller en get-parameter som kollas i home.php
                         polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`)
                         polaroidUserName.innerHTML = `${userInfo.username}`;
                         polaroidUserName.classList.add("polaroidUserName");
