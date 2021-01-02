@@ -137,6 +137,8 @@ body {
     border-radius: 15px 0 0 15px;
     height: 90vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #homeSearchBox {
@@ -163,7 +165,7 @@ body {
 }
 
 .barTitle {
-    color: beige;
+    color: white;
     font-family: "Mulish";
 }
 
@@ -179,7 +181,7 @@ body {
     cursor: pointer;
 }
 .categoryIcon {
-    background-color: beige;
+    background-color: white;
     height: 3vw;
     width: 3vw;
     border-radius: 100px;
@@ -188,15 +190,14 @@ body {
     font-size: .6rem;
     font-family: "Mulish";
     text-align: center;
-    color: beige;
+    color: white;
 }
 
 .feedBox {
-    height: 50vh;
     overflow: scroll;
     overflow-x: hidden;
     background-color: grey;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 15px 0 0 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -204,13 +205,14 @@ body {
 
 .feedInfo {
     display: flex;
-    color: beige;
+    color: white;
     margin: .5vw;
 }
 
 .feedGrid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    
 }
 
 
@@ -297,17 +299,17 @@ tas bort då det är samma classer för båda sidor. // jass */
     width: 30vw;
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin: 1.5vw;
 }
 #profileInfo {
     display: flex;
     flex-direction: column;
     max-width: 20vw;
-    padding: 10px;
+    padding: .5vw;
 }
 
 #profileInfo > div {
-    margin-bottom: 8px;
+    margin-bottom: .7vw;
 }
 
 #profileName {
@@ -317,7 +319,7 @@ tas bort då det är samma classer för båda sidor. // jass */
 #profilePic {
     height: 8vw;
     width: 8vw;
-    background-color: beige;
+    background-color: white;
     border-radius: 100px;
 }
 
@@ -341,7 +343,7 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileFavs {
-    margin: 25px 0 0 50px;
+    margin: 25px 0 0 4vw;
     width: 200px;
     display: flex;
     justify-content: space-around;
@@ -363,7 +365,8 @@ tas bort då det är samma classer för båda sidor. // jass */
     background-image: url(../images/stockImages/icons/icon_settings.png);
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 25px 0 0 43vw;
+    position: absolute;
+    margin: 2vw 0 0 85vw;
 }
 .hide{
     display: none;
