@@ -55,9 +55,11 @@ function editProfile(){
     patchBio.classList.remove("hide");
     patchBio.classList.add("show");
     //SAVE
-    let saveBio = document.createElement("button");
-    saveBio.setAttribute("id", "saveBio");
-    document.getElementById("profileContainer").appendChild(saveBio);
+    let saveBio = document.getElementById("saveBio");
+    saveBio.classList.remove('hide');
+    saveBio.classList.add('show');
+    //saveBio.setAttribute("id", "saveBio");
+    //document.getElementById("profileContainer").appendChild(saveBio);
     //TOP FAVS & WISHES
     let topFavs = document.getElementsByClassName("topFavsList");
     let topWishes = document.getElementsByClassName("topWishesList");
@@ -95,6 +97,8 @@ function saveNewBio(){
     patchBio()
 
     //Ändra tillbaka till vanliga div och li element
+    saveBio.classList.remove('show');
+    saveBio.classList.add('hide');
     let patchBioField = document.getElementById("patchBio")
     let patchBioText = patchBioField.value;
     patchBioField.classList.remove("show");

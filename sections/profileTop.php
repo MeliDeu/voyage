@@ -70,5 +70,6 @@
     </div>
 
     <div id='profileSettings'></div>
+    <button id='saveBio' class='hide'></button>
 </div>
  
