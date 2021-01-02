@@ -66,7 +66,13 @@
             "top3Wishes": false,
             "top3Favs": false,
             "savedPosts": [],
-            "album": []
+            "album": [
+                {
+                    "albumID": 1,
+                    "albumTitle": "Living Costa Rica",
+                    "albumCoverImg": "../images/stockImages/travel_6.jpg"
+                }
+            ]
         }
     ],
     "posts": [
@@ -131,7 +137,7 @@
             "title": "Backpacking i Costa Rica",
             "coverImg": "..\/images\/stockImages\/travel_14.jpg",
             "images": [],
-            "albumID": false,
+            "albumID": 1,
             "country": "Costa Rica",
             "travelCategory": "Backpacking",
             "description": "Backpackar med min v\u00e4n i Costa Rica. Vi har precis p\u00e5b\u00f6rjat v\u00e5r resa och imorgon ska vi ut till olika \u00f6ar och simma med hajar."
@@ -142,7 +148,7 @@
             "title": "Vattenfall i Costa Rica",
             "coverImg": "..\/images\/stockImages\/travel_6.jpg",
             "images": [],
-            "albumID": false,
+            "albumID": 1,
             "country": "Costa Rica",
             "travelCategory": "Backpacking",
             "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"

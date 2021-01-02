@@ -6,7 +6,7 @@ let STATE = {
     users: [], //En array av alla users som finns i databasen
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
-    clickedUserPosts: [],
+    clickedUserPosts: [], //användarens som man klickar på posts
     allPosts: [], //alla posts
     pictureUpload: {
         clickedDiv: false,
@@ -16,7 +16,7 @@ let STATE = {
 
 
 //Funktion för att appenda posts i feed
-function loadPosts(posts, sort, filter) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
+function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
     let copyPosts = [...posts]; //kopierar arrayen som skickats
@@ -41,6 +41,33 @@ function loadPosts(posts, sort, filter) { //posts = vilken array, filer = vilken
     copyPosts.forEach(post => {
         grid.append(post.htmlElement(STATE.users));
     });
+}
+
+
+// funktion för att ta fram travel category / album cirklarna
+function loadCircles(array, album){ //array: antingen travelCategoriesArray eller db -> user.album
+    let categoryBar = document.getElementById("barCategories");
+
+    if (album !== undefined) {
+        array.forEach(element => {
+            let constructor = new Album(element);
+            categoryBar.append(constructor.html());
+        })
+    } else {
+        array.forEach(element => {
+            let constructor = new TravelCategory(element);
+            categoryBar.append(constructor.html());
+        })
+    }
+}
+
+
+function getUserObjectByID(id){
+    let user = STATE.users.find(user => {
+        return user.id == id;
+    })
+
+    return user;
 }
 
 // Redigera sin profil

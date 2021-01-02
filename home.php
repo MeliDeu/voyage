@@ -72,13 +72,14 @@
 
                     <!-- olika innehåll beroende på om man är på home eller profil -->
                     <div id='homeCategoryBar' class='categoryBar'>
-                        <div class='barTitle'>Travel categories</div>
-                        <div class='barCategories'>
-                            <div class='categoryBox'>
-                                <div class='categoryIcon'></div>
-                                <div class='categoryTitle'>Backpacking</div>
-                            </div>
+                        <div class='barTitle'>
+                            <?php if (isset($_GET["profile"])) { 
+                                echo "Album";
+                            } else { 
+                                echo "Travel categories";
+                             } ?>
                         </div>
+                        <div id="barCategories" class='barCategories'></div>
                     </div>
                 
                     <div id='homefeedBox' class='feedBox'>

@@ -134,47 +134,47 @@ let travelCategoriesArray = [
     {
         travelCategory: "Backpacking",
         categoryID: "1",
-        categoryIcon: "länk till bild"
+        categoryIcon: "../images/stockImages/icons/backpack.png"
     },
     {
         travelCategory: "Boat adventure",
         categoryID: "2",
-        categoryIcon: "länk till bild"
+        categoryIcon: "../images/stockImages/icons/boat.png"
     },
     {
         travelCategory: "Culture trip",
         categoryID: "3",
-        categoryIcon: "länk till bild"
+        categoryIcon: "../images/stockImages/icons/mosque.png"
     },
     {
         travelCategory: "Safari",
         categoryID: "4",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
     {
         travelCategory: "Vacation",
         categoryID: "5",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
     {
         travelCategory: "Skiing",
         categoryID: "6",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
     {
         travelCategory: "Hiking",
         categoryID: "7",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
     {
         travelCategory: "Road trip",
         categoryID: "8",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
     {
         travelCategory: "Other",
         categoryID: "9",
-        categoryIcon: "länk till bild"
+        categoryIcon: ""
     },
 ]
 

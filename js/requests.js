@@ -36,6 +36,9 @@ window.onload = function(){
 
 function checkURL(){
     if (profileParameter !== "false") { // profileParameter får sitt värde i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
+        let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
+        let albumArray = user.album;
+        loadCircles(albumArray, "album");
 
         if (profileParameter == mainUserID) {
             loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
@@ -49,7 +52,8 @@ function checkURL(){
             loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
         }
     } else {
-        loadPosts(STATE.allPosts)
+        loadPosts(STATE.allPosts);
+        loadCircles(travelCategoriesArray);
     }
 }
 
