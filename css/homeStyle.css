@@ -42,6 +42,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    z-index: 10;
 }
 
 #sideBar .icon {
@@ -385,4 +386,48 @@ tas bort då det är samma classer för båda sidor. // jass */
 
 .feedView {
     margin-left: 10px;
+}
+
+/* slider -> sidebar */
+#slider {
+    position: absolute;
+    left: 2vw;
+    width: 10vw;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+#slider > ul {
+    margin-top: 4vw;
+}
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
 }

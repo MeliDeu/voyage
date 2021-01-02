@@ -13,3 +13,10 @@
         <a class='icon' class=navLink href='../admin/logout.php' class='logout'><div id="logout"></div></a>
     </div>
 </div>
+<div id="slider" class="slide">
+    <ul>
+        <li>Lorem</li>
+        <li>Ipsum</li>
+        <li>Dolor</li>
+    </ul>
+</div>
