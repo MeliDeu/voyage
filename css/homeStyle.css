@@ -176,8 +176,8 @@ body {
 
 
 .categoryBox {
-    height: 6vw;
-    width: 6vw;
+    height: 7vw;
+    width: 7vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,9 +187,9 @@ body {
 }
 .categoryIcon {
     background-color: white;
-    height: 80%;
-    width: 80%;
-    border: 3px solid rgba(50, 50, 50, 0.735);
+    height: 70%;
+    width: 70%;
+    border: 3px solid rgba(255, 255, 255, 0.279);
     border-radius: 100px;
     display: flex;
     justify-content: center;
