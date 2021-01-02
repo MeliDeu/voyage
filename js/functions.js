@@ -177,9 +177,10 @@ toggle.addEventListener('click', function() {
 countriesArray.forEach(function(country){
     let newLi = document.createElement("li");
     newLi.innerHTML = country.name;
+    let cName = country.name.replace(/ /g, '+');
     // click på ett land
     newLi.addEventListener('click', function(){
-        window.location = `../home.php?country=${country.name}`;
+        window.location = `../home.php?country=${cName}`;
     }) 
 
     let sliderList = document.getElementById("sliderList");
