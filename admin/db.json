@@ -89,6 +89,19 @@
                     "albumCoverImg": "..\/images\/stockImages\/travel_6.jpg"
                 }
             ]
+        },
+        {
+            "id": 5,
+            "username": "melanie",
+            "password": "12345",
+            "email": "test@test.se",
+            "travelStatus": true,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false,
+            "savedPosts": [],
+            "album": []
         }
     ],
     "posts": [
@@ -178,7 +191,7 @@
             "albumID": 2,
             "country": "Greece",
             "categoryID": "2",
-            "description": "Vi fortsätter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
+            "description": "Vi forts\u00e4tter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
         },
         {
             "postID": 9,
@@ -189,7 +202,7 @@
             "albumID": false,
             "country": "USA",
             "categoryID": "9",
-            "description": "Semester i storstaden. Jag säger bara WOW."
+            "description": "Semester i storstaden. Jag s\u00e4ger bara WOW."
         },
         {
             "postID": 10,
@@ -200,7 +213,7 @@
             "albumID": 3,
             "country": "Morocco",
             "categoryID": "3",
-            "description": "Strosar på en lokal marknad!"
+            "description": "Strosar p\u00e5 en lokal marknad!"
         },
         {
             "postID": 11,

@@ -6,6 +6,7 @@ let STATE = {
     users: [], //En array av alla users som finns i databasen
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
+    countries: [],
     clickedUserPosts: [], //användarens som man klickar på posts
     allPosts: [], //alla posts
     pictureUpload: {
@@ -195,6 +196,16 @@ countriesArray.forEach(function(country){
     sliderList.append(newLi);
 })
 
+//öppnar modalfönstret för ny Post
+document.getElementById("add").addEventListener("click", function(){
+    //istället toggle classlist
+    document.getElementById("newPostOverlay").style.display = "flex";
+});
+
+//stänger modalfönstret för ny Post
+document.getElementById("postClose").addEventListener("click", function(){
+    document.getElementById("newPostOverlay").style.display = "none";
+});
 
 //Click event för att ändra på sin profil
 let edit = document.getElementById("profileSettings");

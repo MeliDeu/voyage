@@ -81,6 +81,7 @@ function getCountries(){
         resource.forEach(element => {
             //Ger namn på 250 länder!
             //console.log(element.name)
+            STATE.countries.push(element.name);
         });
     })
 }
@@ -131,4 +132,5 @@ function getDatabaseJS(data){
         return data
     })
 }
-getDatabaseJS()
+getDatabaseJS();
+getCountries();

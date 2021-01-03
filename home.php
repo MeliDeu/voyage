@@ -91,6 +91,10 @@
 
                         <div id='homeFeedGrid' class='feedGrid'></div>
                     </div>
+
+                    <div id="newPostOverlay">
+                        <?php include "sections/upload.php"?>
+                    </div>
                 <?php }?> <!-- stänger if ($_SESSION["isLoggedIn"] -->
             </div>
         </div>

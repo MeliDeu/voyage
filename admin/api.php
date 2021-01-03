@@ -169,8 +169,7 @@ if ($method === "POST") {
         // Textlängd
         // Skapa nytt object med ovanstående + annat från inputs (tex. Country)
         // Pusha in i DB
-
-
+        
     // NYTT ALBUM – kontrollera:
         // kommer….
 

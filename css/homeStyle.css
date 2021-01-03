@@ -446,3 +446,190 @@ tas bort då det är samma classer för båda sidor. // jass */
     0% { -webkit-transform: translateX(0%); }
     100% { -webkit-transform: translateX(-100%); }
 }
+
+
+/*New Post*/
+#newPostOverlay {
+    box-sizing: border-box;
+    position: absolute;
+    height: 90%;
+    background: rgba(0,0,0,.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    font-family: var(--styleFont);
+}
+
+#hiddenForm {
+    display: none;
+}
+
+#newPostWrapper {
+    height: 80%;
+    flex-basis: 80%;
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+}
+
+#postClose {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.closeOverlay {
+    /* transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg); */
+}
+
+#newPostContainer {
+    background: rgba(255,255,255,1);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    height: 100%;
+    display: flex;
+}
+
+#newPostContainer > div {
+    padding: 10px;
+}
+
+#newPostPictures {
+    flex-basis: 60%;
+}
+
+#newPostDesc {
+    flex-basis: 40%;
+}
+
+.newPostUp {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#postInformation {
+    height: 100%;
+}
+
+.newPostMiddle {
+    height: 70%;
+}
+
+.newPostDown {
+    height: 20%;
+}
+
+#newPostPics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nyPic, #newPostBigPicture {
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../images/stockImages/icons/add.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select {
+    cursor: pointer;
+}
+
+.nyPic {
+    flex-basis: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.imgTrash {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+#newPostContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#newPostContent > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#newPostContent > #countryAndCategory {
+    display: flex;
+    flex-direction: row;
+}
+
+#countryAndCategory > div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#newPostContent select, #newPostContent input {
+    width: 60%;
+    flex-basis: 30%;
+    height: 50px;
+    background-color: lightgray;
+    border:none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    flex-grow: 1;
+    font-family: var(--styleFont);
+    border: 1px solid lightgrey;
+    background-color: lightgrey;
+}
+
+.newPostDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newPostDown button {
+    flex-basis: 30%;
+    height: 30px;
+    padding: 5%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    color: white;
+    background-color: #7B461D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
