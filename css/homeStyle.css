@@ -532,7 +532,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/stockImages/icons/add.png);
+    background: url(../images/stockImages/icons/addImage.png);
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
