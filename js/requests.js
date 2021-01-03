@@ -57,6 +57,18 @@ function checkURL(){
     }
 }
 
+/*
+    // för country
+    if (countryParameter !== "false") { 
+        STATE.allPosts.forEach(post => {
+        if (post.country == countryParameter) { // pushar in klickade lands posts i clickedUserPosts i STATE
+            STATE.clickedUserPosts.push(new PolaroidFeed(post));
+            }
+        })
+        loadPosts(STATE.clickedUserPosts); //laddar posts beroende på klickat land, id:et finns i variabeln profileParameter    
+    }
+*/
+
 
 function getCountries(){
     let request = new Request('https://restcountries.eu/rest/v2/all');

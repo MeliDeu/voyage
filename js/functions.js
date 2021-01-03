@@ -14,7 +14,7 @@ let STATE = {
         }
 };
 
-
+// ta bort plus på costa+rica
 //Funktion för att appenda posts i feed
 function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
     let grid = document.getElementById("homeFeedGrid");

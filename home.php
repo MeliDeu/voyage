@@ -19,6 +19,7 @@
         <script> //detta hämtar den inloggades ID från PHP till js så att nyckeln mainUserID i STATE fungerar
             let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
             let profileParameter = "<?php echo isset($_GET["profile"]) ? $_GET["profile"] : "false";?>"; //av någon anledning behövde jag kaninöron utanför../kaj
+            let countryParameter = "<?php echo isset($_GET["country"]) ? $_GET["country"] : "false";?>"; 
         </script> 
 
         <div id='homeWrapper'>

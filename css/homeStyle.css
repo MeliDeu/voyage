@@ -147,7 +147,7 @@ body {
 }
 #homeSearchField {
     width: 10vw;
-    background-color: grey;
+    background-color: rgb(82, 80, 79);
     border-radius: 15px;
     border: none;
     height: 1.5vw;
@@ -210,7 +210,7 @@ body {
 .feedBox {
     overflow: scroll;
     overflow-x: hidden;
-    background-color: grey;
+    background-color: rgb(82, 80, 79);
     border-radius: 15px 0 0 15px;
     display: flex;
     flex-direction: column;
