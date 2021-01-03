@@ -19,7 +19,13 @@
                 "Tokyo"
             ],
             "savedPosts": [],
-            "album": []
+            "album": [
+                {
+                    "albumID": 3,
+                    "albumTitle": "Exploring Morocco",
+                    "albumCoverImg": "..\/images\/stockImages\/travel_18.jpg"
+                }
+            ]
         },
         {
             "id": 2,
@@ -40,7 +46,13 @@
                 "Morocco"
             ],
             "savedPosts": [],
-            "album": []
+            "album": [
+                {
+                    "albumID": 2,
+                    "albumTitle": "Island Hopping Greece",
+                    "albumCoverImg": "..\/images\/stockImages\/travel_16.jpg"
+                }
+            ]
         },
         {
             "id": 3,
@@ -97,7 +109,7 @@
             "title": "Exploring Morocco",
             "coverImg": "..\/images\/stockImages\/travel_11.jpg",
             "images": [],
-            "albumID": false,
+            "albumID": 3,
             "country": "Morocco",
             "categoryID": "3",
             "description": "Marocko, wow. Alla f\u00e4rger, dofter och det v\u00e4nliga folket. Hit ska jag absolut igen!"
@@ -108,7 +120,7 @@
             "title": "\u00d6-hoppning i Grekland",
             "coverImg": "..\/images\/stockImages\/travel_12.jpg",
             "images": [],
-            "albumID": false,
+            "albumID": 2,
             "country": "Greece",
             "categoryID": "2",
             "description": "\u00c5ka b\u00e5t \u00e4r skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
@@ -156,6 +168,50 @@
             "country": "Costa Rica",
             "categoryID": "1",
             "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"
+        },
+        {
+            "postID": 8,
+            "creatorID": 2,
+            "title": "New Island, New beach",
+            "coverImg": "..\/images\/stockImages\/travel_16.jpg",
+            "images": [],
+            "albumID": 2,
+            "country": "Greece",
+            "categoryID": "2",
+            "description": "Vi fortsätter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
+        },
+        {
+            "postID": 9,
+            "creatorID": 2,
+            "title": "New York baby",
+            "coverImg": "..\/images\/stockImages\/travel_17.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "USA",
+            "categoryID": "9",
+            "description": "Semester i storstaden. Jag säger bara WOW."
+        },
+        {
+            "postID": 10,
+            "creatorID": 1,
+            "title": "Tasting Morocco",
+            "coverImg": "..\/images\/stockImages\/travel_18.jpg",
+            "images": [],
+            "albumID": 3,
+            "country": "Morocco",
+            "categoryID": "3",
+            "description": "Strosar på en lokal marknad!"
+        },
+        {
+            "postID": 11,
+            "creatorID": 4,
+            "title": "Safari i Zanzibar",
+            "coverImg": "..\/images\/stockImages\/travel_19.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Tanzania",
+            "categoryID": "4",
+            "description": ""
         }
     ]
 }

@@ -35,7 +35,15 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
         viewing.innerHTML = "Reset filter"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
 
         function viewAll(){
-            loadPosts(STATE.allPosts);
+
+            if (filter == "albumID" && profileParameter == STATE.mainUserID) {
+                loadPosts(STATE.mainUserPosts);
+            } else if (filter == "albumID") {
+                loadPosts(STATE.clickedUserPosts);
+            } else {
+                loadPosts(STATE.allPosts);
+            }
+
             viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
         }
 
