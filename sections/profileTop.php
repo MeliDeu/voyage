@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $database = getDatabase(); //hämtar databasen
 
     $bio = false;
@@ -77,8 +78,12 @@
                 </ul>
         </div>
     </div>
-
-    <div id='profileSettings'></div>
-    <button id='saveBio' class='hide'>Save</button>
+    <?php if (isset($_GET["profile"])){
+        if ($_GET["profile"] == $_SESSION["userID"]){
+            echo "<div id='profileSettings'></div>";
+            echo "<button id='saveBio' class='hide'>Save</button>";
+        }
+    }?>
+   
 </div>
  
