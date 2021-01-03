@@ -916,14 +916,19 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/stockImages/icons/addImage.png);
+    background-image: url(../images/stockImages/icons/addImage.png);
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
 }
 
 .nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
     cursor: pointer;
+}
+
+.nyPic:hover > .imgTrash, #newPostBigPicture:hover > .imgTrash {
+    display: block;
 }
 
 .nyPic {
