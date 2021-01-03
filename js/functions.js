@@ -11,10 +11,11 @@ let STATE = {
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        }
+        },
+    sideBarMarked: false,
 };
 
-
+// ta bort plus på costa+rica
 //Funktion för att appenda posts i feed
 function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
     let grid = document.getElementById("homeFeedGrid");
@@ -25,17 +26,30 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     viewing.innerHTML = "All posts";
 
     if (sort !== undefined) { 
+        //console.log(countryParameter);
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
             grid.innerHTML = "No posts";
         }
 
+        if (countryParameter !== "false") { //om man har klickat på ett land SAMT klickar på en kategori så filtrerar vi arrayen på landet man är på
+            copyPosts = copyPosts.filter(p => p.country == countryParameter); 
+        }
+
         //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
-        viewing.innerHTML = "Reset filter"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+        viewing.innerHTML = "Reset filter";
 
         function viewAll(){
-            loadPosts(STATE.allPosts);
+
+            if (filter == "albumID" && profileParameter == STATE.mainUserID) {
+                loadPosts(STATE.mainUserPosts);
+            } else if (filter == "albumID") {
+                loadPosts(STATE.clickedUserPosts);
+            } else {
+                loadPosts(STATE.allPosts);
+            }
+
             viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
         }
 
@@ -43,26 +57,40 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     }
 
     copyPosts.forEach(post => {
-        grid.append(post.htmlElement(STATE.users));
+        grid.prepend(post.htmlElement(STATE.users));
     });
 }
 
 
 // funktion för att ta fram travel category / album cirklarna
-function loadCircles(array, album){ //array: antingen travelCategoriesArray eller db -> user.album
+function loadCircles(array, sort, country){ //array: antingen travelCategoriesArray eller db -> user.album
     let categoryBar = document.getElementById("barCategories");
 
-    if (album !== undefined) {
+    if (sort == "album") {
         array.forEach(element => {
             let constructor = new Album(element);
             categoryBar.append(constructor.html());
         })
-    } else {
+    } else if (sort == "country") {
+ 
+        array.forEach(category => {
+            let categoryExists = STATE.allPosts.some(post => {
+                return post.country == country && post.categoryID == category.categoryID;
+            })
+            if (categoryExists) {
+                let constructor = new TravelCategory(category);
+                categoryBar.append(constructor.html(country));
+            }
+        })
+    }
+    else {
         array.forEach(element => {
             let constructor = new TravelCategory(element);
             categoryBar.append(constructor.html());
         })
     }
+
+    //if det finns en post i allposts (some) ska cirkeln dyka upp
 }
 
 
@@ -274,6 +302,33 @@ countriesArray.forEach(function(country){
 
     let sliderList = document.getElementById("sliderList");
     sliderList.append(newLi);
+})
+
+// clickfunktion för sidebar
+// hämtar alla element med class .icon
+let sideBarIcon = document.querySelectorAll('.icon');
+console.log(sideBarIcon)
+// loopar alla för att ge alla ett klickevent
+sideBarIcon.forEach(function(element){
+    element.addEventListener('click', function() {
+        // Vid klick ska classen .active tas bort från alla element - därav loop igen
+        sideBarIcon.forEach(function(el){
+            el.removeAttribute('class', 'active')
+            // var tvungen att lägga till class .icon igen för den togs bort vid ovan linje
+            el.setAttribute('class', 'icon')
+            // child = varje elements barn (den div där iconen ligger)
+            let child = el.children[0]
+            // id = divens id
+            let childName = child.id
+            // sätter alla iconer till svart
+            child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
+        });
+        // endast det element som är klickat ska få class .active & vit icon
+        this.setAttribute('class', 'icon active');
+        let child = this.children[0]
+        let childName = child.id
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+    });
 })
 
 

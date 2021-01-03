@@ -30,7 +30,6 @@ window.onload = function(){
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
         checkURL()
-
     });
 }
 
@@ -51,11 +50,26 @@ function checkURL(){
 
             loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
         }
+    } else if (countryParameter !== "false") {
+        loadPosts(STATE.allPosts, "country", countryParameter);
+        loadCircles(travelCategoriesArray, "country", countryParameter);
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
     }
 }
+
+/*
+    // för country
+    if (countryParameter !== "false") { 
+        STATE.allPosts.forEach(post => {
+        if (post.country == countryParameter) { // pushar in klickade lands posts i clickedUserPosts i STATE
+            STATE.clickedUserPosts.push(new PolaroidFeed(post));
+            }
+        })
+        loadPosts(STATE.clickedUserPosts); //laddar posts beroende på klickat land, id:et finns i variabeln profileParameter    
+    }
+*/
 
 
 function getCountries(){

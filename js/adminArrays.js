@@ -172,10 +172,15 @@ let travelCategoriesArray = [
         categoryIcon: ""
     },
     {
-        travelCategory: "Other",
+        travelCategory: "City",
         categoryID: "9",
         categoryIcon: ""
     },
+    {
+        travelCategory: "Other",
+        categoryID: "10",
+        categoryIcon: ""
+    }
 ]
 
 
@@ -200,5 +205,11 @@ let countriesArray = [
     },
     {
         name: "Costa Rica"
+    },
+    {
+        name: "USA"
+    },
+    {
+        name: "Tanzania"
     }
 ]

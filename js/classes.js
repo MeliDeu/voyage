@@ -133,7 +133,7 @@ class PolaroidFeed extends PolaroidActive{
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
-        icon.style.backgroundImage = "url('../images/stockImages/icons/bookmark.png')";
+        icon.style.backgroundImage = "url('../images/stockImages/icons/saved.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
         this.polaroidInfo.append(iconDiv);
@@ -198,10 +198,11 @@ class TravelCategory extends CategoryBox{
         this.categoryIcon = data.categoryIcon;
     }
 
-    html(){
+    html(country){ //skickas från funktionen loadCircles om användaren är på ett specifikt land
         this.categoryBox.id = "category_" + this.categoryID; 
 
         this.categoryBox.addEventListener("click", function(){
+            //console.log(country);
             let id = this.id.substr(9);
             loadPosts(STATE.allPosts, "categoryID", id);
         })
