@@ -133,6 +133,11 @@ body {
     font-size: .6rem;
 }
 
+#countryTitle {
+    color: white;
+    font-family: "Mulish";
+}
+
 
 .categoryBar {
     margin: .5vw;
