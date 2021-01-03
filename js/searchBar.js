@@ -19,7 +19,7 @@ document.getElementById('homeSearchField').addEventListener('focus', function(ev
                     //console.log(param)
                     searchPress(param.postID)
                 } else if (searchSmall.includes(inputText)){
-                    console.log(param)
+                    //console.log(param)
                     //Laddar endast sista posten men fungerar!
                     searchPress(param.postID)
                 }
@@ -34,9 +34,6 @@ document.getElementById('homeSearchField').addEventListener('focus', function(ev
 })
 //CLICK vid sök
 document.getElementById("searchButton").addEventListener('click', function(){
-    //loadPosts(STATE.allPosts)
-    
-    console.log('hej')
 })
 
 //Click event för att trigga söket
