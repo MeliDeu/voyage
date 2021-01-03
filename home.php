@@ -64,6 +64,7 @@
                         
                         <div id='homeSearchBox' class='searchBox'>
                             <input id='homeSearchField' placeholder=' Search country'>
+                            <button class='hide' id='searchButton'></button>
                         </div>  
 
                     <?php } ?> 

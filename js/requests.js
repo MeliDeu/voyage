@@ -107,7 +107,7 @@ function patchBio(){
         console.log(resource);
     })
 }
-function getDatabaseJS(data){
+function getDatabaseJS(){
     let request = new Request("../admin/api.php")
     fetch(request)
     .then(response =>{
@@ -115,8 +115,6 @@ function getDatabaseJS(data){
     })
     .then(resource =>{
         //console.log(resource)
-        data = resource
-        return data
+        return resource
     })
 }
-getDatabaseJS()
