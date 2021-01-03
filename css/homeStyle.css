@@ -329,6 +329,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     height: 8vw;
     width: 8vw;
     background-color: white;
+    background-size: cover;
     border-radius: 100px;
 }
 
