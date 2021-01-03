@@ -198,10 +198,11 @@ class TravelCategory extends CategoryBox{
         this.categoryIcon = data.categoryIcon;
     }
 
-    html(){
+    html(country){ //skickas från funktionen loadCircles om användaren är på ett specifikt land
         this.categoryBox.id = "category_" + this.categoryID; 
 
         this.categoryBox.addEventListener("click", function(){
+            //console.log(country);
             let id = this.id.substr(9);
             loadPosts(STATE.allPosts, "categoryID", id);
         })

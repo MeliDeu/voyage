@@ -25,14 +25,19 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     viewing.innerHTML = "All posts";
 
     if (sort !== undefined) { 
+        //console.log(countryParameter);
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
             grid.innerHTML = "No posts";
         }
 
+        if (countryParameter !== "false") { //om man har klickat på ett land SAMT klickar på en kategori så filtrerar vi arrayen på landet man är på
+            copyPosts = copyPosts.filter(p => p.country == countryParameter); 
+        }
+
         //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
-        viewing.innerHTML = "Reset filter"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+        viewing.innerHTML = "Reset filter";
 
         function viewAll(){
 
@@ -51,26 +56,40 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     }
 
     copyPosts.forEach(post => {
-        grid.append(post.htmlElement(STATE.users));
+        grid.prepend(post.htmlElement(STATE.users));
     });
 }
 
 
 // funktion för att ta fram travel category / album cirklarna
-function loadCircles(array, album){ //array: antingen travelCategoriesArray eller db -> user.album
+function loadCircles(array, sort, country){ //array: antingen travelCategoriesArray eller db -> user.album
     let categoryBar = document.getElementById("barCategories");
 
-    if (album !== undefined) {
+    if (sort == "album") {
         array.forEach(element => {
             let constructor = new Album(element);
             categoryBar.append(constructor.html());
         })
-    } else {
+    } else if (sort == "country") {
+ 
+        array.forEach(category => {
+            let categoryExists = STATE.allPosts.some(post => {
+                return post.country == country && post.categoryID == category.categoryID;
+            })
+            if (categoryExists) {
+                let constructor = new TravelCategory(category);
+                categoryBar.append(constructor.html(country));
+            }
+        })
+    }
+    else {
         array.forEach(element => {
             let constructor = new TravelCategory(element);
             categoryBar.append(constructor.html());
         })
     }
+
+    //if det finns en post i allposts (some) ska cirkeln dyka upp
 }
 
 

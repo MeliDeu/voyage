@@ -212,6 +212,17 @@
             "country": "Tanzania",
             "categoryID": "4",
             "description": ""
+        },
+        {
+            "postID": 12,
+            "creatorID": 3,
+            "title": "Vakna upp i Costa Rica",
+            "coverImg": "..\/images\/stockImages\/travel_20.jpg",
+            "images": [],
+            "albumID": false,
+            "country": "Costa Rica",
+            "categoryID": "5",
+            "description": "Nu väntar hotellfrukosten, har svårt att slita mig från hotellrummet bara."
         }
     ]
 }

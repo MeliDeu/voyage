@@ -51,6 +51,9 @@ function checkURL(){
 
             loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
         }
+    } else if (countryParameter !== "false") {
+        loadPosts(STATE.allPosts, "country", countryParameter);
+        loadCircles(travelCategoriesArray, "country", countryParameter);
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
