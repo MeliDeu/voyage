@@ -26,7 +26,6 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     viewing.innerHTML = "All posts";
 
     if (sort !== undefined) { 
-        //console.log(countryParameter);
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
@@ -37,23 +36,29 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
             copyPosts = copyPosts.filter(p => p.country == countryParameter); 
         }
 
-        //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
-        viewing.innerHTML = "Reset filter";
 
-        function viewAll(){
+        //byta ut "all posts" till "reset filter" om man har klickat på en kategori / album:
+        if (filter == "categoryID" || filter == "albumID") {
+            viewing.innerHTML = "Reset filter";
 
-            if (filter == "albumID" && profileParameter == STATE.mainUserID) {
-                loadPosts(STATE.mainUserPosts);
-            } else if (filter == "albumID") {
-                loadPosts(STATE.clickedUserPosts);
-            } else {
-                loadPosts(STATE.allPosts);
+            function viewAll(){
+
+                if (filter == "albumID" && profileParameter == STATE.mainUserID) {
+                    loadPosts(STATE.mainUserPosts);
+                } else if (filter == "albumID") {
+                    loadPosts(STATE.clickedUserPosts);
+                } else if (countryParameter !== "false") {
+                    loadPosts(STATE.allPosts, "country", countryParameter);
+                } else {
+                    loadPosts(STATE.allPosts);
+                }
+    
+                viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
             }
-
-            viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
+    
+            viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
         }
 
-        viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
     }
 
     copyPosts.forEach(post => {
@@ -180,7 +185,6 @@ countriesArray.forEach(function(country){
 // clickfunktion för sidebar
 // hämtar alla element med class .icon
 let sideBarIcon = document.querySelectorAll('.icon');
-console.log(sideBarIcon)
 // loopar alla för att ge alla ett klickevent
 sideBarIcon.forEach(function(element){
     element.addEventListener('click', function() {
