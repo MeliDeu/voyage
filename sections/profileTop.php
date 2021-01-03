@@ -5,6 +5,7 @@
     $travelInterest = false;
     $top3Wishes = false;
     $top3Favs = false;
+    $profilePic = false;
 
     foreach($database['users'] as $index => $user){
         if($user['id'] == $clickedUserId){ //$clickedUserId får sitt värde i home.php
@@ -13,14 +14,22 @@
             $travelInterest = $user['travelStatus'];
             $top3Wishes = $user['top3Wishes'];
             $top3Favs = $user['top3Favs'];
+            $profilePic = $user['profilePic'];
         }
     }
 ?>
 <div id='profileContainer'>
 
 <div id='profileBox'>
-
-    <div id='profilePic'></div>
+    <div id='profilePicBox'>
+        <div id='profilePic'><img src="<?php echo $profilePic; ?>" alt="Profile Picture"></div>
+        <div>
+            <form id='uploadProfilePic' method='POST'>
+                <input id="fileInfo" class='hide' type="file" name="file"><br>
+                <button type='submit' class='hide' id='savePic'>Save</button>
+            </form>
+        </div>
+    </div>
     <div id='profileInfo'>
         <div id='profileName'><?php echo $username; ?></div>
         <div id='profileBio'><?php echo $bio; ?></div>

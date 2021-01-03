@@ -11,7 +11,8 @@ let STATE = {
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        }
+        },
+    sideBarMarked: false,
 };
 
 // ta bort plus på costa+rica
@@ -101,6 +102,55 @@ function getUserObjectByID(id){
     return user;
 }
 
+//Sök funktionen
+document.getElementById('homeSearchField').addEventListener('focus', function(event){
+    let request = new Request("../admin/api.php")
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        console.log(resource.data.posts)
+        document.getElementById('homeSearchField').addEventListener('keyup', function(){
+            let inputText = document.getElementById('homeSearchField').value;
+            //console.log(inputText)
+            resource.data.posts.forEach(function(param){
+                let postInfo = param.country + param.title + param.description
+                let searchSmall = postInfo.toLowerCase();
+                //console.log(searchSmall)
+
+                if (postInfo.includes(inputText)){
+                    //console.log(param)
+                    searchPress()
+                } else if (searchSmall.includes(inputText)){
+                    console.log(param)
+                    searchPress()
+                }
+
+
+            })
+            
+        })
+    })
+
+    
+})
+//CLICK vid sök
+document.getElementById("searchButton").addEventListener('click', function(){
+    loadPosts(STATE.allPosts)
+    console.log('hej')
+})
+
+//Click event för att trigga söket
+function searchPress(){
+    document.getElementById('homeSearchField').addEventListener('keyup', function (event){
+        event.preventDefault();
+      if (event.keyCode == 13) {
+        document.getElementById("searchButton").click();
+      }
+    });
+  }
+
 // Redigera sin profil
 function editProfile(){
     //BIO
@@ -124,21 +174,27 @@ function editProfile(){
     let inputFavs = document.getElementsByClassName("patchFavs");
     let inputWishes = document.getElementsByClassName("patchWishes");
     for(let i=0; i<3; i++){
+        //FAVS
         //adderar classen hide på alla elementen & show till input fälten
         let topFavsText = document.getElementsByClassName("topFavsList")[i].innerHTML;
         topFavs[i].classList.add("hide");
         inputFavs[i].value = topFavsText;
         inputFavs[i].classList.remove("hide");
         inputFavs[i].classList.add("show");
-        //inputFavs[i].innerHTML = topFavsText + [i];
-    }
-    for(let i=0; i<3; i++){
+        //WISHES
         let topWishesText = document.getElementsByClassName("topWishesList")[i].innerHTML;
         topWishes[i].classList.add("hide");
         inputWishes[i].value = topWishesText;
         inputWishes[i].classList.remove("add");
         inputWishes[i].classList.add("show");
     }
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('hide');
+    upload.classList.add('show');
+    //saveButton.classList.remove('hide');
+    //saveButton.classList.add('show');
     saveNewBio();
 
 
@@ -151,6 +207,9 @@ function editProfile(){
 function saveNewBio(){
     let saveBio = document.getElementById("saveBio");
     saveBio.addEventListener('click', function(){
+
+    document.getElementById('uploadProfilePic').submit();
+    //saveProfilePic()
     //kalla på patch funktionen för att uppdatera databasen
     patchBio()
 
@@ -170,6 +229,7 @@ function saveNewBio(){
     let inputFavs = document.getElementsByClassName("patchFavs");
     let inputWishes = document.getElementsByClassName("patchWishes");
     for(let i=0; i<3; i++){
+        //FAVS
         //adderar classen hide på alla elementen & show till input fälten
         let topFavsText = document.getElementsByClassName("patchFavs")[i].value;
         topFavs[i].classList.remove("hide");
@@ -177,9 +237,7 @@ function saveNewBio(){
         topFavs[i].innerHTML = topFavsText;
         inputFavs[i].classList.remove("show");
         inputFavs[i].classList.add("hide");
-        //inputFavs[i].innerHTML = topFavsText + [i];
-    }
-    for(let i=0; i<3; i++){
+        //WISHES
         let topWishesText = document.getElementsByClassName("patchWishes")[i].value;
         topWishes[i].classList.remove("hide");
         topWishes[i].classList.add("show");
@@ -187,11 +245,43 @@ function saveNewBio(){
         inputWishes[i].classList.remove("show");
         inputWishes[i].classList.add("hide");
     }
-
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('show');
+    upload.classList.add('hide');
+    //saveButton.classList.remove('show');
+    //saveButton.classList.add('hide');
     
-    //profileBio.innerHTML = 
 })
 }
+
+//Click för att ladda upp profilbild
+//function saveProfilePic(){
+
+//}
+
+let uploadForm = document.getElementById('uploadProfilePic');
+uploadForm.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    let form = uploadForm[0];
+
+    let formData = new FormData(form);
+    console.log(formData)
+
+    let request = new Request("../admin/api.php",{
+        method: "POST",
+        body: formData
+    });
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        console.log(resource)
+    })
+})
 
 // click för att öppna/stänga slide i sidebar
 let slider = document.getElementById('slider');
@@ -212,6 +302,33 @@ countriesArray.forEach(function(country){
 
     let sliderList = document.getElementById("sliderList");
     sliderList.append(newLi);
+})
+
+// clickfunktion för sidebar
+// hämtar alla element med class .icon
+let sideBarIcon = document.querySelectorAll('.icon');
+console.log(sideBarIcon)
+// loopar alla för att ge alla ett klickevent
+sideBarIcon.forEach(function(element){
+    element.addEventListener('click', function() {
+        // Vid klick ska classen .active tas bort från alla element - därav loop igen
+        sideBarIcon.forEach(function(el){
+            el.removeAttribute('class', 'active')
+            // var tvungen att lägga till class .icon igen för den togs bort vid ovan linje
+            el.setAttribute('class', 'icon')
+            // child = varje elements barn (den div där iconen ligger)
+            let child = el.children[0]
+            // id = divens id
+            let childName = child.id
+            // sätter alla iconer till svart
+            child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
+        });
+        // endast det element som är klickat ska få class .active & vit icon
+        this.setAttribute('class', 'icon active');
+        let child = this.children[0]
+        let childName = child.id
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+    });
 })
 
 

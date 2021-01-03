@@ -56,72 +56,49 @@ body {
     margin-bottom: 15px;
 }
 
-#sideBar .icon:hover {
-    cursor: pointer;
-    background-color: rgba(199, 199, 199, 0.517);
-}
+
 
 #sideBarNav{
     margin-bottom: 35px;
 }
 
+.icon #home {
+    background-image: url(../images/stockImages/icons/home.png);
+}
+.icon #countries {
+    background-image: url(../images/stockImages/icons/countries.png);
+}
+.icon #profile {
+    background-image: url(../images/stockImages/icons/profile.png);
+}
+.icon #add {
+    background-image: url(../images/stockImages/icons/add.png);
+}
+.icon #saved {
+    background-image: url(../images/stockImages/icons/saved.png);
+}
+.icon #logout {
+    background-image: url(../images/stockImages/icons/logout.png);
+}
+.icon > div {
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+#sideBar .icon:hover {
+    cursor: pointer;
+    background-color: rgba(199, 199, 199, 0.517);
+}
+
 #sideBarNav .active {
     background-color: #1B474A;
     box-shadow: 1px 3px 5px rgb(191, 191, 191);
+    transition: background-color 2s;
 }
 
 #sideBarNav .active:hover {
     background-color: #1B474A;
 }
-
-
-/*detta borde göras i JS och lägga till "_white" i filvägen till bilden*/
-#sideBarNav .active > div {
-    background-image: url(../images/stockImages/icons/home_white.png);
-}
-
-.icon #home {
-    background-image: url(../images/stockImages/icons/home.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
-.icon #countries {
-    background-image: url(../images/stockImages/icons/globe.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
-.icon #profile {
-    background-image: url(../images/stockImages/icons/user.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
-.icon #add {
-    background-image: url(../images/stockImages/icons/plus.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
-.icon #saved {
-    background-image: url(../images/stockImages/icons/bookmark.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
-.icon #logout {
-    background-image: url(../images/stockImages/icons/log-out.png);
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-
 
 #homeWrapper {
     background-color: white;

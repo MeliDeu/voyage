@@ -14,7 +14,7 @@
                 "Mexico"
             ],
             "top3Favs": [
-                "Barcelona",
+                "Paris",
                 "Machu Pichu",
                 "Tokyo"
             ],
@@ -223,6 +223,11 @@
             "country": "Costa Rica",
             "categoryID": "5",
             "description": "Nu väntar hotellfrukosten, har svårt att slita mig från hotellrummet bara."
+        }
+    ],
+    "profilePic": [
+        {
+            "profilePic": "uploads\/"
         }
     ]
 }
