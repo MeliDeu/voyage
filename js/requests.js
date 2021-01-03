@@ -30,7 +30,6 @@ window.onload = function(){
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
         checkURL()
-
     });
 }
 

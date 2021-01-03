@@ -133,7 +133,7 @@ class PolaroidFeed extends PolaroidActive{
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
-        icon.style.backgroundImage = "url('../images/stockImages/icons/bookmark.png')";
+        icon.style.backgroundImage = "url('../images/stockImages/icons/saved.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
         this.polaroidInfo.append(iconDiv);

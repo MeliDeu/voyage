@@ -11,7 +11,8 @@ let STATE = {
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        }
+        },
+    sideBarMarked: false,
 };
 
 // ta bort plus på costa+rica
@@ -185,6 +186,33 @@ countriesArray.forEach(function(country){
 
     let sliderList = document.getElementById("sliderList");
     sliderList.append(newLi);
+})
+
+// clickfunktion för sidebar
+// hämtar alla element med class .icon
+let sideBarIcon = document.querySelectorAll('.icon');
+console.log(sideBarIcon)
+// loopar alla för att ge alla ett klickevent
+sideBarIcon.forEach(function(element){
+    element.addEventListener('click', function() {
+        // Vid klick ska classen .active tas bort från alla element - därav loop igen
+        sideBarIcon.forEach(function(el){
+            el.removeAttribute('class', 'active')
+            // var tvungen att lägga till class .icon igen för den togs bort vid ovan linje
+            el.setAttribute('class', 'icon')
+            // child = varje elements barn (den div där iconen ligger)
+            let child = el.children[0]
+            // id = divens id
+            let childName = child.id
+            // sätter alla iconer till svart
+            child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
+        });
+        // endast det element som är klickat ska få class .active & vit icon
+        this.setAttribute('class', 'icon active');
+        let child = this.children[0]
+        let childName = child.id
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+    });
 })
 
 
