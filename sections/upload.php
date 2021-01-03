@@ -5,29 +5,29 @@
 </form>
 <div id="newPostWrapper">
     <div id="postClose">
-        <p class="closeOverlay">+</p>
+        <p class="closeOverlay">X</p>
     </div>
     <div id="newPostContainer">
         <div id="newPostPictures">
             <div class="newPostUp">New post</div>
             <div id="newPostBigPicture" class="newPostMiddle">
-                <img src="assets/trash.png" class="imgTrash">
+                <img src="../images/stockimages/icons/trash.png" class="imgTrash">
             </div>
             <div id="newPostPics" class="newPostDown">
                 <div id="pic_1" class="nyPic">
-                    <img src="assets/trash.png" class="imgTrash">
+                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
                 <div id="pic_2" class="nyPic">
-                    <img src="assets/trash.png" class="imgTrash">
+                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
                 <div id="pic_3" class="nyPic">
-                    <img src="assets/trash.png" class="imgTrash">
+                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
                 <div id="pic_4" class="nyPic">
-                    <img src="assets/trash.png" class="imgTrash">
+                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
                 <div id="pic_5" class="nyPic">
-                    <img src="assets/trash.png" class="imgTrash">
+                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
             </div>
         </div>

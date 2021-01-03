@@ -557,28 +557,32 @@ tas bort då det är samma classer för båda sidor. // jass */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/stockImages/icons/addImage.png);
+    background-image: url(../images/stockImages/icons/addImage.png);
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
 }
 
 .nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
     cursor: pointer;
 }
 
+.nyPic:hover > .imgTrash, #newPostBigPicture:hover > .imgTrash {
+    display: block;
+}
+
 .nyPic {
     flex-basis: 100px;
     height: 100px;
-    position: relative;
 }
 
 .imgTrash {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     display: none;
-}
+} 
 
 #newPostContent {
     display: flex;

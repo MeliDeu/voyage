@@ -23,7 +23,6 @@ function chooseImg(e){
     e.stopPropagation();
 }
 
-
 //function för att trigga igång upload av image
 function uploadImg(){
     let formData = new FormData(hiddenForm);
@@ -43,11 +42,12 @@ function uploadImg(){
             let currentPic = resurs.file;
             //hämta in diven med id:n "currentclickeddiv" och byta bakgrundsbild på den, samt töm +:et
             let currentDiv = document.getElementById(currentClickedDiv);
-            currentDiv.innerHTML = "";
+            // currentDiv.innerHTML = "";
             //här måste vi hämta in den nya sökvägen från php:n
-            currentDiv.style.background = `url(${currentPic})`;
+            currentDiv.style.backgroundImage = `url(${currentPic})`;
             currentDiv.style.backgroundSize = "cover";
             currentDiv.style.backgroundPosition = "center";
+            currentDiv.classList.add("filled");
             //gå in i posts, hitta respektive post med id, och pusha in den nya bilden i arrayn, om post redan existerar, är det en helt ny post, så måste vi skicka ett nytt objekt till databasen enligt objektet ovan 
             //om man klickar igen, så kommer dialogfönstret upp igen, så att man kan byta bild igen, man får dock lägga en unlink 
         })
@@ -64,6 +64,7 @@ function newPostToDB() {
     let country = document.getElementById("postCountrySelect").value;
     let category = document.getElementById("postCategorySelect").value;
     let description = document.getElementById("postDescription").value;
+    let coverImage = document.getElementById("newPostBigPicture").style.backgroundImage;
     let newPost = {
         //id:, //post ID läggs till i php:n
         creatorId: mainUserID,
@@ -71,8 +72,8 @@ function newPostToDB() {
         country: country,
         category: category,
         description: description,
-        coverImage: "",
-        otherImage: []
+        coverImage: coverImage,
+        otherImage: otherImage
     };
     return newPost;
 }
@@ -80,22 +81,24 @@ function newPostToDB() {
 
 //eventhandlers
 
-addNewImg.addEventListener("click", chooseImg, false);
+// addNewImg.addEventListener("click", chooseImg, false);
 
-// addNewImg.addEventListener("mouseenter", function(e){
-//     console.log(this.id);
-//     if (e.target !== e.currentTarget && e.target.id !== "newPostPics") {
-//         console.log(this.id);
-//     }
-//     // e.stopPropagation();
-    
-//     // document.getElementById(this.id).
-// });
+addNewImg.addEventListener("click", function(e){
+    e.stopPropagation();
+    if (e.target !== e.currentTarget && e.target.id !== "newPostPics" && e.target.className !== "newPostUp" && e.target.className !== "imgTrash") {
+        if (e.target.classList.contains("filled")) { //om redan bild i, då ska inte dialogrutan komma upp igen
+            console.log(`${e.target.id} is filled`);
+        } else {
+            chooseImg(e);
+        }
+    }
+});
 
 fileInput.addEventListener("change", uploadImg, false);
 
 //om man klickar på bilden och background-img är add.png, då ska funktionen uploadImg anropas. annars ingen klick och vid hover dyker trash-containern upp. vid klick på trash, delete-anrop, där man tar bort bilden med unlink --> problem med vanilla.. får ej fram vilken bakgrundsbild som elementet har, eventuellt lägga en class på diven när den fylls och sedan tas bort igen när den är empty --> if element hasClass --> då ska trashcan dyka upp, och ingen chooseimg, 
 
+//när man klickar på post-btn i skapa ny post
 newPostForm.addEventListener("submit", function(e){
     e.preventDefault();
     let testOne = newPostToDB();
