@@ -31,9 +31,11 @@ body {
     height: 100%
 }
 
+/*
 #homeSearchBox, #homeCategoryBar, #homeBarTitle, #homeBarCategories, #homeCategoryBox, #homeCategoryIcon, #homeCategoryTitle, #homefeedBox, #homeFeedGrid, #homeFeedInfo, #homeFeedTitle, #homeFeedView  {
     border: 1px solid black;
 }
+*/
 
 #sideBar {
     background-color: white;
@@ -131,6 +133,7 @@ body {
     cursor: text;
     color: white;
     font-size: .6rem;
+    margin: 1vw 0 0 .5vw;
 }
 
 #countryTitle {
@@ -140,7 +143,7 @@ body {
 
 
 .categoryBar {
-    margin: .5vw;
+    margin: .5vw 0 1vw 0;
 }
 
 .barCategories {
@@ -150,6 +153,7 @@ body {
 .barTitle {
     color: white;
     font-family: "Mulish";
+    margin:  0 0 1vw 1vw;
 }
 
 
@@ -202,7 +206,7 @@ body {
 .feedInfo {
     display: flex;
     color: white;
-    margin: .5vw;
+    margin: 1vw;
 }
 
 .feedGrid {
@@ -317,6 +321,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     width: 8vw;
     background-color: white;
     background-size: cover;
+    background-position: center;
     border-radius: 100px;
 }
 
@@ -379,7 +384,8 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 .feedView {
-    margin-left: 10px;
+    font-size: .8rem;
+    display: flex;
 }
 
 /* slider -> sidebar */
