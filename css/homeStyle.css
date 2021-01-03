@@ -285,6 +285,19 @@ tas bort då det är samma classer för båda sidor. // jass */
     margin-bottom: 2px;
 }
 
+.polaroidIcon {
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+}
+
+.polaroidIcon > div {
+    width: 1.2vw;
+    height: 1.2vw;
+    background-size: cover;
+    margin-top: 3px;
+}
+
 /* PROFILE TOP */
 
 #profileContainer {
