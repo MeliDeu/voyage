@@ -12,7 +12,8 @@ let STATE = {
     pictureUpload: {
         clickedDiv: false,
         newPics: []
-        }
+        },
+    sideBarMarked: false,
 };
 
 // ta bort plus på costa+rica
@@ -26,14 +27,19 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     viewing.innerHTML = "All posts";
 
     if (sort !== undefined) { 
+        //console.log(countryParameter);
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
             grid.innerHTML = "No posts";
         }
 
+        if (countryParameter !== "false") { //om man har klickat på ett land SAMT klickar på en kategori så filtrerar vi arrayen på landet man är på
+            copyPosts = copyPosts.filter(p => p.country == countryParameter); 
+        }
+
         //byta ut all posts till viewing land/det som söktes på. Eftersom att om man klickar på ett användarnamn kommer man till deras profil och då kan det stå all posts fortfarande, när man väljer travelCategory syns det genom grå markering
-        viewing.innerHTML = "Reset filter"; //detta ska alltså endast ske om man tryckt på ett land eller sökfunktionen, hur kollar vi det?.../kaj
+        viewing.innerHTML = "Reset filter";
 
         function viewAll(){
 
@@ -52,26 +58,40 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     }
 
     copyPosts.forEach(post => {
-        grid.append(post.htmlElement(STATE.users));
+        grid.prepend(post.htmlElement(STATE.users));
     });
 }
 
 
 // funktion för att ta fram travel category / album cirklarna
-function loadCircles(array, album){ //array: antingen travelCategoriesArray eller db -> user.album
+function loadCircles(array, sort, country){ //array: antingen travelCategoriesArray eller db -> user.album
     let categoryBar = document.getElementById("barCategories");
 
-    if (album !== undefined) {
+    if (sort == "album") {
         array.forEach(element => {
             let constructor = new Album(element);
             categoryBar.append(constructor.html());
         })
-    } else {
+    } else if (sort == "country") {
+ 
+        array.forEach(category => {
+            let categoryExists = STATE.allPosts.some(post => {
+                return post.country == country && post.categoryID == category.categoryID;
+            })
+            if (categoryExists) {
+                let constructor = new TravelCategory(category);
+                categoryBar.append(constructor.html(country));
+            }
+        })
+    }
+    else {
         array.forEach(element => {
             let constructor = new TravelCategory(element);
             categoryBar.append(constructor.html());
         })
     }
+
+    //if det finns en post i allposts (some) ska cirkeln dyka upp
 }
 
 
@@ -82,6 +102,58 @@ function getUserObjectByID(id){
 
     return user;
 }
+
+//Sök funktionen
+document.getElementById('homeSearchField').addEventListener('focus', function(event){
+    let request = new Request("../admin/api.php")
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        console.log(resource.data.posts)
+        document.getElementById('homeSearchField').addEventListener('keyup', function(){
+            let inputText = document.getElementById('homeSearchField').value;
+            //console.log(inputText)
+            resource.data.posts.forEach(function(param){
+                let postInfo = param.country + param.title + param.description
+                let searchSmall = postInfo.toLowerCase();
+                //console.log(searchSmall)
+
+                if (postInfo.includes(inputText)){
+                    //console.log(param)
+                    searchPress(param.postID)
+                } else if (searchSmall.includes(inputText)){
+                    console.log(param)
+                    //Laddar endast sista posten men fungerar!
+                    searchPress(param.postID)
+                }
+
+
+            })
+            
+        })
+    })
+
+    
+})
+//CLICK vid sök
+document.getElementById("searchButton").addEventListener('click', function(){
+    //loadPosts(STATE.allPosts)
+    
+    console.log('hej')
+})
+
+//Click event för att trigga söket
+function searchPress(id){
+    document.getElementById('homeSearchField').addEventListener('keyup', function (event){
+        event.preventDefault();
+      if (event.keyCode == 13) {
+        document.getElementById("searchButton").click();
+        loadPosts(STATE.allPosts, "postID", id);
+      }
+    });
+  }
 
 // Redigera sin profil
 function editProfile(){
@@ -106,21 +178,27 @@ function editProfile(){
     let inputFavs = document.getElementsByClassName("patchFavs");
     let inputWishes = document.getElementsByClassName("patchWishes");
     for(let i=0; i<3; i++){
+        //FAVS
         //adderar classen hide på alla elementen & show till input fälten
         let topFavsText = document.getElementsByClassName("topFavsList")[i].innerHTML;
         topFavs[i].classList.add("hide");
         inputFavs[i].value = topFavsText;
         inputFavs[i].classList.remove("hide");
         inputFavs[i].classList.add("show");
-        //inputFavs[i].innerHTML = topFavsText + [i];
-    }
-    for(let i=0; i<3; i++){
+        //WISHES
         let topWishesText = document.getElementsByClassName("topWishesList")[i].innerHTML;
         topWishes[i].classList.add("hide");
         inputWishes[i].value = topWishesText;
         inputWishes[i].classList.remove("add");
         inputWishes[i].classList.add("show");
     }
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('hide');
+    upload.classList.add('show');
+    //saveButton.classList.remove('hide');
+    //saveButton.classList.add('show');
     saveNewBio();
 
 
@@ -133,6 +211,9 @@ function editProfile(){
 function saveNewBio(){
     let saveBio = document.getElementById("saveBio");
     saveBio.addEventListener('click', function(){
+
+    document.getElementById('uploadProfilePic').submit();
+    //saveProfilePic()
     //kalla på patch funktionen för att uppdatera databasen
     patchBio()
 
@@ -152,6 +233,7 @@ function saveNewBio(){
     let inputFavs = document.getElementsByClassName("patchFavs");
     let inputWishes = document.getElementsByClassName("patchWishes");
     for(let i=0; i<3; i++){
+        //FAVS
         //adderar classen hide på alla elementen & show till input fälten
         let topFavsText = document.getElementsByClassName("patchFavs")[i].value;
         topFavs[i].classList.remove("hide");
@@ -159,9 +241,7 @@ function saveNewBio(){
         topFavs[i].innerHTML = topFavsText;
         inputFavs[i].classList.remove("show");
         inputFavs[i].classList.add("hide");
-        //inputFavs[i].innerHTML = topFavsText + [i];
-    }
-    for(let i=0; i<3; i++){
+        //WISHES
         let topWishesText = document.getElementsByClassName("patchWishes")[i].value;
         topWishes[i].classList.remove("hide");
         topWishes[i].classList.add("show");
@@ -169,11 +249,43 @@ function saveNewBio(){
         inputWishes[i].classList.remove("show");
         inputWishes[i].classList.add("hide");
     }
-
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('show');
+    upload.classList.add('hide');
+    //saveButton.classList.remove('show');
+    //saveButton.classList.add('hide');
     
-    //profileBio.innerHTML = 
 })
 }
+
+//Click för att ladda upp profilbild
+//function saveProfilePic(){
+
+//}
+
+let uploadForm = document.getElementById('uploadProfilePic');
+document.getElementById('uploadProfilePic').addEventListener('submit', function(event){
+    event.preventDefault();
+
+    let form = uploadForm[0];
+
+    let formData = new FormData(form);
+    console.log(formData)
+
+    let request = new Request("../admin/api.php",{
+        method: "POST",
+        body: formData
+    });
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        console.log(resource)
+    })
+})
 
 // click för att öppna/stänga slide i sidebar
 let slider = document.getElementById('slider');
@@ -206,6 +318,33 @@ document.getElementById("add").addEventListener("click", function(){
 document.getElementById("postClose").addEventListener("click", function(){
     document.getElementById("newPostOverlay").style.display = "none";
 });
+// clickfunktion för sidebar
+// hämtar alla element med class .icon
+let sideBarIcon = document.querySelectorAll('.icon');
+console.log(sideBarIcon)
+// loopar alla för att ge alla ett klickevent
+sideBarIcon.forEach(function(element){
+    element.addEventListener('click', function() {
+        // Vid klick ska classen .active tas bort från alla element - därav loop igen
+        sideBarIcon.forEach(function(el){
+            el.removeAttribute('class', 'active')
+            // var tvungen att lägga till class .icon igen för den togs bort vid ovan linje
+            el.setAttribute('class', 'icon')
+            // child = varje elements barn (den div där iconen ligger)
+            let child = el.children[0]
+            // id = divens id
+            let childName = child.id
+            // sätter alla iconer till svart
+            child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
+        });
+        // endast det element som är klickat ska få class .active & vit icon
+        this.setAttribute('class', 'icon active');
+        let child = this.children[0]
+        let childName = child.id
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+    });
+})
+
 
 //Click event för att ändra på sin profil
 let edit = document.getElementById("profileSettings");

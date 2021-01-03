@@ -30,7 +30,6 @@ window.onload = function(){
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
         checkURL()
-
     });
 }
 
@@ -51,6 +50,9 @@ function checkURL(){
 
             loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
         }
+    } else if (countryParameter !== "false") {
+        loadPosts(STATE.allPosts, "country", countryParameter);
+        loadCircles(travelCategoriesArray, "country", countryParameter);
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
@@ -120,7 +122,7 @@ function patchBio(){
         console.log(resource);
     })
 }
-function getDatabaseJS(data){
+function getDatabaseJS(){
     let request = new Request("../admin/api.php")
     fetch(request)
     .then(response =>{
@@ -128,8 +130,7 @@ function getDatabaseJS(data){
     })
     .then(resource =>{
         //console.log(resource)
-        data = resource
-        return data
+        return resource
     })
 }
 getDatabaseJS();
