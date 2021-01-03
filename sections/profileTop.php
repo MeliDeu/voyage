@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $database = getDatabase(); //hämtar databasen
 
     $bio = false;
