@@ -5,7 +5,7 @@
 <div id='sideBar'>
     <div id="sideBarLogo" class="logo">V</div>
     <div id=sideBarNav>
-        <a id="homeNavBtn" class='icon active' href='../home.php'><div id="home"></div></a>
+        <a id="homeNavBtn" class='icon' href='../home.php'><div id="home"></div></a>
         <div id="countriesNavBtn" class='icon'><div id="countries"></div></div> <!--vid klick ska ett sidoblock öppnas med länder som finns, iconen behöver ej vara länk bara display block på sidoblocket-->
         <a id="profileNavBtn" class='icon' href='<?php echo "../home.php?profile=$userID";?>'><div id="profile"></div></a> <!--vid klick kollas get-parameter i home.php och inkluderar då profileTop samt byter till albumcirklar-->
         <div class='icon'><div id="add"></div></div> <!--vid klick ska modalfönster öppnas, behöver ej vara länk, bara display block på elementet-->
