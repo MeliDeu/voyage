@@ -22,7 +22,7 @@
 
 <div id='profileBox'>
     <div id='profilePicBox'>
-        <div id='profilePic'><img src="<?php echo $profilePic; ?>" alt="Profile Picture"></div>
+        <div id='profilePic' style='background-image: url(<?php echo $profilePic; ?>)'></div>
         <div>
             <form id='uploadProfilePic' method='POST'>
                 <input id="fileInfo" class='hide' type="file" name="file"><br>

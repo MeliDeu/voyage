@@ -317,6 +317,8 @@ tas bort då det är samma classer för båda sidor. // jass */
     width: 8vw;
     background-color: white;
     border-radius: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #profileBox, #profileFavs, #profileInterest {
