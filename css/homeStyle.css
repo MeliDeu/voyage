@@ -305,7 +305,6 @@ tas bort då det är samma classer för båda sidor. // jass */
     color: white;
 }
 #profileBox{
-    width: 30vw;
     display: flex;
     justify-content: space-between;
     margin: 1.5vw;
@@ -353,10 +352,9 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileFavs {
-    margin: 25px 0 0 4vw;
-    width: 200px;
     display: flex;
     justify-content: space-around;
+    margin: 2vw;
 }
 #profileFavs > div > span {
     display: flex;
@@ -366,7 +364,12 @@ tas bort då det är samma classer för båda sidor. // jass */
 }
 
 #profileInfo, #profileName, #profileBio, #profileInterest, #profileFavs, #profileBox, #profilePic, #profileInfo, #profileContainer {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+}
+#saveBio{
+    margin: 2vw 0 0 20vw;
+    height: 25px;
+    width: 50px;
 }
 
 #profileSettings {

@@ -79,6 +79,6 @@
     </div>
 
     <div id='profileSettings'></div>
-    <button id='saveBio' class='hide'></button>
+    <button id='saveBio' class='hide'>Save</button>
 </div>
  
