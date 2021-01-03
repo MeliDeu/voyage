@@ -22,6 +22,10 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     grid.innerHTML = ""; //tömmer gridden
     let copyPosts = [...posts]; //kopierar arrayen som skickats
 
+    if (copyPosts.length == 0) {
+        grid.innerHTML = "No posts";
+    }
+
     let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
     viewing.innerHTML = "All posts";
 
@@ -186,6 +190,27 @@ countriesArray.forEach(function(country){
 // hämtar alla element med class .icon
 let sideBarIcon = document.querySelectorAll('.icon');
 // loopar alla för att ge alla ett klickevent
+
+function markIconNav(element){
+    sideBarIcon.forEach(function(el){
+        el.removeAttribute('class', 'active')
+        // var tvungen att lägga till class .icon igen för den togs bort vid ovan linje
+        el.setAttribute('class', 'icon')
+        // child = varje elements barn (den div där iconen ligger)
+        let child = el.children[0]
+        // id = divens id
+        let childName = child.id
+        // sätter alla iconer till svart
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
+    });
+    
+    element.setAttribute('class', 'icon active');
+    let child = element.children[0]
+    let childName = child.id
+    child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+
+}
+
 sideBarIcon.forEach(function(element){
     element.addEventListener('click', function() {
         // Vid klick ska classen .active tas bort från alla element - därav loop igen

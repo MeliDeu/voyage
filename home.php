@@ -20,6 +20,7 @@
             let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
             let profileParameter = "<?php echo isset($_GET["profile"]) ? $_GET["profile"] : "false";?>"; //av någon anledning behövde jag kaninöron utanför../kaj
             let countryParameter = "<?php echo isset($_GET["country"]) ? $_GET["country"] : "false";?>"; 
+            let savedParameter = "<?php echo isset($_GET["saved"]) ? $_GET["saved"] : "false";?>"; 
         </script> 
 
         <div id='homeWrapper'>
@@ -67,7 +68,7 @@
                             <h3 id="countryTitle"><?php echo $_GET["country"] ?></h3>
                         </div>  
 
-                    <?php } else { ?>
+                    <?php } elseif (empty($_GET)) { ?>
                         <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
                         <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
                         
@@ -85,6 +86,8 @@
                         <div class='barTitle'>
                             <?php if (isset($_GET["profile"])) { 
                                 echo "Album";
+                            } elseif (isset($_GET["saved"])) {
+                                echo "Saved posts";
                             } else { 
                                 echo "Travel categories";
                              } ?>

@@ -39,6 +39,7 @@ function checkURL(){
         let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
         let albumArray = user.album;
         loadCircles(albumArray, "album");
+        markIconNav(document.getElementById("profileNavBtn"));
 
         if (profileParameter == mainUserID) {
             loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
@@ -54,9 +55,14 @@ function checkURL(){
     } else if (countryParameter !== "false") {
         loadPosts(STATE.allPosts, "country", countryParameter);
         loadCircles(travelCategoriesArray, "country", countryParameter);
+        markIconNav(document.getElementById("countriesNavBtn"));
+    } else if (savedParameter !== "false") {
+        loadPosts(STATE.mainUserSavedPosts);
+        markIconNav(document.getElementById("savedNavBtn"));
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
+        markIconNav(document.getElementById("homeNavBtn"));
     }
 }
 
