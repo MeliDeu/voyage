@@ -260,6 +260,45 @@ function saveNewBio(){
 })
 }
 
+//här görs options i newPostContainern, där respektive array skickas med samt i vilken container de options ska appendas
+function makePostOptions(element, container){
+    // if (container === "STATE.countries"){
+    //     arr.forEach(element => {
+    //         let newOption = document.createElement("option");
+    //         newOption.innerHTML = element;
+    //         newOption.setAttribute("value", element);
+    //         newOption.setAttribute("name", element);
+    //         container.appendChild(newOption);
+    //     });
+    // } else {
+        
+    // }
+    let newOption = document.createElement("option");
+    newOption.innerHTML = element;
+    newOption.setAttribute("value", element);
+    newOption.setAttribute("name", element);
+    container.appendChild(newOption);
+    
+}
+
+//öppnar modalfönstret för ny Post
+document.getElementById("add").addEventListener("click", function(){
+    let optionsCategory = document.getElementById("postCategorySelect");
+    let optionsCountry = document.getElementById("postCountrySelect");
+    STATE.countries.forEach(country => {
+        makePostOptions(country, optionsCountry);
+    });
+    travelCategoriesArray.forEach(category => {
+        makePostOptions(category.travelCategory, optionsCategory);
+    });
+    document.getElementById("newPostOverlay").style.display = "flex";
+});
+
+//stänger modalfönstret för ny Post
+document.getElementById("postClose").addEventListener("click", function(){
+    document.getElementById("newPostOverlay").style.display = "none";
+});
+
 //Click för att ladda upp profilbild
 //function saveProfilePic(){
 
@@ -308,16 +347,7 @@ countriesArray.forEach(function(country){
     sliderList.append(newLi);
 })
 
-//öppnar modalfönstret för ny Post
-document.getElementById("add").addEventListener("click", function(){
-    //istället toggle classlist
-    document.getElementById("newPostOverlay").style.display = "flex";
-});
 
-//stänger modalfönstret för ny Post
-document.getElementById("postClose").addEventListener("click", function(){
-    document.getElementById("newPostOverlay").style.display = "none";
-});
 // clickfunktion för sidebar
 // hämtar alla element med class .icon
 let sideBarIcon = document.querySelectorAll('.icon');

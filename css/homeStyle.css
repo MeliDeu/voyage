@@ -538,7 +538,7 @@ tas bort då det är samma classer för båda sidor. // jass */
     background-position: center;
 }
 
-.nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select {
+.nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
     cursor: pointer;
 }
 
