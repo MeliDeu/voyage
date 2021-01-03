@@ -27,7 +27,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     }
 
     let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
-    viewing.innerHTML = "All posts";
+    viewing.innerHTML = "All Posts";
 
     if (sort !== undefined) { 
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
