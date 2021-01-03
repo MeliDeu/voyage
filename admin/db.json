@@ -14,7 +14,7 @@
                 "Mexico"
             ],
             "top3Favs": [
-                "Barcelona",
+                "Paris",
                 "Machu Pichu",
                 "Tokyo"
             ],
@@ -156,6 +156,11 @@
             "country": "Costa Rica",
             "categoryID": "1",
             "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"
+        }
+    ],
+    "profilePic": [
+        {
+            "profilePic": "uploads\/"
         }
     ]
 }

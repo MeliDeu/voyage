@@ -111,6 +111,13 @@ function editProfile(){
         inputWishes[i].classList.remove("add");
         inputWishes[i].classList.add("show");
     }
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('hide');
+    upload.classList.add('show');
+    //saveButton.classList.remove('hide');
+    //saveButton.classList.add('show');
     saveNewBio();
 
 
@@ -123,6 +130,9 @@ function editProfile(){
 function saveNewBio(){
     let saveBio = document.getElementById("saveBio");
     saveBio.addEventListener('click', function(){
+
+    document.getElementById('uploadProfilePic').submit();
+    //saveProfilePic()
     //kalla på patch funktionen för att uppdatera databasen
     patchBio()
 
@@ -157,10 +167,44 @@ function saveNewBio(){
         topWishes[i].innerHTML = topWishesText;
         inputWishes[i].classList.remove("show");
         inputWishes[i].classList.add("hide");
-
     }
+    //PROFILE UPLOAD
+    let upload = document.getElementById('fileInfo');
+    //let saveButton = document.getElementById('savePic');
+    upload.classList.remove('show');
+    upload.classList.add('hide');
+    //saveButton.classList.remove('show');
+    //saveButton.classList.add('hide');
+    
 })
 }
+
+//Click för att ladda upp profilbild
+//function saveProfilePic(){
+
+//}
+
+let uploadForm = document.getElementById('uploadProfilePic');
+uploadForm.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    let form = uploadForm[0];
+
+    let formData = new FormData(form);
+    console.log(formData)
+
+    let request = new Request("../admin/api.php",{
+        method: "POST",
+        body: formData
+    });
+    fetch(request)
+    .then(response =>{
+        return response.json();
+    })
+    .then(resource =>{
+        console.log(resource)
+    })
+})
 
 // click för att öppna/stänga slide i sidebar
 let slider = document.getElementById('slider');

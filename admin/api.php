@@ -84,6 +84,73 @@ if ($method === "GET") {
 
 if ($method === "POST") {
 
+    if (isset($_FILES['file'])) {
+
+        $currentUser = false;
+        $thisOne = false;
+
+        foreach($database["users"] as $index => $user){
+            if ($user['id'] == $json['id']) {
+                $currentUser = $user;
+                $thisOne = $index;
+            }
+        }
+
+        $folder = "uploads/";
+        $name = $_FILES['file']['name'];
+        $tmp = $_FILES['file']['tmp_name'];
+        $fileName = $folder . $name;
+
+        //Kolla filstorlek på filen samt filändelse
+        $size = $_FILES["file"]["size"]; //Sparar storleken på bilden
+        $info = pathinfo($name); 
+        $ext = $info["extension"]; //Sparar filens filändelse
+
+        $allowedExts = ["jpg", "jpeg", "png"];
+
+        if ($size > 500000) { //KONTROLLERA FILSTORLEK! FIL FÅR EJ VARA MER 500KB
+            http_response_code(400);
+            //header("Content-Type: application/json");
+            $message = [
+                "errors" => ["Max file size is 500kb"]
+            ];
+            echo json_encode($message);
+            exit();
+        }
+        /*if (!in_array($ext, $allowedExts)) { //KONTROLLERA FILÄNDELSE! 
+            http_response_code(400);
+            //header("Content-Type: application/json");
+            $message = [
+                "errors" => ["File format not supported. Supported file formats: jpg, jpeg and png"]
+            ];
+            echo json_encode($message);
+            exit();
+        }*/
+        if (file_exists($fileName)) { //KONTROLLERA OM FILNAMN ÄR UPPTAGET! 
+            http_response_code(400);
+            //header("Content-Type: application/json");
+            $message = [
+                "errors" => ["File name already exists"]
+            ];
+            echo json_encode($message);
+            exit();
+        }
+        move_uploaded_file($tmp, $folder . $name);
+
+        $newProfilePic = $database["profilePic"][$thisOne]["profilePic"] = $fileName;
+
+        $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
+        file_put_contents($file, $dataJSON);
+        http_response_code(201);
+        //header("Content-Type: application/json");
+        $message = [
+            "data" => $newData
+        ];
+        echo json_encode($message);
+        //var_dump($message);
+        exit();
+        }
+
     // NY ANVÄNDARE – kontrollera:
         // Innehåll i input (fås från login.php)
         // Skapa nytt ID
@@ -185,11 +252,8 @@ if ($method === "POST") {
 if ($method === "PATCH") {
 
     // ÄNDRA PROFIL(bio, top3wishes, top3favs)
-    // $_PATCH[”changeProfile”] (changeProfile?=param) 
 
     $currentUser = false;
-    //$userID = $_SESSION["userID"];
-    //var_dump($userID);
     $thisOne = false;
 
     foreach($database["users"] as $index => $user){
@@ -198,10 +262,27 @@ if ($method === "PATCH") {
             $thisOne = $index;
         }
     }
+    //PROFILBILD
+    //Skickar feedback till användaren om de ej fyllt i alla fält
+    /*if ($_FILES["file"]["error"] !== 0) {
+        //Om file error inte är 0, så har något gått snett
+        http_response_code(400);
+        //header("Content-Type: application/json");
+        $message = [
+            "errors" => ["All fields must to be filled out"]
+        ];
+        echo json_encode($message);
+        exit();
+        //Använder nycklarna data och errors för att berätta för användaren om något gått snett eller ok, skickar det som message till användaren
+    }*/
+
+    
+
     //Sparar den nya informationen i databasen
     $newDataBio = $database["users"][$thisOne]["bio"] = $json["bio"];
     $newWhises = $database["users"][$thisOne]["top3Wishes"] = $json["top3Wishes"];
     $newFavs = $database["users"][$thisOne]["top3Favs"] = $json["top3Favs"];
+    
 
     $newData = $database["users"][$thisOne];
     
