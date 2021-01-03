@@ -65,7 +65,7 @@
                         <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
                         
                         <div id='homeSearchBox' class='searchBox'>
-                            <input id='homeSearchField' placeholder=' Search country'>
+                            <input id='homeSearchField' placeholder=' Search'>
                             <button class='hide' id='searchButton'></button>
                         </div>  
 
