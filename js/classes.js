@@ -64,7 +64,7 @@ class PolaroidStatic extends PolaroidBase{
                         //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
                         let polaroidUserName = document.createElement("a");
                         // Här sätts a länk som innehåller en get-parameter som kollas i home.php
-                        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`)
+                        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`);
                         polaroidUserName.innerHTML = `${userInfo.username}`;
                         polaroidUserName.classList.add("polaroidUserName");
 
@@ -74,7 +74,8 @@ class PolaroidStatic extends PolaroidBase{
                     let polaroidText = document.createElement("div");
                     polaroidText.classList.add("polaroidText", "flexCenter");
                         //.polaroidCountry
-                        let polaroidCountry = document.createElement("div");
+                        let polaroidCountry = document.createElement("a");
+                        polaroidCountry.setAttribute('href', `../home.php?country=${this.country}`)
                         polaroidCountry.innerHTML = `${this.country}`;
                         polaroidCountry.classList.add("polaroidCountry");
                         //.polaroidTitle
