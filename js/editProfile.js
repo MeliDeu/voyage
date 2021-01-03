@@ -14,8 +14,10 @@ function editProfile(){
     let saveBio = document.getElementById("saveBio");
     saveBio.classList.remove('hide');
     saveBio.classList.add('show');
-    //saveBio.setAttribute("id", "saveBio");
-    //document.getElementById("profileContainer").appendChild(saveBio);
+    //EDIT
+    let settings = document.getElementById('profileSettings');
+    settings.classList.add('hide');
+
     //TOP FAVS & WISHES
     let topFavs = document.getElementsByClassName("topFavsList");
     let topWishes = document.getElementsByClassName("topWishesList");
@@ -41,14 +43,7 @@ function editProfile(){
     //let saveButton = document.getElementById('savePic');
     upload.classList.remove('hide');
     upload.classList.add('show');
-    //saveButton.classList.remove('hide');
-    //saveButton.classList.add('show');
     saveNewBio();
-
-
-     // Hämtar innehållet från bio text
-    //Byt ut bioDiv till ett input fält med det innehållet som fanns sedan innan
-    //Sen när användaren trycker på spara så byt tillbaka till en vanlig div igen
 }
 
 //Click event för att spara den nya informationen i bio
@@ -64,6 +59,11 @@ function saveNewBio(){
     //Ändra tillbaka till vanliga div och li element
     saveBio.classList.remove('show');
     saveBio.classList.add('hide');
+
+    let settings = document.getElementById('profileSettings');
+    settings.classList.add('show');
+    settings.classList.remove('hide');
+
     let patchBioField = document.getElementById("patchBio")
     let patchBioText = patchBioField.value;
     patchBioField.classList.remove("show");
@@ -98,16 +98,8 @@ function saveNewBio(){
     //let saveButton = document.getElementById('savePic');
     upload.classList.remove('show');
     upload.classList.add('hide');
-    //saveButton.classList.remove('show');
-    //saveButton.classList.add('hide');
-    
 })
 }
-
-//Click för att ladda upp profilbild
-//function saveProfilePic(){
-
-//}
 
 
 let uploadForm = document.getElementById('uploadProfilePic');
