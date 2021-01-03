@@ -59,7 +59,15 @@
                             // Loopa postArray för att se vilka som har matchande creatorId med $loggedInId
 
                         }
-                    } else { ?>
+                    } elseif (isset($_GET["country"])){ ?>
+                        <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
+                        <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
+                        
+                        <div id='homeSearchBox' class='searchBox'>
+                            <h3 id="countryTitle"><?php echo $_GET["country"] ?></h3>
+                        </div>  
+
+                    <?php } else { ?>
                         <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
                         <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
                         
