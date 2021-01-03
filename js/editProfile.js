@@ -102,7 +102,7 @@ function saveNewBio(){
 }
 
 
-let uploadForm = document.getElementById('uploadProfilePic');
+//let uploadForm = document.getElementById('uploadProfilePic');
 document.getElementById('uploadProfilePic').addEventListener('submit', function(event){
     event.preventDefault();
 
@@ -122,6 +122,7 @@ document.getElementById('uploadProfilePic').addEventListener('submit', function(
     .then(resource =>{
         console.log(resource)
     })
+    return false
 })
 
 

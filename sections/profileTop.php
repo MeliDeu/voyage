@@ -25,7 +25,7 @@
     <div id='profilePicBox'>
         <div id='profilePic' style='background-image: url(<?php echo $profilePic; ?>)'></div>
         <div>
-            <form id='uploadProfilePic' method='POST'>
+            <form id='uploadProfilePic' method='POST' onsubmit="return FUNCTION()">
                 <input id="fileInfo" class='hide' type="file" name="file"><br>
                 <button type='submit' class='hide' id='savePic'>Save</button>
             </form>
