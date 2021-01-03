@@ -121,10 +121,11 @@ document.getElementById('homeSearchField').addEventListener('focus', function(ev
 
                 if (postInfo.includes(inputText)){
                     //console.log(param)
-                    searchPress()
+                    searchPress(param.postID)
                 } else if (searchSmall.includes(inputText)){
                     console.log(param)
-                    searchPress()
+                    //Laddar endast sista posten men fungerar!
+                    searchPress(param.postID)
                 }
 
 
@@ -137,16 +138,18 @@ document.getElementById('homeSearchField').addEventListener('focus', function(ev
 })
 //CLICK vid sök
 document.getElementById("searchButton").addEventListener('click', function(){
-    loadPosts(STATE.allPosts)
+    //loadPosts(STATE.allPosts)
+    
     console.log('hej')
 })
 
 //Click event för att trigga söket
-function searchPress(){
+function searchPress(id){
     document.getElementById('homeSearchField').addEventListener('keyup', function (event){
         event.preventDefault();
       if (event.keyCode == 13) {
         document.getElementById("searchButton").click();
+        loadPosts(STATE.allPosts, "postID", id);
       }
     });
   }
@@ -262,7 +265,7 @@ function saveNewBio(){
 //}
 
 let uploadForm = document.getElementById('uploadProfilePic');
-uploadForm.addEventListener('submit', function(event){
+document.getElementById('uploadProfilePic').addEventListener('submit', function(event){
     event.preventDefault();
 
     let form = uploadForm[0];
