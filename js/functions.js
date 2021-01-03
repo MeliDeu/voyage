@@ -281,7 +281,7 @@ function makePostOptions(element, container){
     
 }
 
-//öppnar modalfönstret för ny Post
+//öppnar modalfönstret för ny Post samt laddar in alla länder och categories
 document.getElementById("add").addEventListener("click", function(){
     let optionsCategory = document.getElementById("postCategorySelect");
     let optionsCountry = document.getElementById("postCountrySelect");

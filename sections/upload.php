@@ -37,35 +37,35 @@
                 <div id="newPostContent" class="newPostMiddle">
                     <div id="countryAndCategory">
                         <div id="postCountry">
-                            <label for="">Select country</label>
+                            <label for="postCountrySelect">Select country</label>
                             <select name="" id="postCountrySelect">
                                 <!-- options for all the available countries  -->
                             </select>
                         </div>
                         <div id="postCategory">
-                            <label for="">Select travel category</label>
-                            <select name="" id="postCategorySelect">
+                            <label for="postCategorySelect">Select travel category</label>
+                            <select name="category" id="postCategorySelect">
                                 <!-- options for all the available categories  -->
                             </select>
                         </div>
                     </div>
                     <div id="postTitle">
-                        <label>Title</label>
-                        <input type="text" placeholder="Title">
+                        <label for="postRubrik">Title</label>
+                        <input type="text" placeholder="Title" name="title" id="postRubrik">
                     </div>
                     <div id="postAlbum">
-                        <label for="">Select album</label>
-                        <select name="" id="postAlbumSelect">
+                        <label for="postAlbumSelect">Select album</label>
+                        <select name="album" id="postAlbumSelect">
                             <!-- options for all the available albums -->
                         </select>
                     </div>
-                    <div id="postDescription">
-                        <label>Share something about your journey</label>
+                    <div id="postDesc">
+                        <label for="postDescription">Share something about your journey</label>
                         <textarea name="postDescription" id="postDescription" cols="30" rows="10"></textarea>
                     </div>
                 </div>
-                <div id="newPostSubmit" class="newPostDown">
-                    <button type="submit">post</button>
+                <div class="newPostDown">
+                    <button type="submit" id="newPostSubmit">post</button>
                 </div>
             </form>
             

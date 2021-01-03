@@ -5,17 +5,9 @@ const nyImg = document.getElementById("newPostPics");
 const hiddenForm = document.getElementById("hiddenForm");
 const imgUploadBtn = document.getElementById("hiddenButton");
 let fileInput = document.getElementById("hiddenInput");
+let newPostForm = document.getElementById("postInformation");
+let newPostButton = document.getElementById("newPostSubmit");
 let currentClickedDiv;
-let newPost = {
-    //id:,
-    //creatorId: , 
-    //rubrik: ,
-    //country; , 
-    //category: ,
-    //coverImg: ,
-    //otherImg: [],
-    //description: , 
-};
 
 //function för att trigga igång val av file 
 function chooseImg(e){
@@ -68,15 +60,21 @@ function uploadImg(){
 //function för att lägga till all info i databasen under posts 
 function newPostToDB() {
     //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas 
-    newPost.ID = " "; //gå igenom alla och ge högsta ID till den nya 
-    newPost.creatorID = loggedInUserID; //loggedInUserID = från upload.php som hämtats in via sessions
-    newPost.date = false; //timestamp för inlägget
-    newPost.description = " ";
-    newPost.rubrik = " ";
-    newPost.travelcategory = " ";
-    newPost.country = " ";
-    //lägga till id på serversidan? för att säkerställa att det verkligen är den högsta siffran
-
+    let title = document.getElementById("postRubrik").value;
+    let country = document.getElementById("postCountrySelect").value;
+    let category = document.getElementById("postCategorySelect").value;
+    let description = document.getElementById("postDescription").value;
+    let newPost = {
+        //id:, //post ID läggs till i php:n
+        creatorId: mainUserID,
+        title: title,
+        country: country,
+        category: category,
+        description: description,
+        coverImage: "",
+        otherImage: []
+    };
+    return newPost;
 }
 
 
@@ -98,3 +96,9 @@ fileInput.addEventListener("change", uploadImg, false);
 
 //om man klickar på bilden och background-img är add.png, då ska funktionen uploadImg anropas. annars ingen klick och vid hover dyker trash-containern upp. vid klick på trash, delete-anrop, där man tar bort bilden med unlink --> problem med vanilla.. får ej fram vilken bakgrundsbild som elementet har, eventuellt lägga en class på diven när den fylls och sedan tas bort igen när den är empty --> if element hasClass --> då ska trashcan dyka upp, och ingen chooseimg, 
 
+newPostForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    let testOne = newPostToDB();
+    console.log(testOne);
+    document.getElementById("newPostOverlay").style.display = "none";
+});
