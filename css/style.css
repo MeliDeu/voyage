@@ -824,7 +824,7 @@ input:checked + .slider:before {
 #newPostOverlay {
     box-sizing: border-box;
     position: absolute;
-    height: 90%;
+    height: 100%;
     background: rgba(0,0,0,.5);
     display: none;
     justify-content: center;
@@ -939,7 +939,7 @@ input:checked + .slider:before {
 
 .imgTrash {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     display: none;
 }

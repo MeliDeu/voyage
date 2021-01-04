@@ -65,6 +65,22 @@ function newPostToDB() {
     let category = document.getElementById("postCategorySelect").value;
     let description = document.getElementById("postDescription").value;
     let coverImage = document.getElementById("newPostBigPicture").style.backgroundImage;
+    let nodes = [];
+    let otherImage = [];
+    let newPicsNodes = nyImg.childNodes;
+    //måste sortera ut de childnodes som är #text, vet dock ej varifrån det kommer
+    for (let i = 0; i < newPicsNodes.length; i++) {
+        if (i%2) {
+            nodes.push(newPicsNodes[i]);
+        }
+    }
+    //spara allas url till backgrundsbilden i otherImage-arr
+    for (let i = 0; i < nodes.length; i++){
+        if (nodes[i].classList.contains("filled")) {
+            otherImage.push(nodes[i].style.backgroundImage);
+        }
+        
+    }
     let newPost = {
         //id:, //post ID läggs till i php:n
         creatorId: mainUserID,
@@ -75,7 +91,17 @@ function newPostToDB() {
         coverImage: coverImage,
         otherImage: otherImage
     };
-    return newPost;
+    // return newPost;
+    let nyRequ = new Request("http://localhost:7070/admin/imgUpload.php", {
+        method: "POST",
+        body: JSON.stringify(newPost),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    });
+    fetch(nyRequ)
+        .then(resp => resp.json())
+        .then(resurs => {
+            console.log(resurs);
+        });
 }
 
 

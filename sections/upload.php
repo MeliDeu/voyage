@@ -1,7 +1,7 @@
 <!-- hiddenform används för att ladda upp bilden  -->
 <form id="hiddenForm">
     <input id="hiddenInput" name="postImageFile" type="file">
-    <button type="submit" id="hiddenButton"></button>
+    <button type="submit" value="uploadImg" id="hiddenButton"></button>
 </form>
 <div id="newPostWrapper">
     <div id="postClose">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="newPostDown">
-                    <button type="submit" id="newPostSubmit">post</button>
+                    <button type="submit" name="postToDB" id="newPostSubmit">post</button>
                 </div>
             </form>
             
