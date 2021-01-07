@@ -134,10 +134,24 @@ class PolaroidFeed extends PolaroidActive{
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
-        icon.style.backgroundImage = "url('../images/stockImages/icons/saved.png')";
+        icon.setAttribute('id', `icon_${this.postID}`);
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
         this.polaroidInfo.append(iconDiv);
+
+        icon.addEventListener('click', function(){
+            let clickedPostId = this.getAttribute('id');
+            let subClicked = clickedPostId.substr(5)
+            console.log(subClicked);
+            
+            // skicka clickedPostId som en post till db -> users -> som har inloggade userID -> saved
+            // sparas i en array i STATE - mainUserSavedPosts
+            postSavedToDB(subClicked)
+            // en funktion ska finnas i functions som placerar pics från den arrayen i saved när man klickar i sidebar
+            // klick igen = avmarkeras och splice från array 
+        })
+
+
         return html;
     }
     //Spara symbol

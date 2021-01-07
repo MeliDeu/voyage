@@ -7,13 +7,14 @@ let STATE = {
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
     countries: [],
-    clickedUserPosts: [], //användarens som man klickar på posts
+    clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
     pictureUpload: {
         clickedDiv: false,
         newPics: []
         }
 };
+
 
 
 //Funktion för att appenda posts i feed
