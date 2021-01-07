@@ -1,32 +1,25 @@
 //Sök funktionen
 document.getElementById('homeSearchField').addEventListener('focus', function(event){
-    let request = new Request("../admin/api.php")
-    fetch(request)
-    .then(response =>{
-        return response.json();
-    })
-    .then(resource =>{
-        console.log(resource.data.posts)
-        document.getElementById('homeSearchField').addEventListener('keyup', function(){
-            let inputText = document.getElementById('homeSearchField').value;
+    //Loopa igenom STATE.allposts för att jämföra ID med min sökning.
+    //isf pusha in ID:et i en array men först töm den så att det inte ligger någon gammal sökning där
+    //Loada sedan posterna med loadposts för att visa de som matchar min söking!
+    document.getElementById('homeSearchField').addEventListener('keyup', function(){
+        let inputText = document.getElementById('homeSearchField').value;
+        STATE.allPosts.forEach(function(param){
+        
             //console.log(inputText)
-            resource.data.posts.forEach(function(param){
-                let postInfo = param.country + param.title + param.description
-                let searchSmall = postInfo.toLowerCase();
-                //console.log(searchSmall)
+            let postInfo = param.country + param.title + param.description
+            let searchSmall = postInfo.toLowerCase();
+            //console.log(searchSmall)
 
-                if (postInfo.includes(inputText)){
-                    //console.log(param)
-                    searchPress(param.postID)
-                } else if (searchSmall.includes(inputText)){
-                    //console.log(param)
-                    //Laddar endast sista posten men fungerar!
-                    searchPress(param.postID)
-                }
-
-
-            })
-            
+            if (postInfo.includes(inputText)){
+                //console.log(param)
+                searchPress(param.postID)
+            } else if (searchSmall.includes(inputText)){
+                //console.log(param)
+                //Laddar endast sista posten men fungerar!
+                searchPress(param.postID)
+            }
         })
     })
 

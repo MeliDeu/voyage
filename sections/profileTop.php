@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $database = getDatabase(); //hämtar databasen
 
     $bio = false;
@@ -50,12 +51,19 @@
             <span>Top favs</span>
             <ul>
             <?php
+            //Om favs finns
             if ($top3Favs) {
                 foreach($top3Favs as $index => $favs){
                     //Loopa igenom array med alla favs för att visa dessa som li element
                     echo "<li class='topFavsList'>$favs</li>";
                     echo "<input class='hide patchFavs'></input>";
                 }
+            }else{//om favs inte finns
+                for($i; $i<3; $i++){
+                    echo "<li class='topFavsList'></li>";
+                    echo "<input class='hide patchFavs'></input>";
+                }
+                
             }
             ?>
                 
@@ -66,12 +74,18 @@
             <span>Top wants</span>
                 <ul>
                 <?php
-                if ($top3Wishes) {
+                if ($top3Wishes) {//Om wishes finns
                     foreach($top3Wishes as $index => $favs){
                         //Loopa igenom array med alla favs för att visa dessa som li element
                         echo "<li class='topWishesList'>$favs</li>";
                         echo "<input class='hide patchWishes'></input>";
                     }
+                }else{//om wishes inte finns
+                    for($i; $i<3; $i++){
+                        echo "<li class='topFavsList'></li>";
+                        echo "<input class='hide patchFavs'></input>";
+                    }
+                    
                 }
                 ?>
                 </ul>
