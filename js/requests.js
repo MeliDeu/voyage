@@ -21,7 +21,7 @@ window.onload = function(){
         db.data.users.forEach(user => { // pushar in användarens sparade i STATE saved
             if (user.id == STATE.mainUserID) {
                 // savedPosts kommer att vara en array av siffror (ppostIDn)
-                console.log(user.savedPosts)
+                //console.log(user.savedPosts)
                 user.savedPosts.forEach(savedPost => {
                     STATE.allPosts.forEach(function(post){
                         if (savedPost.postID == post.postID){
