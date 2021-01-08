@@ -69,6 +69,11 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     copyPosts.forEach(post => {
         grid.prepend(post.htmlElement(STATE.users));
     });
+
+    if(profileParameter == 'false'){
+        checkAndMark();
+    }
+
 }
 
 

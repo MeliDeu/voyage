@@ -45,7 +45,23 @@
                 "Spain",
                 "Morocco"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "12"
+                },
+                {
+                    "postID": "11"
+                },
+                {
+                    "postID": "10"
+                },
+                {
+                    "postID": "9"
+                },
+                {
+                    "postID": "7"
+                }
+            ],
             "album": [
                 {
                     "albumID": 2,
@@ -76,6 +92,18 @@
                 },
                 {
                     "postID": "10"
+                },
+                {
+                    "postID": "6"
+                },
+                {
+                    "postID": "9"
+                },
+                {
+                    "postID": "4"
+                },
+                {
+                    "postID": "2"
                 }
             ],
             "album": []

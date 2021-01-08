@@ -220,6 +220,7 @@ class TravelCategory extends CategoryBox{
             //console.log(country);
             let id = this.id.substr(9);
             loadPosts(STATE.allPosts, "categoryID", id);
+            //checkAndMark();
         })
 
         let icon = document.createElement("div");
