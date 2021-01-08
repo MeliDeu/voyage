@@ -777,7 +777,7 @@ input:checked + .slider:before {
     display: block;
 }
 
-#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings {
+#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
     cursor: pointer;
 }
 
@@ -1052,4 +1052,11 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.markedSaved {
+    background-image: url(../images/stockImages/icons/savedClicked.png);
+}
+.markedUnsaved {
+    background-image: url(../images/stockImages/icons/saved.png);
 }
