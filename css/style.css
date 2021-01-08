@@ -441,7 +441,7 @@ input:checked + .slider:before {
 
 /*CATEGORIES / ALBUM*/
 .categoryBar {
-    margin: 20px 40px;
+    margin: 20px 40px 0 40px;
 }
 
 .barCategories {
@@ -457,11 +457,12 @@ input:checked + .slider:before {
 .categoryBox {
     margin-right: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
     cursor: pointer;
+    height: 7vw;
+    padding: 1vw 1vw 0 1vw;
+    border-radius: 5px 5px 0 0;
 }
 .categoryIcon {
     background-color: white;
@@ -1059,4 +1060,18 @@ textarea {
 }
 .markedUnsaved {
     background-image: url(../images/stockImages/icons/saved.png);
+}
+
+#emailLink {
+    color: white;
+}
+
+.showBG {
+    background-color: rgba(110, 110, 110, 0.251);
+    transition: background-color .3s;
+}
+
+.hideBG {
+    background-color: transparent;
+    transition: background-color .3s;
 }

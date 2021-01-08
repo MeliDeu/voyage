@@ -7,6 +7,7 @@
     $top3Wishes = false;
     $top3Favs = false;
     $profilePic = false;
+    $email = false;
 
     foreach($database['users'] as $index => $user){
         if($user['id'] == $clickedUserId){ //$clickedUserId får sitt värde i home.php
@@ -16,6 +17,7 @@
             $top3Wishes = $user['top3Wishes'];
             $top3Favs = $user['top3Favs'];
             $profilePic = $user['profilePic'];
+            $email = $user['email'];
         }
     }
 ?>
@@ -39,7 +41,7 @@
         <?php if ($travelInterest !== false){ ?>
             <div id='profileInterest'>
                 <div id='interestIcon'></div>
-                <div id='interestText'><?php echo "$username is interested in new travel friends";?></div>
+                <a id='emailLink' href="mailto:<?php echo $email ?>?subject = Feedback&body = Message"><div id='interestText'><?php echo "$username is interested in new travel friends";?></div></a>
             </div>
         <?php } ?>
     </div>
