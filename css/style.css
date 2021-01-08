@@ -1060,3 +1060,7 @@ textarea {
 .markedUnsaved {
     background-image: url(../images/stockImages/icons/saved.png);
 }
+
+#emailLink {
+    color: white;
+}
