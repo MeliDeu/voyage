@@ -434,10 +434,10 @@ input:checked + .slider:before {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 0 15px;
-    
+    color: white;
+    font-family: 'Mulish';
+    font-size: .8rem;
 }
-
-
 
 /*CATEGORIES / ALBUM*/
 .categoryBar {
@@ -466,8 +466,8 @@ input:checked + .slider:before {
 }
 .categoryIcon {
     background-color: white;
-    height: 4.5vw;
-    width: 4.5vw;
+    height: 4vw;
+    width: 4vw;
     border: 3px solid rgba(255, 255, 255, 0.279);
     border-radius: 100px;
     display: flex;
@@ -783,11 +783,11 @@ input:checked + .slider:before {
 }
 
 .feedTitle, .feedView {
-    font-family: var(--styleFont);
+    font-size: .7rem;
+    font-family: 'Mulish';
 }
 
 .feedView {
-    font-size: .9vw;
     display: flex;
 }
 

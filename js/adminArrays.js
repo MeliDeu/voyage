@@ -149,37 +149,37 @@ let travelCategoriesArray = [
     {
         travelCategory: "Safari",
         categoryID: "4",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/safari.png"
     },
     {
         travelCategory: "Vacation",
         categoryID: "5",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/vacation.png"
     },
     {
         travelCategory: "Skiing",
         categoryID: "6",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/skiing.png"
     },
     {
         travelCategory: "Hiking",
         categoryID: "7",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/hiking.png"
     },
     {
         travelCategory: "Road trip",
         categoryID: "8",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/road-trip.png"
     },
     {
         travelCategory: "City",
         categoryID: "9",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/city.png"
     },
     {
         travelCategory: "Other",
         categoryID: "10",
-        categoryIcon: ""
+        categoryIcon: "../images/stockImages/icons/other.png"
     }
 ]
 
