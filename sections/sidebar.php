@@ -3,7 +3,7 @@
     $userID = $_SESSION["userID"];
 ?>
 <div id='sideBar'>
-    <div id="sideBarLogo" class="logo">V</div>
+    <div class="logo"></div>
     <div id=sideBarNav>
         <a id="homeNavBtn" class='icon' href='../home.php'><div id="home"></div></a>
         <div id="countriesNavBtn" class='icon'><div id="countries"></div></div> <!--vid klick ska ett sidoblock öppnas med länder som finns, iconen behöver ej vara länk bara display block på sidoblocket-->

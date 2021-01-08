@@ -28,16 +28,11 @@ a {
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
     border-radius: 100%;
     background-color: var(--darkTextColor);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-family: "Dancing Script";
+    background-image: url(../images/logo_.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .error {
