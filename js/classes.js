@@ -19,7 +19,7 @@ class PolaroidBase{
 //POLAROIDFOTONA PÅ STARTSIDAN
 class PolaroidStatic extends PolaroidBase{
     constructor(data){
-        super(data);
+        super(data); 
 
         this.polaroidBottom = document.createElement("div");
         this.polaroidBottom.classList.add("polaroidBottom");
@@ -149,8 +149,51 @@ class PostStructure extends PolaroidBase{
     constructor(data){
         super(data);
     }
-    //Stor vit ruta, Stor vit bild, antingen ifylld eller ej, div för mindre bilder under stor bild, höger-spalt som är tom
-    //kryss ovanför vit ruta, 
+    htmlElement() {
+        //wrapper som håller ihop vit ruta med kryss
+        let newModalWrapper = document.createElement("div");
+        newModalWrapper.setAttribute("id") = "newPostWrapper";
+        //stäng-kryss
+        let modalClose = document.createElement("div");
+        modalClose.setAttribute("id") = "postClose";
+        modalClose.innerHTML = "X";
+        //container för postinformation
+        let modalContainer = document.createElement("div");
+        modalContainer.setAttribute("id") = "newPostContainer";
+
+        //div för bilder
+        let postPictureContainer = document.createElement("div");
+        postPictureContainer.setAttribute("id") = "newPostPictures";
+        //div för rubrik
+        let modalRubrik = document.createElement("div");
+        modalRubrik.classList.add("newPostUp");
+        //div för coverImg 
+        let coverImage = document.createElement("div");
+        coverImage.classList.add("newPostMiddle");
+        coverImage.setAttribute("id") = "newPostBigPicture";
+        //div för små bilder
+        let miniImages = document.createElement("div");
+        miniImages.classList.add("newPostDown");
+        miniImages.setAttribute("id") = "newPostPics";
+        for (let i = 1; i <= 5; i++) {
+            let newMiniPic = document.createElement("div");
+            newMiniPic.setAttribute("id") = `pic_${i}`;
+            newMiniPic.classList.add("nyPic");
+            miniImages.append(newMiniPic);
+        }
+        postPictureContainer.append(modalRubrik, coverImage, miniImages);
+
+        //div för postdescription --> innehåll läggs till i andra klasser då det är antingen formulär eller divar
+        let postDescriptionContainer = document.createElement("div");
+        postDescriptionContainer.setAttribute("id") = "newPostDesc";
+
+        //html-tree
+        modalContainer.append(postPictureContainer, postDescriptionContainer);
+        newModalWrapper.append(modalClose, modalContainer);
+        return newModalWrapper;
+
+    }
+    
 }
 
 class PostShow extends PostStructure{
