@@ -1,7 +1,7 @@
 //Sökfunktionen
 document.getElementById('homeSearchField').addEventListener('focus', function(){
-    //Loopa igenom STATE.allposts för att jämföra ID med min sökning.
-    //isf pusha in ID:et i en array men först töm den så att det inte ligger någon gammal sökning där
+    //Loopa igenom STATE.allposts för att jämföra text med min sökning.
+    //isf pusha in objektet i en array men först töm den så att det inte ligger någon gammal sökning där
     //Loada sedan posterna med loadposts för att visa de som matchar min söking!
     this.addEventListener('keyup', function(){
         let inputText = this.value;

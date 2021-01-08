@@ -52,8 +52,6 @@ function checkAndMark(){
         let iconIDDiv = document.getElementById(iconID);
         // Om man är på tex save-sidan finns inte alla post/alla idn, därfr kontrolleras det om iconIDDiv == null
         if (iconIDDiv !== null){
-            console.log(iconID)
-            console.log(iconIDDiv)
             // Kolla på alla post för att se vilka som i all posts som även anv har som saved
             // Börjar med att kolla om userns array med savade posts är tom
             if (STATE.mainUserSavedPosts.length == 0){
