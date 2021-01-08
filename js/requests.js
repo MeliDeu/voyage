@@ -124,8 +124,8 @@ function postSavedToDB(postID){
         .then(response => {
         // Oavsett om det gick bra eller inte så konverterar vi svaret till
         // JSON och skickar vidare till nästa `then`.
-            console.log(response.status)
-            console.log(response.ok)
+            //console.log(response.status)
+            //console.log(response.ok)
             return response.json()
         })
         .then(resource => {
@@ -153,6 +153,29 @@ function postSavedToDB(postID){
 
 
 
+//funktion för att radera post från databas 
+function removePostFromDB(id){
+
+    let request = new Request("../admin/api.php", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postID: id })
+    });
+
+    fetch(request)
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+
+            //ta bort polaroiden från gridden
+            let polaroid = `polaroid${id}`;
+            let element = document.getElementsByClassName(polaroid)[0];
+            element.parentNode.removeChild(element);
+        });
+
+}
 
 
 

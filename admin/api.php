@@ -1,9 +1,6 @@
-
-
 <?php
 //session_start();
 include "functions.php";
-
 
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
@@ -11,6 +8,7 @@ $database = getDatabase();
 
 // Kolla vilken metod som använts
 $method = $_SERVER["REQUEST_METHOD"];
+
 // Säger att det endast är metoderna POST, GET, PATCH och DELETE som är godkända
 if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !== "DELETE" ){
     http_response_code(401);
@@ -23,51 +21,13 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
 $input = file_get_contents("php://input");
 $json = json_decode($input, true);
 
-//-------------------------------------------- GET ------------------------------
 
-// Om metoden är GET och om användaren är inloggad
+
+
+//-------------------------------------------- GET (get används i requests.js i window.onload där STATE fylls på genom att man får tillbaka hela databasen) ------------------------------
+
+// Om metoden är GET
 if ($method === "GET") {
-
-    //DEFAULT(utan att vara inloggad): 
-    //Alla posts (med ett max-antal?) 
-
-    //Var tvungen att släcka denna del, till rad 68 för att GET skulle fungera och ge databasen som svar till requesten i request.js som fyller på allt i STATE
-    /*if ($_SESSION["isLoggedIn"]){
-
-        // Om parametern country skickas med (om anv sorterar på land)
-        if (isset($_GET["country"])){
-
-        }
-        // Om parametern country skickas med (om anv sorterar på land)
-        if (isset($_GET["user"])){
-            
-        }
-        // Om parametern country skickas med (om anv sorterar på land)
-        if (isset($_GET["travelCategory"])){
-            
-        }
-        // Om parametern country skickas med (om anv sorterar på land)
-        if (isset($_GET["album"])){
-            
-        }
-        // Om parametern country skickas med (om anv sorterar på land)
-        if (isset($_GET["search"])){
-            // $search är det ord som anv har sökt på som param innehåller
-            $search = $_GET["search"];  
-        }
-
-        //behövs verkligen ovan ifs för country, user, travelCategory, album och search?
-        //vid GET-req från requests.js svarar vi med hela databasen och lägger in alla posts i STATE,
-        //så sortering på tex country är ju något vi ställer in i home.php om det finns en get-parameter /kaj
-
-        // GET by default om någon är inloggad - skicka tillbaka alla post
-        http_response_code(200);
-        header("Content-Type: application/json");
-        // Skicka med hela DB
-        $message = ["data" => $database];
-        echo json_encode($message);
-        exit();
-    }*/
 
     http_response_code(200);
     //header("Content-Type: application/json");
@@ -84,7 +44,7 @@ if ($method === "GET") {
 
 if ($method === "POST") {
 
-    if (isset($_FILES['file'])) {
+    if (isset($_FILES['file'])) { //denna avser profilbild för tillfället och är inte i funktion ännu
 
         $currentUser = false;
         $thisOne = false;
@@ -96,7 +56,7 @@ if ($method === "POST") {
             }
         }
 
-        $folder = "uploads/";
+        $folder = "../images/uploads/";
         $name = $_FILES['file']['name'];
         $tmp = $_FILES['file']['tmp_name'];
         $fileName = $folder . $name;
@@ -151,11 +111,12 @@ if ($method === "POST") {
         exit();
         }
 
-    // NY ANVÄNDARE – kontrollera:
-        // Innehåll i input (fås från login.php)
-        // Skapa nytt ID
-        // Skapa ett nytt object och pusha in i DB
+    //NY ANVÄNDARE – kontrollera:
+    // Innehåll i input (fås från login.php)
+    // Skapa nytt ID
+    // Skapa ett nytt object och pusha in i DB
 
+            //kontroller för om fälten är tomma, har mellanrum och om användarnamn är upptaget
             if ($json["username"] === "" || $json["password"] === "" || $json["email"] === "") {
                 http_response_code(400);
                 //header("Content-Type: application/json");
@@ -182,6 +143,8 @@ if ($method === "POST") {
                     exit();
                 }
             }
+
+            //skapar ett ID för användaren
             $highestID = 0;
             //Letar efter det högsta existerande ID:et 
             foreach ($database["users"] as $user) {
@@ -192,8 +155,7 @@ if ($method === "POST") {
             // Lägg till det nya ID:et 
             $okId = $highestID + 1;
 
-            $username = $json["username"];
-
+            //skapar ett objekt med användarens info som ska in i databasen
             $user = ["id" => $okId, 
                     "username" => $json["username"], 
                     "password" => $json["password"], 
@@ -207,8 +169,7 @@ if ($method === "POST") {
                     "album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
                     ];
 
-
-            //$user = ["id" => $okId, "username" => $username];
+            //lägger till user-objektet i databasen        
             $database["users"][] = $user;
 
             $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
@@ -219,7 +180,6 @@ if ($method === "POST") {
                 "data" => $user
             ];
             echo json_encode($message);
-            //var_dump($message);
             exit();
 
 
@@ -239,14 +199,6 @@ if ($method === "POST") {
         
     // NYTT ALBUM – kontrollera:
         // kommer….
-
-    // NY SAVED – kontrollera:
-        // kolla om post har en param som heter saved (isset osv ) isf gör nedan
-        // postID (fås från klickad post)
-        // Lägg i ny array och spara på user i DB
-
-    
-
 }
 
 //-------------------------------------------- PATCH ------------------------------
@@ -311,16 +263,47 @@ if ($method === "PATCH") {
 
 if ($method === "DELETE") {
   
-    // TA BORT EN ANVÄNDARE – kontrollera:
-    // userID (fås från bekräftad avregistrering?)
-    // Loopa users och jämför userID
-    // Ta bort från DB
 
-    // TA BORT EN POST
+    // TA BORT EN POST (borde även ta bort album om album endast har denna post i sig)
     // postID (fås från klickad post)
     // Loopa posts för att hitta postID, kolla vad creatorID är och jämför detta med userID i users
     // Ta bort från DB
     // Skicka tillbaka ny uppdaterad array/skicka tillbaka borttaget ID så att elementet med det ID tas bort
+    foreach ($database["posts"] as $index => $post) {
+        if ($post["postID"] == $json["postID"]) {
+            array_splice($database["posts"], $index, 1);
+
+            $pathToImg = $post["coverImg"]; //bildens namn
+            unlink($pathToImg);
+
+            /*foreach ($database["users"] as $i => $currentUser) { //försök att ta bort post:idet från andra användares savedPosts
+                foreach ($currentUser["savedPosts"] as $ind => $p) {
+                    if ($p["postID"] == $post["postID"]) {
+                        $arr = $database["users"][$i]["savedPosts"];
+                        //array_splice($arr, $ind, 1);
+                        var_dump($arr[$ind]);
+                    }
+                }
+            }*/
+
+            //när vi har fler bilder i images:
+            /*foreach ($post["images"] as $indexImg => $img) {
+                $path = $img["img"]; //images borde vara en array som består av bilder som har en nyckel som är "img": "länk till bild"
+                unlink($path);
+            }*/
+
+        }
+    }
+
+    file_put_contents($file, json_encode($database, JSON_PRETTY_PRINT));
+    http_response_code(200); //svara att borttagningen gått igenom 
+    //header("Content-Type: application/json");
+    $message = [
+        "data" => "Post was removed successfully"
+    ];
+    echo json_encode($message);
+    exit();
+
 
     // TA BORT EN FAVORIT
     // postID (fås från klickad post)
