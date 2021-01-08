@@ -14,21 +14,15 @@
                 <img src="../images/stockimages/icons/trash.png" class="imgTrash">
             </div>
             <div id="newPostPics" class="newPostDown">
-                <div id="pic_1" class="nyPic">
+                <?php
+                    for ($i = 1; $i <= 5; $i++) {
+                ?>
+                <div id="pic_<?=$i?>" class="nyPic">
                     <img src="../images/stockimages/icons/trash.png" class="imgTrash">
                 </div>
-                <div id="pic_2" class="nyPic">
-                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
-                </div>
-                <div id="pic_3" class="nyPic">
-                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
-                </div>
-                <div id="pic_4" class="nyPic">
-                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
-                </div>
-                <div id="pic_5" class="nyPic">
-                    <img src="../images/stockimages/icons/trash.png" class="imgTrash">
-                </div>
+                <?php 
+                    }
+                ?>
             </div>
         </div>
         <div id="newPostDesc">
@@ -72,7 +66,6 @@
         </div>
     </div>
 </div>
-<script src=""></script>
-<script src="../js/requests.js"></script>
+<!-- <script src="../js/requests.js"></script> -->
 <script src="../js/uploadScript.js"></script>
 

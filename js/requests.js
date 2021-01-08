@@ -165,10 +165,9 @@ function getCountries(){
         return response.json();
     })
     .then(resource =>{
-        //console.log(resource)
+        STATE.countries = [];
         resource.forEach(element => {
             //Ger namn på 250 länder!
-            //console.log(element.name)
             STATE.countries.push(element.name);
         });
     })
@@ -194,7 +193,7 @@ function patchBio(){
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
-            id: mainUserID,
+            id: STATE.mainUserID,
             bio: newBio,
             top3Wishes: wishesArray,
             top3Favs: favsArray

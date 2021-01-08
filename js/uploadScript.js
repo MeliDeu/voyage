@@ -8,6 +8,7 @@ let fileInput = document.getElementById("hiddenInput");
 let newPostForm = document.getElementById("postInformation");
 let newPostButton = document.getElementById("newPostSubmit");
 let currentClickedDiv;
+let addedPictures = [];
 
 //function för att trigga igång val av file 
 function chooseImg(e){
