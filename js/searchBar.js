@@ -1,41 +1,30 @@
-//Sök funktionen
-document.getElementById('homeSearchField').addEventListener('focus', function(event){
-    //Loopa igenom STATE.allposts för att jämföra ID med min sökning.
-    //isf pusha in ID:et i en array men först töm den så att det inte ligger någon gammal sökning där
+//Sökfunktionen
+document.getElementById('homeSearchField').addEventListener('focus', function(){
+    //Loopa igenom STATE.allposts för att jämföra text med min sökning.
+    //isf pusha in objektet i en array men först töm den så att det inte ligger någon gammal sökning där
     //Loada sedan posterna med loadposts för att visa de som matchar min söking!
-    document.getElementById('homeSearchField').addEventListener('keyup', function(){
-        let inputText = document.getElementById('homeSearchField').value;
-        STATE.allPosts.forEach(function(param){
-        
-            //console.log(inputText)
-            let postInfo = param.country + param.title + param.description
-            let searchSmall = postInfo.toLowerCase();
-            //console.log(searchSmall)
+    this.addEventListener('keyup', function(){
+        let inputText = this.value;
+        let searchArray = [];
 
+        STATE.allPosts.forEach(function(post){
+            // varje gång vi hittar en match ska den pushas in i en array
+            let postInfo = post.country + post.title + post.description
+            let searchSmall = postInfo.toLowerCase();
             if (postInfo.includes(inputText)){
-                //console.log(param)
-                searchPress(param.postID)
+                searchArray.push(post);
             } else if (searchSmall.includes(inputText)){
-                //console.log(param)
-                //Laddar endast sista posten men fungerar!
-                searchPress(param.postID)
+                searchArray.push(post);
             }
         })
+        // skicka med ny array som parameter till loadpost
+        document.getElementById('homeSearchField').addEventListener('keyup', function (event){
+            if (event.keyCode == 13) {
+                // här ska en ny array med den arrayen som har alla sökresultat
+                loadPosts(searchArray);
+            }
+        });
+
     })
-
-    
-})
-//CLICK vid sök
-document.getElementById("searchButton").addEventListener('click', function(){
 })
 
-//Click event för att trigga söket
-function searchPress(id){
-    document.getElementById('homeSearchField').addEventListener('keyup', function (event){
-        event.preventDefault();
-      if (event.keyCode == 13) {
-        document.getElementById("searchButton").click();
-        loadPosts(STATE.allPosts, "postID", id);
-      }
-    });
-  }

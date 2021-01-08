@@ -261,6 +261,14 @@ class TravelCategory extends CategoryBox{
             //console.log(country);
             let id = this.id.substr(9);
             loadPosts(STATE.allPosts, "categoryID", id);
+            //ta bort class från alla som är samma typ av objeect
+            let elementArray = document.querySelectorAll('.categoryBox');
+            elementArray.forEach(function(el){
+                el.classList.remove('showBG');
+                el.classList.add('hideBG');
+            })
+            this.classList.remove('hideBG');
+            this.classList.add('showBG');
         })
 
         let icon = document.createElement("div");
@@ -283,7 +291,6 @@ class Album extends CategoryBox{
 
     html(){
         this.categoryBox.id = "category_" + this.albumID; 
-
         this.categoryBox.addEventListener("click", function(){
             let id = this.id.substr(9);
     
@@ -292,12 +299,19 @@ class Album extends CategoryBox{
             } else {
                 loadPosts(STATE.clickedUserPosts, "albumID", id); 
             }
+
+            //ta bort class från alla som är samma typ av object
+            let elementArray = document.querySelectorAll('.categoryBox');
+            elementArray.forEach(function(el){
+                el.classList.remove('showBG');
+                el.classList.add('hideBG');
+                })
+            this.classList.remove('hideBG');
+            this.classList.add('showBG');
         })
         
         this.icon.style.backgroundImage = `url('${this.albumCoverImg}')`;
-
         this.title.innerHTML = this.albumTitle;
-
         return this.categoryBox;
     }
 }
