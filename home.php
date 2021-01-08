@@ -97,7 +97,7 @@
                     </div>
 
                     <div id="newPostOverlay">
-                        <?php include "sections/upload.php"?>
+                        <?php include "sections/createNewPost.php"?>
                     </div>
                 <?php }?> <!-- stänger if ($_SESSION["isLoggedIn"] -->
             </div>

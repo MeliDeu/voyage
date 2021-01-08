@@ -120,21 +120,10 @@ function getUserObjectByID(id){
 
 
 //här görs options i newPostContainern, där respektive array skickas med samt i vilken container de options ska appendas
-function makePostOptions(element, container){
-    // if (container === "STATE.countries"){
-    //     arr.forEach(element => {
-    //         let newOption = document.createElement("option");
-    //         newOption.innerHTML = element;
-    //         newOption.setAttribute("value", element);
-    //         newOption.setAttribute("name", element);
-    //         container.appendChild(newOption);
-    //     });
-    // } else {
-        
-    // }
+function makePostOptions(element, container, value = element){
     let newOption = document.createElement("option");
     newOption.innerHTML = element;
-    newOption.setAttribute("value", element);
+    newOption.setAttribute("value", value);
     newOption.setAttribute("name", element);
     container.appendChild(newOption);
     
@@ -148,7 +137,7 @@ document.getElementById("add").addEventListener("click", function(){
         makePostOptions(country, optionsCountry);
     });
     travelCategoriesArray.forEach(category => {
-        makePostOptions(category.travelCategory, optionsCategory);
+        makePostOptions(category.travelCategory, optionsCategory, category.categoryID);
     });
     document.getElementById("newPostOverlay").style.display = "flex";
 });

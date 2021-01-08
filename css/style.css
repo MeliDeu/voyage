@@ -861,13 +861,11 @@ input:checked + .slider:before {
 }
 
 
-
-
 /*New Post*/
 #newPostOverlay {
     box-sizing: border-box;
     position: absolute;
-    height: 100%;
+    height: calc(100% - 10px);
     background: rgba(0,0,0,.5);
     display: none;
     justify-content: center;
@@ -948,9 +946,9 @@ input:checked + .slider:before {
     height: 20%;
 }
 
-#newPostPics {
+#newPostPics, #picPreview {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -975,9 +973,10 @@ input:checked + .slider:before {
 }
 
 .nyPic {
-    flex-basis: 100px;
+    width: 100px;
     height: 100px;
     position: relative;
+    margin-right: 15px;
 }
 
 .imgTrash {
