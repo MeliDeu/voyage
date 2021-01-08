@@ -64,7 +64,20 @@
             "bio": "Hi there! I'm exploring the world with my dog Hugo. Come along!",
             "top3Wishes": false,
             "top3Favs": false,
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "12"
+                },
+                {
+                    "postID": "11"
+                },
+                {
+                    "postID": "5"
+                },
+                {
+                    "postID": "10"
+                }
+            ],
             "album": []
         },
         {

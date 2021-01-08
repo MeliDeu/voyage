@@ -241,8 +241,11 @@ if ($method === "POST") {
         // kommer….
 
     // NY SAVED – kontrollera:
+        // kolla om post har en param som heter saved (isset osv ) isf gör nedan
         // postID (fås från klickad post)
         // Lägg i ny array och spara på user i DB
+
+    
 
 }
 
