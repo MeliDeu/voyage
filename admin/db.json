@@ -18,7 +18,11 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "9"
+                }
+            ],
             "album": [
                 {
                     "albumID": 3,
@@ -242,7 +246,7 @@
             "postID": 9,
             "creatorID": 2,
             "title": "New York baby",
-            "coverImg": "..\/images\/uploads\/travel_17.jpg",
+            "coverImg": "..\/images\/stockImages\/travel_17.jpg",
             "images": [],
             "albumID": false,
             "country": "USA",

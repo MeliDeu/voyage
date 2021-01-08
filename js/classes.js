@@ -116,13 +116,23 @@ class PolaroidUser extends PolaroidActive{
         let html = super.createPolaroidBase(arr);
         let iconDiv = document.createElement("div");
         let icon = document.createElement("div");
+        icon.setAttribute('id', `trashIcon_${this.postID}`);
         icon.style.backgroundImage = "url('../images/stockImages/icons/trash.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
         this.polaroidInfo.append(iconDiv);
+
+        icon.addEventListener('click', function(){
+            let trashID = this.getAttribute('id');
+            let subClicked = trashID.substr(10)
+            //console.log(subClicked);
+
+            //kalla på funktion som raderar post
+            removePostFromDB(subClicked)
+        })
+
         return html;
     }
-    //this.icon = soptunna
 }
 class PolaroidFeed extends PolaroidActive{
     constructor(data){
@@ -142,7 +152,7 @@ class PolaroidFeed extends PolaroidActive{
         icon.addEventListener('click', function(){
             let clickedPostId = this.getAttribute('id');
             let subClicked = clickedPostId.substr(5)
-            console.log(subClicked);
+            //console.log(subClicked);
             
             // skicka clickedPostId som en post till db -> users -> som har inloggade userID -> saved
             // sparas i en array i STATE - mainUserSavedPosts
@@ -154,7 +164,6 @@ class PolaroidFeed extends PolaroidActive{
 
         return html;
     }
-    //Spara symbol
 }
 
 
