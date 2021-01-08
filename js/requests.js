@@ -21,7 +21,7 @@ window.onload = function(){
         db.data.users.forEach(user => { // pushar in användarens sparade i STATE saved
             if (user.id == STATE.mainUserID) {
                 // savedPosts kommer att vara en array av siffror (ppostIDn)
-                console.log(user.savedPosts)
+                //console.log(user.savedPosts)
                 user.savedPosts.forEach(savedPost => {
                     STATE.allPosts.forEach(function(post){
                         if (savedPost.postID == post.postID){
@@ -52,8 +52,8 @@ function checkAndMark(){
         let iconIDDiv = document.getElementById(iconID);
         // Om man är på tex save-sidan finns inte alla post/alla idn, därfr kontrolleras det om iconIDDiv == null
         if (iconIDDiv !== null){
-            console.log(iconID)
-            console.log(iconIDDiv)
+            //console.log(iconID)
+            //console.log(iconIDDiv)
             // Kolla på alla post för att se vilka som i all posts som även anv har som saved
             // Börjar med att kolla om userns array med savade posts är tom
             if (STATE.mainUserSavedPosts.length == 0){
