@@ -103,7 +103,7 @@ function patchBio(){
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
-            id: mainUserID,
+            id: STATE.mainUserID,
             bio: newBio,
             top3Wishes: wishesArray,
             top3Favs: favsArray
