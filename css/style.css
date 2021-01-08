@@ -646,6 +646,10 @@ input:checked + .slider:before {
     margin-bottom: 2px;
 }
 
+.polaroidTitle {
+    color: var(--lightTextColor);
+}
+
 .polaroidIcon {
     flex-grow: 1;
     display: flex;
