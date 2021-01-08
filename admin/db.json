@@ -98,7 +98,11 @@
                 "",
                 ""
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "8"
+                }
+            ],
             "album": [
                 {
                     "albumID": 1,
