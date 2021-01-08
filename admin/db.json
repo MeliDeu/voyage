@@ -6,7 +6,7 @@
             "password": "1234",
             "email": "mandy89@live.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/stockImages\/person_1.jpg",
+            "profilePic": "..\/images\/uploads\/person_1.jpg",
             "bio": "Hey guys, Mandy1 here. Travel is my passion and I would love to explore the world with new travel buddies ",
             "top3Wishes": [
                 "Costa Rica",
@@ -18,12 +18,16 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "9"
+                }
+            ],
             "album": [
                 {
                     "albumID": 3,
                     "albumTitle": "Exploring Morocco",
-                    "albumCoverImg": "..\/images\/stockImages\/travel_18.jpg"
+                    "albumCoverImg": "..\/images\/uploads\/travel_18.jpg"
                 }
             ]
         },
@@ -33,7 +37,7 @@
             "password": "kaj1234",
             "email": "travelGirl95@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/stockImages\/person_2.jpg",
+            "profilePic": "..\/images\/uploads\/person_2.jpg",
             "bio": "Hello, I'm writing a book about my travels and I've collected some moments from my journeys here!",
             "top3Wishes": [
                 "Paris",
@@ -45,12 +49,40 @@
                 "Spain",
                 "Morocco"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "12"
+                },
+                {
+                    "postID": "11"
+                },
+                {
+                    "postID": "10"
+                },
+                {
+                    "postID": "9"
+                },
+                {
+                    "postID": "7"
+                },
+                {
+                    "postID": "8"
+                },
+                {
+                    "postID": "5"
+                },
+                {
+                    "postID": "4"
+                },
+                {
+                    "postID": "3"
+                }
+            ],
             "album": [
                 {
                     "albumID": 2,
                     "albumTitle": "Island Hopping Greece",
-                    "albumCoverImg": "..\/images\/stockImages\/travel_16.jpg"
+                    "albumCoverImg": "..\/images\/uploads\/travel_16.jpg"
                 }
             ]
         },
@@ -60,7 +92,7 @@
             "password": "pinne1234",
             "email": "pinne@gmail.com",
             "travelStatus": false,
-            "profilePic": "..\/images\/stockImages\/travel_4.jpg",
+            "profilePic": "..\/images\/uploads\/mePineiro.jpg",
             "bio": "Hi there! I'm exploring the world with my dog Hugo. Come along!",
             "top3Wishes": false,
             "top3Favs": false,
@@ -76,6 +108,18 @@
                 },
                 {
                     "postID": "10"
+                },
+                {
+                    "postID": "6"
+                },
+                {
+                    "postID": "9"
+                },
+                {
+                    "postID": "4"
+                },
+                {
+                    "postID": "2"
                 }
             ],
             "album": []
@@ -86,20 +130,24 @@
             "password": "1234",
             "email": "sunislife@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/stockImages\/person_3.jpg",
-            "bio": "Hej jag \u00e4r 20 v\u00e5rar och \u00e4lskar solen, den ger mig livsgl\u00e4dje.",
+            "profilePic": "..\/images\/uploads\/person_3.jpg",
+            "bio": "Hej jag \u00e4r 20 v\u00e5rar och \u00e4lskar solen, den ger mig livsgl\u00e4dje. ",
             "top3Wishes": [
                 "Los Angeles",
                 "Bali",
                 "Cuba"
             ],
-            "top3Favs": false,
+            "top3Favs": [
+                "",
+                "",
+                ""
+            ],
             "savedPosts": [],
             "album": [
                 {
                     "albumID": 1,
                     "albumTitle": "Living Costa Rica",
-                    "albumCoverImg": "..\/images\/stockImages\/travel_6.jpg"
+                    "albumCoverImg": "..\/images\/uploads\/travel_6.jpg"
                 }
             ]
         },
@@ -122,7 +170,7 @@
             "postID": 1,
             "creatorID": 1,
             "title": "Adventure in Cappadocia",
-            "coverImg": "..\/images\/stockImages\/travel_1.jpg",
+            "coverImg": "..\/images\/uploads\/travel_1.jpg",
             "images": [],
             "albumID": false,
             "country": "Turkey",
@@ -133,7 +181,7 @@
             "postID": 2,
             "creatorID": 1,
             "title": "Exploring Morocco",
-            "coverImg": "..\/images\/stockImages\/travel_11.jpg",
+            "coverImg": "..\/images\/uploads\/travel_11.jpg",
             "images": [],
             "albumID": 3,
             "country": "Morocco",
@@ -144,7 +192,7 @@
             "postID": 3,
             "creatorID": 2,
             "title": "\u00d6-hoppning i Grekland",
-            "coverImg": "..\/images\/stockImages\/travel_12.jpg",
+            "coverImg": "..\/images\/uploads\/travel_12.jpg",
             "images": [],
             "albumID": 2,
             "country": "Greece",
@@ -155,7 +203,7 @@
             "postID": 4,
             "creatorID": 3,
             "title": "Hugo och jag i Spanien",
-            "coverImg": "..\/images\/stockImages\/travel_4.jpg",
+            "coverImg": "..\/images\/uploads\/travel_4.jpg",
             "images": [],
             "albumID": false,
             "country": "Spain",
@@ -166,7 +214,7 @@
             "postID": 5,
             "creatorID": 3,
             "title": "Jag och bergen",
-            "coverImg": "..\/images\/stockImages\/travel_2.jpg",
+            "coverImg": "..\/images\/uploads\/travel_2.jpg",
             "images": [],
             "albumID": false,
             "country": "Italy",
@@ -177,7 +225,7 @@
             "postID": 6,
             "creatorID": 4,
             "title": "Backpacking i Costa Rica",
-            "coverImg": "..\/images\/stockImages\/travel_14.jpg",
+            "coverImg": "..\/images\/uploads\/travel_14.jpg",
             "images": [],
             "albumID": 1,
             "country": "Costa Rica",
@@ -188,7 +236,7 @@
             "postID": 7,
             "creatorID": 4,
             "title": "Vattenfall i Costa Rica",
-            "coverImg": "..\/images\/stockImages\/travel_6.jpg",
+            "coverImg": "..\/images\/uploads\/travel_6.jpg",
             "images": [],
             "albumID": 1,
             "country": "Costa Rica",
@@ -199,7 +247,7 @@
             "postID": 8,
             "creatorID": 2,
             "title": "New Island, New beach",
-            "coverImg": "..\/images\/stockImages\/travel_16.jpg",
+            "coverImg": "..\/images\/uploads\/travel_16.jpg",
             "images": [],
             "albumID": 2,
             "country": "Greece",
@@ -221,7 +269,7 @@
             "postID": 10,
             "creatorID": 1,
             "title": "Tasting Morocco",
-            "coverImg": "..\/images\/stockImages\/travel_18.jpg",
+            "coverImg": "..\/images\/uploads\/travel_18.jpg",
             "images": [],
             "albumID": 3,
             "country": "Morocco",
@@ -232,7 +280,7 @@
             "postID": 11,
             "creatorID": 4,
             "title": "Safari i Zanzibar",
-            "coverImg": "..\/images\/stockImages\/travel_19.jpg",
+            "coverImg": "..\/images\/uploads\/travel_19.jpg",
             "images": [],
             "albumID": false,
             "country": "Tanzania",
@@ -243,17 +291,12 @@
             "postID": 12,
             "creatorID": 3,
             "title": "Vakna upp i Costa Rica",
-            "coverImg": "..\/images\/stockImages\/travel_20.jpg",
+            "coverImg": "..\/images\/uploads\/travel_20.jpg",
             "images": [],
             "albumID": false,
             "country": "Costa Rica",
             "categoryID": "5",
             "description": "Nu v\u00e4ntar hotellfrukosten, har sv\u00e5rt att slita mig fr\u00e5n hotellrummet bara."
-        }
-    ],
-    "profilePic": [
-        {
-            "profilePic": "uploads\/"
         }
     ]
 }

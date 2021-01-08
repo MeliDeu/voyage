@@ -21,7 +21,7 @@ window.onload = function(){
         db.data.users.forEach(user => { // pushar in användarens sparade i STATE saved
             if (user.id == STATE.mainUserID) {
                 // savedPosts kommer att vara en array av siffror (ppostIDn)
-                console.log(user.savedPosts)
+                //console.log(user.savedPosts)
                 user.savedPosts.forEach(savedPost => {
                     STATE.allPosts.forEach(function(post){
                         if (savedPost.postID == post.postID){
@@ -37,50 +37,43 @@ window.onload = function(){
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
-        //checkAndMark()
+        
         checkURL()
         //console.log(noParameter);
     });
 }
 
-
-
 // denna funktion är på paus -> den ska göra att alla får en bokmärke från början beroende på om de är sparade eller inte
 // kallas från window.onload
 function checkAndMark(){
-   
     // for each på divar för att hitta polaroidens saveicon
     STATE.allPosts.forEach(function(post){
-        
+        let iconID = `icon_${post.postID}`;
+        let iconIDDiv = document.getElementById(iconID);
+        // Om man är på tex save-sidan finns inte alla post/alla idn, därfr kontrolleras det om iconIDDiv == null
+        if (iconIDDiv !== null){
+            // Kolla på alla post för att se vilka som i all posts som även anv har som saved
+            // Börjar med att kolla om userns array med savade posts är tom
+            if (STATE.mainUserSavedPosts.length == 0){
+                iconIDDiv.setAttribute('class', 'markedUnsaved');
+            } else {
+                // let postSaved blir true eller false beroende på om den posten från all post som vi är på just nu finns i arrayen
+                let postIsSaved = STATE.mainUserSavedPosts.some(function(savedPost){
+                    return post.postID == savedPost.postID;
+                })
+                // Om den är true
+                if (postIsSaved){
+                    iconIDDiv.setAttribute('class', 'markedSaved');
+                }
+                // Om den är false
+                else {
+                    iconIDDiv.setAttribute('class', 'markedUnsaved');
+                }
+            }
+        }
     })
-
-/*
-    if (STATE.mainUserSavedPosts.length == 0){
-        icon.setAttribute('class', 'markedUnsaved')
-    }
-    else {
-        STATE.mainUserSavedPosts.forEach(function(post){
-            // Sätter klass på icondiven beroende på om den inloggade usern har sparat den i sin array savedPosts
-            let iconID = icon.getAttribute('id')
-
-            if (post.postID == iconID){
-                //icon.classList.remove('markedUnsaved');
-                icon.removeAttribute('class', 'markedUnsaved')
-                //icon.classList.add('markedSaved');
-                icon.setAttribute('class', 'markedSaved')
-            }
-            else {
-                //icon.classList.remove('markedSaved');
-                //icon.classList.add('markedUnsaved');
-                icon.removeAttribute('class', 'markedSaved')
-                //icon.classList.add('markedSaved');
-                icon.setAttribute('class', 'markedUnsaved')
-            }
-        })
-    }
-*/
-
 }
+
 
 function checkURL(){
     if (profileParameter !== "false") { // profileParameter får sitt värde i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
@@ -104,13 +97,17 @@ function checkURL(){
         loadPosts(STATE.allPosts, "country", countryParameter);
         loadCircles(travelCategoriesArray, "country", countryParameter);
         markIconNav(document.getElementById("countriesNavBtn"));
+        //checkAndMark()
     } else if (savedParameter !== "false") {
         loadPosts(STATE.mainUserSavedPosts);
         markIconNav(document.getElementById("savedNavBtn"));
+        console.log(STATE.allPosts)
+        //checkAndMark()
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
         markIconNav(document.getElementById("homeNavBtn"));
+        //checkAndMark()
     }
 }
 
@@ -127,8 +124,8 @@ function postSavedToDB(postID){
         .then(response => {
         // Oavsett om det gick bra eller inte så konverterar vi svaret till
         // JSON och skickar vidare till nästa `then`.
-            console.log(response.status)
-            console.log(response.ok)
+            //console.log(response.status)
+            //console.log(response.ok)
             return response.json()
         })
         .then(resource => {
@@ -156,6 +153,29 @@ function postSavedToDB(postID){
 
 
 
+//funktion för att radera post från databas 
+function removePostFromDB(id){
+
+    let request = new Request("../admin/api.php", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postID: id })
+    });
+
+    fetch(request)
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+
+            //ta bort polaroiden från gridden
+            let polaroid = `polaroid${id}`;
+            let element = document.getElementsByClassName(polaroid)[0];
+            element.parentNode.removeChild(element);
+        });
+
+}
 
 
 
@@ -194,7 +214,7 @@ function patchBio(){
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
-            id: mainUserID,
+            id: STATE.mainUserID,
             bio: newBio,
             top3Wishes: wishesArray,
             top3Favs: favsArray

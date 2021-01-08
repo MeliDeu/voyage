@@ -19,12 +19,13 @@ let STATE = {
 
 //Funktion för att appenda posts i feed
 function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
+    
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
     let copyPosts = [...posts]; //kopierar arrayen som skickats
 
     if (copyPosts.length == 0) {
-        grid.innerHTML = "No posts";
+        grid.innerHTML = "Oh no! No posts yet.. Please add one!";
     }
 
     let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
@@ -34,7 +35,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
-            grid.innerHTML = "No posts";
+            grid.innerHTML = "Oh no! No posts yet.. Please add one!";
         }
 
         if (countryParameter !== "false") { //om man har klickat på ett land SAMT klickar på en kategori så filtrerar vi arrayen på landet man är på
@@ -44,9 +45,15 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
 
         //byta ut "all posts" till "reset filter" om man har klickat på en kategori / album:
         if (filter == "categoryID" || filter == "albumID") {
-            viewing.innerHTML = "Reset filter";
+            viewing.innerHTML = "Back to all post";
 
             function viewAll(){
+
+                // Tar bort bg på alla categoryBoxes om du klickar på texten "back to all posts"
+                let elementArray = document.querySelectorAll('.categoryBox');
+                elementArray.forEach(function(el){
+                    el.classList.remove('showBG');
+                })
 
                 if (filter == "albumID" && profileParameter == STATE.mainUserID) {
                     loadPosts(STATE.mainUserPosts);
@@ -69,6 +76,11 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     copyPosts.forEach(post => {
         grid.prepend(post.htmlElement(STATE.users));
     });
+
+    if(profileParameter == 'false'){
+        checkAndMark();
+    }
+
 }
 
 
