@@ -6,7 +6,7 @@
             "password": "1234",
             "email": "mandy89@live.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/pexels-photo-4054069.jpeg",
+            "profilePic": "..\/images\/uploads\/person_1.jpg",
             "bio": "Hey guys, Mandy1 here. Travel is my passion and I would love to explore the world with new travel buddies ",
             "top3Wishes": [
                 "Costa Rica",
@@ -167,10 +167,18 @@
             "password": "1234",
             "email": "jasse@js.se",
             "travelStatus": true,
-            "profilePic": false,
-            "bio": false,
-            "top3Wishes": false,
-            "top3Favs": false,
+            "profilePic": "..\/images\/uploads\/schwarz-chihuahua.jpg",
+            "bio": "",
+            "top3Wishes": [
+                "",
+                "",
+                ""
+            ],
+            "top3Favs": [
+                "",
+                "",
+                ""
+            ],
             "savedPosts": [
                 {
                     "postID": "7"

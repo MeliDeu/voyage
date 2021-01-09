@@ -84,8 +84,8 @@
                     }
                 }else{//om wishes inte finns
                     for($i = 0; $i<3; $i++){
-                        echo "<li class='topFavsList'></li>";
-                        echo "<input class='hide patchFavs'></input>";
+                        echo "<li class='topWishesList'></li>";
+                        echo "<input class='hide patchWishes'></input>";
                     }
                     
                 }
