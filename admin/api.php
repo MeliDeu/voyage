@@ -296,6 +296,26 @@ if ($method === "DELETE") {
                 unlink($path);
             }*/
 
+            // DENNA DEL TAR BORT LANDET FRÅN SIDEBAR NÄR INGEN POST HAR LANDET LÄNGRE
+            if( array_search($post["country"], array_column($database["posts"], "country")) !== false){
+                // Det finns en annan post i databasen med det landet så gör inget med countriesArray!
+            } else {
+                // Det finns ingen annan post i databasen med det landet så nu ska vi splicea
+                // bort landet från countriesArray så det landet inte syns i sidebar
+
+                // Loopa countriesArray för att hitta landet
+                foreach ($database["countriesArray"] as $thisIndex => $thisCountry){
+                    // Detta är landet som ska deletas
+                    $countryFromDelete = $post["country"];
+                    // Kollar om den som ska deletas är samma som ett land för en post som finns i arrayen
+                    if ($thisCountry["name"] == $countryFromDelete){
+                        // splicea det ovject som har name = country
+                        array_splice($database["countriesArray"], $thisIndex, 1);
+                    }
+                } 
+            }
+            
+
         }
     }
 
