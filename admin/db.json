@@ -207,20 +207,11 @@
                 "Paris",
                 "London"
             ],
-            "savedPosts": [],
-            "album": []
-        },
-        {
-            "id": 8,
-            "username": "test",
-            "password": "1234",
-            "email": "test",
-            "travelStatus": false,
-            "profilePic": false,
-            "bio": false,
-            "top3Wishes": false,
-            "top3Favs": false,
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "9"
+                }
+            ],
             "album": []
         }
     ],
@@ -461,6 +452,19 @@
             "country": "Afghanistan",
             "categoryID": "1",
             "description": "test"
+        },
+        {
+            "postID": 65,
+            "creatorID": "7",
+            "title": "Weekend",
+            "coverImg": "..\/images\/uploads\/5ffa1b5373867.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffa1b537396b.jpg"
+            ],
+            "albumID": false,
+            "country": "Spain",
+            "categoryID": "9",
+            "description": "Picturesque streets of Barcelona"
         }
     ],
     "countriesArray": [
@@ -496,6 +500,9 @@
         },
         {
             "name": "Afghanistan"
+        },
+        {
+            "name": "Spain"
         }
     ],
     "profilePic": [
