@@ -862,7 +862,7 @@ input:checked + .slider:before {
 
 
 /*New Post*/
-#newPostOverlay {
+#newPostOverlay, #showPost {
     box-sizing: border-box;
     position: absolute;
     height: calc(100% - 10px);
@@ -872,6 +872,10 @@ input:checked + .slider:before {
     align-items: center;
     width: 95%;
     font-family: var(--styleFont);
+}
+
+#showPost {
+    display: none;
 }
 
 #hiddenForm {

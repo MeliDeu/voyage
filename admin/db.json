@@ -161,7 +161,11 @@
             "bio": false,
             "top3Wishes": false,
             "top3Favs": false,
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "17"
+                }
+            ],
             "album": []
         },
         {

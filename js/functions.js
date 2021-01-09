@@ -10,7 +10,6 @@ let STATE = {
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
     pictureUpload: {
-        clickedDiv: false,
         newPics: []
         }
 };
@@ -126,6 +125,20 @@ function getUserObjectByID(id){
 
 
 
+function makeNewShowPost(id) {
+    let postObj = STATE.allPosts.filter(post => {
+        return post.postID == id;
+    });
+    console.log(id);
+    console.log(postObj);
+    let newShowPost = new PostShow(postObj);
+    let container = document.getElementById("showPost");
+    container.style.display = "flex";
+    container.appendChild(newShowPost.htmlElement());
+}
+
+
+
 
 
 //---------------- MAKE NEW POST --------------------------
@@ -158,10 +171,6 @@ document.getElementById("add").addEventListener("click", function(){
 document.getElementById("postClose").addEventListener("click", function(){
     document.getElementById("newPostOverlay").style.display = "none";
 });
-
-
-
-
 
 
 //--------------- SIDE BAR ---------------------

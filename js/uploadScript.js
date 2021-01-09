@@ -26,6 +26,7 @@ let addedPictures = [];
 //function för att lägga till all info i databasen under posts 
 function newPostToDB() {
     //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas --> görs i classes 
+    //postInformation är id:n --> behöver ej skriva getdocument...
     let formData = new FormData(postInformation);
     //lägger till en ny property i formdata med creator ID, eftersom vi inte har det i formuläret
     formData.set("creatorID", mainUserID);

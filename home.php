@@ -100,6 +100,7 @@
                     <div id="newPostOverlay">
                         <?php include "sections/createNewPost.php"?>
                     </div>
+                    <div id="showPost"></div>
                 <?php }?> <!-- stänger if ($_SESSION["isLoggedIn"] -->
             </div>
         </div>
