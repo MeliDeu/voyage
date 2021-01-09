@@ -434,32 +434,6 @@
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
         },
         {
-            "postID": 62,
-            "creatorID": "6",
-            "title": "f",
-            "coverImg": "..\/images\/uploads\/5ff9c2358da6d.jpg",
-            "images": [
-                "..\/images\/uploads\/5ff9c2358dd82.jpg"
-            ],
-            "albumID": false,
-            "country": "Andorra",
-            "categoryID": "1",
-            "description": "f"
-        },
-        {
-            "postID": 63,
-            "creatorID": "6",
-            "title": "test",
-            "coverImg": "..\/images\/uploads\/5ff9c7872004e.jpg",
-            "images": [
-                "..\/images\/uploads\/5ff9c787203ec.jpg"
-            ],
-            "albumID": false,
-            "country": "Afghanistan",
-            "categoryID": "1",
-            "description": "test"
-        },
-        {
             "postID": 65,
             "creatorID": "7",
             "title": "Weekend",
@@ -471,6 +445,19 @@
             "country": "Spain",
             "categoryID": "9",
             "description": "Picturesque streets of Barcelona"
+        },
+        {
+            "postID": 66,
+            "creatorID": "6",
+            "title": "c",
+            "coverImg": "..\/images\/uploads\/5ffa26cc98736.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffa26cc98a95.jpg"
+            ],
+            "albumID": false,
+            "country": "Greece",
+            "categoryID": "3",
+            "description": "c"
         }
     ],
     "countriesArray": [
@@ -497,6 +484,9 @@
         },
         {
             "name": "Tanzania"
+        },
+        {
+            "name": "Greece"
         }
     ],
     "profilePic": [
