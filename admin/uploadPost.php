@@ -13,6 +13,7 @@
         // echo json_encode(pathinfo($imagesFiles[0]["name"], PATHINFO_EXTENSION));
         // exit();
 
+
         //transforms multiple files into usable array
         // https://www.php.net/manual/de/features.file-upload.multiple.php
         function reArrayFiles($file_post) {
@@ -33,6 +34,8 @@
 
         //endast $_FILES("images) innehåll flera små arrayer, där alla namn från alla filer utgjorde en array, alla temp en annan etc. 
         $imagesFiles = reArrayFiles($_FILES["images"]);
+
+
 
         //funktion för att flytta bilden samt kontroll
         function uploadFile($file){
@@ -61,7 +64,7 @@
             $uploadFolder = "../images/uploads/";
             $fileName = $uploadFolder . $imageName;
             move_uploaded_file($imageTempName, $fileName);
-            $imgPath = ["file" => $fileName];
+            $imgPath = $fileName;
             return $imgPath;
         }
         //funktionen körs och path till coverimgFile sparas i variable

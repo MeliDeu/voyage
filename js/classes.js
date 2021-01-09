@@ -241,8 +241,7 @@ class CreatePost extends PostStructure{
     }
     //använder klassen endast för att kolla av om allt är ifyllt
     validate(){
-        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number") {
-            // console.log("title is empty");
+        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number" || addedPictures.length === 0) {
             return false;
         } else {
             return true;

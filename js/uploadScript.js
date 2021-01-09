@@ -32,7 +32,6 @@ function newPostToDB() {
     addedPictures.forEach(picture => {
         formData.append("images[]", picture, picture.name);
     });
-    console.log(formData);
     //egentligen var tanken att skicka hela instansen, men det gick ej, så jag behöll den delen, men valideringen utgår från class CreatePost
     let newPost = new CreatePost({
         creatorID: mainUserID,
@@ -45,7 +44,7 @@ function newPostToDB() {
     });
     //om alla fält är ifyllda, ska begäran skickas
     if (newPost.validate()) {
-        let nyRequ = new Request("../admin/uploadPost.php", {
+        let nyRequ = new Request("http://localhost:7070/admin/uploadPost.php", {
             method: "POST",
             body: formData
         });
@@ -53,9 +52,10 @@ function newPostToDB() {
             .then(resp => resp.json())
             .then(resurs => {
                 console.log(resurs);
+                window.location.reload();
             });
     } else {
-        alert("Samtliga fält måste vara ifyllda!")
+        alert("Samtliga fält måste vara ifyllda och minst 2 bilder måste vara valda :)")
     }
     return newPost;
 }
@@ -153,8 +153,7 @@ previewInput.addEventListener("change", addPreviewImage, false);
 //när man klickar på post-btn i skapa ny post
 newPostForm.addEventListener("submit", function (e) {
     //så att fönstret inte stängs
-    // e.preventDefault();
-    // newPostToDB();
-    let testOne = newPostToDB();
-    console.log(testOne);
+    e.preventDefault();
+    let successUpload = newPostToDB();
+    console.log(successUpload);
 });
