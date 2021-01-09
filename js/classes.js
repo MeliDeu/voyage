@@ -26,6 +26,9 @@ class PolaroidStatic extends PolaroidBase{
 
         this.polaroidInfo = document.createElement("div");
         this.polaroidInfo.classList.add("polaroidInfo");
+
+        this.descriptionBox = document.createElement("div");
+        this.descriptionBox.classList.add("descriptionBox");
     }
 
     createPolaroidBase(arr){
@@ -87,10 +90,13 @@ class PolaroidStatic extends PolaroidBase{
                         polaroidTitle.innerHTML = `${this.title}`;
                         polaroidTitle.classList.add("polaroidTitle");
 
-                    polaroidText.append(polaroidCountry, polaroidTitle);    
-
+                    polaroidText.append(polaroidCountry, polaroidTitle);  
+                
+                let description = this.description
+                let shortDescription = description.slice(0, 10);
+                this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
                 this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
-                this.polaroidBottom.append(this.polaroidInfo); // här ska även .polaroidDescription appendas men den skapas i active
+                this.polaroidBottom.append(this.polaroidInfo, this.descriptionBox); // här ska även .descriptionBox appendas men den skapas i active
                 html.append(filter, pic, this.polaroidBottom);
 
                 return html;
