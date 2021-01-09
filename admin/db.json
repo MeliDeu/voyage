@@ -33,7 +33,7 @@
             "password": "kaj1234",
             "email": "travelGirl95@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/person_2.jpg",
+            "profilePic": "..\/images\/uploads\/pexels-tomaz-barcellos-1987301.jpg",
             "bio": "Hello, I'm writing a book about my travels and I've collected some moments from my journeys here!",
             "top3Wishes": [
                 "Paris",
@@ -66,6 +66,9 @@
                 },
                 {
                     "postID": "3"
+                },
+                {
+                    "postID": "65"
                 }
             ],
             "album": [
@@ -209,6 +212,27 @@
                     "postID": "9"
                 }
             ],
+            "album": []
+        },
+        {
+            "id": 8,
+            "username": "sebbe_doglover",
+            "password": "1234",
+            "email": "aa",
+            "travelStatus": true,
+            "profilePic": "..\/images\/uploads\/pexels-simon-migaj-953182.jpg",
+            "bio": "Give me a dog and a passport and I'm yours.",
+            "top3Wishes": [
+                "",
+                "",
+                ""
+            ],
+            "top3Favs": [
+                "",
+                "",
+                ""
+            ],
+            "savedPosts": [],
             "album": []
         }
     ],
@@ -462,6 +486,19 @@
             "country": "Spain",
             "categoryID": "9",
             "description": "Picturesque streets of Barcelona"
+        },
+        {
+            "postID": 66,
+            "creatorID": "8",
+            "title": "Iceland adventures",
+            "coverImg": "..\/images\/uploads\/5ffa1f3915ef6.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffa1f391674a.jpg"
+            ],
+            "albumID": false,
+            "country": "Iceland",
+            "categoryID": "7",
+            "description": "Wow, just amazing!"
         }
     ],
     "countriesArray": [
@@ -500,6 +537,9 @@
         },
         {
             "name": "Spain"
+        },
+        {
+            "name": "Iceland"
         }
     ],
     "profilePic": [
