@@ -46,15 +46,19 @@ if ($method === "POST") {
 
     if (isset($_FILES['file'])) { //denna avser profilbild för tillfället och är inte i funktion ännu
 
-        $currentUser = false;
+        $currentProfilePic = false;
         $thisOne = false;
-
+        //loopar igenom databasen för att spara den inloggades index samt den nuvarande profilbilden
         foreach($database["users"] as $index => $user){
-            if ($user['id'] == $json['id']) {
-                $currentUser = $user;
+            if ($user['id'] == $_POST['id']) {
                 $thisOne = $index;
+                $currentProfilePic = $user['profilePic'];
             }
         }
+        
+        //Tar bort den nuvarande profilbilden
+        unlink($currentProfilePic);
+        //Sparar filvägarna
 
         $folder = "../images/uploads/";
         $name = $_FILES['file']['name'];
@@ -66,6 +70,7 @@ if ($method === "POST") {
         $info = pathinfo($name); 
         $ext = $info["extension"]; //Sparar filens filändelse
 
+        //Dessa filändelser kommer vi att acceptera
         $allowedExts = ["jpg", "jpeg", "png"];
 
         if ($size > 500000) { //KONTROLLERA FILSTORLEK! FIL FÅR EJ VARA MER 500KB
@@ -77,7 +82,7 @@ if ($method === "POST") {
             echo json_encode($message);
             exit();
         }
-        /*if (!in_array($ext, $allowedExts)) { //KONTROLLERA FILÄNDELSE! 
+        if (!in_array($ext, $allowedExts)) { //KONTROLLERA FILÄNDELSE! 
             http_response_code(400);
             //header("Content-Type: application/json");
             $message = [
@@ -85,7 +90,7 @@ if ($method === "POST") {
             ];
             echo json_encode($message);
             exit();
-        }*/
+        }
         if (file_exists($fileName)) { //KONTROLLERA OM FILNAMN ÄR UPPTAGET! 
             http_response_code(400);
             //header("Content-Type: application/json");
@@ -95,10 +100,14 @@ if ($method === "POST") {
             echo json_encode($message);
             exit();
         }
+        //Flyttar profilbilden till uploads
         move_uploaded_file($tmp, $folder . $name);
 
-        $newProfilePic = $database["profilePic"][$thisOne]["profilePic"] = $fileName;
+        //Byter ut profilbilden i databasen
+        $newProfilePic = $database["users"][$thisOne]["profilePic"] = $fileName;
+        $newData = $database["users"][$thisOne];
 
+        //Sparar innehållet i databasen på nytt med den nya profilbilden
         $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
         file_put_contents($file, $dataJSON);
         http_response_code(201);
@@ -107,7 +116,6 @@ if ($method === "POST") {
             "data" => $newData
         ];
         echo json_encode($message);
-        //var_dump($message);
         exit();
         }
 
@@ -185,8 +193,6 @@ if ($method === "POST") {
 
         //}
 
-    // NY PROFLBILD
-        // kommer….
 
     // NY POST – kontrollera:
         // Bildstorlek
@@ -207,12 +213,10 @@ if ($method === "PATCH") {
 
     // ÄNDRA PROFIL(bio, top3wishes, top3favs)
 
-    $currentUser = false;
     $thisOne = false;
 
     foreach($database["users"] as $index => $user){
         if ($user['id'] == $json['id']) {
-            $currentUser = $user;
             $thisOne = $index;
         }
     }

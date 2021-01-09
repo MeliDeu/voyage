@@ -714,6 +714,19 @@ input:checked + .slider:before {
     border: 3px solid white;
     background-size: cover;
 }
+#postProfilePic{
+    background-image: url(../images/stockImages/icons/add_white.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    display: none;
+}
+#profilePic:hover > #postProfilePic{
+    display: block;
+    cursor: pointer;
+    
+}
 
 #profileBox, #profileFavs, #profileInterest {
     display: flex;
@@ -761,6 +774,8 @@ input:checked + .slider:before {
     margin: 2vw 0 0 20vw;
     height: 25px;
     width: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 #profileSettings {
@@ -779,7 +794,8 @@ input:checked + .slider:before {
     display: none;
 }
 .show{
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 #homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {

@@ -224,7 +224,9 @@ function getCountries(){
         STATE.countries = [];
         resource.forEach(element => {
             //Ger namn på 250 länder!
+            //console.log(element)
             STATE.countries.push(element.name);
+            STATE.countriesCode.push({name: element.name, code: element.alpha2Code})
         });
     })
 }
@@ -261,18 +263,11 @@ function patchBio(){
     })
     .then(resource => {
         console.log(resource);
+        //Laddar om sidan så att innehållet i profilen laddas om direkt och påsåvis uppdateras!
+        window.location.reload();
     })
 }
-function getDatabaseJS(){
-    let request = new Request("../admin/api.php")
-    fetch(request)
-    .then(response =>{
-        return response.json();
-    })
-    .then(resource =>{
-        //console.log(resource)
-        return resource
-    })
-}
-getDatabaseJS();
+
 getCountries();
+
+

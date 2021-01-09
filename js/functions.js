@@ -7,6 +7,7 @@ let STATE = {
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
     countries: [],
+    countriesCode: [],
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
     pictureUpload: {
