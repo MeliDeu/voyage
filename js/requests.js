@@ -33,6 +33,11 @@ window.onload = function(){
             }
         })
         
+        // Hämtar arrayen med alla länder som det finns post för
+        let countriesArray = db.data.countriesArray;
+        console.log(countriesArray)
+        // Kallar på en funtion som kommer placera ut dem i sidebar
+        placeCountriesInSidebar(countriesArray)
 
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
@@ -80,9 +85,9 @@ function checkURL(){
         let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
         let albumArray = user.album;
         loadCircles(albumArray, "album");
-        markIconNav(document.getElementById("profileNavBtn"));
 
         if (profileParameter == mainUserID) {
+            markIconNav(document.getElementById("profileNavBtn"));
             loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
         } else {
             STATE.allPosts.forEach(post => {
@@ -101,7 +106,7 @@ function checkURL(){
     } else if (savedParameter !== "false") {
         loadPosts(STATE.mainUserSavedPosts);
         markIconNav(document.getElementById("savedNavBtn"));
-        console.log(STATE.allPosts)
+        //console.log(STATE.allPosts)
         //checkAndMark()
     } else {
         loadPosts(STATE.allPosts);
@@ -124,8 +129,8 @@ function postSavedToDB(postID){
         .then(response => {
         // Oavsett om det gick bra eller inte så konverterar vi svaret till
         // JSON och skickar vidare till nästa `then`.
-            console.log(response.status)
-            console.log(response.ok)
+            //console.log(response.status)
+            //console.log(response.ok)
             return response.json()
         })
         .then(resource => {
@@ -153,6 +158,29 @@ function postSavedToDB(postID){
 
 
 
+//funktion för att radera post från databas 
+function removePostFromDB(id){
+
+    let request = new Request("../admin/api.php", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postID: id })
+    });
+
+    fetch(request)
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+
+            //ta bort polaroiden från gridden
+            let polaroid = `polaroid${id}`;
+            let element = document.getElementsByClassName(polaroid)[0];
+            element.parentNode.removeChild(element);
+        });
+
+}
 
 
 

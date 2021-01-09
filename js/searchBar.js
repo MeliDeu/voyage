@@ -19,7 +19,27 @@ document.getElementById('homeSearchField').addEventListener('focus', function(){
         })
         // skicka med ny array som parameter till loadpost
         document.getElementById('homeSearchField').addEventListener('keyup', function (event){
+            
             if (event.keyCode == 13) {
+                // Hämta det sökta ordet
+                let thisValue = this.value;
+                //console.log(thisValue)
+                let copyThisValue = JSON.parse(JSON.stringify(thisValue));
+                
+                let viewing = document.getElementById("homeFeedTitle"); //för att ge feedback om vad anv har sökt på
+                viewing.innerHTML = `\xa0\matching: ${ copyThisValue}`;
+                
+                let elementArray = document.querySelectorAll('.categoryBox');
+                elementArray.forEach(function(el){
+                    el.classList.remove('showBG');
+                    el.classList.add('hideBG');
+
+                    this.addEventListener('click', function(){
+                        let searchfield = document.getElementById('homeSearchField');
+                        searchfield.value = ''
+                        viewing.innerHTML = ''
+                    })
+                    })
                 // här ska en ny array med den arrayen som har alla sökresultat
                 loadPosts(searchArray);
             }

@@ -89,15 +89,16 @@
                 
                     <div id='homefeedBox' class='feedBox'>
                         <div id='homeFeedInfo' class='feedInfo'>
+                            <div id='homeFeedView' class='feedView'></div>
                             <div id='homeFeedTitle' class='feedTitle'></div>
-                            <div id='homeFeedView' class='feedView'>All Posts</div>
+                            
                         </div>
 
                         <div id='homeFeedGrid' class='feedGrid'></div>
                     </div>
 
                     <div id="newPostOverlay">
-                        <?php include "sections/upload.php"?>
+                        <?php include "sections/createNewPost.php"?>
                     </div>
                 <?php }?> <!-- stänger if ($_SESSION["isLoggedIn"] -->
             </div>

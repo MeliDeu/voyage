@@ -1,134 +1,167 @@
 // sköter kontakt med php
-
-const addNewImg = document.getElementById("newPostPictures");
-const nyImg = document.getElementById("newPostPics");
-const hiddenForm = document.getElementById("hiddenForm");
-const imgUploadBtn = document.getElementById("hiddenButton");
-let fileInput = document.getElementById("hiddenInput");
+//----------------------VARIABLER-------------------------------//
+// lilla "button" med +
+const addNewImg = document.getElementById("pic_"); 
+// const nyImg = document.getElementById("newPostPics"); 
+// const hiddenForm = document.getElementById("hiddenForm");
+// const imgUploadBtn = document.getElementById("hiddenButton");
+// gömd input för previewbilderna
+let previewInput = document.getElementById("hiddenInput");//små bilder
+// gömd input för coverImg
+let coverImageInput = document.getElementById("coverImageInput");
+// själva coverImg
+let coverImage = document.getElementById("newPostBigPicture");
+// form för all post-info som ska till db
 let newPostForm = document.getElementById("postInformation");
+// button för att submitta hela
 let newPostButton = document.getElementById("newPostSubmit");
-let currentClickedDiv;
+// soptunna för coverImg
+let trashButton = document.querySelector("#newPostBigPicture .imgTrash");
+//
+// let imageUploadInput = document.getElementById("uploadFiles");
 let addedPictures = [];
 
-//function för att trigga igång val av file 
-function chooseImg(e){
-    //currenttarget = elementet före punkten, alltså coverImg eller nyImg
-    //target = det elementet som man klickar på
-    // så om klickat element är samma som det som står före punkten, då ska dialogfönstret öppnas
-    if (e.target !== e.currentTarget && e.target.id !== "newPostPics") {
-        currentClickedDiv = e.target.id;
-        // console.log(e.target.style.background); //returns empty string
-        //trigga dialogfönster vid klick av ram för upload (triggar klick-eventet på file-upload-input)
-        fileInput.click();
-    }
-    e.stopPropagation();
-}
-
-//function för att trigga igång upload av image
-function uploadImg(){
-    let formData = new FormData(hiddenForm);
-    let nyReq = new Request("http://localhost:7070/admin/imgUpload.php", {
-        method: "POST",
-        body: formData
-    });
-    fetch(nyReq)
-        .then(resp => {
-            if (!resp.ok) {
-                throw Error();
-            }
-            return resp.json();
-        })
-        .then(resurs => {
-            //resurs == sökvägen till den nya uppladdade bilden, sparad under key "file"
-            let currentPic = resurs.file;
-            //hämta in diven med id:n "currentclickeddiv" och byta bakgrundsbild på den, samt töm +:et
-            let currentDiv = document.getElementById(currentClickedDiv);
-            // currentDiv.innerHTML = "";
-            //här måste vi hämta in den nya sökvägen från php:n
-            currentDiv.style.backgroundImage = `url(${currentPic})`;
-            currentDiv.style.backgroundSize = "cover";
-            currentDiv.style.backgroundPosition = "center";
-            currentDiv.classList.add("filled");
-            //gå in i posts, hitta respektive post med id, och pusha in den nya bilden i arrayn, om post redan existerar, är det en helt ny post, så måste vi skicka ett nytt objekt till databasen enligt objektet ovan 
-            //om man klickar igen, så kommer dialogfönstret upp igen, så att man kan byta bild igen, man får dock lägga en unlink 
-        })
-        .catch(error => {
-            console.log(error.message);
-            alert("Something went wrong with the upload");
-        });
-}
+//----------------------------FUNCTIONS---------------------------//
 
 //function för att lägga till all info i databasen under posts 
 function newPostToDB() {
-    //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas 
-    let title = document.getElementById("postRubrik").value;
-    let country = document.getElementById("postCountrySelect").value;
-    let category = document.getElementById("postCategorySelect").value;
-    let description = document.getElementById("postDescription").value;
-    let coverImage = document.getElementById("newPostBigPicture").style.backgroundImage;
-    let nodes = [];
-    let otherImage = [];
-    let newPicsNodes = nyImg.childNodes;
-    //måste sortera ut de childnodes som är #text, vet dock ej varifrån det kommer
-    for (let i = 0; i < newPicsNodes.length; i++) {
-        if (i%2) {
-            nodes.push(newPicsNodes[i]);
-        }
-    }
-    //spara allas url till backgrundsbilden i otherImage-arr
-    for (let i = 0; i < nodes.length; i++){
-        if (nodes[i].classList.contains("filled")) {
-            otherImage.push(nodes[i].style.backgroundImage);
-        }
-        
-    }
-    let newPost = {
-        //id:, //post ID läggs till i php:n
-        creatorId: mainUserID,
-        title: title,
-        country: country,
-        category: category,
-        description: description,
-        coverImage: coverImage,
-        otherImage: otherImage
-    };
-    // return newPost;
-    let nyRequ = new Request("http://localhost:7070/admin/imgUpload.php", {
-        method: "POST",
-        body: JSON.stringify(newPost),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
+    //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas --> görs i classes 
+    let formData = new FormData(postInformation);
+    //lägger till en ny property i formdata med creator ID, eftersom vi inte har det i formuläret
+    formData.set("creatorID", mainUserID);
+    addedPictures.forEach(picture => {
+        formData.append("images[]", picture, picture.name);
     });
-    fetch(nyRequ)
-        .then(resp => resp.json())
-        .then(resurs => {
-            console.log(resurs);
+    //egentligen var tanken att skicka hela instansen, men det gick ej, så jag behöll den delen, men valideringen utgår från class CreatePost
+    let newPost = new CreatePost({
+        creatorID: mainUserID,
+        title: formData.get("title"),
+        country: formData.get("country"),
+        categoryID: formData.get("categoryID"),
+        description: formData.get("description"),
+        coverImg: formData.get("coverImg"),
+        images: formData.getAll("images[]")
+    });
+    // Kollar om alla fält är ifyllda med validate(), isf begäran skickas som post
+    if (newPost.validate()) {
+        let nyRequ = new Request("/admin/uploadPost.php", {
+            method: "POST",
+            body: formData
         });
+        fetch(nyRequ)
+            .then(resp => resp.json())
+            .then(resource => {
+                // Om alla fällt är ifyllda men det är ett fel i det, skickas det med ett felmeddelande från apin som kommer det att visas för användaren i en alert
+                if (resource.error !== undefined){
+                    alert(resource.error)
+                }
+                // Om det inte skickas med något felmeddelande går posten igenom och sidan laddas om
+                else if (resource.error == undefined){
+                    window.location.reload();
+                }
+            });
+            // Om alla fält inte är ifyllda får användaren detta felmeddelande
+    } else {
+        alert("Please fill all mandatory fields and add at least two photos to continue")
+    }
+    return newPost;
+}
+
+//funktionen som producerar de små preview-bilderna
+function renderPreviewImages(){
+    //hämtar in föräldern till previewbilderna
+    let previewPictureList = document.getElementById("picPreview");
+    //tömmer den då vi alltid appendar alla previewbilder vid varje tillagd bild
+    previewPictureList.innerHTML = "";
+    addedPictures.forEach(picture => {
+        let nPreviewImg = document.createElement("div");
+        let trashCan = document.createElement("img");
+        trashCan.setAttribute("src", "../images/stockimages/icons/trash.png");
+        trashCan.classList.add("imgTrash");
+        nPreviewImg.appendChild(trashCan);
+        nPreviewImg.classList.add("nyPic");
+        //URL.createObjectURL kan användas för att hämta sökvägen för bilden
+        let previewURL = URL.createObjectURL(picture);
+        nPreviewImg.style.backgroundImage = `url(${previewURL})`;
+        nPreviewImg.style.backgroundSize = "cover";
+        previewPictureList.appendChild(nPreviewImg);
+        trashCan.addEventListener("click", clearPreviewImage);
+    });
+    //om användaren redan lagt till 5 stycken minibilder, försvinner den lägga till button, finns nog en snyggare lösning men blev trött i huvudet haha
+    if (addedPictures.length >= 5) {
+        addNewImg.style.display = "none";
+    } else {
+        addNewImg.style.removeProperty("display");
+    }
+}
+
+//lägger till senaste bild som finns under e.target.files[0], e.target är elementet man klickat på och det finns under files[0], sen producerar vi minibilden 
+function addPreviewImage(e) {    
+    addedPictures.push(e.target.files[0]);
+    renderPreviewImages();
+}
+
+//för borttag vid klick på soptunnan, obs, e.target är själva soptunnan 
+function clearPreviewImage(e) {
+    //vi vill veta vilket barn diven är det är till föräldern
+    //föräldern
+    let previewPictureList = document.getElementById("picPreview");
+    //hämtar in alla bilder som lagts till som preview-image
+    let allPics = previewPictureList.querySelectorAll(".nyPic");
+    //loopar över alla nodes vi har där och om det är 
+    for (let i = 0; i < allPics.length; i++) {
+        //om den aktuella noden är samma som bortklickad previewbild, då ska elementet tas bort från addedPictures-arr
+        if (allPics[i] == e.target.parentElement) {
+            addedPictures.splice(i, 1);
+        }
+    }
+    //sen skapar vi nya preview-images
+    renderPreviewImages();
 }
 
 
-//eventhandlers
+//-------------------------Eventhandlers--------------------------//
 
-// addNewImg.addEventListener("click", chooseImg, false);
+//plus för att lägga till ny bild
+addNewImg.addEventListener("click", function (e) {
+    //triggar igång inputen så att dialogfönstret öppnas
+    previewInput.click();
+});
 
-addNewImg.addEventListener("click", function(e){
-    e.stopPropagation();
-    if (e.target !== e.currentTarget && e.target.id !== "newPostPics" && e.target.className !== "newPostUp" && e.target.className !== "imgTrash") {
-        if (e.target.classList.contains("filled")) { //om redan bild i, då ska inte dialogrutan komma upp igen
-            console.log(`${e.target.id} is filled`);
-        } else {
-            chooseImg(e);
-        }
+//plus på coverImage för att lägga till ny bild
+coverImage.addEventListener("click", function() {
+    //bara om det inte finns någon bild redan, ska dialogfönstret öppnas
+    if (!coverImage.classList.contains("filled")) {
+        coverImageInput.click();
     }
 });
 
-fileInput.addEventListener("change", uploadImg, false);
+//så fort användaren har valt ut en coverbild och det läggs in i den coverimageinput, dvs att den changes, då ändras backgrundsbilden
+coverImageInput.addEventListener("change", function(e){
+    //hämta ut sökvägen till bilden
+    let previewURL = URL.createObjectURL(e.target.files[0]);
+    coverImage.style.backgroundImage = `url(${previewURL})`;
+    coverImage.style.backgroundSize = "cover";
+    coverImage.classList.add("filled");
+});
 
-//om man klickar på bilden och background-img är add.png, då ska funktionen uploadImg anropas. annars ingen klick och vid hover dyker trash-containern upp. vid klick på trash, delete-anrop, där man tar bort bilden med unlink --> problem med vanilla.. får ej fram vilken bakgrundsbild som elementet har, eventuellt lägga en class på diven när den fylls och sedan tas bort igen när den är empty --> if element hasClass --> då ska trashcan dyka upp, och ingen chooseimg, 
+//klickar man på trash på coverImg, så återställs allt till innan och inputen töms så att man inte skickar med fel bild
+trashButton.addEventListener("click", function(e){
+    coverImage.style.removeProperty("background-image");
+    coverImage.style.removeProperty("background-size");
+    coverImage.classList.remove("filled");
+    e.stopPropagation();
+    coverImageInput.value = "";
+});
+
+//så fort användaren har valt ut en liten bild, så körs addPreviewImage()
+previewInput.addEventListener("change", addPreviewImage, false);
 
 //när man klickar på post-btn i skapa ny post
-newPostForm.addEventListener("submit", function(e){
+newPostForm.addEventListener("submit", function (e) {
+    //så att fönstret inte stängs
     e.preventDefault();
-    let testOne = newPostToDB();
-    console.log(testOne);
-    document.getElementById("newPostOverlay").style.display = "none";
+    let successUpload = newPostToDB();
+    console.log(successUpload);
+    
 });

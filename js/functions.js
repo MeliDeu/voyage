@@ -20,12 +20,13 @@ let STATE = {
 
 //Funktion för att appenda posts i feed
 function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
+    
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
     let copyPosts = [...posts]; //kopierar arrayen som skickats
 
     if (copyPosts.length == 0) {
-        grid.innerHTML = "No posts";
+        grid.innerHTML = "Oh no! No posts yet.. Please add one!";
     }
 
     let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
@@ -35,7 +36,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
         copyPosts = copyPosts.filter(p => p[filter] == sort); 
 
         if (copyPosts.length == 0) {
-            grid.innerHTML = "No posts";
+            grid.innerHTML = "Oh no! No posts yet.. Please add one!";
         }
 
         if (countryParameter !== "false") { //om man har klickat på ett land SAMT klickar på en kategori så filtrerar vi arrayen på landet man är på
@@ -45,9 +46,15 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
 
         //byta ut "all posts" till "reset filter" om man har klickat på en kategori / album:
         if (filter == "categoryID" || filter == "albumID") {
-            viewing.innerHTML = "Reset filter";
+            viewing.innerHTML = "Back to all post";
 
             function viewAll(){
+
+                // Tar bort bg på alla categoryBoxes om du klickar på texten "back to all posts"
+                let elementArray = document.querySelectorAll('.categoryBox');
+                elementArray.forEach(function(el){
+                    el.classList.remove('showBG');
+                })
 
                 if (filter == "albumID" && profileParameter == STATE.mainUserID) {
                     loadPosts(STATE.mainUserPosts);
@@ -126,21 +133,10 @@ function getUserObjectByID(id){
 
 
 //här görs options i newPostContainern, där respektive array skickas med samt i vilken container de options ska appendas
-function makePostOptions(element, container){
-    // if (container === "STATE.countries"){
-    //     arr.forEach(element => {
-    //         let newOption = document.createElement("option");
-    //         newOption.innerHTML = element;
-    //         newOption.setAttribute("value", element);
-    //         newOption.setAttribute("name", element);
-    //         container.appendChild(newOption);
-    //     });
-    // } else {
-        
-    // }
+function makePostOptions(element, container, value = element){
     let newOption = document.createElement("option");
     newOption.innerHTML = element;
-    newOption.setAttribute("value", element);
+    newOption.setAttribute("value", value);
     newOption.setAttribute("name", element);
     container.appendChild(newOption);
     
@@ -154,7 +150,7 @@ document.getElementById("add").addEventListener("click", function(){
         makePostOptions(country, optionsCountry);
     });
     travelCategoriesArray.forEach(category => {
-        makePostOptions(category.travelCategory, optionsCategory);
+        makePostOptions(category.travelCategory, optionsCategory, category.categoryID);
     });
     document.getElementById("newPostOverlay").style.display = "flex";
 });
@@ -178,19 +174,25 @@ toggle.addEventListener('click', function() {
     let isOpen = slider.classList.contains('slide-in');
     slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
 });
-// placerar länder från adminArray.js -> countriesArray i sliden
-countriesArray.forEach(function(country){
-    let newLi = document.createElement("li");
-    newLi.innerHTML = country.name;
-    let cName = country.name.replace(/ /g, '+');
-    // click på ett land
-    newLi.addEventListener('click', function(){
-        window.location = `../home.php?country=${cName}`;
-    }) 
 
-    let sliderList = document.getElementById("sliderList");
-    sliderList.append(newLi);
-})
+
+function placeCountriesInSidebar(countriesArray){
+   
+    // placerar länder från adminArray.js -> countriesArray i sliden
+    countriesArray.forEach(function(country){
+        let newLi = document.createElement("li");
+        newLi.innerHTML = country.name;
+        let cName = country.name.replace(/ /g, '+');
+        // click på ett land
+        newLi.addEventListener('click', function(){
+            window.location = `../home.php?country=${cName}`;
+        }) 
+
+        let sliderList = document.getElementById("sliderList");
+        sliderList.append(newLi);
+    })
+}
+
 
 
 // clickfunktion för sidebar

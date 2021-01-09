@@ -25,9 +25,7 @@
 
 <div id='profileBox'>
     <div id='profilePicBox'>
-        <div id='profilePic' style='background-image: url(<?php echo $profilePic; ?>)'>
-            <div id='postProfilePic'></div>
-        </div>
+        <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'><div id='postProfilePic'></div></div>
         <div>
             <form id='uploadProfilePic' method='POST'>
                 <input id="fileInfo" class='hide' type="file" enctype="multipart/form-data" name="file"><br>
@@ -63,7 +61,7 @@
                     echo "<input class='hide patchFavs'></input>";
                 }
             }else{//om favs inte finns
-                for($i; $i<3; $i++){
+                for($i = 0; $i<3; $i++){
                     echo "<li class='topFavsList'></li>";
                     echo "<input class='hide patchFavs'></input>";
                 }
@@ -85,7 +83,7 @@
                         echo "<input class='hide patchWishes'></input>";
                     }
                 }else{//om wishes inte finns
-                    for($i; $i<3; $i++){
+                    for($i = 0; $i<3; $i++){
                         echo "<li class='topFavsList'></li>";
                         echo "<input class='hide patchFavs'></input>";
                     }

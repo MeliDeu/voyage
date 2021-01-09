@@ -28,16 +28,11 @@ a {
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
     border-radius: 100%;
     background-color: var(--darkTextColor);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-family: "Dancing Script";
+    background-image: url(../images/logo_.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .error {
@@ -434,10 +429,10 @@ input:checked + .slider:before {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 0 15px;
-    
+    color: white;
+    font-family: 'Mulish';
+    font-size: .8rem;
 }
-
-
 
 /*CATEGORIES / ALBUM*/
 .categoryBar {
@@ -466,8 +461,8 @@ input:checked + .slider:before {
 }
 .categoryIcon {
     background-color: white;
-    height: 4.5vw;
-    width: 4.5vw;
+    height: 4vw;
+    width: 4vw;
     border: 3px solid rgba(255, 255, 255, 0.279);
     border-radius: 100px;
     display: flex;
@@ -613,6 +608,7 @@ input:checked + .slider:before {
     background-position: center;
     border-radius: 100%;
     border: 2px solid white;
+    background-color: white;
 }
 
 .polaroidUser {
@@ -646,6 +642,10 @@ input:checked + .slider:before {
     margin-bottom: 2px;
 }
 
+.polaroidTitle {
+    color: var(--lightTextColor);
+}
+
 .polaroidIcon {
     flex-grow: 1;
     display: flex;
@@ -657,6 +657,10 @@ input:checked + .slider:before {
     height: 1.2vw;
     background-size: cover;
     margin-top: 3px;
+}
+
+.polaroidIcon > div:hover {
+    cursor: pointer;
 }
 
 #startGrid .filter {
@@ -704,7 +708,7 @@ input:checked + .slider:before {
 #profilePic {
     height: 8vw;
     width: 8vw;
-    background-color: var(--beige);
+    background-color: white;
     background-position: center;
     border-radius: 100px;
     border: 3px solid white;
@@ -796,11 +800,11 @@ input:checked + .slider:before {
 }
 
 .feedTitle, .feedView {
-    font-family: var(--styleFont);
+    font-size: .7rem;
+    font-family: 'Mulish';
 }
 
 .feedView {
-    font-size: .9vw;
     display: flex;
 }
 
@@ -875,13 +879,11 @@ input:checked + .slider:before {
 }
 
 
-
-
 /*New Post*/
 #newPostOverlay {
     box-sizing: border-box;
     position: absolute;
-    height: 100%;
+    height: calc(100% - 10px);
     background: rgba(0,0,0,.5);
     display: none;
     justify-content: center;
@@ -897,6 +899,7 @@ input:checked + .slider:before {
 #newPostWrapper {
     height: 80%;
     flex-basis: 80%;
+    max-width: 1200px;
     transform: translateY(-50px);
     -webkit-transform: translateY(-50px);
     -moz-transform: translateY(-50px);
@@ -962,9 +965,9 @@ input:checked + .slider:before {
     height: 20%;
 }
 
-#newPostPics {
+#newPostPics, #picPreview {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -989,9 +992,10 @@ input:checked + .slider:before {
 }
 
 .nyPic {
-    flex-basis: 100px;
+    width: 100px;
     height: 100px;
     position: relative;
+    margin-right: 15px;
 }
 
 .imgTrash {
@@ -1066,6 +1070,12 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media(max-width: 1110px){
+    /* #newPostContainer {
+        display: block;
+    } */
 }
 
 .markedSaved {
