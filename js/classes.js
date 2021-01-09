@@ -163,6 +163,12 @@ class PolaroidFeed extends PolaroidActive{
             postSavedToDB(subClicked)
             // en funktion ska finnas i functions som placerar pics från den arrayen i saved när man klickar i sidebar
             // klick igen = avmarkeras och splice från array 
+            if (icon.classList.contains("markedSaved")) {
+                console.log("den är markerad");
+                //deleteSavedPostFromDB(subClicked);
+            } else {
+                console.log("den är ej markerad");
+            }
         })
 
 
