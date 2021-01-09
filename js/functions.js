@@ -78,7 +78,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
         grid.prepend(post.htmlElement(STATE.users));
     });
 
-    if(profileParameter == 'false'){
+    if(profileParameter !== STATE.mainUserID){
         checkAndMark();
     }
 

@@ -35,7 +35,7 @@ window.onload = function(){
         
         // Hämtar arrayen med alla länder som det finns post för
         let countriesArray = db.data.countriesArray;
-        console.log(countriesArray)
+        //console.log(countriesArray)
         // Kallar på en funtion som kommer placera ut dem i sidebar
         placeCountriesInSidebar(countriesArray)
 
@@ -174,12 +174,17 @@ function deleteSavedPostFromDB(postID){
                 console.log(resource.error);
             }
             if (resource.data !== undefined){
+                console.log(resource.data);
 
-                let findRightPost = document.getElementById(`icon_${postID}`)
+                let icon = document.getElementById(`icon_${postID}`)
+                icon.classList.remove('markedSaved');
+                icon.classList.add('markedUnsaved');
 
-
-                findRightPost.classList.remove('markedSaved');
-                findRightPost.classList.add('markedUnsaved');
+                if (savedParameter !== "false") {
+                    let polaroid = `polaroid${postID}`;
+                    let element = document.getElementsByClassName(polaroid)[0];
+                    element.parentNode.removeChild(element);
+                }
                 
             }
     })

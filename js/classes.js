@@ -165,7 +165,7 @@ class PolaroidFeed extends PolaroidActive{
             // klick igen = avmarkeras och splice från array 
             if (icon.classList.contains("markedSaved")) {
                 console.log("den är markerad");
-                //deleteSavedPostFromDB(subClicked);
+                deleteSavedPostFromDB(subClicked);
             } else {
                 console.log("den är ej markerad");
             }
