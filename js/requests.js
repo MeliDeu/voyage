@@ -156,6 +156,36 @@ function postSavedToDB(postID){
 
 }
 
+// DELETE req för att ta bort en saved post från mainuser savedposts
+function deleteSavedPostFromDB(postID){
+
+    let request = new Request("../admin/testApiSaved.php", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postID: postID })
+    })
+    fetch(request)
+        .then(response => {
+            return response.json()
+        })
+        .then(resource => {
+            
+            if (resource.error !== undefined){
+                console.log(resource.error);
+            }
+            if (resource.data !== undefined){
+
+                let findRightPost = document.getElementById(`icon_${postID}`)
+
+
+                findRightPost.classList.remove('markedSaved');
+                findRightPost.classList.add('markedUnsaved');
+                
+            }
+    })
+
+}
+
 
 
 //funktion för att radera post från databas 

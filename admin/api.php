@@ -274,9 +274,7 @@ if ($method === "DELETE") {
 
             foreach ($database["users"] as $i => $currentUser) { //kollar igenom alla användares savedPosts och tar bort post:idet som ligger i den arrayen om den matchar med posten som tagits bort
                 foreach ($currentUser["savedPosts"] as $ind => $p) {
-;
                     if ($p["postID"] == $post["postID"]) {
-                        $arr = $database["users"][$i]["savedPosts"];
                         array_splice($database["users"][$i]["savedPosts"], $ind, 1);
                     }
                 }

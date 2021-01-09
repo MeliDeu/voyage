@@ -105,5 +105,28 @@ if ($method === 'POST'){
 
 }
 
+if ($method === 'DELETE'){
+    //ta bort post:id från mainuser savedposts
+    foreach($database["users"] as $index => $user){
+        if ($user['id'] == $_SESSION["userID"]) {
+            foreach ($user["savedPosts"] as $ind => $post) {
+                if ($json['postID'] == $post["postID"]) {
+                    array_splice($database["users"][$index]["savedPosts"], $ind, 1);
+                }
+            }
+        }
+    }
+
+    file_put_contents($file, json_encode($database, JSON_PRETTY_PRINT));
+    http_response_code(200); 
+    //header("Content-Type: application/json");
+    $message = [
+        "data" => "Post was removed successfully from your saved posts"
+    ];
+    echo json_encode($message);
+    exit();
+
+}
+
 
 ?>
