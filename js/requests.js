@@ -205,21 +205,11 @@ function patchBio(){
     })
     .then(resource => {
         console.log(resource);
-    })
-}
-function getDatabaseJS(){
-    let request = new Request("../admin/api.php")
-    fetch(request)
-    .then(response =>{
-        return response.json();
-    })
-    .then(resource =>{
-        //console.log(resource)
-        return resource
+        //Laddar om sidan så att innehållet i profilen laddas om direkt och påsåvis uppdateras!
+        window.location.reload();
     })
 }
 
-getDatabaseJS();
 getCountries();
 
 

@@ -710,6 +710,19 @@ input:checked + .slider:before {
     border: 3px solid white;
     background-size: cover;
 }
+#postProfilePic{
+    background-image: url(../images/stockImages/icons/add_white.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    display: none;
+}
+#profilePic:hover > #postProfilePic{
+    display: block;
+    cursor: pointer;
+    
+}
 
 #profileBox, #profileFavs, #profileInterest {
     display: flex;
