@@ -44,7 +44,7 @@ function newPostToDB() {
     });
     // Kollar om alla fält är ifyllda med validate(), isf begäran skickas som post
     if (newPost.validate()) {
-        let nyRequ = new Request("http://localhost:2222/admin/uploadPost.php", {
+        let nyRequ = new Request("/admin/uploadPost.php", {
             method: "POST",
             body: formData
         });

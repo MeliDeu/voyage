@@ -477,6 +477,19 @@
             "country": "Afghanistan",
             "categoryID": "1",
             "description": "c"
+        },
+        {
+            "postID": 24,
+            "creatorID": "6",
+            "title": "test",
+            "coverImg": "..\/images\/uploads\/5ff99e5259f65.jpg",
+            "images": [
+                "..\/images\/uploads\/5ff99e525a25b.jpg"
+            ],
+            "albumID": false,
+            "country": "Albania",
+            "categoryID": "1",
+            "description": "test"
         }
     ]
 }
