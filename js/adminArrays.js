@@ -184,10 +184,9 @@ let travelCategoriesArray = [
 ]
 
 
-//ska posts in i respektive land här eller ska vi jämföra post country med det land användaren klickade på vid uppdatering av feed-polaroider?
 //ska denna uppdateras när man tar bort en post om det var den ända som fanns för det landet? och ska det läggas till land när man väljer ett som inte finns? 
 //har skapat dem som objekt just nu ifall vi behöver mer nycklar, om det ej behövs kan de stå som strängar bara också /kaj
-let countriesArray = [ 
+/*let countriesArray = [ 
     {
         name: "Turkey"
     },
@@ -212,4 +211,4 @@ let countriesArray = [
     {
         name: "Tanzania"
     }
-]
+]*/

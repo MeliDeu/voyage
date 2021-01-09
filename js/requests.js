@@ -33,6 +33,11 @@ window.onload = function(){
             }
         })
         
+        // Hämtar arrayen med alla länder som det finns post för
+        let countriesArray = db.data.countriesArray;
+        console.log(countriesArray)
+        // Kallar på en funtion som kommer placera ut dem i sidebar
+        placeCountriesInSidebar(countriesArray)
 
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
@@ -101,7 +106,7 @@ function checkURL(){
     } else if (savedParameter !== "false") {
         loadPosts(STATE.mainUserSavedPosts);
         markIconNav(document.getElementById("savedNavBtn"));
-        console.log(STATE.allPosts)
+        //console.log(STATE.allPosts)
         //checkAndMark()
     } else {
         loadPosts(STATE.allPosts);

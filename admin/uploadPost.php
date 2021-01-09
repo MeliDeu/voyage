@@ -111,6 +111,28 @@
             "description" => $description
         ];
 
+        // Lägg till landet i countriesArray om det inte redan finns(som syns i sidebar) 
+        // Detta är det land som usern har valt för sin nya post
+        //$checkCountry = $newPost["country"];
+        $existingCountry;
+        // Loopa countriesArray
+        foreach ($database["countriesArray"] as $countryInArr){
+            if ($countryInArr["name"] == $country){
+                $existingCountry = false;
+            } else {
+                $existingCountry = $country;
+            }
+        }
+        // Om det är true att landet inte finns än
+        if ($existingCountry){
+            $countryObj = ["name" => $existingCountry];
+            // Pushar in nytt land i database
+            $database["countriesArray"][] = $countryObj;
+        }
+        
+
+
+
         $database["posts"][] = $newPost;
 
         $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
