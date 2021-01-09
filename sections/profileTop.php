@@ -61,7 +61,7 @@
                     echo "<input class='hide patchFavs'></input>";
                 }
             }else{//om favs inte finns
-                for($i; $i<3; $i++){
+                for($i = 0; $i<3; $i++){
                     echo "<li class='topFavsList'></li>";
                     echo "<input class='hide patchFavs'></input>";
                 }
@@ -83,7 +83,7 @@
                         echo "<input class='hide patchWishes'></input>";
                     }
                 }else{//om wishes inte finns
-                    for($i; $i<3; $i++){
+                    for($i = 0; $i<3; $i++){
                         echo "<li class='topFavsList'></li>";
                         echo "<input class='hide patchFavs'></input>";
                     }
