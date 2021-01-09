@@ -25,10 +25,10 @@
 
 <div id='profileBox'>
     <div id='profilePicBox'>
-        <div id='profilePic' style='background-image: url(<?php echo $profilePic; ?>)'></div>
+        <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'><div id='postProfilePic'></div></div>
         <div>
-            <form id='uploadProfilePic' method='POST' onsubmit="return FUNCTION()">
-                <input id="fileInfo" class='hide' type="file" name="file"><br>
+            <form id='uploadProfilePic' method='POST'>
+                <input id="fileInfo" class='hide' type="file" enctype="multipart/form-data" name="file"><br>
                 <button type='submit' class='hide' id='savePic'>Save</button>
             </form>
         </div>

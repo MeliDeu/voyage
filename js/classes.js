@@ -63,7 +63,11 @@ class PolaroidStatic extends PolaroidBase{
                     polaroidUser.classList.add("polaroidUser");
                         //.polaroidUserPic
                         let polaroidUserPic = document.createElement("div");
-                        polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
+                        if (!userInfo.profilePic){
+                            polaroidUserPic.style.backgroundImage = 'url("../images/stockImages/userPic.png")';
+                        } else {
+                            polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
+                        }
                         polaroidUserPic.classList.add("polaroidUserPic");
                         //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
                         let polaroidUserName = document.createElement("a");

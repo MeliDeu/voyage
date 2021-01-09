@@ -608,6 +608,7 @@ input:checked + .slider:before {
     background-position: center;
     border-radius: 100%;
     border: 2px solid white;
+    background-color: white;
 }
 
 .polaroidUser {
@@ -658,6 +659,10 @@ input:checked + .slider:before {
     margin-top: 3px;
 }
 
+.polaroidIcon > div:hover {
+    cursor: pointer;
+}
+
 #startGrid .filter {
     width: 16.5vw;
     height: 22vw;
@@ -703,11 +708,24 @@ input:checked + .slider:before {
 #profilePic {
     height: 8vw;
     width: 8vw;
-    background-color: var(--beige);
+    background-color: white;
     background-position: center;
     border-radius: 100px;
     border: 3px solid white;
     background-size: cover;
+}
+#postProfilePic{
+    background-image: url(../images/stockImages/icons/add_white.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    display: none;
+}
+#profilePic:hover > #postProfilePic{
+    display: block;
+    cursor: pointer;
+    
 }
 
 #profileBox, #profileFavs, #profileInterest {

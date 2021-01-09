@@ -7,6 +7,7 @@ let STATE = {
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
     countries: [],
+    countriesCode: [],
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
     pictureUpload: {
@@ -182,19 +183,25 @@ toggle.addEventListener('click', function() {
     let isOpen = slider.classList.contains('slide-in');
     slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
 });
-// placerar länder från adminArray.js -> countriesArray i sliden
-countriesArray.forEach(function(country){
-    let newLi = document.createElement("li");
-    newLi.innerHTML = country.name;
-    let cName = country.name.replace(/ /g, '+');
-    // click på ett land
-    newLi.addEventListener('click', function(){
-        window.location = `../home.php?country=${cName}`;
-    }) 
 
-    let sliderList = document.getElementById("sliderList");
-    sliderList.append(newLi);
-})
+
+function placeCountriesInSidebar(countriesArray){
+   
+    // placerar länder från adminArray.js -> countriesArray i sliden
+    countriesArray.forEach(function(country){
+        let newLi = document.createElement("li");
+        newLi.innerHTML = country.name;
+        let cName = country.name.replace(/ /g, '+');
+        // click på ett land
+        newLi.addEventListener('click', function(){
+            window.location = `../home.php?country=${cName}`;
+        }) 
+
+        let sliderList = document.getElementById("sliderList");
+        sliderList.append(newLi);
+    })
+}
+
 
 
 // clickfunktion för sidebar

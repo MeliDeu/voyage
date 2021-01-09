@@ -43,19 +43,22 @@
             if ($file["size"] > 500000) {
                 http_response_code(400);
                 header("Content-Type: application/json");
-                echo json_encode("the file is too big");
+                $message = ["error" => "The file is too big, try with another photo - max 500kB"];
+                echo json_encode($message);
                 exit();
             }
             if (!in_array($fileExtension, ["jpg", "jpeg", "png"])){
                 http_response_code(400);
                 header("Content-Type: application/json");
-                echo json_encode("$fileExtension is the the wrong type");
+                $message = ["error" => "'$fileExtension' is not accepted as file type, try with another photo"];
+                echo json_encode($message);
                 exit();
             }
             if ($file["error"] !== 0) {
                 http_response_code(400);
                 header("Content-Type: application/json");
-                echo json_encode("the file is corrupt");
+                $message = ["error" => "The file is corrupt, try with another photo"];
+                echo json_encode($message);
                 exit();
             }
             // echo $fileExtension;
@@ -107,6 +110,28 @@
             "categoryID" => $categoryID,
             "description" => $description
         ];
+
+        // Lägg till landet i countriesArray om det inte redan finns(som syns i sidebar) 
+        // Detta är det land som usern har valt för sin nya post
+        //$checkCountry = $newPost["country"];
+        $existingCountry;
+        // Loopa countriesArray
+        foreach ($database["countriesArray"] as $countryInArr){
+            if ($countryInArr["name"] == $country){
+                $existingCountry = false;
+            } else {
+                $existingCountry = $country;
+            }
+        }
+        // Om det är true att landet inte finns än
+        if ($existingCountry){
+            $countryObj = ["name" => $existingCountry];
+            // Pushar in nytt land i database
+            $database["countriesArray"][] = $countryObj;
+        }
+        
+
+
 
         $database["posts"][] = $newPost;
 
