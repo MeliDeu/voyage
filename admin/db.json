@@ -188,6 +188,27 @@
                 }
             ],
             "album": []
+        },
+        {
+            "id": 7,
+            "username": "Alnur_cityTravel",
+            "password": "1234",
+            "email": "alnur@gmail.com",
+            "travelStatus": true,
+            "profilePic": "..\/images\/uploads\/pexels-photo-1755385.jpg",
+            "bio": "Hey guys! I'm obsessed with weekends in a big city. Wanna join me for my next trip to Lissbon?",
+            "top3Wishes": [
+                "Tokyo",
+                "Greece",
+                "Lissbon"
+            ],
+            "top3Favs": [
+                "Barcelona",
+                "Paris",
+                ""
+            ],
+            "savedPosts": [],
+            "album": []
         }
     ],
     "posts": [
