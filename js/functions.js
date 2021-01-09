@@ -203,6 +203,7 @@ function sortByName(a,b){ //jämför landnamnen
 }
 
 
+
 // clickfunktion för sidebar
 // hämtar alla element med class .icon
 let sideBarIcon = document.querySelectorAll('.icon');

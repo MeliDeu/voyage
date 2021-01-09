@@ -99,6 +99,22 @@ class PolaroidStatic extends PolaroidBase{
                 this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
                 html.append(filter, pic, this.polaroidBottom);
 
+
+                //tar alla polaroider
+                //let polaroidDiv = document.querySelectorAll('.polaroid');
+                //console.log(polaroidDiv);
+
+                //html.addEventListener('mouseover', function() {
+                       // console.log("hej");
+
+                        //this.setAttribute('class', 'icon active');
+                        //let child = this.children[0]
+                        //let childName = child.id
+                        //child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+
+                //});
+
+
                 return html;
             
     }
