@@ -163,6 +163,29 @@
             "top3Favs": false,
             "savedPosts": [],
             "album": []
+        },
+        {
+            "id": 6,
+            "username": "JassAroundTheWorld",
+            "password": "1234",
+            "email": "jasse@js.se",
+            "travelStatus": true,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false,
+            "savedPosts": [
+                {
+                    "postID": "7"
+                },
+                {
+                    "postID": "11"
+                },
+                {
+                    "postID": "9"
+                }
+            ],
+            "album": []
         }
     ],
     "posts": [
