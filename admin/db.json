@@ -6,7 +6,7 @@
             "password": "1234",
             "email": "mandy89@live.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/person_1.jpg",
+            "profilePic": "..\/images\/uploads\/pexels-photo-4054069.jpeg",
             "bio": "Hey guys, Mandy1 here. Travel is my passion and I would love to explore the world with new travel buddies ",
             "top3Wishes": [
                 "Costa Rica",
@@ -18,11 +18,7 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [
-                {
-                    "postID": "9"
-                }
-            ],
+            "savedPosts": [],
             "album": [
                 {
                     "albumID": 3,
@@ -58,9 +54,6 @@
                 },
                 {
                     "postID": "10"
-                },
-                {
-                    "postID": "9"
                 },
                 {
                     "postID": "7"
@@ -113,9 +106,6 @@
                     "postID": "6"
                 },
                 {
-                    "postID": "9"
-                },
-                {
                     "postID": "4"
                 },
                 {
@@ -138,11 +128,18 @@
                 "Cuba"
             ],
             "top3Favs": [
-                "",
+                "Japan",
                 "",
                 ""
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "8"
+                },
+                {
+                    "postID": "10"
+                }
+            ],
             "album": [
                 {
                     "albumID": 1,
@@ -180,9 +177,6 @@
                 },
                 {
                     "postID": "11"
-                },
-                {
-                    "postID": "9"
                 }
             ],
             "album": []
@@ -460,6 +454,11 @@
         },
         {
             "name": "Afghanistan"
+        }
+    ],
+    "profilePic": [
+        {
+            "profilePic": "..\/images\/uploads\/pexels-photo-4054069.jpeg"
         }
     ]
 }
