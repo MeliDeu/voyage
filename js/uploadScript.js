@@ -44,7 +44,7 @@ function newPostToDB() {
     });
     //om alla fält är ifyllda, ska begäran skickas
     if (newPost.validate()) {
-        let nyRequ = new Request("http://localhost:7070/admin/uploadPost.php", {
+        let nyRequ = new Request("http://localhost:2222/admin/uploadPost.php", {
             method: "POST",
             body: formData
         });

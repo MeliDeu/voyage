@@ -80,9 +80,9 @@ function checkURL(){
         let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
         let albumArray = user.album;
         loadCircles(albumArray, "album");
-        markIconNav(document.getElementById("profileNavBtn"));
 
         if (profileParameter == mainUserID) {
+            markIconNav(document.getElementById("profileNavBtn"));
             loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
         } else {
             STATE.allPosts.forEach(post => {
