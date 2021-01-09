@@ -39,7 +39,7 @@
 
         //funktion för att flytta bilden samt kontroll
         function uploadFile($file){
-            $fileExtension = pathinfo($file["name"], PATHINFO_EXTENSION);
+            $fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
             if ($file["size"] > 500000) {
                 http_response_code(400);
                 header("Content-Type: application/json");
