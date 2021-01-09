@@ -7,7 +7,7 @@ let STATE = {
     mainUserPosts: [], //användarens posts
     mainUserSavedPosts: [], //användarens sparade posts, hittas i db --> user --> savedPosts
     countries: [],
-    countriesCode: [],
+    countriesInSidebar: [], //avser länderna i sidebar som åker ut när man klickar på globen
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
     pictureUpload: {
@@ -171,12 +171,17 @@ document.getElementById("postClose").addEventListener("click", function(){
 let slider = document.getElementById('slider');
 let toggle = document.getElementById('countriesNavBtn');
 toggle.addEventListener('click', function() {
+    placeCountriesInSidebar(STATE.countriesInSidebar);
     let isOpen = slider.classList.contains('slide-in');
     slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
 });
 
 
 function placeCountriesInSidebar(countriesArray){
+    countriesArray.sort(sortByName); //sorterar enligt namn på land, kallar på funktionen sortbyname
+
+    let sliderList = document.getElementById("sliderList");
+    sliderList.innerHTML = "";
    
     // placerar länder från adminArray.js -> countriesArray i sliden
     countriesArray.forEach(function(country){
@@ -188,11 +193,14 @@ function placeCountriesInSidebar(countriesArray){
             window.location = `../home.php?country=${cName}`;
         }) 
 
-        let sliderList = document.getElementById("sliderList");
         sliderList.append(newLi);
     })
 }
 
+
+function sortByName(a,b){ //jämför landnamnen
+    return a.name < b.name ? -1 : 1;
+}
 
 
 // clickfunktion för sidebar

@@ -33,7 +33,7 @@
             "password": "kaj1234",
             "email": "travelGirl95@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/person_2.jpg",
+            "profilePic": "..\/images\/uploads\/pexels-tomaz-barcellos-1987301.jpg",
             "bio": "Hello, I'm writing a book about my travels and I've collected some moments from my journeys here!",
             "top3Wishes": [
                 "Paris",
@@ -66,6 +66,9 @@
                 },
                 {
                     "postID": "3"
+                },
+                {
+                    "postID": "65"
                 }
             ],
             "album": [
@@ -218,6 +221,27 @@
                     "postID": "9"
                 }
             ],
+            "album": []
+        },
+        {
+            "id": 8,
+            "username": "sebbe_doglover",
+            "password": "1234",
+            "email": "aa",
+            "travelStatus": true,
+            "profilePic": "..\/images\/uploads\/pexels-simon-migaj-953182.jpg",
+            "bio": "Give me a dog and a passport and I'm yours.",
+            "top3Wishes": [
+                "",
+                "",
+                ""
+            ],
+            "top3Favs": [
+                "",
+                "",
+                ""
+            ],
+            "savedPosts": [],
             "album": []
         }
     ],
@@ -448,16 +472,16 @@
         },
         {
             "postID": 66,
-            "creatorID": "6",
-            "title": "c",
-            "coverImg": "..\/images\/uploads\/5ffa26cc98736.jpg",
+            "creatorID": "8",
+            "title": "Hiking in Iceland",
+            "coverImg": "..\/images\/uploads\/5ffa30cf48b7a.jpg",
             "images": [
-                "..\/images\/uploads\/5ffa26cc98a95.jpg"
+                "..\/images\/uploads\/5ffa30cf493fe.jpg"
             ],
             "albumID": false,
-            "country": "Greece",
-            "categoryID": "3",
-            "description": "c"
+            "country": "Iceland",
+            "categoryID": "7",
+            "description": "Olalala what a place"
         }
     ],
     "countriesArray": [
@@ -486,12 +510,16 @@
             "name": "Tanzania"
         },
         {
-            "name": "Greece"
-        }
-    ],
-    "profilePic": [
+            "name": "Germany"
+        },
         {
-            "profilePic": "..\/images\/uploads\/pexels-photo-4054069.jpeg"
+            "name": "Iceland"
+        },
+        {
+            "name": "Austria"
+        },
+        {
+            "name": "Switzerland"
         }
     ]
 }

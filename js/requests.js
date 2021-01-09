@@ -34,17 +34,13 @@ window.onload = function(){
         })
         
         // Hämtar arrayen med alla länder som det finns post för
-        let countriesArray = db.data.countriesArray;
-        //console.log(countriesArray)
-        // Kallar på en funtion som kommer placera ut dem i sidebar
-        placeCountriesInSidebar(countriesArray)
+        STATE.countriesInSidebar = db.data.countriesArray;
 
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
         
         checkURL()
-        //console.log(noParameter);
     });
 }
 
@@ -231,7 +227,7 @@ function getCountries(){
             //Ger namn på 250 länder!
             //console.log(element)
             STATE.countries.push(element.name);
-            STATE.countriesCode.push({name: element.name, code: element.alpha2Code})
+            //STATE.countriesCode.push({name: element.name, code: element.alpha2Code}) //denna var till för eventuell mer info om landet /kaj
         });
     })
 }

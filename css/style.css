@@ -816,28 +816,32 @@ input:checked + .slider:before {
 /* slider -> sidebar */
 #slider {
     position: absolute;
-    left: 1vw;
+    left: 4vw;
     width: 13vw;
     height: 100%;
     background: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     z-index: 0;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
 }
 
 #slider > ul {
-    margin-top: 25px;
+    margin-top: 10px;
     font-size: 20px;
+    max-height: 90vh;
+    overflow-y: scroll;
 }
 
-#slider > ul > h3 {
+#slider > h3 {
     font-family: var(--styleFont);
     font-weight: 800;
     color: var(--blue);
     margin-bottom: 5px;
-    font-size: 15px;
+    font-size: 20px;
+    margin-left: 2.5vw;
+    margin-top: 30px;
 }
 
 #slider > ul > li {
@@ -846,7 +850,7 @@ input:checked + .slider:before {
     font-family: var(--styleFont);
     font-weight: 500;
     color: var(--darkTextColor);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 22px;
 }
 

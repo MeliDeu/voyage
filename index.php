@@ -79,7 +79,6 @@
             <nav class="flexCenter startNav">
                 <div class="logo"></div>
                 <div id="links">
-                    <a href="/" class="navAboutBtn">About</a>
                     <button id="navLoginBtn">Login/Join</button>
                 </div>
             </nav>
