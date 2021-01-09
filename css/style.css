@@ -570,6 +570,8 @@ input:checked + .slider:before {
     align-items: center;
     box-shadow: 1px 3px 50px rgb(29, 29, 29);
     margin-bottom: 30px;
+    position: relative;
+    justify-content: space-between;
     /*margin: 1vw*/
 }
 
@@ -582,8 +584,9 @@ input:checked + .slider:before {
 }
 
 .polaroidPic {
-    width: calc(100% - 4%);
-    flex-basis: 84%;
+    position: absolute;
+    width: 16vw;
+    height: 19vw;
     background-size: cover;
     background-position: center;
     margin: 2% 2% 0 2%;
@@ -592,7 +595,9 @@ input:checked + .slider:before {
 .polaroidBottom {
     width: calc(100% - 16px);
     padding: 0 8px;
-    flex-grow: 1;
+    z-index: 100;
+    background-color: white;
+    height: 3vw;
 }
 
 .polaroidInfo {
@@ -629,10 +634,15 @@ input:checked + .slider:before {
 .polaroidText {
     flex-direction: column;
     align-items: unset;
-    padding: 2px 5px 5px 13px;
+    padding: 5px 5px 5px 13px;
     font-family: var(--styleFont);
     font-size: 0.63vw;
     font-weight: 500;
+}
+
+.descriptionBox {
+    color: var(--darkgrey);
+    display: none;
 }
 
 .polaroidCountry {

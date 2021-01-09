@@ -27,8 +27,8 @@ class PolaroidStatic extends PolaroidBase{
         this.polaroidInfo = document.createElement("div");
         this.polaroidInfo.classList.add("polaroidInfo");
 
-        this.descriptionBox = document.createElement("div");
-        this.descriptionBox.classList.add("descriptionBox");
+        //this.descriptionBox = document.createElement("div");
+        //this.descriptionBox.classList.add("descriptionBox");
     }
 
     createPolaroidBase(arr){
@@ -92,11 +92,11 @@ class PolaroidStatic extends PolaroidBase{
 
                     polaroidText.append(polaroidCountry, polaroidTitle);  
                 
-                let description = this.description
-                let shortDescription = description.slice(0, 10);
-                this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+                //let description = this.description
+                //let shortDescription = description.slice(0, 10);
+                //this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
                 this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
-                this.polaroidBottom.append(this.polaroidInfo, this.descriptionBox); // här ska även .descriptionBox appendas men den skapas i active
+                this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
                 html.append(filter, pic, this.polaroidBottom);
 
                 return html;
@@ -119,6 +119,8 @@ class PolaroidActive extends PolaroidStatic{
 class PolaroidUser extends PolaroidActive{
     constructor(data){
         super(data)
+        this.descriptionBox = document.createElement("div");
+        this.descriptionBox.classList.add("descriptionBox");
     }
 
     htmlElement(arr) {
@@ -130,7 +132,13 @@ class PolaroidUser extends PolaroidActive{
         icon.style.backgroundImage = "url('../images/stockImages/icons/trash.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
+
+        let description = this.description
+        let shortDescription = description.slice(0, 10);
+        this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+
         this.polaroidInfo.append(iconDiv);
+        this.polaroidBottom.append(this.descriptionBox);
 
         icon.addEventListener('click', function(){
             let trashID = this.getAttribute('id');
