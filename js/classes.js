@@ -224,7 +224,7 @@ class PostShow extends PostStructure{
         //HTML för show
     }
     htmlElement() {
-
+        let outerShell = super.htmlElement();
         //upper div med all info om user
         //mellerst div med all postInof
         //understa div med 2 buttons till 
