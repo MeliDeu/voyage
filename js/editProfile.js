@@ -61,7 +61,7 @@ function editProfilePic(){
         //Adderar id till formData så vi kan nå användarens id i api.php
         formData.append("id", STATE.mainUserID);
     
-        let request = new Request("../admin/api.php",{
+        let request = new Request("../admin/testApiSaved.php",{
             method: "POST",
             body: formData
         });

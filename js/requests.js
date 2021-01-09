@@ -217,7 +217,7 @@ function patchBio(){
     }
     console.log(favsArray);
     console.log(wishesArray);
-    let request = new Request("../admin/api.php", {
+    let request = new Request("../admin/testApiSaved.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

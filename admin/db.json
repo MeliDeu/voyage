@@ -167,7 +167,7 @@
             "password": "1234",
             "email": "jasse@js.se",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/schwarz-chihuahua.jpg",
+            "profilePic": "..\/images\/uploads\/GoldenPuppy.jpg",
             "bio": "",
             "top3Wishes": [
                 "",
@@ -205,8 +205,21 @@
             "top3Favs": [
                 "Barcelona",
                 "Paris",
-                ""
+                "London"
             ],
+            "savedPosts": [],
+            "album": []
+        },
+        {
+            "id": 8,
+            "username": "test",
+            "password": "1234",
+            "email": "test",
+            "travelStatus": false,
+            "profilePic": false,
+            "bio": false,
+            "top3Wishes": false,
+            "top3Favs": false,
             "savedPosts": [],
             "album": []
         }
