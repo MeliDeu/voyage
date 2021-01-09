@@ -18,11 +18,7 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [
-                {
-                    "postID": "9"
-                }
-            ],
+            "savedPosts": [],
             "album": [
                 {
                     "albumID": 3,
@@ -58,9 +54,6 @@
                 },
                 {
                     "postID": "10"
-                },
-                {
-                    "postID": "9"
                 },
                 {
                     "postID": "7"
@@ -111,9 +104,6 @@
                 },
                 {
                     "postID": "6"
-                },
-                {
-                    "postID": "9"
                 },
                 {
                     "postID": "4"
@@ -180,9 +170,6 @@
                 },
                 {
                     "postID": "11"
-                },
-                {
-                    "postID": "9"
                 }
             ],
             "album": []

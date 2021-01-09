@@ -659,6 +659,10 @@ input:checked + .slider:before {
     margin-top: 3px;
 }
 
+.polaroidIcon > div:hover {
+    cursor: pointer;
+}
+
 #startGrid .filter {
     width: 16.5vw;
     height: 22vw;

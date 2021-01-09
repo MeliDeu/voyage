@@ -271,20 +271,22 @@ if ($method === "DELETE") {
     // Skicka tillbaka ny uppdaterad array/skicka tillbaka borttaget ID så att elementet med det ID tas bort
     foreach ($database["posts"] as $index => $post) {
         if ($post["postID"] == $json["postID"]) {
+
+            foreach ($database["users"] as $i => $currentUser) { //kollar igenom alla användares savedPosts och tar bort post:idet som ligger i den arrayen om den matchar med posten som tagits bort
+                foreach ($currentUser["savedPosts"] as $ind => $p) {
+;
+                    if ($p["postID"] == $post["postID"]) {
+                        $arr = $database["users"][$i]["savedPosts"];
+                        array_splice($database["users"][$i]["savedPosts"], $ind, 1);
+                    }
+                }
+            }
+
+            //tar bort posten från databasen
             array_splice($database["posts"], $index, 1);
 
             $pathToImg = $post["coverImg"]; //bildens namn
             unlink($pathToImg);
-
-            /*foreach ($database["users"] as $i => $currentUser) { //försök att ta bort post:idet från andra användares savedPosts
-                foreach ($currentUser["savedPosts"] as $ind => $p) {
-                    if ($p["postID"] == $post["postID"]) {
-                        $arr = $database["users"][$i]["savedPosts"];
-                        //array_splice($arr, $ind, 1);
-                        var_dump($arr[$ind]);
-                    }
-                }
-            }*/
 
             //när vi har fler bilder i images:
             /*foreach ($post["images"] as $indexImg => $img) {
