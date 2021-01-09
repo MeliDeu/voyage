@@ -577,10 +577,15 @@ input:checked + .slider:before {
 
 #startGrid .polaroid {
     box-shadow: 1px 3px 5px rgba(171, 171, 171, 0.49);
+    justify-content: unset;
 }
 
 #startGrid .polaroid1, #startGrid .polaroid3, #startGrid .polaroid5, #startGrid .polaroid6, #startGrid .polaroid8, #startGrid .polaroid10, #startGrid .polaroid11, #startGrid .polaroid13, #startGrid .polaroid15 {
     margin-top: 40px;
+}
+
+#startGrid .polaroidPic {
+    position: relative;
 }
 
 .polaroidPic {
