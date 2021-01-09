@@ -164,7 +164,7 @@
             "password": "1234",
             "email": "jasse@js.se",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/schwarz-chihuahua.jpg",
+            "profilePic": "..\/images\/uploads\/GoldenPuppy.jpg",
             "bio": "",
             "top3Wishes": [
                 "",
@@ -202,9 +202,13 @@
             "top3Favs": [
                 "Barcelona",
                 "Paris",
-                ""
+                "London"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "9"
+                }
+            ],
             "album": []
         }
     ],
@@ -445,6 +449,19 @@
             "country": "Afghanistan",
             "categoryID": "1",
             "description": "test"
+        },
+        {
+            "postID": 65,
+            "creatorID": "7",
+            "title": "Weekend",
+            "coverImg": "..\/images\/uploads\/5ffa1b5373867.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffa1b537396b.jpg"
+            ],
+            "albumID": false,
+            "country": "Spain",
+            "categoryID": "9",
+            "description": "Picturesque streets of Barcelona"
         }
     ],
     "countriesArray": [
@@ -480,6 +497,9 @@
         },
         {
             "name": "Afghanistan"
+        },
+        {
+            "name": "Spain"
         }
     ],
     "profilePic": [
