@@ -24,20 +24,20 @@
                 <div id="newPostContent" class="newPostMiddle">
                     <div id="countryAndCategory">
                         <div id="postCountry">
-                            <label for="postCountrySelect">Select country</label>
+                            <label for="postCountrySelect">Select country*</label>
                             <select name="country" id="postCountrySelect">
                                 <!-- options for all the available countries  -->
                             </select>
                         </div>
                         <div id="postCategory">
-                            <label for="postCategorySelect">Select travel category</label>
+                            <label for="postCategorySelect">Select travel category*</label>
                             <select name="categoryID" id="postCategorySelect">
                                 <!-- options for all the available categories  -->
                             </select>
                         </div>
                     </div>
                     <div id="postTitle">
-                        <label for="postRubrik">Title</label>
+                        <label for="postRubrik">Title*</label>
                         <input type="text" placeholder="Title" name="title" id="postRubrik">
                     </div>
                     <div id="postAlbum">
@@ -47,7 +47,7 @@
                         </select>
                     </div>
                     <div id="postDesc">
-                        <label for="postDescription">Share something about your journey</label>
+                        <label for="postDescription">Share something about your journey*</label>
                         <textarea name="description" id="postDescription" cols="30" rows="10"></textarea>
                     </div>
                 </div>

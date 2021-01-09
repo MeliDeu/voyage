@@ -42,7 +42,7 @@ function newPostToDB() {
         coverImg: formData.get("coverImg"),
         images: formData.getAll("images[]")
     });
-    //om alla fält är ifyllda, ska begäran skickas
+    // Kollar om alla fält är ifyllda med validate(), isf begäran skickas som post
     if (newPost.validate()) {
         let nyRequ = new Request("http://localhost:2222/admin/uploadPost.php", {
             method: "POST",
@@ -50,12 +50,19 @@ function newPostToDB() {
         });
         fetch(nyRequ)
             .then(resp => resp.json())
-            .then(resurs => {
-                console.log(resurs);
-                window.location.reload();
+            .then(resource => {
+                // Om alla fällt är ifyllda men det är ett fel i det, skickas det med ett felmeddelande från apin som kommer det att visas för användaren i en alert
+                if (resource.error !== undefined){
+                    alert(resource.error)
+                }
+                // Om det inte skickas med något felmeddelande går posten igenom och sidan laddas om
+                else if (resource.error == undefined){
+                    window.location.reload();
+                }
             });
+            // Om alla fält inte är ifyllda får användaren detta felmeddelande
     } else {
-        alert("Samtliga fält måste vara ifyllda och minst 2 bilder måste vara valda :)")
+        alert("Please fill all mandatory fields and add at least two photos to continue")
     }
     return newPost;
 }
