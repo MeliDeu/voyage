@@ -163,4 +163,5 @@ newPostForm.addEventListener("submit", function (e) {
     e.preventDefault();
     let successUpload = newPostToDB();
     console.log(successUpload);
+    
 });
