@@ -17,6 +17,9 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
     exit();
 }
 
+
+
+
 // Hämtar innehållet i php://input och lägger det i variabeln $json
 $input = file_get_contents("php://input");
 $json = json_decode($input, true);
@@ -36,6 +39,18 @@ if ($method === "GET") {
     echo json_encode($message);
     exit();
 }
+
+//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+global $database;
+$backupFile = "backup/databaseBackup.json";
+
+//$json är själva datan från databasen
+$json = json_encode($database, JSON_PRETTY_PRINT);
+file_put_contents($backupFile, $json);
+http_response_code(201);
+$message = ["data" => "Successfull backup of database!"];
+echo json_encode($message);
 
 // Denna kontroll sträcker sig över hela POST, PATCH, DELETE
 //Kanske inte ska göra det, pga registrering sker här...
