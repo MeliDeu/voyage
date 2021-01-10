@@ -1,11 +1,12 @@
 <?php
-    include "sections/header.php";
-
-    //headers fungerar inte....
-    if (isset($_SESSION["username"]) == false) {
-        header("Location: ../index.php");
+    session_start();
+    
+    if (!isset($_SESSION["username"])) {
+        header("Location: index.php");
+        //var_dump($_SESSION['username']);
         exit();
     }
+    include "sections/header.php";
 ?>
 
     <div id='homeBody'>
