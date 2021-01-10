@@ -8,7 +8,7 @@
 
 
     //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
-    $backupFile = "backup/databaseBackup.json";
+    $backupFile = "databaseBackup.json";
 
     //$json är själva datan från databasen
     $json = json_encode($database, JSON_PRETTY_PRINT);
