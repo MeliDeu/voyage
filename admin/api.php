@@ -18,6 +18,15 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
     exit();
 }
 
+
+//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+$backupFile = "databaseBackup.json";
+
+//$json är själva datan från databasen
+$json = json_encode($database, JSON_PRETTY_PRINT);
+file_put_contents($backupFile, $json);
+
+
 // Hämtar innehållet i php://input och lägger det i variabeln $json
 $input = file_get_contents("php://input");
 $json = json_decode($input, true);
@@ -350,14 +359,13 @@ if ($method === 'DELETE'){
                 //tar bort posten från databasen
                 array_splice($database["posts"], $index, 1);
 
-                $pathToImg = $post["coverImg"]; //bildens namn
-                unlink($pathToImg);
+                $pathToImg = $post["coverImg"];
+                unlink($pathToImg); //tar bort coverImg från databasen
 
-                //när vi har fler bilder i images:
-                /*foreach ($post["images"] as $indexImg => $img) {
-                    $path = $img["img"]; //images borde vara en array som består av bilder som har en nyckel som är "img": "länk till bild"
-                    unlink($path);
-                }*/
+                //eftersom att varje post har en array som heter images går vi igenom den för att radera bilderna därifrån i databasen
+                foreach ($post["images"] as $indexImg) {
+                    unlink($indexImg);
+                }
 
                 
                 // DENNA DEL TAR BORT LANDET FRÅN SIDEBAR NÄR INGEN POST HAR LANDET LÄNGRE

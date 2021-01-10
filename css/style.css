@@ -426,25 +426,25 @@ input:checked + .slider:before {
     scrollbar-width: thin;
 }
 
-#sliderList {
+#sliderList, #showPostDescription {
     scrollbar-color: var(--darkgrey) white;
     scrollbar-width: thin;
 }
 
-.feedBox::-webkit-scrollbar-track, #sliderList::-webkit-scrollbar-track
+.feedBox::-webkit-scrollbar-track, #sliderList::-webkit-scrollbar-track, #showPostDescription::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
   background-color: var(--darkgrey);
 }
 
-.feedBox::-webkit-scrollbar, #sliderList::-webkit-scrollbar
+.feedBox::-webkit-scrollbar, #sliderList::-webkit-scrollbar, #showPostDescription::-webkit-scrollbar
 {
   width: 12px;
   background-color: var(--darkgrey);
 }
 
-.feedBox::-webkit-scrollbar-thumb, #sliderList::-webkit-scrollbar-thumb
+.feedBox::-webkit-scrollbar-thumb, #sliderList::-webkit-scrollbar-thumb, #showPostDescription::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -940,7 +940,8 @@ input:checked + .slider:before {
 #newPostOverlay, #showPost {
     box-sizing: border-box;
     position: absolute;
-    height: calc(100% - 10px);
+    height: calc(100% - 11px);
+    border-radius: 15px;
     background: rgba(0,0,0,.5);
     display: none;
     justify-content: center;
@@ -948,7 +949,6 @@ input:checked + .slider:before {
     width: 95%;
     font-family: var(--styleFont);
     z-index: 99;
-    margin-left: 6px;
 }
 
 #hiddenForm {
@@ -956,9 +956,7 @@ input:checked + .slider:before {
 }
 
 #newPostWrapper {
-    height: 50vw;
     max-height: 800px;
-    flex-basis: 80%;
     max-width: 1200px;
 }
 
@@ -984,7 +982,8 @@ input:checked + .slider:before {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    height: calc(100% - 50px);
+    height: calc(100% - 15vw);
+    width: 70vw;
     display: flex;
 }
 
@@ -1000,23 +999,20 @@ input:checked + .slider:before {
     flex-basis: 40%;
 }
 
-.newPostUp {
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 #postInformation {
     height: 100%;
+    padding: 2vw;
 }
 
 .newPostMiddle {
-    height: 70%;
+    height: 75%;
 }
 
 .newPostDown {
     height: 20%;
+    margin-top: 1vw;
 }
 
 #newPostPics, #picPreview {
@@ -1043,6 +1039,7 @@ input:checked + .slider:before {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    height: 28vw;
 }
 
 .nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
@@ -1067,8 +1064,8 @@ input:checked + .slider:before {
 }
 
 .nyPic {
-    width: 7vw;
-    /* height: 100px; */
+    width: 6.8vw;
+    height: 6.8vw;
 }
 
 .nyPic:last-child, .previewImage:last-child {
@@ -1110,8 +1107,8 @@ input:checked + .slider:before {
     width: 60%;
     flex-basis: 30%;
     height: 50px;
-    background-color: lightgray;
-    border:none;
+    background-color: rgb(240, 238, 238);;
+    border: none;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -1123,8 +1120,8 @@ textarea {
     resize: none;
     flex-grow: 1;
     font-family: var(--styleFont);
-    border: 1px solid lightgrey;
-    background-color: lightgrey;
+    border: 1px solid rgb(240, 238, 238);
+    background-color: rgb(240, 238, 238);
 }
 
 .newPostDown {
@@ -1151,33 +1148,37 @@ textarea {
 
 /* show post */
 #showPostPictures {
-    flex-basis: 65%;
+    flex-basis: 58%;
+    height: 38vw;
 }
 
 #showPostInfo {
     flex-basis: 31%;
-    padding: 0 2%;
+    padding: 2vw;
 }
 
 #showPostCoverImg {
-    height: 78%;
+    height: 28vw;
+    max-width: 40vw;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-size: contain;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .previewImage {
     background-size: cover;
     background-position: center;
+    height: 6.8vw;
+    width: 6.8vw;
 }
 
 #showPostImagesContainer {
-    height:22%;
+    height: 10vw;
     display: flex;
     align-items: center;
-    padding: 0 5px;
+    margin: 0 1vw;
 }
 
 /* innehåller info om user och post-info */
@@ -1217,7 +1218,6 @@ textarea {
 .showPostUserPic {
     height: 3vw;
     width: 3vw;
-    border: 1px solid black;
 }
 
 .previewImage:hover {
@@ -1241,7 +1241,7 @@ textarea {
     font-weight: bold;
     text-decoration: none;
     font-family: var(--styleFont);
-    padding: 1.2vw 1.5vw;
+    padding: .8vw .5vw;
     border-radius: 3rem / 100%;
     -webkit-border-radius: 3rem / 100%;
     -moz-border-radius: 3rem / 100%;
@@ -1284,8 +1284,14 @@ textarea {
 }
 
 #showPostDescription {
-    height: 77%;
+    height: 70%;
     font-size: 1.2vw;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+label {
+    font-size: 1rem;
 }
 
 .markedSaved {
