@@ -283,7 +283,8 @@ class PostShow extends PostStructure{
                 let chosenPic = this.style.backgroundImage;
                 let coverImgContainer = document.getElementById("showPostCoverImg");
                 let coverImg = coverImgContainer.style.backgroundImage;
-
+                coverImgContainer.style.backgroundSize = "contain";
+                coverImgContainer.style.backgroundRepeat = "no-repeat";
                 coverImgContainer.style.backgroundImage = chosenPic;
                 this.style.backgroundImage = coverImg; 
             });
@@ -296,10 +297,10 @@ class PostShow extends PostStructure{
         showPostInfoContainer.setAttribute("id", "showPostInfoContainer");
         let userContainer = document.createElement("div");
         userContainer.setAttribute("id", "showPostUser")
-        let saveBtn = document.createElement("div");
+        // let saveBtn = document.createElement("div");
         // saveBtn.setAttribute("id", `icon_${this.postID}`);
-        saveBtn.classList.add("saveBtn");
-        saveBtn.style.backgroundImage = "url(../images/stockImages/icons/saved.png)";
+        // saveBtn.classList.add("saveBtn");
+        // saveBtn.style.backgroundImage = "url(../images/stockImages/icons/saved.png)";
         let userPicture = document.createElement("div");
         userPicture.classList.add("polaroidUserPic", "showPostUserPic");
         userPicture.style.backgroundImage = `url('${userObj.profilePic}')`;
@@ -319,7 +320,7 @@ class PostShow extends PostStructure{
         //     }
         // });
 
-        userContainer.append(userPicture, userName, saveBtn);
+        userContainer.append(userPicture, userName);
 
 
 
@@ -377,7 +378,7 @@ class CreatePost extends PostStructure{
     }
     //använder klassen endast för att kolla av om allt är ifyllt
     validate(){
-        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number" || addedPictures.length === 0) {
+        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number" || STATE.addedPictures.length === 0) {
             return false;
         } else {
             return true;

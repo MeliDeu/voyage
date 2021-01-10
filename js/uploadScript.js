@@ -17,9 +17,6 @@ let newPostForm = document.getElementById("postInformation");
 let newPostButton = document.getElementById("newPostSubmit");
 // soptunna för coverImg
 let trashButton = document.querySelector("#newPostBigPicture .imgTrash");
-//
-// let imageUploadInput = document.getElementById("uploadFiles");
-let addedPictures = [];
 
 //----------------------------FUNCTIONS---------------------------//
 
@@ -30,7 +27,7 @@ function newPostToDB() {
     let formData = new FormData(postInformation);
     //lägger till en ny property i formdata med creator ID, eftersom vi inte har det i formuläret
     formData.set("creatorID", mainUserID);
-    addedPictures.forEach(picture => {
+    STATE.addedPictures.forEach(picture => {
         formData.append("images[]", picture, picture.name);
     });
     //egentligen var tanken att skicka hela instansen, men det gick ej, så jag behöll den delen, men valideringen utgår från class CreatePost
@@ -74,7 +71,7 @@ function renderPreviewImages(){
     let previewPictureList = document.getElementById("picPreview");
     //tömmer den då vi alltid appendar alla previewbilder vid varje tillagd bild
     previewPictureList.innerHTML = "";
-    addedPictures.forEach(picture => {
+    STATE.addedPictures.forEach(picture => {
         let nPreviewImg = document.createElement("div");
         let trashCan = document.createElement("img");
         trashCan.setAttribute("src", "../images/stockimages/icons/trash.png");
@@ -89,7 +86,7 @@ function renderPreviewImages(){
         trashCan.addEventListener("click", clearPreviewImage);
     });
     //om användaren redan lagt till 5 stycken minibilder, försvinner den lägga till button, finns nog en snyggare lösning men blev trött i huvudet haha
-    if (addedPictures.length >= 5) {
+    if (STATE.addedPictures.length >= 5) {
         addNewImg.style.display = "none";
     } else {
         addNewImg.style.removeProperty("display");
@@ -98,7 +95,7 @@ function renderPreviewImages(){
 
 //lägger till senaste bild som finns under e.target.files[0], e.target är elementet man klickat på och det finns under files[0], sen producerar vi minibilden 
 function addPreviewImage(e) {    
-    addedPictures.push(e.target.files[0]);
+    STATE.addedPictures.push(e.target.files[0]);
     renderPreviewImages();
 }
 
@@ -111,9 +108,9 @@ function clearPreviewImage(e) {
     let allPics = previewPictureList.querySelectorAll(".nyPic");
     //loopar över alla nodes vi har där och om det är 
     for (let i = 0; i < allPics.length; i++) {
-        //om den aktuella noden är samma som bortklickad previewbild, då ska elementet tas bort från addedPictures-arr
+        //om den aktuella noden är samma som bortklickad previewbild, då ska elementet tas bort från STATE.addedPictures-arr
         if (allPics[i] == e.target.parentElement) {
-            addedPictures.splice(i, 1);
+            STATE.addedPictures.splice(i, 1);
         }
     }
     //sen skapar vi nya preview-images

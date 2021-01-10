@@ -10,9 +10,7 @@ let STATE = {
     countriesInSidebar: [], //avser länderna i sidebar som åker ut när man klickar på globen
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
-    pictureUpload: {
-        newPics: []
-        }
+    addedPictures: [] //alla tillagda bilder i newPost
 };
 
 
