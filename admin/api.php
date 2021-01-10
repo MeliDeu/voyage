@@ -1,6 +1,8 @@
 <?php
 
 include "functions.php";
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
 $database = getDatabase();
