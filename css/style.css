@@ -1163,9 +1163,12 @@ textarea {
     height: 78%;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-#showPostCoverImg, .previewImage {
+.previewImage {
     background-size: cover;
     background-position: center;
 }
