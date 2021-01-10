@@ -853,8 +853,11 @@ input:checked + .slider:before {
     flex-direction: column;
 }
 
-#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
+.polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
     cursor: pointer;
+}
+#homeFeedTitle {
+    pointer-events: none;
 }
 
 .feedTitle, .feedView {

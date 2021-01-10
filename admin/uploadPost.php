@@ -151,10 +151,8 @@
         $message = [
             "data" => $newPost
         ];
-        
-        echo json_encode($message);
         header("Content-Type: application/json");
-        // header("Location: ../home.php");
+        echo json_encode($message);
         exit();
     }
 

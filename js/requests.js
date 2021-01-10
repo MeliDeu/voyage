@@ -121,7 +121,7 @@ function postSavedToDB(postID){
     let request = new Request("../admin/api.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ savedPost: true, postID: postID })
+        body: JSON.stringify({ savedPost: true, postID: postID, id: STATE.mainUserID })
     })
     fetch(request)
         .then(response => {
@@ -160,7 +160,7 @@ function deleteSavedPostFromDB(postID){
     let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ removeSaved: true, postID: postID })
+        body: JSON.stringify({ removeSaved: true, postID: postID, userID: STATE.mainUserID })
     })
     fetch(request)
         .then(response => {
@@ -197,7 +197,7 @@ function removePostFromDB(id){
     let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ removePost: true, postID: id })
+        body: JSON.stringify({ removePost: true, postID: id, userID: STATE.mainUserID })
     });
 
     fetch(request)
@@ -228,7 +228,10 @@ function getCountries(){
         resource.forEach(element => {
             //Ger namn på 250 länder!
             //console.log(element)
-            STATE.countries.push(element.name);
+            //Tar bort allt som finns efter en öppningsparantes vid landnamn och lägger i en separat array
+            let countryName = element.name.split("(");
+            //Pushar in första elementet av arrayen för att få det som finns innan öppningsparantesen
+            STATE.countries.push(countryName[0]);
             //STATE.countriesCode.push({name: element.name, code: element.alpha2Code}) //denna var till för eventuell mer info om landet /kaj
         });
     })

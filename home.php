@@ -67,7 +67,7 @@
                     <div id='homefeedBox' class='feedBox'>
                         <div id='homeFeedInfo' class='feedInfo'>
                             <div id='homeFeedView' class='feedView'></div>
-                            <div id='homeFeedTitle' class='feedTitle'></div>
+                            <div id='homeFeedTitle' class='feedTitle' onclick='return false;'></div>
                             
                         </div>
 
@@ -86,8 +86,8 @@
         <script src='../js/classes.js'></script>
         <script src='../js/adminArrays.js'></script>
         <script src='../js/editProfile.js'></script>
-        <script src='../js/searchBar.js'></script>
         <script src="../js/functions.js"></script>
+        <script src='../js/searchBar.js'></script>
         <script src="../js/requests.js"></script>
     </body>
 </html>

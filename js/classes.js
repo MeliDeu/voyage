@@ -88,7 +88,12 @@ class PolaroidStatic extends PolaroidBase{
                         //.polaroidCountry
                         let polaroidCountry = document.createElement("a");
                         polaroidCountry.setAttribute('href', `../home.php?country=${this.country}`)
-                        polaroidCountry.innerHTML = `${this.country}`;
+                        if (this.country.length > 15) {
+                            polaroidCountry.innerHTML = `${this.country.substring(0, 15)}...`;
+                        } else {
+                            polaroidCountry.innerHTML = this.country;
+                        }
+                        
                         polaroidCountry.classList.add("polaroidCountry");
                         //.polaroidTitle
                         let polaroidTitle = document.createElement("div");
