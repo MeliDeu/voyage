@@ -243,6 +243,26 @@
                 ""
             ],
             "savedPosts": []
+        },
+        {
+            "id": 9,
+            "username": "rullgardina",
+            "password": "1234",
+            "email": "dd",
+            "travelStatus": false,
+            "profilePic": "..\/images\/uploads\/5ffb79cb3475e.jpg",
+            "bio": "Sn\u00e4lla n\u00e5gon l\u00e5t mig bara f\u00e5 njuta av solen en minut till!",
+            "top3Wishes": [
+                "Kroatien",
+                "Istanbul",
+                ""
+            ],
+            "top3Favs": [
+                "Venedig",
+                "",
+                ""
+            ],
+            "savedPosts": []
         }
     ],
     "posts": [
@@ -351,30 +371,73 @@
             "country": "Spain",
             "categoryID": "7",
             "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
+        },
+        {
+            "postID": 20,
+            "creatorID": "8",
+            "title": "Hemester med Doris",
+            "coverImg": "..\/images\/uploads\/5ffb702d50352.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb702d506f7.jpg"
+            ],
+            "country": "Sweden",
+            "categoryID": "1",
+            "description": "Tillbringade tv\u00e5 veckor med familjen och Doris utanf\u00f6r Kivik. Fantastiska kv\u00e4llar vid stranden!"
+        },
+        {
+            "postID": 21,
+            "creatorID": "4",
+            "title": "Backpacking p\u00e5 Bali",
+            "coverImg": "..\/images\/uploads\/5ffb7227dc6ef.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb7227dca72.jpg"
+            ],
+            "country": "Indonesia",
+            "categoryID": "1",
+            "description": "Idag hittade vi v\u00e4rldens finaste vattenfall mitt i djungeln! Vi spenderade hela dagen d\u00e4r innan vi begav oss tillbaka mot hotellet. Kan verkligen rekommendera hotellet Giliwang waters utanf\u00f6r Gilwa Nagar. S\u00e5 fint och s\u00e5 god mat!"
+        },
+        {
+            "postID": 22,
+            "creatorID": "1",
+            "title": "Cappadocia with Ali",
+            "coverImg": "..\/images\/uploads\/5ffb73921b0c4.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb73921b450.jpg",
+                "..\/images\/uploads\/5ffb73921b767.jpg",
+                "..\/images\/uploads\/5ffb73921ba04.jpg"
+            ],
+            "country": "Turkey",
+            "categoryID": "5",
+            "description": "Me and Ali spent two weeks in Turkey. The best part of the trip was our visit in beautiful Cappadocia. Have you even seen such beauty?"
+        },
+        {
+            "postID": 23,
+            "creatorID": "1",
+            "title": "Five islands in one week",
+            "coverImg": "..\/images\/uploads\/5ffb751f19418.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb751f1973f.jpg",
+                "..\/images\/uploads\/5ffb751f199e8.jpg"
+            ],
+            "country": "Greece",
+            "categoryID": "2",
+            "description": "Last summer was amazing. I spent one week visiting five islands in Greece with my best friends. Can\u00b4t waint to go back!"
+        },
+        {
+            "postID": 24,
+            "creatorID": "9",
+            "title": "Venedig i mitt hj\u00e4rta",
+            "coverImg": "..\/images\/uploads\/5ffb79b764183.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb79b764522.jpg",
+                "..\/images\/uploads\/5ffb79b764816.jpg"
+            ],
+            "country": "Italy",
+            "categoryID": "3",
+            "description": "Denna resa var verkligen \u00f6ver all f\u00f6rv\u00e4ntan! Vi \u00e5kte kanalb\u00e5t, tittade p\u00e5 utst\u00e4llningar, nj\u00f6t av god mat och vackra byggnader varje dag. "
         }
     ],
     "countriesArray": [
-        {
-            "name": "Turkey"
-        },
-        {
-            "name": "Morocco"
-        },
-        {
-            "name": "Greece"
-        },
-        {
-            "name": "Spain"
-        },
-        {
-            "name": "Italy"
-        },
-        {
-            "name": "Costa Rica"
-        },
-        {
-            "name": "Tanzania"
-        },
         {
             "name": "Germany"
         },
@@ -400,7 +463,19 @@
             "name": "Afghanistan"
         },
         {
-            "name": "Afghanistan"
+            "name": "Sweden"
+        },
+        {
+            "name": "Indonesia"
+        },
+        {
+            "name": "Turkey"
+        },
+        {
+            "name": "Greece"
+        },
+        {
+            "name": "Italy"
         }
     ]
 }
