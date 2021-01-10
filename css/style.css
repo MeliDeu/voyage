@@ -933,6 +933,10 @@ input:checked + .slider:before {
     max-width: 1200px;
 }
 
+#postAlbum {
+    color: var(--lightTextColor);
+}
+
 #postClose {
     color: white;
     display: flex;

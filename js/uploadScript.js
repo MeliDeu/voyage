@@ -89,6 +89,7 @@ function renderPreviewImages(){
         addNewImg.style.removeProperty("display");
     }
 
+    //flyttar lägga till button 15px åt sidan när första previewbilden har lagts till
     if (STATE.addedPictures.length >= 1) {
         addNewImg.style.marginLeft = "15px";
     } else {
