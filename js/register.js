@@ -8,7 +8,7 @@ register.addEventListener('submit', function(event){
     let UserEmail = document.getElementById("newEmail").value;
     let UserTravelStatus = document.getElementById("travelStatus").checked;
 
-    let request = new Request("../admin/testApiSaved.php", {
+    let request = new Request("../admin/api.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

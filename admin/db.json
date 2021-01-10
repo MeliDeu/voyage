@@ -66,9 +66,6 @@
                 },
                 {
                     "postID": "3"
-                },
-                {
-                    "postID": "65"
                 }
             ],
             "album": [
@@ -231,11 +228,7 @@
                 "Paris",
                 "London"
             ],
-            "savedPosts": [
-                {
-                    "postID": "9"
-                }
-            ],
+            "savedPosts": [],
             "album": []
         },
         {
@@ -348,17 +341,6 @@
             "country": "Greece",
             "categoryID": "2",
             "description": "Vi forts\u00e4tter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
-        },
-        {
-            "postID": 9,
-            "creatorID": 2,
-            "title": "New York baby",
-            "coverImg": "..\/images\/stockImages\/travel_17.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "USA",
-            "categoryID": "9",
-            "description": "Semester i storstaden. Jag s\u00e4ger bara WOW."
         },
         {
             "postID": 10,
@@ -489,10 +471,10 @@
         {
             "postID": 66,
             "creatorID": "8",
-            "title": "Hiking in Iceland",
-            "coverImg": "..\/images\/uploads\/5ffa30cf48b7a.jpg",
+            "title": "hola",
+            "coverImg": "..\/images\/uploads\/5ffb2df7c9c00.jpg",
             "images": [
-                "..\/images\/uploads\/5ffa30cf493fe.jpg"
+                "..\/images\/uploads\/5ffb2df7ca771.jpg"
             ],
             "albumID": false,
             "country": "Iceland",
@@ -540,6 +522,9 @@
             "country": "Afghanistan",
             "categoryID": "1",
             "description": "Halloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj halooj"
+            "country": "Afghanistan",
+            "categoryID": "1",
+            "description": "seniorita"
         }
     ],
     "countriesArray": [
@@ -560,9 +545,6 @@
         },
         {
             "name": "Costa Rica"
-        },
-        {
-            "name": "USA"
         },
         {
             "name": "Tanzania"
