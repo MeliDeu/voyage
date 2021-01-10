@@ -314,9 +314,6 @@ if ($method === "PATCH") {
     ];
     echo json_encode($message);
     exit();
-
- 
-
 }
 
 
@@ -393,9 +390,7 @@ if ($method === 'DELETE'){
                             array_splice($database["countriesArray"], $thisIndex, 1);
                         }
                     } 
-                }
-                
-
+                } 
             }
         }
 

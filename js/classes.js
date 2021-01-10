@@ -47,85 +47,85 @@ class PolaroidStatic extends PolaroidBase{
         let filter = document.createElement("div");
         filter.classList.add("filter", `filter${this.postID}`);
 
-            //.polaroidPic
-            let pic = document.createElement("div");
-            pic.style.backgroundImage = `url('${this.coverImg}')`;
-            pic.classList.add("polaroidPic");
-            let that = this.postID;
-            pic.addEventListener("click", function(){
-                makeNewShowPost(that);
-            });
+        //.polaroidPic
+        let pic = document.createElement("div");
+        pic.style.backgroundImage = `url('${this.coverImg}')`;
+        pic.classList.add("polaroidPic");
+        let that = this.postID;
+        pic.addEventListener("click", function(){
+            makeNewShowPost(that);
+        });
 
-            //.polaroidBottom --> KOMMA ÅT I ACTIVE
-            //skapas på i constructorn
+        //.polaroidBottom --> KOMMA ÅT I ACTIVE
+        //skapas på i constructorn
 
-                //.polaroidInfo --> KOMMA ÅT I POLAROIDUSER & FEED
-                //skapas på i constructorn
+        //.polaroidInfo --> KOMMA ÅT I POLAROIDUSER & FEED
+        //skapas på i constructorn
 
-                    //.polaroidUser
-                    let polaroidUser = document.createElement("div");
-                    polaroidUser.classList.add("polaroidUser");
-                        //.polaroidUserPic
-                        let polaroidUserPic = document.createElement("div");
-                        if (!userInfo.profilePic){
-                            polaroidUserPic.style.backgroundImage = 'url("../images/stockImages/userPic.png")';
-                        } else {
-                            polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
-                        }
-                        polaroidUserPic.classList.add("polaroidUserPic");
-                        //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
-                        let polaroidUserName = document.createElement("a");
-                        // Här sätts a länk som innehåller en get-parameter som kollas i home.php
-                        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`);
-                        polaroidUserName.innerHTML = `${userInfo.username}`;
-                        polaroidUserName.classList.add("polaroidUserName");
+        //.polaroidUser
+        let polaroidUser = document.createElement("div");
+        polaroidUser.classList.add("polaroidUser");
+        //.polaroidUserPic
+        let polaroidUserPic = document.createElement("div");
+        if (!userInfo.profilePic){
+            polaroidUserPic.style.backgroundImage = 'url("../images/stockImages/userPic.png")';
+        } else {
+            polaroidUserPic.style.backgroundImage = `url('${userInfo.profilePic}')`;
+        }
+        polaroidUserPic.classList.add("polaroidUserPic");
+        //.polaroidUserName //HÄR SKA SKAPAS ETT CLICKEVENT
+        let polaroidUserName = document.createElement("a");
+        // Här sätts a länk som innehåller en get-parameter som kollas i home.php
+        polaroidUserName.setAttribute('href', `../home.php?profile=${this.creatorID}`);
+        polaroidUserName.innerHTML = `${userInfo.username}`;
+        polaroidUserName.classList.add("polaroidUserName");
 
-                    polaroidUser.append(polaroidUserPic, polaroidUserName);    
+        polaroidUser.append(polaroidUserPic, polaroidUserName);    
 
-                    //.polaroidText
-                    let polaroidText = document.createElement("div");
-                    polaroidText.classList.add("polaroidText", "flexCenter");
-                        //.polaroidCountry
-                        let polaroidCountry = document.createElement("a");
-                        polaroidCountry.setAttribute('href', `../home.php?country=${this.country}`)
-                        if (this.country.length > 15) {
-                            polaroidCountry.innerHTML = `${this.country.substring(0, 15)}...`;
-                        } else {
-                            polaroidCountry.innerHTML = this.country;
-                        }
+        //.polaroidText
+        let polaroidText = document.createElement("div");
+        polaroidText.classList.add("polaroidText", "flexCenter");
+        //.polaroidCountry
+        let polaroidCountry = document.createElement("a");
+        polaroidCountry.setAttribute('href', `../home.php?country=${this.country}`)
+        if (this.country.length > 15) {
+            polaroidCountry.innerHTML = `${this.country.substring(0, 15)}...`;
+        } else {
+            polaroidCountry.innerHTML = this.country;
+        }
                         
-                        polaroidCountry.classList.add("polaroidCountry");
-                        //.polaroidTitle
-                        let polaroidTitle = document.createElement("div");
-                        polaroidTitle.innerHTML = `${this.title}`;
-                        polaroidTitle.classList.add("polaroidTitle");
+        polaroidCountry.classList.add("polaroidCountry");
+        //.polaroidTitle
+        let polaroidTitle = document.createElement("div");
+        polaroidTitle.innerHTML = `${this.title}`;
+        polaroidTitle.classList.add("polaroidTitle");
 
-                    polaroidText.append(polaroidCountry, polaroidTitle);  
+        polaroidText.append(polaroidCountry, polaroidTitle);  
                 
-                //let description = this.description
-                //let shortDescription = description.slice(0, 10);
-                //this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
-                this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
-                this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
-                html.append(filter, pic, this.polaroidBottom);
+        //let description = this.description
+        //let shortDescription = description.slice(0, 10);
+        //this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+        this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
+        this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
+        html.append(filter, pic, this.polaroidBottom);
 
 
-                //tar alla polaroider
-                //let polaroidDiv = document.querySelectorAll('.polaroid');
-                //console.log(polaroidDiv);
+        //tar alla polaroider
+        //let polaroidDiv = document.querySelectorAll('.polaroid');
+        //console.log(polaroidDiv);
 
-                //html.addEventListener('mouseover', function() {
-                       // console.log("hej");
+        //html.addEventListener('mouseover', function() {
+            // console.log("hej");
 
-                        //this.setAttribute('class', 'icon active');
-                        //let child = this.children[0]
-                        //let childName = child.id
-                        //child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+            //this.setAttribute('class', 'icon active');
+            //let child = this.children[0]
+            //let childName = child.id
+            //child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
 
-                //});
+        //});
 
 
-                return html;
+        return html;
             
     }
 }
@@ -204,13 +204,10 @@ class PolaroidFeed extends PolaroidActive{
             // en funktion ska finnas i functions som placerar pics från den arrayen i saved när man klickar i sidebar
             // klick igen = avmarkeras och splice från array 
             if (icon.classList.contains("markedSaved")) {
-                console.log("den är markerad");
                 deleteSavedPostFromDB(subClicked);
             } else {
-                console.log("den är ej markerad");
             }
         })
-
 
         return html;
     }

@@ -1,34 +1,30 @@
 <?php 
 
-session_start();
-include "functions.php";
+    session_start();
+    include "functions.php";
 
-$db = getDatabase();
-//$data = file_get_contents("../admin/db.json");
-//$database = json_decode($data, true);
+    $db = getDatabase();
 
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-    //Här loopar vi igenom alla användare som finns saparade och kollar om det stämmer överrens med det som användaren fyllt i formuläret
-    foreach ($db["users"] as $user) {
-        if ($user["username"] == $username && $user["password"] == $password) {
-            $foundUser = $user;
+        //Här loopar vi igenom alla användare som finns saparade och kollar om det stämmer överrens med det som användaren fyllt i formuläret
+        foreach ($db["users"] as $user) {
+            if ($user["username"] == $username && $user["password"] == $password) {
+                $foundUser = $user;
+            }
+        }
+        //Om användaren finns så skicka användaren till home sidan
+        if ($foundUser !== null) {
+            $_SESSION["username"] = $foundUser["username"];
+            $_SESSION["userID"] = $foundUser["id"];
+            $_SESSION["isLoggedIn"] = true;
+            header("Location: /home.php");
+            exit();
         }
     }
-
-    //Om användaren finns så skicka användaren till home sidan
-    if ($foundUser !== null) {
-        $_SESSION["username"] = $foundUser["username"];
-        $_SESSION["userID"] = $foundUser["id"];
-        $_SESSION["isLoggedIn"] = true;
-        header("Location: /home.php");
-        exit();
-    }
-   
-}
-header("Location: ../index.php?error=1");
-//http_response_code(405);
-exit();
+    http_response_code(405);
+    header("Location: ../index.php?error=1");
+    exit();
 ?>

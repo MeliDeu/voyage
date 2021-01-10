@@ -41,13 +41,6 @@ let hide = function (elem) {
 //Event handlers för startsida
 window.addEventListener("scroll", darkOnScroll);
 
-//TO DO: vid klick utanför modalfönstret ta bort overlay
-/*document.getElementById("startModalWrapper").addEventListener("click", function(){
-    document.getElementById("bgDark").style.display = "none";
-    document.getElementById("startModalWrapper").style.display = "none";
-    document.getElementById("loginModal").style.display = "none";
-    document.getElementById("close").style.display = "none";
-});*/
 
 document.getElementById("close").addEventListener("click", function(){
     document.getElementById("bgDark").style.display = "none";
