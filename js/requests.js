@@ -226,7 +226,10 @@ function getCountries(){
         resource.forEach(element => {
             //Ger namn på 250 länder!
             //console.log(element)
-            STATE.countries.push(element.name);
+            //Tar bort allt som finns efter en öppningsparantes vid landnamn och lägger i en separat array
+            let countryName = element.name.split("(");
+            //Pushar in första elementet av arrayen för att få det som finns innan öppningsparantesen
+            STATE.countries.push(countryName[0]);
             //STATE.countriesCode.push({name: element.name, code: element.alpha2Code}) //denna var till för eventuell mer info om landet /kaj
         });
     })
