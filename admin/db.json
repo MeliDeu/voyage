@@ -531,11 +531,10 @@
             "name": "Switzerland"
         },
         {
-<<<<<<< HEAD
             "name": "Spain"
-=======
+        },
+        {
             "name": "Afghanistan"
->>>>>>> c522b6d1b955d9e42ad60a6ce300a6cbc3d3e4f3
         }
     ]
 }
