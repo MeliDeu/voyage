@@ -16,14 +16,14 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
     exit();
 }
 
+if ($method !== "GET") {
+    //göra en kopia av databasen om den har kommit hit så är det antingen POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+    $backupFile = "databaseBackup.json";
 
-//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
-$backupFile = "databaseBackup.json";
-
-//$json är själva datan från databasen
-$json = json_encode($database, JSON_PRETTY_PRINT);
-file_put_contents($backupFile, $json);
-
+    //$json är själva datan från databasen
+    $json = json_encode($database, JSON_PRETTY_PRINT);
+    file_put_contents($backupFile, $json);
+}
 
 // Hämtar innehållet i php://input och lägger det i variabeln $json
 $input = file_get_contents("php://input");
