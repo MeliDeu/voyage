@@ -17,19 +17,6 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
     exit();
 }
 
-//problem med detta: den funkar för uploadPost.php men inte för api.php, sätter man den här så utförs den inte utan ett felmeddelande dyker upp: jsonparse non-whitespace character... JSON.parse: unexpected non-whitespace character after JSON data at line 1 column 11293 of the JSON data, 
-//ingen funktion utförs därefter men en backup av DB görs, sätter man det efter get, samma sak där bara att man inte heller får någon backup-file
-//felet var att jag echoade både här och sen ännu en gång vid utförd
-
-//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
-//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
-
-$backupFile = "backup/databaseBackup.json";
-
-//$json är själva datan från databasen
-$json = json_encode($database, JSON_PRETTY_PRINT);
-file_put_contents($backupFile, $json);
-
 
 // Hämtar innehållet i php://input och lägger det i variabeln $json
 $input = file_get_contents("php://input");
@@ -51,8 +38,15 @@ if ($method === "GET") {
     exit();
 }
 
+// //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+// //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
 
+// $backupFile = "backup/databaseBackup.json";
 
+// //$json är själva datan från databasen
+// $json = json_encode($database, JSON_PRETTY_PRINT);
+// file_put_contents($backupFile, $json);
+// echo json_encode($database);
 
 // Denna kontroll sträcker sig över hela POST, PATCH, DELETE
 //Kanske inte ska göra det, pga registrering sker här...
@@ -60,12 +54,6 @@ if ($method === "GET") {
 //-------------------------------------------- POST ------------------------------
 
 if ($method === "POST") {
-
-    $backupFile = "backup/databaseBackup.json";
-
-    //$json är själva datan från databasen
-    $json = json_encode($database, JSON_PRETTY_PRINT);
-    file_put_contents($backupFile, $json);
 
     if (isset($_FILES['file'])) { //denna avser profilbild för tillfället och är inte i funktion ännu
 
@@ -233,11 +221,6 @@ if ($method === "POST") {
 //-------------------------------------------- PATCH ------------------------------
 
 if ($method === "PATCH") {
-    $backupFile = "backup/databaseBackup.json";
-
-    //$json är själva datan från databasen
-    $json = json_encode($database, JSON_PRETTY_PRINT);
-    file_put_contents($backupFile, $json);
 
     // ÄNDRA PROFIL(bio, top3wishes, top3favs)
 
@@ -294,11 +277,7 @@ if ($method === "PATCH") {
 //-------------------------------------------- DELETE ------------------------------
 
 if ($method === "DELETE") {
-    $backupFile = "backup/databaseBackup.json";
-
-    //$json är själva datan från databasen
-    $json = json_encode($database, JSON_PRETTY_PRINT);
-    file_put_contents($backupFile, $json);
+  
 
     // TA BORT EN POST (borde även ta bort album om album endast har denna post i sig)
     // postID (fås från klickad post)
@@ -359,6 +338,16 @@ if ($method === "DELETE") {
     ];
     echo json_encode($message);
     exit();
+
+
+    // TA BORT EN FAVORIT
+    // postID (fås från klickad post)
+    // Jamför med users med $_SESSION[”userID”] och sedan dennes favs
+    // Ta bort från DB
+    // Skicka tillbaka ny uppdaterad array/skicka tillbaka borttaget ID så att elementet med det ID tas bort
+    
+    // TA BORT ETT ALBUM – kontrollera:
+    // om ingen post finns -> tas bort
 
 }
 
