@@ -15,6 +15,12 @@
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
     --polaroidFontSize: 0.7vw;
     --polaroidTitleSize: 0.7vw;
+
+    /*SIZE PREVIEW-IMG*/
+    --imgMargins: 15px;
+    --imgPadding: 5px;
+    --previewImgWidth: calc((100%/5) - 2*var(--imgPadding));
+    --previewImgHeight: 9vw;
 }
 
 /*GENERELLT*/
@@ -892,23 +898,15 @@ input:checked + .slider:before {
     font-family: var(--styleFont);
 }
 
-#showPost {
-    display: none;
-}
-
 #hiddenForm {
     display: none;
 }
 
 #newPostWrapper {
-    height: 80%;
+    height: 50vw;
+    max-height: 600px;
     flex-basis: 80%;
     max-width: 1200px;
-    transform: translateY(-50px);
-    -webkit-transform: translateY(-50px);
-    -moz-transform: translateY(-50px);
-    -ms-transform: translateY(-50px);
-    -o-transform: translateY(-50px);
 }
 
 #postClose {
@@ -917,24 +915,19 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: flex-end;
     height: 50px;
+    font-size: 2vw;
+    font-weight: bold;
+    padding-right: 5px;
 }
 
-.closeOverlay {
-    /* transform: rotateX(90deg);
-    -webkit-transform: rotateX(90deg);
-    -moz-transform: rotateX(90deg);
-    -ms-transform: rotateX(90deg);
-    -o-transform: rotateX(90deg); */
-}
-
-#newPostContainer {
+#newPostContainer, #showPostContainer {
     background: rgba(255,255,255,1);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    height: 100%;
+    height: calc(100% - 50px);
     display: flex;
 }
 
@@ -995,11 +988,21 @@ input:checked + .slider:before {
     display: block;
 }
 
-.nyPic {
-    width: 100px;
-    height: 100px;
+.nyPic, .previewImage {
+    width: var(--previewImgWidth);
+    height: var(--previewImgHeight);
+    max-height: 119px;
     position: relative;
-    margin-right: 15px;
+    margin-right: var(--imgMargins);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.nyPic:last-child, .previewImage:last-child {
+    margin-right: 0;
 }
 
 .imgTrash {
@@ -1082,6 +1085,136 @@ textarea {
     } */
 }
 
+/* show post */
+#showPostPictures {
+    flex-basis: 65%;
+}
+
+#showPostInfo {
+    flex-basis: 31%;
+    padding: 0 2%;
+}
+
+#showPostCoverImg {
+    height: 75%;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#showPostCoverImg, .previewImage {
+    background-size: cover;
+    background-position: center;
+}
+
+#showPostImagesContainer {
+    height:25%;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+/* innehåller info om user och post-info */
+#showPostInfoContainer {
+    height: 75%;
+}
+
+/* visar info om användaren i showPost*/
+#showPostUser {
+    height: 15%;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+}
+
+#showPostSaveBtn {
+    position: absolute;
+    top: 9px;
+    right: -4px;
+    height: 3vw;
+    max-height: 40px;
+}
+
+.saveBtn:hover {
+    cursor: pointer;
+}
+
+.showPostUserName {
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.showPostUserPic {
+    height: 3vw;
+    width: 3vw;
+    border: 1px solid black;
+}
+
+
+#showPostButtonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20%;
+}
+
+#showPostButtonContainer a {
+    flex-basis: 45%;
+}
+
+#showPostButtonContainer div {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: var(--styleFont);
+    padding: 1.2vw 1.5vw;
+    border-radius: 3rem / 100%;
+    -webkit-border-radius: 3rem / 100%;
+    -moz-border-radius: 3rem / 100%;
+    -ms-border-radius: 3rem / 100%;
+    -o-border-radius: 3rem / 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2vw;
+}
+
+#showPostCountryBtn {
+    background-color: var(--blue);
+}
+
+#showPostProfileBtn {
+    background-color: var(--orange);
+}
+
+#showPostInformation {
+    height: 85%;
+    /* display: ; */
+}
+
+#showPostCountry {
+    font-weight: bold;
+    font-size: 2vw;
+    height: 8%;
+}
+
+#showPostCategory {
+    height: 10%;
+    font-size: 1.2vw;
+}
+
+#showPostTitle {
+    font-weight: bold;
+    font-size: 1.5vw;
+    height: 8%;
+}
+
+#showPostDescription {
+    height: 77%;
+    font-size: 1.2vw;
+}
+
 .markedSaved {
     background-image: url(../images/stockImages/icons/savedClicked.png);
 }
@@ -1101,4 +1234,34 @@ textarea {
 .hideBG {
     background-color: transparent;
     transition: background-color .3s;
+}
+
+@media(min-width: 1100px){
+    .showPostUserName {
+        font-size: 15px;
+    }
+
+    #showPostCountry {
+        font-size: 20px;
+    }
+
+    #showPostCategory {
+        font-size: 15px;
+    }
+    
+    #showPostTitle {
+        font-size: 20px;
+    }
+    
+    #showPostDescription {
+        font-size: 15px;
+    }
+
+    #showPostButtonContainer div {
+        font-size: 15px;
+    }
+
+    #postClose {
+        font-size: 20px;
+    }
 }

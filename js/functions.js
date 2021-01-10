@@ -16,7 +16,6 @@ let STATE = {
 };
 
 
-
 //Funktion för att appenda posts i feed
 function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken nyckel soma ska jämföras med tex creatorID/countryName, sort = ett värde den ska jämföra med
     
@@ -125,21 +124,18 @@ function getUserObjectByID(id){
 }
 
 
-
+//visar post när man klickar på polaroid
 function makeNewShowPost(id) {
-    let postObj = STATE.allPosts.filter(post => {
+    //leta upp post med hjälp av id som skickas med från klickeventet på polaroidklassen som skapar dem
+    let postObj = STATE.allPosts.find(post => {
         return post.postID == id;
     });
-    console.log(id);
-    console.log(postObj);
-    let newShowPost = new PostShow(postObj);
+    let newInstance = new PostShow(postObj);
     let container = document.getElementById("showPost");
+    container.innerHTML = "";
     container.style.display = "flex";
-    container.appendChild(newShowPost.htmlElement());
+    container.appendChild(newInstance.htmlElement());
 }
-
-
-
 
 
 //---------------- MAKE NEW POST --------------------------

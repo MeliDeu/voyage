@@ -12,6 +12,7 @@ class PolaroidBase{
         this.albumID = data.albumID;
         this.categoryID = data.categoryID;
         this.description = data.description;
+        this.images = data.images;
     }
 }
 
@@ -179,7 +180,6 @@ class PolaroidFeed extends PolaroidActive{
 class PostStructure extends PolaroidBase{
     constructor(data){
         super(data);
-        this.images = data.images;
     }
     htmlElement() {
         //wrapper som håller ihop vit ruta med kryss
@@ -189,48 +189,32 @@ class PostStructure extends PolaroidBase{
         let modalClose = document.createElement("div");
         modalClose.setAttribute("id","postClose");
         modalClose.innerHTML = "X";
+        modalClose.addEventListener("click", () => {
+            document.getElementById("showPost").style.display = "none";
+        });
         //container för postinformation
         let modalContainer = document.createElement("div");
-        modalContainer.setAttribute("id","newPostContainer");
+        modalContainer.setAttribute("id","showPostContainer");
 
         //div för bilder
         let postPictureContainer = document.createElement("div");
         postPictureContainer.setAttribute("id", "showPostPictures");
-        //div för rubrik
-        // let modalUpperPart = document.createElement("div");
-        // modalUpperPart.classList.add("coverImageDiv");
-        // //div för coverImg 
-        // let coverImage = document.createElement("div");
-        // coverImage.classList.add("newPostMiddle");
-        // coverImage.setAttribute("id", "newPostBigPicture");
-        //div för små bilder
-        // let miniImages = document.createElement("div");
-        // miniImages.classList.add("showPostImagesContainer");
-        // miniImages.setAttribute("id", "previewImages");
-        // for (let i = 1; i <= 5; i++) {
-        //     let newMiniPic = document.createElement("div");
-        //     newMiniPic.setAttribute("id", `pic_${i}`);
-        //     newMiniPic.classList.add("nyPic");
-        //     miniImages.append(newMiniPic);
-        // }
-        // postPictureContainer.append(modalUpperPart, miniImages);
 
         //div för postdescription --> innehåll läggs till i andra klasser då det är antingen formulär eller divar
         let postDescriptionContainer = document.createElement("div");
         postDescriptionContainer.setAttribute("id", "showPostInfo");
 
         //html-tree
-        modalContainer.appendChild(postPictureContainer, postDescriptionContainer);
-        newModalWrapper.appendChild(modalClose, modalContainer);
+        modalContainer.append(postPictureContainer, postDescriptionContainer);
+        newModalWrapper.append(modalClose, modalContainer);
         return newModalWrapper;
     }
 }
 
 class PostShow extends PostStructure{
     constructor(data){
+        console.log(data)
         super(data);
-        // this.images = data.images;
-        
     }
     //postID finns på polaroid, leta upp posten och anropa constructor med hela objektet
     htmlElement() {
@@ -239,20 +223,22 @@ class PostShow extends PostStructure{
         //nederst med images[] till vänster, 2 buttons till höger
         let outerShell = super.htmlElement();
             //hämta hela category
-        let categoryObj = travelCategoriesArray.filter(category => {
+        let categoryObj = travelCategoriesArray.find(category => {
             return category.categoryID == this.categoryID;
         });
         //hämta hela user
-        let userObj = STATE.users.filter(user => {
+        let userObj = STATE.users.find(user => {
             return user.id == this.creatorID;
         });
         //vänster sida
         //coverImg
         let coverImage = document.createElement("div");
         coverImage.style.backgroundImage = `url(${this.coverImg})`;
+        coverImage.setAttribute("id", "showPostCoverImg");
         let pictureArrow = document.createElement("div"); //happy idea
         //miniBilder
         let previewImageContainer = document.createElement("div");
+        previewImageContainer.setAttribute("id", "showPostImagesContainer");
         this.images.forEach(image => {
             let previewImage = document.createElement("div");
             previewImage.classList.add("previewImage");
@@ -263,48 +249,63 @@ class PostShow extends PostStructure{
 
         //höger sida
         //information om usern och save
+        let showPostInfoContainer = document.createElement("div");
+        showPostInfoContainer.setAttribute("id", "showPostInfoContainer");
         let userContainer = document.createElement("div");
-        let userInformation = document.createElement("div");
+        userContainer.setAttribute("id", "showPostUser")
         let saveBtn = document.createElement("img");
+        saveBtn.setAttribute("id", "showPostSaveBtn")
+        saveBtn.classList.add("saveBtn");
+        saveBtn.setAttribute("src", "../images/stockImages/icons/saved.png");
         let userPicture = document.createElement("div");
-        userPicture.classList.add("polaroidUserPic");
+        userPicture.classList.add("polaroidUserPic", "showPostUserPic");
         userPicture.style.backgroundImage = `url('${userObj.profilePic}')`;
         let userName = document.createElement("div");
         userName.innerHTML = `${userObj.username}`;
-        userName.classList.add("polaroidUserName");
-        userInformation.appendChild(userPicture, userName);
-        userContainer.appendChild(userInformation, saveBtn);
+        userName.classList.add("showPostUserName");
+        userContainer.append(userPicture, userName, saveBtn);
 
         //information om posten
         let postInformation = document.createElement("div");
+        postInformation.setAttribute("id", "showPostInformation")
         let postCountry = document.createElement("div");
         postCountry.innerText = this.country;
+        postCountry.setAttribute("id", "showPostCountry");
         let postCategory = document.createElement("div");
-        //leta upp rätt category
         postCategory.innerText = categoryObj.travelCategory;
+        postCategory.setAttribute("id", "showPostCategory");
         let postTitle = document.createElement("div");
+        postTitle.setAttribute("id", "showPostTitle");
         postTitle.innerText = this.title;
         let postDescription = document.createElement("div");
         postDescription.innerText = this.description;
-        postInformation.appendChild(postCountry, postCategory, postTitle, postDescription);
-        //sätta ihop postInfo
-        postInformation.appendChild(postCountry, postCategory, postTitle, postDescription);
+        postDescription.setAttribute("id", "showPostDescription");
+        postInformation.append(postCountry, postCategory, postTitle, postDescription);
+        showPostInfoContainer.append(userContainer, postInformation);
 
         //buttons
         let buttonsContainer = document.createElement("div");
-        let countryButton = document.createElement("a");
+        buttonsContainer.setAttribute("id", "showPostButtonContainer")
+        let countryLink = document.createElement("a");
         //ska länkas till countrysidan
-        countryButton.setAttribute("href", `../home.php?country=${this.country}`); 
-        countryButton.innerHTML = `view ${this.country}`; 
-        let profileButton = document.createElement("a");
+        countryLink.setAttribute("href", `../home.php?country=${this.country}`); 
+        let countryButton = document.createElement("div");
+        countryButton.setAttribute("id", "showPostCountryBtn");
+        countryButton.innerHTML = `view country`; 
+        let profileLink = document.createElement("a");
+        let profileButton = document.createElement("div");
+        profileButton.setAttribute("id", "showPostProfileBtn");
         //ska länkas till personens profil
-        profileButton.setAttribute("href", 'href', `../home.php?profile=${this.creatorID}`); 
+        profileLink.setAttribute("href", `../home.php?profile=${this.creatorID}`); 
         profileButton.innerHTML = `view profile`;
-        buttonsContainer.appendChild(countryButton, profileButton);
+        countryLink.append(countryButton);
+        profileLink.append(profileButton);
+        
+        buttonsContainer.append(countryLink, profileLink);
 
         //sätta ihop vänster sida
-        outerShell.getElementById("showPostPictures").appendChild(coverImage, previewImageContainer);
-        outerShell.getElementById("showPostInfo").appendChild(userContainer, postInformation, buttonsContainer);
+        outerShell.querySelector("#showPostPictures").append(coverImage, previewImageContainer);
+        outerShell.querySelector("#showPostInfo").append(showPostInfoContainer, buttonsContainer);
         
         return outerShell;
     }
