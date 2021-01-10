@@ -17,6 +17,18 @@ if ($method !== "POST" && $method !== "GET" && $method !== "PATCH" && $method !=
     exit();
 }
 
+//problem med detta: den funkar för uploadPost.php men inte för api.php, sätter man den här så utförs den inte utan ett felmeddelande dyker upp: jsonparse non-whitespace character... JSON.parse: unexpected non-whitespace character after JSON data at line 1 column 11293 of the JSON data, 
+//ingen funktion utförs därefter men en backup av DB görs, sätter man det efter get, samma sak där bara att man inte heller får någon backup-file
+//felet var att jag echoade både här och sen ännu en gång vid utförd request...
+
+//göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+
+$backupFile = "backup/databaseBackup.json";
+
+//$json är själva datan från databasen
+$json = json_encode($database, JSON_PRETTY_PRINT);
+file_put_contents($backupFile, $json);
+
 
 // Hämtar innehållet i php://input och lägger det i variabeln $json
 $input = file_get_contents("php://input");
@@ -38,15 +50,8 @@ if ($method === "GET") {
     exit();
 }
 
-// //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
-// //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
 
-// $backupFile = "backup/databaseBackup.json";
 
-// //$json är själva datan från databasen
-// $json = json_encode($database, JSON_PRETTY_PRINT);
-// file_put_contents($backupFile, $json);
-// echo json_encode($database);
 
 // Denna kontroll sträcker sig över hela POST, PATCH, DELETE
 //Kanske inte ska göra det, pga registrering sker här...
