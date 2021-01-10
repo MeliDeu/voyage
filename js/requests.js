@@ -116,7 +116,7 @@ function checkURL(){
 // POST req för saved posts
 function postSavedToDB(postID){
 
-    let request = new Request("../admin/testApiSaved.php", {
+    let request = new Request("../admin/api.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ savedPost: true, postID: postID })
@@ -155,10 +155,10 @@ function postSavedToDB(postID){
 // DELETE req för att ta bort en saved post från mainuser savedposts
 function deleteSavedPostFromDB(postID){
 
-    let request = new Request("../admin/testApiSaved.php", {
+    let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ postID: postID })
+        body: JSON.stringify({ removeSaved: true, postID: postID })
     })
     fetch(request)
         .then(response => {
@@ -195,7 +195,7 @@ function removePostFromDB(id){
     let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ postID: id })
+        body: JSON.stringify({ removePost: true, postID: id })
     });
 
     fetch(request)
@@ -248,7 +248,7 @@ function patchBio(){
     }
     console.log(favsArray);
     console.log(wishesArray);
-    let request = new Request("../admin/testApiSaved.php", {
+    let request = new Request("../admin/api.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
