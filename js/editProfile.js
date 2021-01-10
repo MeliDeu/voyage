@@ -61,7 +61,7 @@ function editProfilePic(){
         //Adderar id till formData så vi kan nå användarens id i api.php
         formData.append("id", STATE.mainUserID);
     
-        let request = new Request("../admin/api.php",{
+        let request = new Request("../admin/testApiSaved.php",{
             method: "POST",
             body: formData
         });
@@ -70,6 +70,8 @@ function editProfilePic(){
             return response.json();
         })
         .then(resource =>{
+            //Laddar om sidan när profilbilden är bytt för att uppdatera innehållet direkt på sidan
+            window.location.reload();
         })
     })
 }

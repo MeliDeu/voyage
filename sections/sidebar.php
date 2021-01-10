@@ -14,7 +14,7 @@
     </div>
 </div>
 <div id="slider" class="slide">
+    <h3>Countries</h2>  
     <ul id='sliderList'>
-        <h3>Countries</h2>
     </ul>
 </div>

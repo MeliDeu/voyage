@@ -25,7 +25,17 @@
 
 <div id='profileBox'>
     <div id='profilePicBox'>
-        <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'><div id='postProfilePic'></div></div>
+        <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'>
+       <?php
+       //MAn ska endast kunna redigera profilbild om man är inloggad
+            if (isset($_GET["profile"])){
+                if ($_GET["profile"] == $_SESSION["userID"]){
+                    echo "<div id='postProfilePic'></div>";
+                }
+            } 
+       ?>    
+        
+    </div>
         <div>
             <form id='uploadProfilePic' method='POST'>
                 <input id="fileInfo" class='hide' type="file" enctype="multipart/form-data" name="file"><br>
@@ -84,8 +94,8 @@
                     }
                 }else{//om wishes inte finns
                     for($i = 0; $i<3; $i++){
-                        echo "<li class='topFavsList'></li>";
-                        echo "<input class='hide patchFavs'></input>";
+                        echo "<li class='topWishesList'></li>";
+                        echo "<input class='hide patchWishes'></input>";
                     }
                     
                 }

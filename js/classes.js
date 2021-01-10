@@ -27,6 +27,9 @@ class PolaroidStatic extends PolaroidBase{
 
         this.polaroidInfo = document.createElement("div");
         this.polaroidInfo.classList.add("polaroidInfo");
+
+        //this.descriptionBox = document.createElement("div");
+        //this.descriptionBox.classList.add("descriptionBox");
     }
 
     createPolaroidBase(arr){
@@ -92,11 +95,30 @@ class PolaroidStatic extends PolaroidBase{
                         polaroidTitle.innerHTML = `${this.title}`;
                         polaroidTitle.classList.add("polaroidTitle");
 
-                    polaroidText.append(polaroidCountry, polaroidTitle);    
-
+                    polaroidText.append(polaroidCountry, polaroidTitle);  
+                
+                //let description = this.description
+                //let shortDescription = description.slice(0, 10);
+                //this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
                 this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
-                this.polaroidBottom.append(this.polaroidInfo); // här ska även .polaroidDescription appendas men den skapas i active
+                this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
                 html.append(filter, pic, this.polaroidBottom);
+
+
+                //tar alla polaroider
+                //let polaroidDiv = document.querySelectorAll('.polaroid');
+                //console.log(polaroidDiv);
+
+                //html.addEventListener('mouseover', function() {
+                       // console.log("hej");
+
+                        //this.setAttribute('class', 'icon active');
+                        //let child = this.children[0]
+                        //let childName = child.id
+                        //child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+
+                //});
+
 
                 return html;
             
@@ -118,6 +140,8 @@ class PolaroidActive extends PolaroidStatic{
 class PolaroidUser extends PolaroidActive{
     constructor(data){
         super(data)
+        this.descriptionBox = document.createElement("div");
+        this.descriptionBox.classList.add("descriptionBox");
     }
 
     htmlElement(arr) {
@@ -129,7 +153,13 @@ class PolaroidUser extends PolaroidActive{
         icon.style.backgroundImage = "url('../images/stockImages/icons/trash.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
+
+        let description = this.description
+        let shortDescription = description.slice(0, 10);
+        this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+
         this.polaroidInfo.append(iconDiv);
+        this.polaroidBottom.append(this.descriptionBox);
 
         icon.addEventListener('click', function(){
             let trashID = this.getAttribute('id');
@@ -168,6 +198,12 @@ class PolaroidFeed extends PolaroidActive{
             postSavedToDB(subClicked)
             // en funktion ska finnas i functions som placerar pics från den arrayen i saved när man klickar i sidebar
             // klick igen = avmarkeras och splice från array 
+            if (icon.classList.contains("markedSaved")) {
+                console.log("den är markerad");
+                deleteSavedPostFromDB(subClicked);
+            } else {
+                console.log("den är ej markerad");
+            }
         })
 
 

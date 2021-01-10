@@ -506,7 +506,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    z-index: 10;
+    z-index: 50;
     padding: 15px 0;
 }
 
@@ -576,20 +576,28 @@ input:checked + .slider:before {
     align-items: center;
     box-shadow: 1px 3px 50px rgb(29, 29, 29);
     margin-bottom: 30px;
+    position: relative;
+    justify-content: space-between;
     /*margin: 1vw*/
 }
 
 #startGrid .polaroid {
     box-shadow: 1px 3px 5px rgba(171, 171, 171, 0.49);
+    justify-content: unset;
 }
 
 #startGrid .polaroid1, #startGrid .polaroid3, #startGrid .polaroid5, #startGrid .polaroid6, #startGrid .polaroid8, #startGrid .polaroid10, #startGrid .polaroid11, #startGrid .polaroid13, #startGrid .polaroid15 {
     margin-top: 40px;
 }
 
+#startGrid .polaroidPic {
+    position: relative;
+}
+
 .polaroidPic {
-    width: calc(100% - 4%);
-    flex-basis: 84%;
+    position: absolute;
+    width: 16vw;
+    height: 19vw;
     background-size: cover;
     background-position: center;
     margin: 2% 2% 0 2%;
@@ -598,7 +606,9 @@ input:checked + .slider:before {
 .polaroidBottom {
     width: calc(100% - 16px);
     padding: 0 8px;
-    flex-grow: 1;
+    z-index: 10;
+    background-color: white;
+    height: 3vw;
 }
 
 .polaroidInfo {
@@ -635,10 +645,15 @@ input:checked + .slider:before {
 .polaroidText {
     flex-direction: column;
     align-items: unset;
-    padding: 2px 5px 5px 13px;
+    padding: 5px 5px 5px 13px;
     font-family: var(--styleFont);
     font-size: 0.63vw;
     font-weight: 500;
+}
+
+.descriptionBox {
+    color: var(--darkgrey);
+    display: none;
 }
 
 .polaroidCountry {
@@ -780,6 +795,8 @@ input:checked + .slider:before {
     margin: 2vw 0 0 20vw;
     height: 25px;
     width: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 #profileSettings {
@@ -798,7 +815,8 @@ input:checked + .slider:before {
     display: none;
 }
 .show{
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 #homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
@@ -819,28 +837,32 @@ input:checked + .slider:before {
 /* slider -> sidebar */
 #slider {
     position: absolute;
-    left: 1vw;
+    left: 4vw;
     width: 13vw;
     height: 100%;
     background: white;
     display: flex;
-    justify-content: center;
-    z-index: 0;
+    flex-direction: column;
+    z-index: 40;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
 }
 
 #slider > ul {
-    margin-top: 25px;
+    margin-top: 10px;
     font-size: 20px;
+    max-height: 90vh;
+    overflow-y: scroll;
 }
 
-#slider > ul > h3 {
+#slider > h3 {
     font-family: var(--styleFont);
     font-weight: 800;
     color: var(--blue);
     margin-bottom: 5px;
-    font-size: 15px;
+    font-size: 20px;
+    margin-left: 2.5vw;
+    margin-top: 30px;
 }
 
 #slider > ul > li {
@@ -849,7 +871,7 @@ input:checked + .slider:before {
     font-family: var(--styleFont);
     font-weight: 500;
     color: var(--darkTextColor);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 22px;
 }
 

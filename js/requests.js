@@ -34,17 +34,13 @@ window.onload = function(){
         })
         
         // Hämtar arrayen med alla länder som det finns post för
-        let countriesArray = db.data.countriesArray;
-        console.log(countriesArray)
-        // Kallar på en funtion som kommer placera ut dem i sidebar
-        placeCountriesInSidebar(countriesArray)
+        STATE.countriesInSidebar = db.data.countriesArray;
 
         //Efter att state har fyllts på så är det dags att fylla gridden med posts. Eftersom att funktionen körs varje gång sidan
         //laddas om, och ikonerna i naven samt användarnamnen på polaroiderna är a-länkar så måste vi kolla om det finns en get-parameteren i URLEN
         //för att se vilka posts som ska visas:
         
         checkURL()
-        //console.log(noParameter);
     });
 }
 
@@ -156,6 +152,41 @@ function postSavedToDB(postID){
 
 }
 
+// DELETE req för att ta bort en saved post från mainuser savedposts
+function deleteSavedPostFromDB(postID){
+
+    let request = new Request("../admin/testApiSaved.php", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postID: postID })
+    })
+    fetch(request)
+        .then(response => {
+            return response.json()
+        })
+        .then(resource => {
+            
+            if (resource.error !== undefined){
+                console.log(resource.error);
+            }
+            if (resource.data !== undefined){
+                console.log(resource.data);
+
+                let icon = document.getElementById(`icon_${postID}`)
+                icon.classList.remove('markedSaved');
+                icon.classList.add('markedUnsaved');
+
+                if (savedParameter !== "false") {
+                    let polaroid = `polaroid${postID}`;
+                    let element = document.getElementsByClassName(polaroid)[0];
+                    element.parentNode.removeChild(element);
+                }
+                
+            }
+    })
+
+}
+
 
 
 //funktion för att radera post från databas 
@@ -196,7 +227,7 @@ function getCountries(){
             //Ger namn på 250 länder!
             //console.log(element)
             STATE.countries.push(element.name);
-            STATE.countriesCode.push({name: element.name, code: element.alpha2Code})
+            //STATE.countriesCode.push({name: element.name, code: element.alpha2Code}) //denna var till för eventuell mer info om landet /kaj
         });
     })
 }
@@ -217,7 +248,7 @@ function patchBio(){
     }
     console.log(favsArray);
     console.log(wishesArray);
-    let request = new Request("../admin/api.php", {
+    let request = new Request("../admin/testApiSaved.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

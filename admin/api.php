@@ -278,9 +278,7 @@ if ($method === "DELETE") {
 
             foreach ($database["users"] as $i => $currentUser) { //kollar igenom alla användares savedPosts och tar bort post:idet som ligger i den arrayen om den matchar med posten som tagits bort
                 foreach ($currentUser["savedPosts"] as $ind => $p) {
-;
                     if ($p["postID"] == $post["postID"]) {
-                        $arr = $database["users"][$i]["savedPosts"];
                         array_splice($database["users"][$i]["savedPosts"], $ind, 1);
                     }
                 }
@@ -297,6 +295,26 @@ if ($method === "DELETE") {
                 $path = $img["img"]; //images borde vara en array som består av bilder som har en nyckel som är "img": "länk till bild"
                 unlink($path);
             }*/
+
+            // DENNA DEL TAR BORT LANDET FRÅN SIDEBAR NÄR INGEN POST HAR LANDET LÄNGRE
+            if( array_search($post["country"], array_column($database["posts"], "country")) !== false){
+                // Det finns en annan post i databasen med det landet så gör inget med countriesArray!
+            } else {
+                // Det finns ingen annan post i databasen med det landet så nu ska vi splicea
+                // bort landet från countriesArray så det landet inte syns i sidebar
+
+                // Loopa countriesArray för att hitta landet
+                foreach ($database["countriesArray"] as $thisIndex => $thisCountry){
+                    // Detta är landet som ska deletas
+                    $countryFromDelete = $post["country"];
+                    // Kollar om den som ska deletas är samma som ett land för en post som finns i arrayen
+                    if ($thisCountry["name"] == $countryFromDelete){
+                        // splicea det ovject som har name = country
+                        array_splice($database["countriesArray"], $thisIndex, 1);
+                    }
+                } 
+            }
+            
 
         }
     }
