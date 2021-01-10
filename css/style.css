@@ -410,6 +410,7 @@ input:checked + .slider:before {
     color: white;
     font-family: var(--styleFont);
     font-size: 1.5vw;
+    margin-bottom: 20px;
 }
 
 .feedBox {
@@ -480,7 +481,6 @@ input:checked + .slider:before {
 .barTitle {
     color: white;
     font-family: var(--styleFont);
-    margin:  0 0 10px 0;
 }
 
 .categoryBox {
@@ -504,6 +504,11 @@ input:checked + .slider:before {
     align-items: center;
     background-size: cover;
     background-position: bottom;
+    transition: background-color .3s;
+}
+
+.categoryIcon:hover {
+    background-color: rgb(223, 223, 223);
 }
 
 .categoryIcon > div {
@@ -848,8 +853,11 @@ input:checked + .slider:before {
     flex-direction: column;
 }
 
-#homeFeedTitle, .polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
+.polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
     cursor: pointer;
+}
+#homeFeedTitle {
+    pointer-events: none;
 }
 
 .feedTitle, .feedView {

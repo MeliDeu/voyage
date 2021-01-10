@@ -219,7 +219,7 @@
             "password": "1234",
             "email": "alnur@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/5ffb384eb3ae0.jpg",
+            "profilePic": "..\/images\/uploads\/5ffb56dc5c4fe.jpg",
             "bio": "Hey guys! I'm obsessed with weekends in a big city. Wanna join me for my next trip to Lissbon?",
             "top3Wishes": [
                 "Tokyo",
@@ -467,18 +467,16 @@
         },
         {
             "postID": 18,
-            "creatorID": "5",
-            "title": "En b\u00e4ttre dag",
-            "coverImg": "..\/images\/uploads\/5ffb5b4744d3b.jpg",
+            "creatorID": "7",
+            "title": "Weekend",
+            "coverImg": "..\/images\/uploads\/5ffb577f7574c.jpg",
             "images": [
-                "..\/images\/uploads\/5ffb5b47454bd.jpg",
-                "..\/images\/uploads\/5ffb5b4745a40.jpg",
-                "..\/images\/uploads\/5ffb5b4745f9d.jpg"
+                "..\/images\/uploads\/5ffb577f7613e.jpg"
             ],
             "albumID": false,
-            "country": "Austria",
-            "categoryID": "6",
-            "description": "Ojojojojoj, vilken fin dag f\u00f6r lite snowboarding! Vem hade trott att man har ett s\u00e5dant fint landskap runt h\u00f6rnet? :)"
+            "country": "Spain",
+            "categoryID": "9",
+            "description": "Walking the picturesque streets of Barcelona"
         }
     ],
     "countriesArray": [
@@ -531,7 +529,7 @@
             "name": "Afghanistan"
         },
         {
-            "name": "Austria"
+            "name": "Spain"
         }
     ]
 }
