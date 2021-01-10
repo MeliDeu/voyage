@@ -270,7 +270,6 @@ class PostShow extends PostStructure{
         let coverImage = document.createElement("div");
         coverImage.style.backgroundImage = `url(${this.coverImg})`;
         coverImage.setAttribute("id", "showPostCoverImg");
-        let pictureArrow = document.createElement("div"); //happy idea
         //miniBilder
         let previewImageContainer = document.createElement("div");
         previewImageContainer.setAttribute("id", "showPostImagesContainer");
@@ -279,6 +278,15 @@ class PostShow extends PostStructure{
             previewImage.classList.add("previewImage");
             previewImage.style.backgroundImage = `url(${image})`;
             previewImageContainer.appendChild(previewImage);
+            //funktion som byter plats mellan coverImg och lilla bild vid klick på de små
+            previewImage.addEventListener("click", function(){
+                let chosenPic = this.style.backgroundImage;
+                let coverImgContainer = document.getElementById("showPostCoverImg");
+                let coverImg = coverImgContainer.style.backgroundImage;
+
+                coverImgContainer.style.backgroundImage = chosenPic;
+                this.style.backgroundImage = coverImg; 
+            });
         });
         
 

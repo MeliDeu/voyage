@@ -1116,12 +1116,6 @@ textarea {
     align-items: center;
 }
 
-@media(max-width: 1110px){
-    /* #newPostContainer {
-        display: block;
-    } */
-}
-
 /* show post */
 #showPostPictures {
     flex-basis: 65%;
@@ -1188,6 +1182,10 @@ textarea {
     height: 3vw;
     width: 3vw;
     border: 1px solid black;
+}
+
+.previewImage:hover {
+    cursor: pointer;
 }
 
 
