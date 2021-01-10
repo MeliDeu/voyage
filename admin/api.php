@@ -262,8 +262,8 @@ if ($method === 'POST'){
                 "bio" => false, 
                 "top3Wishes" => false, 
                 "top3Favs" => false,
-                "savedPosts" => [], //sparade postIDs
-                "album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
+                "savedPosts" => [] //sparade postIDs
+                //"album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
             ];
 
     //lägger till user-objektet i databasen        
