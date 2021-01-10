@@ -26,8 +26,8 @@ document.getElementById('homeSearchField').addEventListener('focus', function(){
                 //console.log(thisValue)
                 let copyThisValue = JSON.parse(JSON.stringify(thisValue));
                 
-                let viewing = document.getElementById("homeFeedTitle"); //för att ge feedback om vad anv har sökt på
-                viewing.innerHTML = `\xa0\matching: ${ copyThisValue}`;
+                let view = document.getElementById("homeFeedTitle"); //för att ge feedback om vad anv har sökt på
+                view.innerHTML = `\xa0\matching: ${ copyThisValue}`;
                 
                 let elementArray = document.querySelectorAll('.categoryBox');
                 elementArray.forEach(function(el){
@@ -37,7 +37,7 @@ document.getElementById('homeSearchField').addEventListener('focus', function(){
                     this.addEventListener('click', function(){
                         let searchfield = document.getElementById('homeSearchField');
                         searchfield.value = ''
-                        viewing.innerHTML = ''
+                        view.innerHTML = ''
                     })
                     })
                 // här ska en ny array med den arrayen som har alla sökresultat
