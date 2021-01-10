@@ -404,6 +404,11 @@ input:checked + .slider:before {
     cursor: text;
     color: white;
     font-size: .75vw;
+    transition: background-color .2s linear;
+}
+
+#homeSearchField:hover {
+    background-color: rgba(116, 114, 113, 0.726);
 }
 
 #countryTitle {
@@ -508,7 +513,7 @@ input:checked + .slider:before {
 }
 
 .categoryIcon:hover {
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(197, 197, 197);
 }
 
 .categoryIcon > div {
@@ -823,14 +828,42 @@ input:checked + .slider:before {
     padding: 0;
     font-weight: 500;
     line-height: 20px;
+    margin-top: 10px;
+}
+
+#fileInfo {
+    margin-top: 10px;
+    font-size: 10px;
 }
 
 #saveBio{
-    margin: 2vw 0 0 20vw;
+    margin: 42px 0 0 20px;
     height: 25px;
     width: 50px;
     justify-content: center;
     align-items: center;
+    box-shadow: 1px 3px 28px rgba(31, 31, 31, 0);
+    font-size: .8vw;
+    padding: 7px 15px;
+    font-weight: 400;
+    transition: background-color .2s ease;
+}
+
+#saveBio:hover {
+    background-color: #37666991;
+}
+
+#savePic {
+    box-shadow: 1px 3px 28px rgba(31, 31, 31, 0);
+    font-size: .8vw;
+    margin: -5px 0 20px;
+    padding: 7px 15px;
+    font-weight: 400;
+    transition: background-color .2s ease;
+}
+
+#savePic:hover {
+    background-color: #37666991;
 }
 
 #profileSettings {
@@ -843,6 +876,39 @@ input:checked + .slider:before {
     margin: 15px 0 0 85vw;
 }
 
+#patchBio {
+    background-color: rgba(255, 255, 255, 0.836);
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    padding: 5px;
+    transition: box-shadow .2s ease;
+}
+
+.patchFavs {
+    background-color: rgba(255, 255, 255, 0.836);
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    padding: 5px;
+    margin: 3px;
+    transition: box-shadow .2s ease;
+}
+
+.patchWishes {
+    background-color: rgba(255, 255, 255, 0.836);
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    padding: 5px;
+    margin: 3px;
+    transition: box-shadow .2s ease;
+}
+
+#patchBio:hover, .patchFavs:hover, .patchWishes:hover {
+    box-shadow: 0px 0px 0px 2.5px rgba(178, 212, 211, 0.733);
+}
+
 
 /*ÖVRIGT?*/
 .hide{
@@ -853,15 +919,19 @@ input:checked + .slider:before {
     flex-direction: column;
 }
 
-.polaroidPic, #homeFeedView, #interestIcon, #profileSettings, .savedIcon {
+.polaroidPic, #interestIcon, #profileSettings, .savedIcon {
     cursor: pointer;
 }
 #homeFeedTitle {
     pointer-events: none;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .feedTitle, .feedView {
-    font-size: .7rem;
+    font-size: .8rem;
     font-family: 'Mulish';
 }
 
@@ -913,7 +983,7 @@ input:checked + .slider:before {
 }
 
 #slider > ul > li:hover {
-    color: var(--blue);
+    color: var(--greyBackground);
 }
 
 .slide-in {
@@ -1082,8 +1152,8 @@ input:checked + .slider:before {
 
 .imgTrash {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     display: none;
 }
 
@@ -1221,6 +1291,7 @@ textarea {
     margin-left: 3%;
     font-weight: bold;
     font-size: 1vw;
+    color: var(--darkgrey);
 }
 
 .showPostUserPic {
@@ -1270,32 +1341,40 @@ textarea {
 }
 
 #showPostInformation {
-    height: 85%;
+    margin-top: 20px;
+    height: calc(85% - 20px);
     /* display: ; */
 }
 
 #showPostCountry {
     font-weight: bold;
-    font-size: 2vw;
+    font-size: 1.2vw;
     height: 8%;
 }
 
 #showPostCategory {
+    margin-top: -3px;
+    font-family: var(--styleFont);
+    font-weight: 600;
     height: 10%;
-    font-size: 1.2vw;
+    font-size: .9vw;
+    color: var(--greyBackground);
 }
 
 #showPostTitle {
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     height: 8%;
+    color: var(--darkgrey);
 }
 
 #showPostDescription {
+    font-family: var(--styleFont);
     height: 70%;
-    font-size: 1.2vw;
+    font-size: 1vw;
     overflow: scroll;
     overflow-x: hidden;
+    color: var(--darkgrey);
 }
 
 label {
@@ -1323,25 +1402,25 @@ label {
     transition: background-color .3s;
 }
 
-@media(min-width: 1100px){
+@media(min-width: 1200px){
     .showPostUserName {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     #showPostCountry {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     #showPostCategory {
-        font-size: 15px;
+        font-size: 12px;
     }
     
     #showPostTitle {
-        font-size: 20px;
+        font-size: 17px;
     }
     
     #showPostDescription {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     #showPostButtonContainer div {

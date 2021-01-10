@@ -44,6 +44,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
             viewing.innerHTML = "Back to all post";
 
             function viewAll(){
+                viewing.style.cursor = "default";
 
                 // Tar bort bg på alla categoryBoxes om du klickar på texten "back to all posts"
                 let elementArray = document.querySelectorAll('.categoryBox');
@@ -62,9 +63,11 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
                 }
     
                 viewing.removeEventListener("click", viewAll) //eftersom det inte ska gå att klicka på "all posts" tar vi bort eventlistener
+                //viewing.style.cursor = "none";
             }
     
             viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
+            viewing.style.cursor = "pointer";
         }
 
     }

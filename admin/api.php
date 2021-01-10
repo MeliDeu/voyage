@@ -125,10 +125,8 @@ if ($method === 'POST'){
             }
         }
         
-        //Tar bort den nuvarande profilbilden
-        unlink($currentProfilePic);
-        //Sparar filvägarna
 
+        //Sparar filvägarna
         $folder = "../images/uploads/";
         $name = $_FILES['file']['name'];
         $tmp = $_FILES['file']['tmp_name'];
@@ -174,6 +172,10 @@ if ($method === 'POST'){
             echo json_encode($message);
             exit();
         }
+
+        //Tar bort den nuvarande profilbilden
+        unlink($currentProfilePic);
+
         //Flyttar profilbilden till uploads
         move_uploaded_file($tmp, $fileName);
 
