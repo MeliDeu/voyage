@@ -236,7 +236,7 @@ if ($method === 'POST'){
         if ($length > 13){
             http_response_code(400);
             header("Content-Type: application/json");
-            echo json_encode(["errors" => "Username must be maximum 13 letters"]);
+            echo json_encode(["errors" => "Username must be maximum 13 characters"]);
             exit();
         }
     }
