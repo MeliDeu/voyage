@@ -37,8 +37,6 @@ $json = json_decode($input, true);
 
 // Om metoden är GET
 if ($method === "GET") {
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET");
     http_response_code(200);
     header("Content-Type: application/json");
     // Skicka med hela DB
