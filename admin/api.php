@@ -342,14 +342,13 @@ if ($method === 'DELETE'){
                 //tar bort posten från databasen
                 array_splice($database["posts"], $index, 1);
 
-                $pathToImg = $post["coverImg"]; //bildens namn
-                unlink($pathToImg);
+                $pathToImg = $post["coverImg"];
+                unlink($pathToImg); //tar bort coverImg från databasen
 
-                //när vi har fler bilder i images:
-                /*foreach ($post["images"] as $indexImg => $img) {
-                    $path = $img["img"]; //images borde vara en array som består av bilder som har en nyckel som är "img": "länk till bild"
-                    unlink($path);
-                }*/
+                //eftersom att varje post har en array som heter images går vi igenom den för att radera bilderna därifrån i databasen
+                foreach ($post["images"] as $indexImg) {
+                    unlink($indexImg);
+                }
 
                 
                 // DENNA DEL TAR BORT LANDET FRÅN SIDEBAR NÄR INGEN POST HAR LANDET LÄNGRE

@@ -66,9 +66,6 @@
                 },
                 {
                     "postID": "3"
-                },
-                {
-                    "postID": "65"
                 }
             ],
             "album": [
@@ -471,15 +468,15 @@
         {
             "postID": 66,
             "creatorID": "8",
-            "title": "Hiking in Iceland",
-            "coverImg": "..\/images\/uploads\/5ffa30cf48b7a.jpg",
+            "title": "hola",
+            "coverImg": "..\/images\/uploads\/5ffb2df7c9c00.jpg",
             "images": [
-                "..\/images\/uploads\/5ffa30cf493fe.jpg"
+                "..\/images\/uploads\/5ffb2df7ca771.jpg"
             ],
             "albumID": false,
-            "country": "Iceland",
-            "categoryID": "7",
-            "description": "Olalala what a place"
+            "country": "Afghanistan",
+            "categoryID": "1",
+            "description": "seniorita"
         }
     ],
     "countriesArray": [
@@ -515,6 +512,9 @@
         },
         {
             "name": "Switzerland"
+        },
+        {
+            "name": "Afghanistan"
         }
     ]
 }
