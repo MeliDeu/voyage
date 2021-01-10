@@ -170,11 +170,7 @@
                 "Iceland",
                 "Switzerland"
             ],
-            "savedPosts": [
-                {
-                    "postID": "17"
-                }
-            ],
+            "savedPosts": [],
             "album": []
         },
         {
@@ -471,16 +467,16 @@
         },
         {
             "postID": 18,
-            "creatorID": "6",
-            "title": "c",
-            "coverImg": "..\/images\/uploads\/5ffb4584912b6.jpg",
+            "creatorID": "7",
+            "title": "Weekend",
+            "coverImg": "..\/images\/uploads\/5ffb577f7574c.jpg",
             "images": [
-                "..\/images\/uploads\/5ffb4584916ae.jpg"
+                "..\/images\/uploads\/5ffb577f7613e.jpg"
             ],
             "albumID": false,
-            "country": "Afghanistan",
-            "categoryID": "1",
-            "description": "c"
+            "country": "Spain",
+            "categoryID": "9",
+            "description": "Walking the picturesque streets of Barcelona"
         }
     ],
     "countriesArray": [
@@ -531,6 +527,9 @@
         },
         {
             "name": "Afghanistan"
+        },
+        {
+            "name": "Spain"
         }
     ]
 }
