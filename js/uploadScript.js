@@ -2,9 +2,6 @@
 //----------------------VARIABLER-------------------------------//
 // lilla "button" med +
 const addNewImg = document.getElementById("pic_"); 
-// const nyImg = document.getElementById("newPostPics"); 
-// const hiddenForm = document.getElementById("hiddenForm");
-// const imgUploadBtn = document.getElementById("hiddenButton");
 // gömd input för previewbilderna
 let previewInput = document.getElementById("hiddenInput");//små bilder
 // gömd input för coverImg
@@ -17,19 +14,17 @@ let newPostForm = document.getElementById("postInformation");
 let newPostButton = document.getElementById("newPostSubmit");
 // soptunna för coverImg
 let trashButton = document.querySelector("#newPostBigPicture .imgTrash");
-//
-// let imageUploadInput = document.getElementById("uploadFiles");
-let addedPictures = [];
 
 //----------------------------FUNCTIONS---------------------------//
 
 //function för att lägga till all info i databasen under posts 
 function newPostToDB() {
     //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas --> görs i classes 
+    //postInformation är id:n --> behöver ej skriva getdocument...
     let formData = new FormData(postInformation);
     //lägger till en ny property i formdata med creator ID, eftersom vi inte har det i formuläret
     formData.set("creatorID", mainUserID);
-    addedPictures.forEach(picture => {
+    STATE.addedPictures.forEach(picture => {
         formData.append("images[]", picture, picture.name);
     });
     //egentligen var tanken att skicka hela instansen, men det gick ej, så jag behöll den delen, men valideringen utgår från class CreatePost
@@ -73,7 +68,7 @@ function renderPreviewImages(){
     let previewPictureList = document.getElementById("picPreview");
     //tömmer den då vi alltid appendar alla previewbilder vid varje tillagd bild
     previewPictureList.innerHTML = "";
-    addedPictures.forEach(picture => {
+    STATE.addedPictures.forEach(picture => {
         let nPreviewImg = document.createElement("div");
         let trashCan = document.createElement("img");
         trashCan.setAttribute("src", "../images/stockimages/icons/trash.png");
@@ -88,16 +83,23 @@ function renderPreviewImages(){
         trashCan.addEventListener("click", clearPreviewImage);
     });
     //om användaren redan lagt till 5 stycken minibilder, försvinner den lägga till button, finns nog en snyggare lösning men blev trött i huvudet haha
-    if (addedPictures.length >= 5) {
+    if (STATE.addedPictures.length >= 5) {
         addNewImg.style.display = "none";
     } else {
         addNewImg.style.removeProperty("display");
+    }
+
+    //flyttar lägga till button 15px åt sidan när första previewbilden har lagts till
+    if (STATE.addedPictures.length >= 1) {
+        addNewImg.style.marginLeft = "15px";
+    } else {
+        addNewImg.style.removeProperty("marginLeft");
     }
 }
 
 //lägger till senaste bild som finns under e.target.files[0], e.target är elementet man klickat på och det finns under files[0], sen producerar vi minibilden 
 function addPreviewImage(e) {    
-    addedPictures.push(e.target.files[0]);
+    STATE.addedPictures.push(e.target.files[0]);
     renderPreviewImages();
 }
 
@@ -110,9 +112,9 @@ function clearPreviewImage(e) {
     let allPics = previewPictureList.querySelectorAll(".nyPic");
     //loopar över alla nodes vi har där och om det är 
     for (let i = 0; i < allPics.length; i++) {
-        //om den aktuella noden är samma som bortklickad previewbild, då ska elementet tas bort från addedPictures-arr
+        //om den aktuella noden är samma som bortklickad previewbild, då ska elementet tas bort från STATE.addedPictures-arr
         if (allPics[i] == e.target.parentElement) {
-            addedPictures.splice(i, 1);
+            STATE.addedPictures.splice(i, 1);
         }
     }
     //sen skapar vi nya preview-images

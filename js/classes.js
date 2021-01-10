@@ -12,6 +12,7 @@ class PolaroidBase{
         this.albumID = data.albumID;
         this.categoryID = data.categoryID;
         this.description = data.description;
+        this.images = data.images;
     }
 }
 
@@ -27,8 +28,8 @@ class PolaroidStatic extends PolaroidBase{
         this.polaroidInfo = document.createElement("div");
         this.polaroidInfo.classList.add("polaroidInfo");
 
-        this.descriptionBox = document.createElement("div");
-        this.descriptionBox.classList.add("descriptionBox");
+        //this.descriptionBox = document.createElement("div");
+        //this.descriptionBox.classList.add("descriptionBox");
     }
 
     createPolaroidBase(arr){
@@ -50,6 +51,10 @@ class PolaroidStatic extends PolaroidBase{
             let pic = document.createElement("div");
             pic.style.backgroundImage = `url('${this.coverImg}')`;
             pic.classList.add("polaroidPic");
+            let that = this.postID;
+            pic.addEventListener("click", function(){
+                makeNewShowPost(that);
+            });
 
             //.polaroidBottom --> KOMMA ÅT I ACTIVE
             //skapas på i constructorn
@@ -92,12 +97,28 @@ class PolaroidStatic extends PolaroidBase{
 
                     polaroidText.append(polaroidCountry, polaroidTitle);  
                 
-                let description = this.description
-                let shortDescription = description.slice(0, 10);
-                this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+                //let description = this.description
+                //let shortDescription = description.slice(0, 10);
+                //this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
                 this.polaroidInfo.append(polaroidUser, polaroidText); // här ska även .polaroidIcon appendas men den skapas i active
-                this.polaroidBottom.append(this.polaroidInfo, this.descriptionBox); // här ska även .descriptionBox appendas men den skapas i active
+                this.polaroidBottom.append(this.polaroidInfo); // här ska även .descriptionBox appendas men den skapas i active
                 html.append(filter, pic, this.polaroidBottom);
+
+
+                //tar alla polaroider
+                //let polaroidDiv = document.querySelectorAll('.polaroid');
+                //console.log(polaroidDiv);
+
+                //html.addEventListener('mouseover', function() {
+                       // console.log("hej");
+
+                        //this.setAttribute('class', 'icon active');
+                        //let child = this.children[0]
+                        //let childName = child.id
+                        //child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+
+                //});
+
 
                 return html;
             
@@ -119,6 +140,8 @@ class PolaroidActive extends PolaroidStatic{
 class PolaroidUser extends PolaroidActive{
     constructor(data){
         super(data)
+        this.descriptionBox = document.createElement("div");
+        this.descriptionBox.classList.add("descriptionBox");
     }
 
     htmlElement(arr) {
@@ -130,7 +153,13 @@ class PolaroidUser extends PolaroidActive{
         icon.style.backgroundImage = "url('../images/stockImages/icons/trash.png')";
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
+
+        let description = this.description
+        let shortDescription = description.slice(0, 10);
+        this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+
         this.polaroidInfo.append(iconDiv);
+        this.polaroidBottom.append(this.descriptionBox);
 
         icon.addEventListener('click', function(){
             let trashID = this.getAttribute('id');
@@ -196,35 +225,20 @@ class PostStructure extends PolaroidBase{
         let modalClose = document.createElement("div");
         modalClose.setAttribute("id","postClose");
         modalClose.innerHTML = "X";
+        modalClose.addEventListener("click", () => {
+            document.getElementById("showPost").style.display = "none";
+        });
         //container för postinformation
         let modalContainer = document.createElement("div");
-        modalContainer.setAttribute("id","newPostContainer");
+        modalContainer.setAttribute("id","showPostContainer");
 
         //div för bilder
         let postPictureContainer = document.createElement("div");
-        postPictureContainer.setAttribute("id", "newPostPictures");
-        //div för rubrik
-        let modalRubrik = document.createElement("div");
-        modalRubrik.classList.add("newPostUp");
-        //div för coverImg 
-        let coverImage = document.createElement("div");
-        coverImage.classList.add("newPostMiddle");
-        coverImage.setAttribute("id", "newPostBigPicture");
-        //div för små bilder
-        let miniImages = document.createElement("div");
-        miniImages.classList.add("newPostDown");
-        miniImages.setAttribute("id", "newPostPics");
-        for (let i = 1; i <= 5; i++) {
-            let newMiniPic = document.createElement("div");
-            newMiniPic.setAttribute("id", `pic_${i}`);
-            newMiniPic.classList.add("nyPic");
-            miniImages.append(newMiniPic);
-        }
-        postPictureContainer.append(modalRubrik, coverImage, miniImages);
+        postPictureContainer.setAttribute("id", "showPostPictures");
 
         //div för postdescription --> innehåll läggs till i andra klasser då det är antingen formulär eller divar
         let postDescriptionContainer = document.createElement("div");
-        postDescriptionContainer.setAttribute("id", "newPostDesc");
+        postDescriptionContainer.setAttribute("id", "showPostInfo");
 
         //html-tree
         modalContainer.append(postPictureContainer, postDescriptionContainer);
@@ -236,17 +250,124 @@ class PostStructure extends PolaroidBase{
 class PostShow extends PostStructure{
     constructor(data){
         super(data);
-        this.images = data.images;
-        //HTML för show
     }
+    //postID finns på polaroid, leta upp posten och anropa constructor med hela objektet
     htmlElement() {
+        //finns endast 2 lådor under varandra
+        //överst med coverImg till vänster, userdiv och sparadiv samt info till höger
+        //nederst med images[] till vänster, 2 buttons till höger
         let outerShell = super.htmlElement();
-        //upper div med all info om user
-        //mellerst div med all postInof
-        //understa div med 2 buttons till 
+            //hämta hela category
+        let categoryObj = travelCategoriesArray.find(category => {
+            return category.categoryID == this.categoryID;
+        });
+        //hämta hela user
+        let userObj = STATE.users.find(user => {
+            return user.id == this.creatorID;
+        });
+        //vänster sida
+        //coverImg
+        let coverImage = document.createElement("div");
+        coverImage.style.backgroundImage = `url(${this.coverImg})`;
+        coverImage.setAttribute("id", "showPostCoverImg");
+        //miniBilder
+        let previewImageContainer = document.createElement("div");
+        previewImageContainer.setAttribute("id", "showPostImagesContainer");
+        this.images.forEach(image => {
+            let previewImage = document.createElement("div");
+            previewImage.classList.add("previewImage");
+            previewImage.style.backgroundImage = `url(${image})`;
+            previewImageContainer.appendChild(previewImage);
+            //funktion som byter plats mellan coverImg och lilla bild vid klick på de små
+            previewImage.addEventListener("click", function(){
+                let chosenPic = this.style.backgroundImage;
+                let coverImgContainer = document.getElementById("showPostCoverImg");
+                let coverImg = coverImgContainer.style.backgroundImage;
+                coverImgContainer.style.backgroundSize = "contain";
+                coverImgContainer.style.backgroundRepeat = "no-repeat";
+                coverImgContainer.style.backgroundImage = chosenPic;
+                this.style.backgroundImage = coverImg; 
+            });
+        });
+        
+
+        //höger sida
+        //information om usern och save
+        let showPostInfoContainer = document.createElement("div");
+        showPostInfoContainer.setAttribute("id", "showPostInfoContainer");
+        let userContainer = document.createElement("div");
+        userContainer.setAttribute("id", "showPostUser")
+        // let saveBtn = document.createElement("div");
+        // saveBtn.setAttribute("id", `icon_${this.postID}`);
+        // saveBtn.classList.add("saveBtn");
+        // saveBtn.style.backgroundImage = "url(../images/stockImages/icons/saved.png)";
+        let userPicture = document.createElement("div");
+        userPicture.classList.add("polaroidUserPic", "showPostUserPic");
+        userPicture.style.backgroundImage = `url('${userObj.profilePic}')`;
+        let userName = document.createElement("div");
+        userName.innerHTML = `${userObj.username}`;
+        userName.classList.add("showPostUserName");
+
+        // saveBtn.addEventListener("click", function(){
+        //     let clickedPostId = this.getAttribute("id");
+        //     let subClicked = clickedPostId.substr(5);
+        //     postSavedToDB(subClicked);
+        //     if (saveBtn.classList.contains("markedSaved")) {
+        //         console.log("den är markerad");
+        //         deleteSavedPostFromDB(subClicked);
+        //     } else {
+        //         console.log("den är ej markerad");
+        //     }
+        // });
+
+        userContainer.append(userPicture, userName);
+
+
+
+        //information om posten
+        let postInformation = document.createElement("div");
+        postInformation.setAttribute("id", "showPostInformation")
+        let postCountry = document.createElement("div");
+        postCountry.innerText = this.country;
+        postCountry.setAttribute("id", "showPostCountry");
+        let postCategory = document.createElement("div");
+        postCategory.innerText = categoryObj.travelCategory;
+        postCategory.setAttribute("id", "showPostCategory");
+        let postTitle = document.createElement("div");
+        postTitle.setAttribute("id", "showPostTitle");
+        postTitle.innerText = this.title;
+        let postDescription = document.createElement("div");
+        postDescription.innerText = this.description;
+        postDescription.setAttribute("id", "showPostDescription");
+        postInformation.append(postCountry, postCategory, postTitle, postDescription);
+        showPostInfoContainer.append(userContainer, postInformation);
+
+        //buttons
+        let buttonsContainer = document.createElement("div");
+        buttonsContainer.setAttribute("id", "showPostButtonContainer")
+        let countryLink = document.createElement("a");
+        //ska länkas till countrysidan
+        countryLink.setAttribute("href", `../home.php?country=${this.country}`); 
+        let countryButton = document.createElement("div");
+        countryButton.setAttribute("id", "showPostCountryBtn");
+        countryButton.innerHTML = `view country`; 
+        let profileLink = document.createElement("a");
+        let profileButton = document.createElement("div");
+        profileButton.setAttribute("id", "showPostProfileBtn");
+        //ska länkas till personens profil
+        profileLink.setAttribute("href", `../home.php?profile=${this.creatorID}`); 
+        profileButton.innerHTML = `view profile`;
+        countryLink.append(countryButton);
+        profileLink.append(profileButton);
+        
+        buttonsContainer.append(countryLink, profileLink);
+
+        //sätta ihop vänster sida
+        outerShell.querySelector("#showPostPictures").append(coverImage, previewImageContainer);
+        outerShell.querySelector("#showPostInfo").append(showPostInfoContainer, buttonsContainer);
+        
+        return outerShell;
     }
-    //Vad som ska finnas i höge-spalt : div som innehåller, userPic, UserName, date
-    //Spara knapp, land, album, titel, description + 2 knappar : visa land, visa profil
 }
 
 //inga html-element som skapas med denna eftersom det inte displayas någon info från db, skickar endast och validerar
@@ -257,7 +378,7 @@ class CreatePost extends PostStructure{
     }
     //använder klassen endast för att kolla av om allt är ifyllt
     validate(){
-        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number" || addedPictures.length === 0) {
+        if (this.title === "" || this.coverImg === "undefined" || this.description === "" || typeof this.creatorID !== "number" || STATE.addedPictures.length === 0) {
             return false;
         } else {
             return true;

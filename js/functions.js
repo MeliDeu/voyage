@@ -10,12 +10,8 @@ let STATE = {
     countriesInSidebar: [], //avser länderna i sidebar som åker ut när man klickar på globen
     clickedUserPosts: [], // posts från den användare som man klickar på
     allPosts: [], //alla posts
-    pictureUpload: {
-        clickedDiv: false,
-        newPics: []
-        }
+    addedPictures: [] //alla tillagda bilder i newPost
 };
-
 
 
 //Funktion för att appenda posts i feed
@@ -126,7 +122,18 @@ function getUserObjectByID(id){
 }
 
 
-
+//visar post när man klickar på polaroid
+function makeNewShowPost(id) {
+    //leta upp post med hjälp av id som skickas med från klickeventet på polaroidklassen som skapar dem
+    let postObj = STATE.allPosts.find(post => {
+        return post.postID == id;
+    });
+    let newInstance = new PostShow(postObj);
+    let container = document.getElementById("showPost");
+    container.innerHTML = "";
+    container.style.display = "flex";
+    container.appendChild(newInstance.htmlElement());
+}
 
 
 //---------------- MAKE NEW POST --------------------------
@@ -159,10 +166,6 @@ document.getElementById("add").addEventListener("click", function(){
 document.getElementById("postClose").addEventListener("click", function(){
     document.getElementById("newPostOverlay").style.display = "none";
 });
-
-
-
-
 
 
 //--------------- SIDE BAR ---------------------
@@ -201,6 +204,7 @@ function placeCountriesInSidebar(countriesArray){
 function sortByName(a,b){ //jämför landnamnen
     return a.name < b.name ? -1 : 1;
 }
+
 
 
 // clickfunktion för sidebar

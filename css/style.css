@@ -15,6 +15,12 @@
     --standardFont: "Source Sans Pro"; /*för bröd text, finns i weight: 300;400;600;700*/
     --polaroidFontSize: 0.7vw;
     --polaroidTitleSize: 0.7vw;
+
+    /*SIZE PREVIEW-IMG*/
+    --imgMargins: 15px;
+    --imgPadding: 5px;
+    --previewImgWidth: calc((100%/5) - 2*var(--imgPadding));
+    --previewImgHeight: 9vw;
 }
 
 /*GENERELLT*/
@@ -528,7 +534,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    z-index: 10;
+    z-index: 50;
     padding: 15px 0;
 }
 
@@ -598,20 +604,28 @@ input:checked + .slider:before {
     align-items: center;
     box-shadow: 1px 3px 50px rgb(29, 29, 29);
     margin-bottom: 30px;
+    position: relative;
+    justify-content: space-between;
     /*margin: 1vw*/
 }
 
 #startGrid .polaroid {
     box-shadow: 1px 3px 5px rgba(171, 171, 171, 0.49);
+    justify-content: unset;
 }
 
 #startGrid .polaroid1, #startGrid .polaroid3, #startGrid .polaroid5, #startGrid .polaroid6, #startGrid .polaroid8, #startGrid .polaroid10, #startGrid .polaroid11, #startGrid .polaroid13, #startGrid .polaroid15 {
     margin-top: 40px;
 }
 
+#startGrid .polaroidPic {
+    position: relative;
+}
+
 .polaroidPic {
-    width: calc(100% - 4%);
-    flex-basis: 84%;
+    position: absolute;
+    width: 16vw;
+    height: 19vw;
     background-size: cover;
     background-position: center;
     margin: 2% 2% 0 2%;
@@ -620,7 +634,9 @@ input:checked + .slider:before {
 .polaroidBottom {
     width: calc(100% - 16px);
     padding: 0 8px;
-    flex-grow: 1;
+    z-index: 10;
+    background-color: white;
+    height: 3vw;
 }
 
 .polaroidInfo {
@@ -657,10 +673,15 @@ input:checked + .slider:before {
 .polaroidText {
     flex-direction: column;
     align-items: unset;
-    padding: 2px 5px 5px 13px;
+    padding: 5px 5px 5px 13px;
     font-family: var(--styleFont);
     font-size: 0.63vw;
     font-weight: 500;
+}
+
+.descriptionBox {
+    color: var(--darkgrey);
+    display: none;
 }
 
 .polaroidCountry {
@@ -850,7 +871,7 @@ input:checked + .slider:before {
     background: white;
     display: flex;
     flex-direction: column;
-    z-index: 0;
+    z-index: 40;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
 }
@@ -915,7 +936,7 @@ input:checked + .slider:before {
 
 
 /*New Post*/
-#newPostOverlay {
+#newPostOverlay, #showPost {
     box-sizing: border-box;
     position: absolute;
     height: calc(100% - 10px);
@@ -925,6 +946,8 @@ input:checked + .slider:before {
     align-items: center;
     width: 95%;
     font-family: var(--styleFont);
+    z-index: 99;
+    margin-left: 6px;
 }
 
 #hiddenForm {
@@ -932,14 +955,14 @@ input:checked + .slider:before {
 }
 
 #newPostWrapper {
-    height: 80%;
+    height: 50vw;
+    max-height: 800px;
     flex-basis: 80%;
     max-width: 1200px;
-    transform: translateY(-50px);
-    -webkit-transform: translateY(-50px);
-    -moz-transform: translateY(-50px);
-    -ms-transform: translateY(-50px);
-    -o-transform: translateY(-50px);
+}
+
+#postAlbum {
+    color: var(--lightTextColor);
 }
 
 #postClose {
@@ -948,24 +971,19 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: flex-end;
     height: 50px;
+    font-size: 2vw;
+    font-weight: bold;
+    padding-right: 5px;
 }
 
-.closeOverlay {
-    /* transform: rotateX(90deg);
-    -webkit-transform: rotateX(90deg);
-    -moz-transform: rotateX(90deg);
-    -ms-transform: rotateX(90deg);
-    -o-transform: rotateX(90deg); */
-}
-
-#newPostContainer {
+#newPostContainer, #showPostContainer {
     background: rgba(255,255,255,1);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    height: 100%;
+    height: calc(100% - 50px);
     display: flex;
 }
 
@@ -1018,6 +1036,14 @@ input:checked + .slider:before {
     position: relative;
 }
 
+#newPostBigPicture {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
 .nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
     cursor: pointer;
 }
@@ -1026,11 +1052,26 @@ input:checked + .slider:before {
     display: block;
 }
 
-.nyPic {
-    width: 100px;
-    height: 100px;
+.nyPic, .previewImage {
+    width: var(--previewImgWidth);
+    height: var(--previewImgHeight);
+    max-height: 140px;
     position: relative;
-    margin-right: 15px;
+    margin-right: var(--imgMargins);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.nyPic {
+    width: 7vw;
+    /* height: 100px; */
+}
+
+.nyPic:last-child, .previewImage:last-child {
+    margin-right: 0;
 }
 
 .imgTrash {
@@ -1107,10 +1148,140 @@ textarea {
     align-items: center;
 }
 
-@media(max-width: 1110px){
-    /* #newPostContainer {
-        display: block;
-    } */
+/* show post */
+#showPostPictures {
+    flex-basis: 65%;
+}
+
+#showPostInfo {
+    flex-basis: 31%;
+    padding: 0 2%;
+}
+
+#showPostCoverImg {
+    height: 78%;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#showPostCoverImg, .previewImage {
+    background-size: cover;
+    background-position: center;
+}
+
+#showPostImagesContainer {
+    height:22%;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+/* innehåller info om user och post-info */
+#showPostInfoContainer {
+    height: 75%;
+}
+
+/* visar info om användaren i showPost*/
+#showPostUser {
+    height: 15%;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+}
+
+.saveBtn {
+    position: absolute;
+    top: 9px;
+    right: -4px;
+    height: 30px;
+    width: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.saveBtn:hover {
+    cursor: pointer;
+}
+
+.showPostUserName {
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.showPostUserPic {
+    height: 3vw;
+    width: 3vw;
+    border: 1px solid black;
+}
+
+.previewImage:hover {
+    cursor: pointer;
+}
+
+
+#showPostButtonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20%;
+}
+
+#showPostButtonContainer a {
+    flex-basis: 45%;
+}
+
+#showPostButtonContainer div {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: var(--styleFont);
+    padding: 1.2vw 1.5vw;
+    border-radius: 3rem / 100%;
+    -webkit-border-radius: 3rem / 100%;
+    -moz-border-radius: 3rem / 100%;
+    -ms-border-radius: 3rem / 100%;
+    -o-border-radius: 3rem / 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2vw;
+}
+
+#showPostCountryBtn {
+    background-color: var(--blue);
+}
+
+#showPostProfileBtn {
+    background-color: var(--orange);
+}
+
+#showPostInformation {
+    height: 85%;
+    /* display: ; */
+}
+
+#showPostCountry {
+    font-weight: bold;
+    font-size: 2vw;
+    height: 8%;
+}
+
+#showPostCategory {
+    height: 10%;
+    font-size: 1.2vw;
+}
+
+#showPostTitle {
+    font-weight: bold;
+    font-size: 1.5vw;
+    height: 8%;
+}
+
+#showPostDescription {
+    height: 77%;
+    font-size: 1.2vw;
 }
 
 .markedSaved {
@@ -1132,4 +1303,34 @@ textarea {
 .hideBG {
     background-color: transparent;
     transition: background-color .3s;
+}
+
+@media(min-width: 1100px){
+    .showPostUserName {
+        font-size: 15px;
+    }
+
+    #showPostCountry {
+        font-size: 20px;
+    }
+
+    #showPostCategory {
+        font-size: 15px;
+    }
+    
+    #showPostTitle {
+        font-size: 20px;
+    }
+    
+    #showPostDescription {
+        font-size: 15px;
+    }
+
+    #showPostButtonContainer div {
+        font-size: 15px;
+    }
+
+    #postClose {
+        font-size: 20px;
+    }
 }

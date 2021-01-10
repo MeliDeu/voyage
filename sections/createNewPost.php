@@ -40,12 +40,13 @@
                         <label for="postRubrik">Title*</label>
                         <input type="text" placeholder="Title" name="title" id="postRubrik">
                     </div>
-                    <div id="postAlbum">
+                    <!-- <div id="postAlbum">
                         <label for="postAlbumSelect">Select album</label>
-                        <select name="albumID" id="postAlbumSelect">
+                        <select name="albumID" id="postAlbumSelect"> -->
                             <!-- options for all the available albums -->
-                        </select>
-                    </div>
+                        <!-- </select> -->
+                    <!-- </div> -->
+                    <div id="postAlbum">All fields are required and you need to pick at least one cover image and one regular image to upload successfully!<br>The files need to be of type .jpg or .png and must not weight more than 500kb.</div>
                     <div id="postDesc">
                         <label for="postDescription">Share something about your journey*</label>
                         <textarea name="description" id="postDescription" cols="30" rows="10"></textarea>

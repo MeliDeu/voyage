@@ -5,6 +5,15 @@
     // Hämta innehållet i DB och gör om det till php och lägg i $database
     $database = getDatabase();
     $method = $_SERVER["REQUEST_METHOD"];
+
+
+    //göra en kopia av databasen om den har kommit hit så är det antingen GET, POST eller PATCH, så då kan vi bara kopiera över allt innehåll från databasen till en annan fil
+    $backupFile = "backup/databaseBackup.json";
+
+    //$json är själva datan från databasen
+    $json = json_encode($database, JSON_PRETTY_PRINT);
+    file_put_contents($backupFile, $json);
+
     if ($method === "POST") {
 
     //------------------------bilder-----------------------------//
@@ -147,10 +156,6 @@
         header("Content-Type: application/json");
         // header("Location: ../home.php");
         exit();
-    }
-
-    if ($method === "DELETE") {
-        //unlink bild, ta bort post från db, 
     }
 
 ?>
