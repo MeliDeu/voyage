@@ -38,7 +38,7 @@
                     </div>
                     <div id="postTitle">
                         <label for="postRubrik">Title*</label>
-                        <input type="text" placeholder="Title" name="title" id="postRubrik">
+                        <input type="text" placeholder="Title (max 25 characters)" name="title" id="postRubrik" maxlength="25">
                     </div>
                     <!-- <div id="postAlbum">
                         <label for="postAlbumSelect">Select album</label>

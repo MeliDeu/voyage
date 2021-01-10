@@ -23,39 +23,39 @@
 ?>
 <div id='profileContainer'>
 
-<div id='profileBox'>
-    <div id='profilePicBox'>
-        <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'>
-       <?php
-       //MAn ska endast kunna redigera profilbild om man är inloggad
-            if (isset($_GET["profile"])){
-                if ($_GET["profile"] == $_SESSION["userID"]){
-                    echo "<div id='postProfilePic'></div>";
-                }
-            } 
-       ?>    
-        
-    </div>
-        <div>
-            <form id='uploadProfilePic' method='POST'>
-                <input id="fileInfo" class='hide' type="file" enctype="multipart/form-data" name="file"><br>
-                <button type='submit' class='hide' id='savePic'>Save</button>
-            </form>
+    <div id='profileBox'>
+        <div id='profilePicBox'>
+            <div id='profilePic' style='background-image: url(<?php if (!$profilePic) {echo "../images/stockImages/userPic.png";} else {echo $profilePic;}?>)'>
+        <?php
+        //MAn ska endast kunna redigera profilbild om man är inloggad
+                if (isset($_GET["profile"])){
+                    if ($_GET["profile"] == $_SESSION["userID"]){
+                        echo "<div id='postProfilePic'></div>";
+                    }
+                } 
+        ?>    
+            
         </div>
-    </div>
-    <div id='profileInfo'>
-        <div id='profileName'><?php echo $username; ?></div>
-        <div id='profileBio'><?php echo $bio; ?></div>
-        <textarea name="patchBio" id="patchBio" class="hide" cols="50" rows="4"></textarea>
-
-        <?php if ($travelInterest !== false){ ?>
-            <div id='profileInterest'>
-                <div id='interestIcon'></div>
-                <a id='emailLink' href="mailto:<?php echo $email ?>?subject = Feedback&body = Message"><div id='interestText'><?php echo "$username is interested in new travel friends";?></div></a>
+            <div>
+                <form id='uploadProfilePic' method='POST'>
+                    <input id="fileInfo" class='hide' type="file" enctype="multipart/form-data" name="file"><br>
+                    <button type='submit' class='hide' id='savePic'>Save</button>
+                </form>
             </div>
-        <?php } ?>
-    </div>
-    </div>
+        </div>
+        <div id='profileInfo'>
+            <div id='profileName'><?php echo $username; ?></div>
+            <div id='profileBio'><?php echo $bio; ?></div>
+            <textarea name="patchBio" id="patchBio" class="hide" cols="50" rows="4"></textarea>
+
+            <?php if ($travelInterest !== false){ ?>
+                <div id='profileInterest'>
+                    <div id='interestIcon'></div>
+                    <a id='emailLink' href="mailto:<?php echo $email ?>?subject = Feedback&body = Message"><div id='interestText'><?php echo "$username is interested in new travel friends";?></div></a>
+                </div>
+            <?php } ?>
+        </div>
+        </div>
 
     <div id='profileFavs'>
 
@@ -75,10 +75,10 @@
                     echo "<li class='topFavsList'></li>";
                     echo "<input class='hide patchFavs'></input>";
                 }
-                
+                    
             }
             ?>
-                
+                    
             </ul>
         </div>
 
@@ -97,7 +97,7 @@
                         echo "<li class='topWishesList'></li>";
                         echo "<input class='hide patchWishes'></input>";
                     }
-                    
+                        
                 }
                 ?>
                 </ul>
@@ -109,6 +109,5 @@
             echo "<button id='saveBio' class='hide'>Save</button>";
         }
     }?>
-   
 </div>
  

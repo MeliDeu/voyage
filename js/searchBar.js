@@ -39,7 +39,7 @@ document.getElementById('homeSearchField').addEventListener('focus', function(){
                         searchfield.value = ''
                         view.innerHTML = ''
                     })
-                    })
+                })
                 // här ska en ny array med den arrayen som har alla sökresultat
                 loadPosts(searchArray);
             }

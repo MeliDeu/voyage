@@ -16,11 +16,6 @@ register.addEventListener('submit', function(event){
             password: UserPassword,
             email: UserEmail,
             travelStatus: UserTravelStatus
-            //profilePic: false,
-            //bio: false,
-            //top3Wishes: false,
-            //top3Favs: false
-            //ovan behövs ej då det skaoas i apin /kaj
         })
     })
     fetch(request)

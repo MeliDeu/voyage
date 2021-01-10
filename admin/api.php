@@ -35,7 +35,8 @@ $json = json_decode($input, true);
 
 // Om metoden är GET
 if ($method === "GET") {
-
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET");
     http_response_code(200);
     header("Content-Type: application/json");
     // Skicka med hela DB
@@ -193,58 +194,68 @@ if ($method === 'POST'){
         ];
         echo json_encode($message);
         exit();
-        }
+    }
 
 
         
-        //POST REQ SOM AVSER REGISTERING
+    //POST REQ SOM AVSER REGISTERING
 
-        //NY ANVÄNDARE – kontrollera:
-        // Innehåll i input (fås från login.php)
-        // Skapa nytt ID
-        // Skapa ett nytt object och pusha in i DB
+    //NY ANVÄNDARE – kontrollera:
+    // Innehåll i input (fås från login.php)
+    // Skapa nytt ID
+    // Skapa ett nytt object och pusha in i DB
 
-        //kontroller för om fälten är tomma, har mellanrum och om användarnamn är upptaget
-        if ($json["username"] === "" || $json["password"] === "" || $json["email"] === "") {
+    //kontroller för om fälten är tomma, har mellanrum och om användarnamn är upptaget
+    if ($json["username"] === "" || $json["password"] === "" || $json["email"] === "") {
+        http_response_code(400);
+        header("Content-Type: application/json");
+        echo json_encode(["errors" => "All fields must to be filled out"]);
+        exit();
+    }
+    if (!isset($json["username"]) || !isset($json["password"]) || !isset($json["email"])) {
+        http_response_code(400);
+        header("Content-Type: application/json");
+        echo json_encode(["errors" => "All fields must to be filled out)"]);
+        exit();
+    }
+    if (preg_match('/\s/',$json["username"])) {
+        http_response_code(400);
+        header("Location: /index.php");
+        echo json_encode(["errors" => "No spaces allowed in username"]);
+        exit();
+    }
+    foreach ($database["users"] as $user => $value) {
+        if ($value["username"] == $json["username"]) {
             http_response_code(400);
             header("Content-Type: application/json");
-            echo json_encode(["errors" => "All fields must to be filled out"]);
+            echo json_encode(["errors" => "Username already exists"]);
             exit();
         }
-        if (!isset($json["username"]) || !isset($json["password"]) || !isset($json["email"])) {
+    }
+    if ($json["username"]){
+        $username = $json["username"];
+        $length = strlen($username);
+        if ($length > 13){
             http_response_code(400);
             header("Content-Type: application/json");
-            echo json_encode(["errors" => "All fields must to be filled out)"]);
+            echo json_encode(["errors" => "Username must be maximum 13 characters"]);
             exit();
         }
-        if (preg_match('/\s/',$json["username"])) {
-            http_response_code(400);
-            header("Location: /index.php");
-            echo json_encode(["errors" => "No spaces allowed in username"]);
-            exit();
-        }
-        foreach ($database["users"] as $user => $value) {
-            if ($value["username"] == $json["username"]) {
-                http_response_code(400);
-                header("Content-Type: application/json");
-                echo json_encode(["errors" => "Username already exists"]);
-                exit();
-            }
-        }
+    }
 
-        //skapar ett ID för användaren
-        $highestID = 0;
-        //Letar efter det högsta existerande ID:et 
-        foreach ($database["users"] as $user) {
-            if ($user["id"] > $highestID) {
-                $highestID = $user["id"];
-            }
+    //skapar ett ID för användaren
+    $highestID = 0;
+    //Letar efter det högsta existerande ID:et 
+    foreach ($database["users"] as $user) {
+        if ($user["id"] > $highestID) {
+            $highestID = $user["id"];
         }
-        // Lägg till det nya ID:et 
-        $okId = $highestID + 1;
+    }
+    // Lägg till det nya ID:et 
+    $okId = $highestID + 1;
 
-        //skapar ett objekt med användarens info som ska in i databasen
-        $user = ["id" => $okId, 
+    //skapar ett objekt med användarens info som ska in i databasen
+    $user = ["id" => $okId, 
                 "username" => $json["username"], 
                 "password" => $json["password"], 
                 "email" => $json["email"], 
@@ -253,22 +264,22 @@ if ($method === 'POST'){
                 "bio" => false, 
                 "top3Wishes" => false, 
                 "top3Favs" => false,
-                "savedPosts" => [], //sparade postIDs
-                "album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
+                "savedPosts" => [] //sparade postIDs
+                //"album" => [] //sparade album som har sina egna nycklar, som albumNamn, ID, bild
             ];
 
-        //lägger till user-objektet i databasen        
-        $database["users"][] = $user;
+    //lägger till user-objektet i databasen        
+    $database["users"][] = $user;
 
-        $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
-        file_put_contents($file, $dataJSON);
-        http_response_code(201);
-        header("Location: /home.php");
-        $message = [
-            "data" => $user
-        ];
-        echo json_encode($message);
-        exit();
+    $dataJSON = json_encode($database, JSON_PRETTY_PRINT);
+    file_put_contents($file, $dataJSON);
+    http_response_code(201);
+    header("Location: /home.php");
+    $message = [
+        "data" => $user
+    ];
+    echo json_encode($message);
+    exit();
 
 }
 
@@ -305,9 +316,6 @@ if ($method === "PATCH") {
     ];
     echo json_encode($message);
     exit();
-
- 
-
 }
 
 
@@ -384,9 +392,7 @@ if ($method === 'DELETE'){
                             array_splice($database["countriesArray"], $thisIndex, 1);
                         }
                     } 
-                }
-                
-
+                } 
             }
         }
 

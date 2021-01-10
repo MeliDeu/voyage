@@ -21,7 +21,6 @@ window.onload = function(){
         db.data.users.forEach(user => { // pushar in användarens sparade i STATE saved
             if (user.id == STATE.mainUserID) {
                 // savedPosts kommer att vara en array av siffror (ppostIDn)
-                //console.log(user.savedPosts)
                 user.savedPosts.forEach(savedPost => {
                     STATE.allPosts.forEach(function(post){
                         if (savedPost.postID == post.postID){
@@ -100,17 +99,13 @@ function checkURL(){
         loadPosts(STATE.allPosts, "country", countryParameter);
         loadCircles(travelCategoriesArray, "country", countryParameter);
         markIconNav(document.getElementById("countriesNavBtn"));
-        //checkAndMark()
     } else if (savedParameter !== "false") {
         loadPosts(STATE.mainUserSavedPosts);
         markIconNav(document.getElementById("savedNavBtn"));
-        //console.log(STATE.allPosts)
-        //checkAndMark()
     } else {
         loadPosts(STATE.allPosts);
         loadCircles(travelCategoriesArray);
         markIconNav(document.getElementById("homeNavBtn"));
-        //checkAndMark()
     }
 }
 
@@ -127,8 +122,6 @@ function postSavedToDB(postID){
         .then(response => {
         // Oavsett om det gick bra eller inte så konverterar vi svaret till
         // JSON och skickar vidare till nästa `then`.
-            //console.log(response.status)
-            //console.log(response.ok)
             return response.json()
         })
         .then(resource => {
@@ -136,21 +129,17 @@ function postSavedToDB(postID){
             // fylla bg här ist för classes?
             
             if (resource.error !== undefined){
-                console.log(resource.error);
             }
             if (resource.data !== undefined){
 
                 let findRightPost = document.getElementById(`icon_${postID}`)
-                //console.log(test)
                 //loopa state.allpost och kolla vem som har id som är postID
 
                 findRightPost.classList.remove('markedUnsaved');
                 findRightPost.classList.add('markedSaved');
                 
             }
-            
-                // lägg till klick delete---------------------------------------------------------------------------------------------------------------     
-    })
+        })
 
 }
 
@@ -172,8 +161,6 @@ function deleteSavedPostFromDB(postID){
                 console.log(resource.error);
             }
             if (resource.data !== undefined){
-                console.log(resource.data);
-
                 let icon = document.getElementById(`icon_${postID}`)
                 icon.classList.remove('markedSaved');
                 icon.classList.add('markedUnsaved');
@@ -185,7 +172,7 @@ function deleteSavedPostFromDB(postID){
                 }
                 
             }
-    })
+        })
 
 }
 
@@ -227,7 +214,6 @@ function getCountries(){
         STATE.countries = [];
         resource.forEach(element => {
             //Ger namn på 250 länder!
-            //console.log(element)
             //Tar bort allt som finns efter en öppningsparantes vid landnamn och lägger i en separat array
             let countryName = element.name.split("(");
             //Pushar in första elementet av arrayen för att få det som finns innan öppningsparantesen

@@ -44,8 +44,6 @@
         //endast $_FILES("images) innehåll flera små arrayer, där alla namn från alla filer utgjorde en array, alla temp en annan etc. 
         $imagesFiles = reArrayFiles($_FILES["images"]);
 
-
-
         //funktion för att flytta bilden samt kontroll
         function uploadFile($file){
             $fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
@@ -114,7 +112,7 @@
             "title" => $title,
             "coverImg" => $coverImgPath,
             "images" => $imagePaths,
-            "albumID" => false,
+            //"albumID" => false,
             "country" => $country,
             "categoryID" => $categoryID,
             "description" => $description
@@ -122,7 +120,6 @@
 
         // Lägg till landet i countriesArray om det inte redan finns(som syns i sidebar) 
         // Detta är det land som usern har valt för sin nya post
-        //$checkCountry = $newPost["country"];
         $existingCountry;
         // Loopa countriesArray
         foreach ($database["countriesArray"] as $countryInArr){

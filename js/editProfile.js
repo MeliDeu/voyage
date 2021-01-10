@@ -70,11 +70,12 @@ function editProfilePic(){
             return response.json();
         })
         .then(resource =>{
-            //Laddar om sidan när profilbilden är bytt för att uppdatera innehållet direkt på sidan
+            
             if(resource.errors !== undefined){
                 //Feedback om uppladdning ej gått bra!
                 alert(resource.errors);
             }else if(resource.data !== undefined){
+                //Laddar om sidan när profilbilden är bytt för att uppdatera innehållet direkt på sidan
                 window.location.reload();
             }
             
