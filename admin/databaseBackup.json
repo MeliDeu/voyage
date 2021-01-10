@@ -25,13 +25,6 @@
                 {
                     "postID": "17"
                 }
-            ],
-            "album": [
-                {
-                    "albumID": 3,
-                    "albumTitle": "Exploring Morocco",
-                    "albumCoverImg": "..\/images\/uploads\/travel_18.jpg"
-                }
             ]
         },
         {
@@ -74,13 +67,6 @@
                 {
                     "postID": "3"
                 }
-            ],
-            "album": [
-                {
-                    "albumID": 2,
-                    "albumTitle": "Island Hopping Greece",
-                    "albumCoverImg": "..\/images\/uploads\/travel_16.jpg"
-                }
             ]
         },
         {
@@ -91,8 +77,16 @@
             "travelStatus": false,
             "profilePic": "..\/images\/uploads\/mePineiro.jpg",
             "bio": "Hi there! I'm exploring the world with my dog Hugo. Come along!",
-            "top3Wishes": false,
-            "top3Favs": false,
+            "top3Wishes": [
+                "Japan",
+                "",
+                ""
+            ],
+            "top3Favs": [
+                "Spanien",
+                "Frankrike",
+                "England"
+            ],
             "savedPosts": [
                 {
                     "postID": "12"
@@ -115,8 +109,7 @@
                 {
                     "postID": "2"
                 }
-            ],
-            "album": []
+            ]
         },
         {
             "id": 4,
@@ -143,13 +136,6 @@
                 {
                     "postID": "10"
                 }
-            ],
-            "album": [
-                {
-                    "albumID": 1,
-                    "albumTitle": "Living Costa Rica",
-                    "albumCoverImg": "..\/images\/uploads\/travel_6.jpg"
-                }
             ]
         },
         {
@@ -170,8 +156,7 @@
                 "Iceland",
                 "Switzerland"
             ],
-            "savedPosts": [],
-            "album": []
+            "savedPosts": []
         },
         {
             "id": 6,
@@ -210,8 +195,7 @@
                 {
                     "postID": "8"
                 }
-            ],
-            "album": []
+            ]
         },
         {
             "id": 7,
@@ -238,8 +222,7 @@
                 {
                     "postID": "17"
                 }
-            ],
-            "album": []
+            ]
         },
         {
             "id": 8,
@@ -259,132 +242,10 @@
                 "",
                 ""
             ],
-            "savedPosts": [],
-            "album": []
+            "savedPosts": []
         }
     ],
     "posts": [
-        {
-            "postID": 1,
-            "creatorID": 1,
-            "title": "Adventure in Cappadocia",
-            "coverImg": "..\/images\/uploads\/travel_1.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "Turkey",
-            "categoryID": "5",
-            "description": "H\u00e4r var det skoj hejsan hoppsan. Tittade p\u00e5 ballonger \u00e5h s\u00e5 fina dem var. Ni kan aldrig ana. S\u00e5 himlans vackert."
-        },
-        {
-            "postID": 2,
-            "creatorID": 1,
-            "title": "Exploring Morocco",
-            "coverImg": "..\/images\/uploads\/travel_11.jpg",
-            "images": [],
-            "albumID": 3,
-            "country": "Morocco",
-            "categoryID": "3",
-            "description": "Marocko, wow. Alla f\u00e4rger, dofter och det v\u00e4nliga folket. Hit ska jag absolut igen!"
-        },
-        {
-            "postID": 3,
-            "creatorID": 2,
-            "title": "\u00d6-hoppning i Grekland",
-            "coverImg": "..\/images\/uploads\/travel_12.jpg",
-            "images": [],
-            "albumID": 2,
-            "country": "Greece",
-            "categoryID": "2",
-            "description": "\u00c5ka b\u00e5t \u00e4r skoj. Vattnet var fint. Vi matade fiskar och skrattade tillsammans. Vilken underbar dag!"
-        },
-        {
-            "postID": 4,
-            "creatorID": 3,
-            "title": "Hugo och jag i Spanien",
-            "coverImg": "..\/images\/uploads\/travel_4.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "Spain",
-            "categoryID": "5",
-            "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
-        },
-        {
-            "postID": 5,
-            "creatorID": 3,
-            "title": "Jag och bergen",
-            "coverImg": "..\/images\/uploads\/travel_2.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "Italy",
-            "categoryID": "7",
-            "description": "Ojojoj vilken dag uppe i bergen. Vi var ovanf\u00f6r molnen till och med, det var v\u00e4ldigt h\u00e4ftigt. Och vilka magiska utsikter. Rekommenderar alla att \u00e5ka hit f\u00f6r att f\u00e5 nya perspektiv p\u00e5 livet."
-        },
-        {
-            "postID": 6,
-            "creatorID": 4,
-            "title": "Backpacking i Costa Rica",
-            "coverImg": "..\/images\/uploads\/travel_14.jpg",
-            "images": [],
-            "albumID": 1,
-            "country": "Costa Rica",
-            "categoryID": "1",
-            "description": "Backpackar med min v\u00e4n i Costa Rica. Vi har precis p\u00e5b\u00f6rjat v\u00e5r resa och imorgon ska vi ut till olika \u00f6ar och simma med hajar."
-        },
-        {
-            "postID": 7,
-            "creatorID": 4,
-            "title": "Vattenfall i Costa Rica",
-            "coverImg": "..\/images\/uploads\/travel_6.jpg",
-            "images": [],
-            "albumID": 1,
-            "country": "Costa Rica",
-            "categoryID": "1",
-            "description": "Idag har vi badat i vattenfall och sett s\u00e5 sjukt coola djur, men ack s\u00e5 farliga. Det g\u00e4ller att vara f\u00f6rsiktig h\u00e4r om man vill komma hem i skick. MEN DET \u00c4R S\u00c5 FINT H\u00c4R HERREGUD!"
-        },
-        {
-            "postID": 8,
-            "creatorID": 2,
-            "title": "New Island, New beach",
-            "coverImg": "..\/images\/uploads\/travel_16.jpg",
-            "images": [],
-            "albumID": 2,
-            "country": "Greece",
-            "categoryID": "2",
-            "description": "Vi forts\u00e4tter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
-        },
-        {
-            "postID": 10,
-            "creatorID": 1,
-            "title": "Tasting Morocco",
-            "coverImg": "..\/images\/uploads\/travel_18.jpg",
-            "images": [],
-            "albumID": 3,
-            "country": "Morocco",
-            "categoryID": "3",
-            "description": "Strosar p\u00e5 en lokal marknad!"
-        },
-        {
-            "postID": 11,
-            "creatorID": 4,
-            "title": "Safari i Zanzibar",
-            "coverImg": "..\/images\/uploads\/travel_19.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "Tanzania",
-            "categoryID": "4",
-            "description": ""
-        },
-        {
-            "postID": 12,
-            "creatorID": 3,
-            "title": "Vakna upp i Costa Rica",
-            "coverImg": "..\/images\/uploads\/travel_20.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "Costa Rica",
-            "categoryID": "5",
-            "description": "Nu v\u00e4ntar hotellfrukosten, har sv\u00e5rt att slita mig fr\u00e5n hotellrummet bara."
-        },
         {
             "postID": 13,
             "creatorID": "5",
@@ -477,6 +338,31 @@
             "country": "Spain",
             "categoryID": "9",
             "description": "Walking the picturesque streets of Barcelona"
+        },
+        {
+            "postID": 19,
+            "creatorID": "3",
+            "title": "Hugo och jag i Spanien",
+            "coverImg": "..\/images\/uploads\/5ffb67e34161e.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb67e3419bb.jpg"
+            ],
+            "albumID": false,
+            "country": "Spain",
+            "categoryID": "7",
+            "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
+        },
+        {
+            "postID": 20,
+            "creatorID": "3",
+            "title": "v",
+            "coverImg": "..\/images\/uploads\/5ffb6a205cce8.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb6a205cfee.jpg"
+            ],
+            "country": "Afghanistan",
+            "categoryID": "1",
+            "description": "v"
         }
     ],
     "countriesArray": [
@@ -530,6 +416,9 @@
         },
         {
             "name": "Spain"
+        },
+        {
+            "name": "Afghanistan"
         }
     ]
 }

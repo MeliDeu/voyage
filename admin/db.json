@@ -77,8 +77,16 @@
             "travelStatus": false,
             "profilePic": "..\/images\/uploads\/mePineiro.jpg",
             "bio": "Hi there! I'm exploring the world with my dog Hugo. Come along!",
-            "top3Wishes": false,
-            "top3Favs": false,
+            "top3Wishes": [
+                "Japan",
+                "",
+                ""
+            ],
+            "top3Favs": [
+                "Spanien",
+                "Frankrike",
+                "England"
+            ],
             "savedPosts": [
                 {
                     "postID": "12"
@@ -330,6 +338,19 @@
             "country": "Spain",
             "categoryID": "9",
             "description": "Walking the picturesque streets of Barcelona"
+        },
+        {
+            "postID": 19,
+            "creatorID": "3",
+            "title": "Hugo och jag i Spanien",
+            "coverImg": "..\/images\/uploads\/5ffb67e34161e.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb67e3419bb.jpg"
+            ],
+            "albumID": false,
+            "country": "Spain",
+            "categoryID": "7",
+            "description": "Att f\u00e5 visa Hugo mitt hemland var verkligen n\u00e5got alldeles speciellt. Han k\u00e4nde sig hemma direkt och b\u00f6rjade n\u00e4stan voffa p\u00e5 spanska. Vi har verkligen f\u00e5tt ett starkare band efter denna fantastiska resa!"
         }
     ],
     "countriesArray": [
@@ -373,16 +394,13 @@
             "name": "United Kingdom of Great Britain and Northern Ireland"
         },
         {
-            "name": "Afghanistan"
-        },
-        {
             "name": "Azerbaijan"
         },
         {
             "name": "Afghanistan"
         },
         {
-            "name": "Spain"
+            "name": "Afghanistan"
         }
     ]
 }
