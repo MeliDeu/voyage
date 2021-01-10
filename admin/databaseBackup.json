@@ -468,19 +468,6 @@
             "country": "Germany",
             "categoryID": "9",
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
-        },
-        {
-            "postID": 18,
-            "creatorID": "7",
-            "title": "Weekend",
-            "coverImg": "..\/images\/uploads\/5ffb577f7574c.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb577f7613e.jpg"
-            ],
-            "albumID": false,
-            "country": "Spain",
-            "categoryID": "9",
-            "description": "Walking the picturesque streets of Barcelona"
         }
     ],
     "countriesArray": [
@@ -531,9 +518,6 @@
         },
         {
             "name": "Afghanistan"
-        },
-        {
-            "name": "Spain"
         }
     ]
 }

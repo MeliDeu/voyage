@@ -136,7 +136,6 @@ if ($method === 'POST'){
 
         //Kolla filstorlek på filen samt filändelse
         $size = $_FILES["file"]["size"]; //Sparar storleken på bilden
-        //$info = pathinfo($name); 
         $fileExtension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
         //Skapar ett unikt filnamn till filen
         $imageName = uniqid() . "." . $fileExtension;
