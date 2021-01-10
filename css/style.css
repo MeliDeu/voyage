@@ -718,6 +718,7 @@ input:checked + .slider:before {
     background-color: white;
     position: absolute;
     opacity: 0.3;
+    z-index: 11;
 }
 
 #startGrid .filter3, #startGrid .filter5, #startGrid .filter6, #startGrid .filter14 {
