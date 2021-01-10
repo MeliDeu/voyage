@@ -18,7 +18,14 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "17"
+                },
+                {
+                    "postID": "17"
+                }
+            ],
             "album": [
                 {
                     "albumID": 3,
@@ -66,9 +73,6 @@
                 },
                 {
                     "postID": "3"
-                },
-                {
-                    "postID": "65"
                 }
             ],
             "album": [
@@ -216,7 +220,7 @@
             "password": "1234",
             "email": "alnur@gmail.com",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/pexels-photo-1755385.jpg",
+            "profilePic": "..\/images\/uploads\/5ffb384eb3ae0.jpg",
             "bio": "Hey guys! I'm obsessed with weekends in a big city. Wanna join me for my next trip to Lissbon?",
             "top3Wishes": [
                 "Tokyo",
@@ -228,7 +232,14 @@
                 "Paris",
                 "London"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "16"
+                },
+                {
+                    "postID": "17"
+                }
+            ],
             "album": []
         },
         {
@@ -456,19 +467,6 @@
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
         },
         {
-            "postID": 65,
-            "creatorID": "7",
-            "title": "Weekend",
-            "coverImg": "..\/images\/uploads\/5ffa1b5373867.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffa1b537396b.jpg"
-            ],
-            "albumID": false,
-            "country": "Spain",
-            "categoryID": "9",
-            "description": "Picturesque streets of Barcelona"
-        },
-        {
             "postID": 66,
             "creatorID": "8",
             "title": "Hiking in Iceland",
@@ -480,6 +478,19 @@
             "country": "Iceland",
             "categoryID": "7",
             "description": "Olalala what a place"
+        },
+        {
+            "postID": 67,
+            "creatorID": "7",
+            "title": "Weekend",
+            "coverImg": "..\/images\/uploads\/5ffb3c3af0e9e.jpg",
+            "images": [
+                "..\/images\/uploads\/5ffb3c3af1601.jpg"
+            ],
+            "albumID": false,
+            "country": "Spain",
+            "categoryID": "9",
+            "description": "Visiting the beautiful picturesque streets of Barcelona."
         }
     ],
     "countriesArray": [
@@ -515,6 +526,9 @@
         },
         {
             "name": "Switzerland"
+        },
+        {
+            "name": "Spain"
         }
     ]
 }

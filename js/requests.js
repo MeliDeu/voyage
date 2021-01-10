@@ -119,7 +119,7 @@ function postSavedToDB(postID){
     let request = new Request("../admin/api.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ savedPost: true, postID: postID })
+        body: JSON.stringify({ savedPost: true, postID: postID, id: STATE.mainUserID })
     })
     fetch(request)
         .then(response => {
@@ -158,7 +158,7 @@ function deleteSavedPostFromDB(postID){
     let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ removeSaved: true, postID: postID })
+        body: JSON.stringify({ removeSaved: true, postID: postID, userID: STATE.mainUserID })
     })
     fetch(request)
         .then(response => {
@@ -195,7 +195,7 @@ function removePostFromDB(id){
     let request = new Request("../admin/api.php", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ removePost: true, postID: id })
+        body: JSON.stringify({ removePost: true, postID: id, userID: STATE.mainUserID })
     });
 
     fetch(request)
