@@ -223,11 +223,7 @@
             "password": "1234",
             "email": "alnur@gmail.com",
             "travelStatus": true,
-<<<<<<< HEAD
-            "profilePic": "..\/images\/uploads\/pexels-photo-1755385.jpg",
-=======
             "profilePic": "..\/images\/uploads\/5ffb384eb3ae0.jpg",
->>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
             "bio": "Hey guys! I'm obsessed with weekends in a big city. Wanna join me for my next trip to Lissbon?",
             "top3Wishes": [
                 "Tokyo",
@@ -239,9 +235,6 @@
                 "Paris",
                 "London"
             ],
-<<<<<<< HEAD
-            "savedPosts": [],
-=======
             "savedPosts": [
                 {
                     "postID": "16"
@@ -250,7 +243,6 @@
                     "postID": "17"
                 }
             ],
->>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
             "album": []
         },
         {
@@ -476,89 +468,6 @@
             "country": "Germany",
             "categoryID": "9",
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
-<<<<<<< HEAD
-        },
-        {
-            "postID": 65,
-            "creatorID": "7",
-            "title": "Weekend",
-            "coverImg": "..\/images\/uploads\/5ffa1b5373867.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffa1b537396b.jpg"
-            ],
-            "albumID": false,
-            "country": "Spain",
-            "categoryID": "9",
-            "description": "Picturesque streets of Barcelona"
-        },
-        {
-            "postID": 66,
-            "creatorID": "8",
-            "title": "hola",
-            "coverImg": "..\/images\/uploads\/5ffb2df7c9c00.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb2df7ca771.jpg"
-            ],
-            "albumID": false,
-            "country": "Iceland",
-            "categoryID": "7",
-            "description": "Olalala what a place"
-        },
-        {
-            "postID": 67,
-            "creatorID": "6",
-            "title": "Halloj halloj halloj halooj",
-            "coverImg": "..\/images\/uploads\/5ffb35f48a7fe.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb35f48ab1f.jpg",
-                "..\/images\/uploads\/5ffb35f48ae15.jpg"
-            ],
-            "albumID": false,
-            "country": "Afghanistan",
-            "categoryID": "1",
-            "description": "Halloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj halooj"
-        },
-        {
-            "postID": 68,
-            "creatorID": "6",
-            "title": "Halloj halloj halloj halooj",
-            "coverImg": "..\/images\/uploads\/5ffb35f5d6a22.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb35f5d6d5e.jpg",
-                "..\/images\/uploads\/5ffb35f5d7007.jpg"
-            ],
-            "albumID": false,
-            "country": "Afghanistan",
-            "categoryID": "1",
-            "description": "Halloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj haloojHalloj halloj halloj halooj\r\n\r\n\r\nHalloj halloj halloj haloojHalloj halloj halloj halooj"
-        },
-        {
-            "postID": 69,
-            "creatorID": "6",
-            "title": "dd",
-            "coverImg": "..\/images\/uploads\/5ffb3da16c0d4.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb3da16c460.jpg"
-            ],
-            "albumID": false,
-            "country": "Azerbaijan",
-            "categoryID": "4",
-            "description": "Hejsan hoppsan fallerallera"
-        },
-        {
-            "postID": 70,
-            "creatorID": "6",
-            "title": "k",
-            "coverImg": "..\/images\/uploads\/5ffb4083e326d.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb4083e362e.jpg"
-            ],
-            "albumID": false,
-            "country": "Afghanistan",
-            "categoryID": "1",
-            "description": "hh"
-=======
->>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
         }
     ],
     "countriesArray": [
@@ -596,17 +505,16 @@
             "name": "Switzerland"
         },
         {
-<<<<<<< HEAD
-            "name": "Afghanistan"
-        },
-        {
-            "name": "Azerbaijan"
-=======
             "name": "Spain"
         },
         {
             "name": "United Kingdom of Great Britain and Northern Ireland"
->>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
+        },
+        {
+            "name": "Afghanistan"
+        },
+        {
+            "name": "Azerbaijan"
         },
         {
             "name": "Afghanistan"
