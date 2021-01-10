@@ -251,9 +251,17 @@
             "email": "dd",
             "travelStatus": false,
             "profilePic": "..\/images\/uploads\/5ffb79cb3475e.jpg",
-            "bio": false,
-            "top3Wishes": false,
-            "top3Favs": false,
+            "bio": "Sn\u00e4lla n\u00e5gon l\u00e5t mig bara f\u00e5 njuta av solen en minut till!",
+            "top3Wishes": [
+                "Kroatien",
+                "Istanbul",
+                ""
+            ],
+            "top3Favs": [
+                "Venedig",
+                "",
+                ""
+            ],
             "savedPosts": []
         }
     ],
