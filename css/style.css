@@ -919,6 +919,7 @@ input:checked + .slider:before {
     width: 95%;
     font-family: var(--styleFont);
     z-index: 99;
+    margin-left: 6px;
 }
 
 #hiddenForm {
@@ -1001,6 +1002,14 @@ input:checked + .slider:before {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+}
+
+#newPostBigPicture {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .nyPic:hover, #newPostBigPicture:hover, .newPostDown button:hover, select:hover, #postClose:hover {
@@ -1155,12 +1164,14 @@ textarea {
 
 }
 
-#showPostSaveBtn {
+.saveBtn {
     position: absolute;
     top: 9px;
     right: -4px;
-    height: 3vw;
-    max-height: 40px;
+    height: 30px;
+    width: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .saveBtn:hover {

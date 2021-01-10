@@ -249,7 +249,6 @@ class PostStructure extends PolaroidBase{
 
 class PostShow extends PostStructure{
     constructor(data){
-        console.log(data)
         super(data);
     }
     //postID finns på polaroid, leta upp posten och anropa constructor med hela objektet
@@ -289,17 +288,32 @@ class PostShow extends PostStructure{
         showPostInfoContainer.setAttribute("id", "showPostInfoContainer");
         let userContainer = document.createElement("div");
         userContainer.setAttribute("id", "showPostUser")
-        let saveBtn = document.createElement("img");
-        saveBtn.setAttribute("id", "showPostSaveBtn")
+        let saveBtn = document.createElement("div");
+        // saveBtn.setAttribute("id", `icon_${this.postID}`);
         saveBtn.classList.add("saveBtn");
-        saveBtn.setAttribute("src", "../images/stockImages/icons/saved.png");
+        saveBtn.style.backgroundImage = "url(../images/stockImages/icons/saved.png)";
         let userPicture = document.createElement("div");
         userPicture.classList.add("polaroidUserPic", "showPostUserPic");
         userPicture.style.backgroundImage = `url('${userObj.profilePic}')`;
         let userName = document.createElement("div");
         userName.innerHTML = `${userObj.username}`;
         userName.classList.add("showPostUserName");
+
+        // saveBtn.addEventListener("click", function(){
+        //     let clickedPostId = this.getAttribute("id");
+        //     let subClicked = clickedPostId.substr(5);
+        //     postSavedToDB(subClicked);
+        //     if (saveBtn.classList.contains("markedSaved")) {
+        //         console.log("den är markerad");
+        //         deleteSavedPostFromDB(subClicked);
+        //     } else {
+        //         console.log("den är ej markerad");
+        //     }
+        // });
+
         userContainer.append(userPicture, userName, saveBtn);
+
+
 
         //information om posten
         let postInformation = document.createElement("div");
