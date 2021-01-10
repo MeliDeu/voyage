@@ -458,9 +458,9 @@ class Album extends CategoryBox{
             let id = this.id.substr(9);
     
             if (profileParameter == STATE.mainUserID) {
-                loadPosts(STATE.mainUserPosts, "albumID", id); 
+                //loadPosts(STATE.mainUserPosts, "albumID", id); 
             } else {
-                loadPosts(STATE.clickedUserPosts, "albumID", id); 
+                //loadPosts(STATE.clickedUserPosts, "albumID", id); 
             }
 
             //ta bort class från alla som är samma typ av object

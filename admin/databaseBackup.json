@@ -18,7 +18,14 @@
                 "Barcelona",
                 "Tokyo"
             ],
-            "savedPosts": [],
+            "savedPosts": [
+                {
+                    "postID": "17"
+                },
+                {
+                    "postID": "17"
+                }
+            ],
             "album": [
                 {
                     "albumID": 3,
@@ -216,7 +223,11 @@
             "password": "1234",
             "email": "alnur@gmail.com",
             "travelStatus": true,
+<<<<<<< HEAD
             "profilePic": "..\/images\/uploads\/pexels-photo-1755385.jpg",
+=======
+            "profilePic": "..\/images\/uploads\/5ffb384eb3ae0.jpg",
+>>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
             "bio": "Hey guys! I'm obsessed with weekends in a big city. Wanna join me for my next trip to Lissbon?",
             "top3Wishes": [
                 "Tokyo",
@@ -228,7 +239,18 @@
                 "Paris",
                 "London"
             ],
+<<<<<<< HEAD
             "savedPosts": [],
+=======
+            "savedPosts": [
+                {
+                    "postID": "16"
+                },
+                {
+                    "postID": "17"
+                }
+            ],
+>>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
             "album": []
         },
         {
@@ -454,6 +476,7 @@
             "country": "Germany",
             "categoryID": "9",
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
+<<<<<<< HEAD
         },
         {
             "postID": 65,
@@ -534,6 +557,8 @@
             "country": "Afghanistan",
             "categoryID": "1",
             "description": "hh"
+=======
+>>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
         }
     ],
     "countriesArray": [
@@ -571,10 +596,17 @@
             "name": "Switzerland"
         },
         {
+<<<<<<< HEAD
             "name": "Afghanistan"
         },
         {
             "name": "Azerbaijan"
+=======
+            "name": "Spain"
+        },
+        {
+            "name": "United Kingdom of Great Britain and Northern Ireland"
+>>>>>>> be5cab49b3273fd2c27d5b2aabf25140fb03341f
         },
         {
             "name": "Afghanistan"

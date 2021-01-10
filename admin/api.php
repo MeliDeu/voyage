@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include "functions.php";
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
@@ -39,7 +37,7 @@ $json = json_decode($input, true);
 if ($method === "GET") {
 
     http_response_code(200);
-    //header("Content-Type: application/json");
+    header("Content-Type: application/json");
     // Skicka med hela DB
     $message = ["data" => $database];
     echo json_encode($message);
@@ -71,7 +69,9 @@ if ($method === 'POST'){
         }
 
         $postID = $json['postID'];
-        $loggedInID = $_SESSION["userID"];
+        $loggedInID = $json["id"];
+
+
         
 
         // Hitta den inloggade usern för att kunna hitta rätt savedArray
@@ -132,12 +132,18 @@ if ($method === 'POST'){
         $folder = "../images/uploads/";
         $name = $_FILES['file']['name'];
         $tmp = $_FILES['file']['tmp_name'];
-        $fileName = $folder . $name;
+        
 
         //Kolla filstorlek på filen samt filändelse
         $size = $_FILES["file"]["size"]; //Sparar storleken på bilden
-        $info = pathinfo($name); 
-        $ext = $info["extension"]; //Sparar filens filändelse
+        //$info = pathinfo($name); 
+        $fileExtension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+        //Skapar ett unikt filnamn till filen
+        $imageName = uniqid() . "." . $fileExtension;
+        //Concatinerar strängen för fillänken
+        $fileName = $folder . $imageName;
+        
+        
 
         //Dessa filändelser kommer vi att acceptera
         $allowedExts = ["jpg", "jpeg", "png"];
@@ -151,7 +157,7 @@ if ($method === 'POST'){
             echo json_encode($message);
             exit();
         }
-        if (!in_array($ext, $allowedExts)) { //KONTROLLERA FILÄNDELSE! 
+        if (!in_array($fileExtension, $allowedExts)) { //KONTROLLERA FILÄNDELSE! 
             http_response_code(400);
             header("Content-Type: application/json");
             $message = [
@@ -170,7 +176,7 @@ if ($method === 'POST'){
             exit();
         }
         //Flyttar profilbilden till uploads
-        move_uploaded_file($tmp, $folder . $name);
+        move_uploaded_file($tmp, $fileName);
 
         //Byter ut profilbilden i databasen
         $newProfilePic = $database["users"][$thisOne]["profilePic"] = $fileName;
@@ -313,7 +319,7 @@ if ($method === 'DELETE'){
 
         //ta bort post:id från mainuser savedposts
         foreach($database["users"] as $index => $user){
-            if ($user['id'] == $_SESSION["userID"]) {
+            if ($user['id'] == $json["userID"]) {
                 foreach ($user["savedPosts"] as $ind => $post) {
                     if ($json['postID'] == $post["postID"]) {
                         array_splice($database["users"][$index]["savedPosts"], $ind, 1);
@@ -385,7 +391,7 @@ if ($method === 'DELETE'){
 
         file_put_contents($file, json_encode($database, JSON_PRETTY_PRINT));
         http_response_code(200); //svara att borttagningen gått igenom 
-        //header("Content-Type: application/json");
+        header("Content-Type: application/json");
         $message = [
             "data" => "Post was removed successfully"
         ];

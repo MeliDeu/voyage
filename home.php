@@ -55,7 +55,7 @@
                     <div id='homeCategoryBar' class='categoryBar'>
                         <div class='barTitle'>
                             <?php if (isset($_GET["profile"])) { 
-                                echo "Album";
+                                echo "";
                             } elseif (isset($_GET["saved"])) {
                                 echo "Saved posts";
                             } else { 
