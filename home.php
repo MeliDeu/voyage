@@ -15,9 +15,9 @@
             include "sections/sidebar.php";
             include "admin/functions.php";
         ?>
-        <script> //detta hämtar den inloggades ID från PHP till js så att nyckeln mainUserID i STATE fungerar
-            let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>;
-            let profileParameter = "<?php echo isset($_GET["profile"]) ? $_GET["profile"] : "false";?>"; //av någon anledning behövde jag kaninöron utanför../kaj
+        <script> 
+            let mainUserID = <?php echo json_encode($_SESSION["userID"], JSON_HEX_TAG);?>; //detta hämtar den inloggades ID från PHP till js så att nyckeln mainUserID i STATE fungerar
+            let profileParameter = "<?php echo isset($_GET["profile"]) ? $_GET["profile"] : "false";?>"; //om profil parameter i url existerar blir värdet id:et, annars false
             let countryParameter = "<?php echo isset($_GET["country"]) ? $_GET["country"] : "false";?>"; 
             let savedParameter = "<?php echo isset($_GET["saved"]) ? $_GET["saved"] : "false";?>"; 
         </script> 
@@ -27,49 +27,20 @@
 
                 <!-- kollar om användaren är inloggad -->
                 <?php if ($_SESSION["isLoggedIn"]){
-                    //$loggedIn = true; //detta använd ingenstans, ta bort?/kaj
-                    // Om en user är klickad ska dens content synas
-                    // parametern profile + userName måste fås vid klicket
 
+                    // vad som endast ska synas vid besök på en profil
                     if (isset($_GET["profile"])){ //innehåller id:et för användaren man klickat på, eller mainUserID om man har klickat på profilknappen i navven
                         $clickedUserId = $_GET["profile"]; //get id:et
-                        //ska bara synas vid besök på en profil
-                        include "sections/profileTop.php";
+                        include "sections/profileTop.php"; //profiltop med användaresn beskrivning osv
                         
-                        if ($_GET["profile"] == $_SESSION["userID"]) { //detta innebär att man är på den inloggades profilsida
-                            //här kan man då lägga in att man ska kunna redigera sin profil
-                        }
 
-                        //om id:et i GET inte är samma som den inloggades betyder det att vi visar en annan användares profil
-
-                        //$clickedUseId = $_GET["profile"];
-                        // en till if som kollar om , jämför detta id med den sessionuserID
-                        // om det är samma -> redigerbar profil + spotunna
-
-
-                        $db = getDatabase();
-                        // Hämta och gå igenom users i DB för att hitta personens userId
-
-                        $loggedInId = false;
-                        foreach($db['users'] as $index => $user){
-                            if($user['id'] == $clickedUserId){
-                            // Id:t kan vi nu använda för att få fram den personens content
-                                $loggedInId = $user['id'];
-                            }
-                            // Loopa postArray för att se vilka som har matchande creatorId med $loggedInId
-
-                        }
-                    } elseif (isset($_GET["country"])){ ?>
-                        <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
-                        <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
+                    } elseif (isset($_GET["country"])){ ?>  <!--vad som endast ska synas vid besök på en profil-->
                         
                         <div id='homeSearchBox' class='searchBox'>
-                            <h3 id="countryTitle"><?php echo $_GET["country"] ?></h3>
+                            <h3 id="countryTitle"><?php echo $_GET["country"] ?></h3> <!--skriver ut landnamnet överst på sidan (istället för sökruta)-->
                         </div>  
 
-                    <?php } elseif (empty($_GET)) { ?>
-                        <!--här ska det som skiljer sig från profilsidan inkluderas, tex sökrutan-->
-                        <!-- ska bara synas vid home deafault (inte countries eller profile) if !$_GET[profile]-->
+                    <?php } elseif (empty($_GET)) { ?> <!--vad som endast ska synas när man är på home och det ej finns get parametrar-->
                         
                         <div id='homeSearchBox' class='searchBox'>
                             <input id='homeSearchField' placeholder=' Search'>
