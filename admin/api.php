@@ -339,16 +339,6 @@ if ($method === "DELETE") {
     echo json_encode($message);
     exit();
 
-
-    // TA BORT EN FAVORIT
-    // postID (fås från klickad post)
-    // Jamför med users med $_SESSION[”userID”] och sedan dennes favs
-    // Ta bort från DB
-    // Skicka tillbaka ny uppdaterad array/skicka tillbaka borttaget ID så att elementet med det ID tas bort
-    
-    // TA BORT ETT ALBUM – kontrollera:
-    // om ingen post finns -> tas bort
-
 }
 
 //} // Denna stänger if session loggedin
