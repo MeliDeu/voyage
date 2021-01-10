@@ -415,6 +415,34 @@ input:checked + .slider:before {
     flex-direction: column;
     margin: 0 30px;
     flex-grow: 1;
+
+    scrollbar-color: white var(--darkgrey);
+    scrollbar-width: thin;
+}
+
+#sliderList {
+    scrollbar-color: var(--darkgrey) white;
+    scrollbar-width: thin;
+}
+
+.feedBox::-webkit-scrollbar-track, #sliderList::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: var(--darkgrey);
+}
+
+.feedBox::-webkit-scrollbar, #sliderList::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: var(--darkgrey);
+}
+
+.feedBox::-webkit-scrollbar-thumb, #sliderList::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: white;
 }
 
 .feedInfo {

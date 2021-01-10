@@ -167,17 +167,17 @@
             "password": "1234",
             "email": "jasse@js.se",
             "travelStatus": true,
-            "profilePic": "..\/images\/uploads\/GoldenPuppy.jpg",
-            "bio": "",
+            "profilePic": "..\/images\/uploads\/travel_8.jpg",
+            "bio": "Travel to collect memories",
             "top3Wishes": [
-                "",
-                "d",
-                ""
+                "Iceland",
+                "Sweden",
+                "Schweiz"
             ],
             "top3Favs": [
-                "d",
-                "d",
-                ""
+                "Scotland",
+                "Australia",
+                "Spain"
             ],
             "savedPosts": [
                 {
