@@ -154,10 +154,18 @@
             "password": "12345",
             "email": "test@test.se",
             "travelStatus": true,
-            "profilePic": false,
-            "bio": false,
-            "top3Wishes": false,
-            "top3Favs": false,
+            "profilePic": "..\/images\/uploads\/52489215_10217431893965487_3622064779641749504_o.jpg",
+            "bio": "M\u00e5nga platser har man ej bes\u00f6kt, men det handlar om kvalitet och inte kvantitet. :)",
+            "top3Wishes": [
+                "South Korea",
+                "Cuba",
+                "Greenland"
+            ],
+            "top3Favs": [
+                "Austria",
+                "Iceland",
+                "Switzerland"
+            ],
             "savedPosts": [
                 {
                     "postID": "17"

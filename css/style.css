@@ -918,6 +918,7 @@ input:checked + .slider:before {
     align-items: center;
     width: 95%;
     font-family: var(--styleFont);
+    z-index: 99;
 }
 
 #hiddenForm {
@@ -926,7 +927,7 @@ input:checked + .slider:before {
 
 #newPostWrapper {
     height: 50vw;
-    max-height: 600px;
+    max-height: 800px;
     flex-basis: 80%;
     max-width: 1200px;
 }
@@ -1013,7 +1014,7 @@ input:checked + .slider:before {
 .nyPic, .previewImage {
     width: var(--previewImgWidth);
     height: var(--previewImgHeight);
-    max-height: 119px;
+    max-height: 140px;
     position: relative;
     margin-right: var(--imgMargins);
     border-radius: 10px;
@@ -1021,6 +1022,11 @@ input:checked + .slider:before {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+
+.nyPic {
+    width: 7vw;
+    /* height: 100px; */
 }
 
 .nyPic:last-child, .previewImage:last-child {
