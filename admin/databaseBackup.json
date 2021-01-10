@@ -464,21 +464,6 @@
             "country": "Germany",
             "categoryID": "9",
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
-        },
-        {
-            "postID": 18,
-            "creatorID": "5",
-            "title": "En b\u00e4ttre dag",
-            "coverImg": "..\/images\/uploads\/5ffb5b4744d3b.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb5b47454bd.jpg",
-                "..\/images\/uploads\/5ffb5b4745a40.jpg",
-                "..\/images\/uploads\/5ffb5b4745f9d.jpg"
-            ],
-            "albumID": false,
-            "country": "Austria",
-            "categoryID": "6",
-            "description": "Ojojojojoj, vilken fin dag f\u00f6r lite snowboarding! Vem hade trott att man har ett s\u00e5dant fint landskap runt h\u00f6rnet? :)"
         }
     ],
     "countriesArray": [
@@ -529,9 +514,6 @@
         },
         {
             "name": "Afghanistan"
-        },
-        {
-            "name": "Austria"
         }
     ]
 }
