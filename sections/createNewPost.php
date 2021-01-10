@@ -8,7 +8,7 @@
     </div>
     <div id="newPostContainer">
         <div id="newPostPictures">
-            <div class="newPostUp">New post</div>
+            <div class="newPostUp"></div>
             <div id="newPostBigPicture" class="newPostMiddle">
                 <img src="../images/stockimages/icons/trash.png" class="imgTrash">
             </div>
@@ -46,11 +46,11 @@
                             <!-- options for all the available albums -->
                         <!-- </select> -->
                     <!-- </div> -->
-                    <div id="postAlbum">All fields are required and you need to pick at least one cover image and one regular image to upload successfully!<br>The files need to be of type .jpg or .png and must not weight more than 500kb.</div>
                     <div id="postDesc">
                         <label for="postDescription">Share something about your journey*</label>
                         <textarea name="description" id="postDescription" cols="30" rows="10"></textarea>
                     </div>
+                    <div id="postAlbum">Add at least two photos!</div>
                 </div>
                 <div class="newPostDown">
                     <button type="submit" name="postToDB" id="newPostSubmit">post</button>
