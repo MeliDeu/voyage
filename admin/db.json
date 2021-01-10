@@ -228,11 +228,7 @@
                 "Paris",
                 "London"
             ],
-            "savedPosts": [
-                {
-                    "postID": "9"
-                }
-            ],
+            "savedPosts": [],
             "album": []
         },
         {
@@ -345,17 +341,6 @@
             "country": "Greece",
             "categoryID": "2",
             "description": "Vi forts\u00e4tter simma med otroligt fina fiskar och badar tills fingrarna blir som russin :)"
-        },
-        {
-            "postID": 9,
-            "creatorID": 2,
-            "title": "New York baby",
-            "coverImg": "..\/images\/stockImages\/travel_17.jpg",
-            "images": [],
-            "albumID": false,
-            "country": "USA",
-            "categoryID": "9",
-            "description": "Semester i storstaden. Jag s\u00e4ger bara WOW."
         },
         {
             "postID": 10,
@@ -515,9 +500,6 @@
         },
         {
             "name": "Costa Rica"
-        },
-        {
-            "name": "USA"
         },
         {
             "name": "Tanzania"
