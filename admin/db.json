@@ -468,32 +468,6 @@
             "country": "Germany",
             "categoryID": "9",
             "description": "Min mamma \u00f6verraskade mig med en superfin f\u00f6delsedagspresent... hon anordnade en resa till Hamburg d\u00e4r vi kollade p\u00e5 musikalen Lejonkungen.. Vilken dr\u00f6m.. fan vad man gr\u00e4t <3 "
-        },
-        {
-            "postID": 66,
-            "creatorID": "8",
-            "title": "hola",
-            "coverImg": "..\/images\/uploads\/5ffb2df7c9c00.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb2df7ca771.jpg"
-            ],
-            "albumID": false,
-            "country": "Iceland",
-            "categoryID": "7",
-            "description": "Olalala what a place"
-        },
-        {
-            "postID": 67,
-            "creatorID": "7",
-            "title": "Weekend",
-            "coverImg": "..\/images\/uploads\/5ffb3c3af0e9e.jpg",
-            "images": [
-                "..\/images\/uploads\/5ffb3c3af1601.jpg"
-            ],
-            "albumID": false,
-            "country": "Spain",
-            "categoryID": "9",
-            "description": "Visiting the beautiful picturesque streets of Barcelona."
         }
     ],
     "countriesArray": [
@@ -532,6 +506,9 @@
         },
         {
             "name": "Spain"
+        },
+        {
+            "name": "United Kingdom of Great Britain and Northern Ireland"
         },
         {
             "name": "Afghanistan"

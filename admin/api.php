@@ -1,7 +1,5 @@
 <?php
 
-//session_start();
-
 include "functions.php";
 
 // Hämta innehållet i DB och gör om det till php och lägg i $database
