@@ -2,9 +2,6 @@
 //----------------------VARIABLER-------------------------------//
 // lilla "button" med +
 const addNewImg = document.getElementById("pic_"); 
-// const nyImg = document.getElementById("newPostPics"); 
-// const hiddenForm = document.getElementById("hiddenForm");
-// const imgUploadBtn = document.getElementById("hiddenButton");
 // gömd input för previewbilderna
 let previewInput = document.getElementById("hiddenInput");//små bilder
 // gömd input för coverImg
@@ -90,6 +87,12 @@ function renderPreviewImages(){
         addNewImg.style.display = "none";
     } else {
         addNewImg.style.removeProperty("display");
+    }
+
+    if (STATE.addedPictures.length >= 1) {
+        addNewImg.style.marginLeft = "15px";
+    } else {
+        addNewImg.style.removeProperty("marginLeft");
     }
 }
 
