@@ -78,8 +78,10 @@ function checkAndMark(){
 
 function checkURL(){
     if (profileParameter !== "false") { // profileParameter får sitt värde i home.php genom att kolla: isset($_GET["profile"]) ? $_GET["profile"] : "false";?>";
-        let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
-        let albumArray = user.album;
+
+        //nedan släckt kod avser albumcirklar
+        //let user = getUserObjectByID(profileParameter); //ger user-object så vi kan komma åt nyckeln album
+        //let albumArray = user.album;
         //loadCircles(albumArray, "album");
 
         if (profileParameter == mainUserID) {

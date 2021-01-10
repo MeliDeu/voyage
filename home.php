@@ -34,10 +34,16 @@
                         include "sections/profileTop.php"; //profiltop med användaresn beskrivning osv
                         
 
-                    } elseif (isset($_GET["country"])){ ?>  <!--vad som endast ska synas vid besök på en profil-->
+                    } elseif (isset($_GET["saved"])){ ?>  <!--vad som endast ska synas vid besök på en profil-->
                         
                         <div id='homeSearchBox' class='searchBox'>
-                            <h3 id="countryTitle"><?php echo $_GET["country"] ?></h3> <!--skriver ut landnamnet överst på sidan (istället för sökruta)-->
+                            <h3 id="countryTitle"><?php echo "Saved posts"; ?></h3> <!--skriver ut landnamnet överst på sidan (istället för sökruta)-->
+                        </div>  
+
+                    <?php } elseif (isset($_GET["country"])){ ?>  <!--vad som endast ska synas vid besök på en profil-->
+                        
+                        <div id='homeSearchBox' class='searchBox'>
+                            <h3 id="countryTitle"><?php echo $_GET["country"]; ?></h3> <!--skriver ut landnamnet överst på sidan (istället för sökruta)-->
                         </div>  
 
                     <?php } elseif (empty($_GET)) { ?> <!--vad som endast ska synas när man är på home och det ej finns get parametrar-->
@@ -45,25 +51,18 @@
                         <div id='homeSearchBox' class='searchBox'>
                             <input id='homeSearchField' placeholder=' Search'>
                             <button class='hide' id='searchButton'></button>
-                        </div>  
+                        </div>
 
                     <?php } ?> 
 
 
-
-                    <!-- olika innehåll beroende på om man är på home eller profil -->
-                    <div id='homeCategoryBar' class='categoryBar'>
-                        <div class='barTitle'>
-                            <?php if (isset($_GET["profile"])) { 
-                                echo "";
-                            } elseif (isset($_GET["saved"])) {
-                                echo "Saved posts";
-                            } else { 
-                                echo "Travel categories";
-                             } ?>
+                    <?php if (isset($_GET["country"]) || empty($_GET)) { ?>
+                        <div id='homeCategoryBar' class='categoryBar'>
+                            <div class='barTitle'>Travel categories</div>
+                            <div id="barCategories" class='barCategories'></div>
                         </div>
-                        <div id="barCategories" class='barCategories'></div>
-                    </div>
+                    <?php } ?>
+
                 
                     <div id='homefeedBox' class='feedBox'>
                         <div id='homeFeedInfo' class='feedInfo'>

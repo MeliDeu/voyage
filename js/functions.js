@@ -165,6 +165,16 @@ document.getElementById("add").addEventListener("click", function(){
 //stänger modalfönstret för ny Post
 document.getElementById("postClose").addEventListener("click", function(){
     document.getElementById("newPostOverlay").style.display = "none";
+
+    if (profileParameter !== "false") {
+        markIconNav(document.getElementById("profileNavBtn"));
+    } else if (countryParameter !== "false") {
+        markIconNav(document.getElementById("countriesNavBtn"));
+    } else if (savedParameter !== "false") {
+        markIconNav(document.getElementById("savedNavBtn"));
+    } else {
+        markIconNav(document.getElementById("homeNavBtn"));
+    }
 });
 
 
@@ -224,12 +234,13 @@ function markIconNav(element){
         // sätter alla iconer till svart
         child.style.backgroundImage = `url('../images/stockImages/icons/${childName}.png')`;
     });
-    
-    element.setAttribute('class', 'icon active');
-    let child = element.children[0]
-    let childName = child.id
-    child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
 
+    if (element !== undefined) {
+        element.setAttribute('class', 'icon active');
+        let child = element.children[0]
+        let childName = child.id
+        child.style.backgroundImage = `url('../images/stockImages/icons/${childName}_white.png')`;
+    }
 }
 
 sideBarIcon.forEach(function(element){
