@@ -96,6 +96,7 @@ if ($method === 'POST'){
             }
         }
         
+        //Lägger till id för posten i vår databas
         $saved = ['postID' => $postID];
         $senthis = $database['users'][$rightUser]['savedPosts'][] = $saved;
       
@@ -135,7 +136,7 @@ if ($method === 'POST'){
 
         //Kolla filstorlek på filen samt filändelse
         $size = $_FILES["file"]["size"]; //Sparar storleken på bilden
-        $fileExtension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+        $fileExtension = strtolower(pathinfo($name, PATHINFO_EXTENSION));//gör filändelsen till lower
         //Skapar ett unikt filnamn till filen
         $imageName = uniqid() . "." . $fileExtension;
         //Concatinerar strängen för fillänken
@@ -218,12 +219,13 @@ if ($method === 'POST'){
         echo json_encode(["errors" => "All fields must to be filled out)"]);
         exit();
     }
-    if (preg_match('/\s/',$json["username"])) {
+    if (preg_match('/\s/',$json["username"])) {//kollar om det finns mellanslag i användarnamnet
         http_response_code(400);
         header("Location: /index.php");
         echo json_encode(["errors" => "No spaces allowed in username"]);
         exit();
     }
+    //Loopar igenom databasen för att se om användarnamnet redan finns eller ej
     foreach ($database["users"] as $user => $value) {
         if ($value["username"] == $json["username"]) {
             http_response_code(400);
@@ -232,6 +234,7 @@ if ($method === 'POST'){
             exit();
         }
     }
+    //Kontrollerar så att användarnamnet inte överskridet 13 tecken
     if ($json["username"]){
         $username = $json["username"];
         $length = strlen($username);
@@ -376,9 +379,10 @@ if ($method === 'DELETE'){
 
                 
                 // DENNA DEL TAR BORT LANDET FRÅN SIDEBAR NÄR INGEN POST HAR LANDET LÄNGRE
+                //Söker igenom databasens posts länder och kollar om det raderade landet finns, om det finns så ska landet finnas kvar
                 if( array_search($post["country"], array_column($database["posts"], "country")) !== false){
                     // Det finns en annan post i databasen med det landet så gör inget med countriesArray!
-                } else {
+                } else {//Ta bort landet
                     // Det finns ingen annan post i databasen med det landet så nu ska vi splicea
                     // bort landet från countriesArray så det landet inte syns i sidebar
 

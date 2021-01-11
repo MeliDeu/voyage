@@ -24,10 +24,11 @@ document.getElementById('homeSearchField').addEventListener('focus', function(){
                 // Hämta det sökta ordet
                 let thisValue = this.value;
                 //console.log(thisValue)
+                //Försök till deepcopy, spelar ingen roll...
                 let copyThisValue = JSON.parse(JSON.stringify(thisValue));
                 
                 let view = document.getElementById("homeFeedTitle"); //för att ge feedback om vad anv har sökt på
-                view.innerHTML = `\xa0\matching: ${ copyThisValue}`;
+                view.innerHTML = `\xa0\matching: ${ copyThisValue}`; //skapar mellanslag
                 
                 let elementArray = document.querySelectorAll('.categoryBox');
                 elementArray.forEach(function(el){

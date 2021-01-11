@@ -20,14 +20,18 @@ let trashButton = document.querySelector("#newPostBigPicture .imgTrash");
 //function för att lägga till all info i databasen under posts 
 function newPostToDB() {
     //skicka info till db: kolla om iaf coverimage och fälten är ifyllda innan det skickas --> görs i classes 
-    //postInformation är id:n --> behöver ej skriva getdocument...
+    //postInformation är id:n --> behöver ej skriva getdocument... elementet för form
     let formData = new FormData(postInformation);
     //lägger till en ny property i formdata med creator ID, eftersom vi inte har det i formuläret
     formData.set("creatorID", mainUserID);
+    //Loopa igenom våra små bilder, för varje bild så appendar vi de till formDatan så de skickas med
     STATE.addedPictures.forEach(picture => {
+        //halparanteserna gör att php kan läsa att det är en array, appendar in alla bilder i nyckeln images som skapas här
+        //både bild och filnamnet skickas med till images nyckeln
         formData.append("images[]", picture, picture.name);
     });
     //egentligen var tanken att skicka hela instansen, men det gick ej, så jag behöll den delen, men valideringen utgår från class CreatePost
+    //Nedan används endast för att kolla så att all information från formet kommer med, görs via validate nedan
     let newPost = new CreatePost({
         creatorID: mainUserID,
         title: formData.get("title"),
@@ -37,7 +41,7 @@ function newPostToDB() {
         coverImg: formData.get("coverImg"),
         images: formData.getAll("images[]")
     });
-    // Kollar om alla fält är ifyllda med validate(), isf begäran skickas som post
+    // Kollar om alla fält är ifyllda med validate(), isf begäran skickas som post, returnerar true om allt är ifyllt
     if (newPost.validate()) {
         let nyRequ = new Request("/admin/uploadPost.php", {
             method: "POST",
@@ -59,7 +63,7 @@ function newPostToDB() {
     } else {
         alert("Please fill all mandatory fields and add at least two photos to continue")
     }
-    return newPost;
+    return newPost; // används endast för att concole loggas
 }
 
 //funktionen som producerar de små preview-bilderna
@@ -68,6 +72,7 @@ function renderPreviewImages(){
     let previewPictureList = document.getElementById("picPreview");
     //tömmer den då vi alltid appendar alla previewbilder vid varje tillagd bild
     previewPictureList.innerHTML = "";
+    //Loopar igenom alla objekt som finns, alla bilder som laddats upp
     STATE.addedPictures.forEach(picture => {
         let nPreviewImg = document.createElement("div");
         let trashCan = document.createElement("img");
@@ -76,6 +81,7 @@ function renderPreviewImages(){
         nPreviewImg.appendChild(trashCan);
         nPreviewImg.classList.add("nyPic");
         //URL.createObjectURL kan användas för att hämta sökvägen för bilden
+        //Blobb, skapar en tillfällig URL till bilen för att kunna visa den
         let previewURL = URL.createObjectURL(picture);
         nPreviewImg.style.backgroundImage = `url(${previewURL})`;
         nPreviewImg.style.backgroundSize = "cover";
@@ -93,17 +99,21 @@ function renderPreviewImages(){
     if (STATE.addedPictures.length >= 1) {
         addNewImg.style.marginLeft = "15px";
     } else {
+        //raderar det man stylat på js
         addNewImg.style.removeProperty("marginLeft");
     }
 }
 
 //lägger till senaste bild som finns under e.target.files[0], e.target är elementet man klickat på och det finns under files[0], sen producerar vi minibilden 
-function addPreviewImage(e) {    
+function addPreviewImage(e) {   
+    //e.target.files är den filen som användaren laddat upp nu, på första index finns hela filinfon som pushas in 
     STATE.addedPictures.push(e.target.files[0]);
     renderPreviewImages();
 }
 
 //för borttag vid klick på soptunnan, obs, e.target är själva soptunnan 
+
+
 function clearPreviewImage(e) {
     //vi vill veta vilket barn diven är det är till föräldern
     //föräldern
@@ -144,6 +154,7 @@ coverImageInput.addEventListener("change", function(e){
     let previewURL = URL.createObjectURL(e.target.files[0]);
     coverImage.style.backgroundImage = `url(${previewURL})`;
     coverImage.style.backgroundSize = "cover";
+    //filled classen gör att dialogfönstret för filuppladning inte går att klicka upp
     coverImage.classList.add("filled");
 });
 
@@ -152,11 +163,13 @@ trashButton.addEventListener("click", function(e){
     coverImage.style.removeProperty("background-image");
     coverImage.style.removeProperty("background-size");
     coverImage.classList.remove("filled");
+    //Stoppar eventet att bubbla till föräldern
     e.stopPropagation();
     coverImageInput.value = "";
 });
 
 //så fort användaren har valt ut en liten bild, så körs addPreviewImage()
+//change kontrollerar om något fyllt i / ändrats i input fältet, i detta fall fil / bild namnet
 previewInput.addEventListener("change", addPreviewImage, false);
 
 //när man klickar på post-btn i skapa ny post

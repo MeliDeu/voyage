@@ -24,24 +24,32 @@
 
 
         //transforms multiple files into usable array
+        //Slåt ihop alla nycklar som har samma index för att samla all filinfo till ett object
         // https://www.php.net/manual/de/features.file-upload.multiple.php
         function reArrayFiles($file_post) {
             //skapar en ny array
             $file_ary = array();
             //räknar hur många element som finns i arrayn
             $file_count = count($file_post['name']);
-            //returnerar alla keys som en array har
+            //skapar en array med alla keys
             $file_keys = array_keys($file_post);
             
             for ($i = 0; $i < $file_count; $i++) {
                 foreach ($file_keys as $key) {
+                    //key kan vara = name, size, tmp name osv
+                    //Här placerar vi all info från filen till vår tomma array med all info samlad utefter deras index
+                    //index i file_post är alltid densamma och tillhör samma fil
+                    //name: ["name1", "name2...]
+                    //size: ["size1", "size2"...]
                     $file_ary[$i][$key] = $file_post[$key][$i];
+                    //file_ary[0]["name] = $file_post[name][0]
                 }
             }
             return $file_ary;
         }
 
         //endast $_FILES("images) innehåll flera små arrayer, där alla namn från alla filer utgjorde en array, alla temp en annan etc. 
+        //$imagesFiles är nu en användbar array av object
         $imagesFiles = reArrayFiles($_FILES["images"]);
 
         //funktion för att flytta bilden samt kontroll
@@ -61,7 +69,7 @@
                 echo json_encode($message);
                 exit();
             }
-            if ($file["error"] !== 0) {
+            if ($file["error"] !== 0) {//om något är fel med bilden, tex trasig, error 0 innebär att bilden är ok
                 http_response_code(400);
                 header("Content-Type: application/json");
                 $message = ["error" => "The file is corrupt, try with another photo"];
@@ -69,9 +77,12 @@
                 exit();
             }
             // echo $fileExtension;
+            //Skapar ett random namn till filen, concatinerar filändelsen så vi får komplett filnamn
             $imageName = uniqid() . "." . $fileExtension;
             $imageTempName = $file["tmp_name"];
+            //sökväg för uploads filen
             $uploadFolder = "../images/uploads/";
+            //concatinerar foldern med filnamnet för komplett sögväg till databasen
             $fileName = $uploadFolder . $imageName;
             move_uploaded_file($imageTempName, $fileName);
             $imgPath = $fileName;
@@ -79,7 +90,7 @@
         }
         //funktionen körs och path till coverimgFile sparas i variable
         $coverImgPath = uploadFile($coverImgFile);
-        //do the same for all other images // loop och put path in array
+        //do the same for all other images // loop och put path in array, här sparas alla sökvägar från alla bilder som läggs upp
         $imagePaths = [];
         //funktionen körs och path till varenda imagefile för de små bilderna sparas i variable
         foreach($imagesFiles as $image) {

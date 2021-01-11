@@ -1,3 +1,4 @@
+<!--används för att få upp dialog fönster där användaren kan välja de små bilderna -->
 <form hidden id="hiddenForm">
     <input id="hiddenInput" name="postImageFile" type="file">
     <!-- <button type="submit" value="uploadImg" id="hiddenButton"></button> -->
@@ -18,7 +19,9 @@
             </div>
         </div>
         <div id="newPostDesc">
+            <!-- form där användare kan välja info till sin post-->
             <form id="postInformation" action="">
+                <!-- CoverIMG kommer med nedan input-->
                 <input type="file" id="coverImageInput" hidden name="coverImg">
                 <div class="newPostUp"></div>
                 <div id="newPostContent" class="newPostMiddle">

@@ -8,10 +8,10 @@ window.onload = function(){
     fetch(request)
     .then(r => r.json())
     .then(db => {
-        STATE.users = db.data.users; // users i STATE blir array med alla användare
+        STATE.users = db.data.users; // users i STATE blir array med alla användare, by reference ok pga ändras ALDRIG!
 
         db.data.posts.forEach(post =>{ // pushar in alla posts i allposts i STATE
-            STATE.allPosts.push(new PolaroidFeed(post));
+            STATE.allPosts.push(new PolaroidFeed(post)); //pushar in en instans med hela objectet av en post
             if (post.creatorID == STATE.mainUserID) { // pushar in inloggade användarens posts i mainuserposts array i STATE
                 STATE.mainUserPosts.push(new PolaroidUser(post));
             }
@@ -24,7 +24,7 @@ window.onload = function(){
                 user.savedPosts.forEach(savedPost => {
                     STATE.allPosts.forEach(function(post){
                         if (savedPost.postID == post.postID){
-                            // pushar in den intans som har rätt id 
+                            // pushar in den intans som har rätt id, skapar inga nya instanser utan tar de som finns redan i allposts
                             STATE.mainUserSavedPosts.push(post);
                         }
                     })
@@ -86,7 +86,7 @@ function checkURL(){
         if (profileParameter == mainUserID) {
             markIconNav(document.getElementById("profileNavBtn"));
             loadPosts(STATE.mainUserPosts); //laddar den inloggades posts
-        } else {
+        } else {//Den klickade användarens posts pushas till STATE
             STATE.allPosts.forEach(post => {
                 if (post.creatorID == profileParameter) { // pushar in klickade användarens posts i clickedUserPosts i STATE
                     STATE.clickedUserPosts.push(new PolaroidFeed(post));
@@ -96,7 +96,7 @@ function checkURL(){
             loadPosts(STATE.clickedUserPosts); //laddar en annan användares posts, id:et finns i variabeln profileParameter
         }
     } else if (countryParameter !== "false") {
-        loadPosts(STATE.allPosts, "country", countryParameter);
+        loadPosts(STATE.allPosts, "country", countryParameter);//skickar 3 parametrar, array, nyckeln samt landet som ska sorteras
         loadCircles(travelCategoriesArray, "country", countryParameter);
         markIconNav(document.getElementById("countriesNavBtn"));
     } else if (savedParameter !== "false") {
@@ -160,12 +160,12 @@ function deleteSavedPostFromDB(postID){
             if (resource.error !== undefined){
                 console.log(resource.error);
             }
-            if (resource.data !== undefined){
+            if (resource.data !== undefined){//Avmarkeras endast
                 let icon = document.getElementById(`icon_${postID}`)
                 icon.classList.remove('markedSaved');
                 icon.classList.add('markedUnsaved');
 
-                if (savedParameter !== "false") {
+                if (savedParameter !== "false") {//Om användaren är på savedposts så försvinner polaroiden direkt
                     let polaroid = `polaroid${postID}`;
                     let element = document.getElementsByClassName(polaroid)[0];
                     element.parentNode.removeChild(element);

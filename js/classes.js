@@ -32,7 +32,7 @@ class PolaroidStatic extends PolaroidBase{
         //this.descriptionBox.classList.add("descriptionBox");
     }
 
-    createPolaroidBase(arr){
+    createPolaroidBase(arr){//Går igenom den array som skickats från funktionen, tex STATE.users
         let userInfo
 
         arr.forEach(user => {
@@ -53,7 +53,7 @@ class PolaroidStatic extends PolaroidBase{
         pic.classList.add("polaroidPic");
         let that = this.postID;
         pic.addEventListener("click", function(){
-            makeNewShowPost(that);
+            makeNewShowPost(that);//Öppnar modalfönstret för posten som klickats på
         });
 
         //.polaroidBottom --> KOMMA ÅT I ACTIVE
@@ -89,7 +89,7 @@ class PolaroidStatic extends PolaroidBase{
         let polaroidCountry = document.createElement("a");
         polaroidCountry.setAttribute('href', `../home.php?country=${this.country}`)
         if (this.country.length > 15) {
-            polaroidCountry.innerHTML = `${this.country.substring(0, 15)}...`;
+            polaroidCountry.innerHTML = `${this.country.substring(0, 15)}...`;//max 15 tecken för landnamn
         } else {
             polaroidCountry.innerHTML = this.country;
         }
@@ -131,7 +131,7 @@ class PolaroidStatic extends PolaroidBase{
 }
 
 
-//POLAROIDFOTONA ANTINGEN PÅ HOME FEED ELLER PROFIL FEED (GÅR ATT KLICKA PÅ OSV)
+//POLAROIDFOTONA ANTINGEN PÅ HOME FEED ELLER PROFIL FEED (GÅR ATT KLICKA PÅ OSV) Används inte, skulle vara till för att visa beskrivning av post vid hover
 class PolaroidActive extends PolaroidStatic{
     constructor(data){
         super(data);
@@ -142,7 +142,7 @@ class PolaroidActive extends PolaroidStatic{
     //Metod där polaroiden får en hover effekt, description ska synas
     //Click event på hela polaroiden som gör att posten öppnas
 }
-class PolaroidUser extends PolaroidActive{
+class PolaroidUser extends PolaroidActive{//Polaroid för profil
     constructor(data){
         super(data)
         this.descriptionBox = document.createElement("div");
@@ -159,12 +159,13 @@ class PolaroidUser extends PolaroidActive{
         iconDiv.classList.add("polaroidIcon");
         iconDiv.append(icon);
 
-        let description = this.description
+        //Används ej, skulle vara för att vid beskrivning vid hover
+        /*let description = this.description
         let shortDescription = description.slice(0, 10);
-        this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in
+        this.descriptionBox.append(shortDescription) //descriptionBox skapades tidigare och nu läggs description in*/
 
         this.polaroidInfo.append(iconDiv);
-        this.polaroidBottom.append(this.descriptionBox);
+        //this.polaroidBottom.append(this.descriptionBox);
 
         icon.addEventListener('click', function(){
             let trashID = this.getAttribute('id');
@@ -178,7 +179,7 @@ class PolaroidUser extends PolaroidActive{
         return html;
     }
 }
-class PolaroidFeed extends PolaroidActive{
+class PolaroidFeed extends PolaroidActive{//För alla andra polaroider utanför profil
     constructor(data){
         super(data);
     }

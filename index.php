@@ -1,5 +1,6 @@
 <?php
     session_start();
+    //Visar ett felmeddelande på skärmen om något är fel i php koden
     error_reporting(-1);
     include "sections/header.php";
 
@@ -32,9 +33,10 @@
                                 <p class="formInputTitle">Password
                                     <input type="password" name="password" placeholder="Password">
                                 </p>
-
-                                <?php if (isset($_GET["error"])) { ?>
+                        
+                                <?php if (isset($_GET["error"])) { //kollar ifall vi fått en error från api.php?>
                                     <script>
+                                        //Displayar inloggningsmodalen för att användaren ska få feedback och kunna prova igen
                                         document.getElementById("bgDark").style.display = "block";
                                         document.getElementById("startModalWrapper").style.display = "flex";
                                         document.getElementById("loginModal").style.display = "flex";

@@ -18,17 +18,17 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
     
     let grid = document.getElementById("homeFeedGrid");
     grid.innerHTML = ""; //tömmer gridden
-    let copyPosts = [...posts]; //kopierar arrayen som skickats
+    let copyPosts = [...posts]; //kopierar arrayen som skickats, spread by value!
 
-    if (copyPosts.length == 0) {
+    if (copyPosts.length == 0) {//Om det inte finns några posts
         grid.innerHTML = "Oh no! No posts yet.. Please add one!";
     }
 
     let viewing = document.getElementById("homeFeedView"); //för att sätta tillbaka att det står att alla posts visas när funktionen anropas
     viewing.innerHTML = "All Posts";
 
-    if (sort !== undefined) { 
-        copyPosts = copyPosts.filter(p => p[filter] == sort); 
+    if (sort !== undefined) { //Om arreyen ska sorteras
+        copyPosts = copyPosts.filter(p => p[filter] == sort); //Sortering för land & resekategori
 
         if (copyPosts.length == 0) {
             grid.innerHTML = "Oh no! No posts yet.. Please add one!";
@@ -66,7 +66,7 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
                 //viewing.style.cursor = "none";
             }
     
-            viewing.addEventListener("click", viewAll); //vid klick laddas alla posts
+            viewing.addEventListener("click", viewAll); //vid klick laddas alla posts för aktuell filtrering, tex vilket land man står på
             viewing.style.cursor = "pointer";
         }
 
@@ -74,10 +74,12 @@ function loadPosts(posts, filter, sort) { //posts = vilken array, filer = vilken
 
     copyPosts.forEach(post => {
         grid.prepend(post.htmlElement(STATE.users));
+        //metoden hmtlElement skapar elementen för posten, skickar med users för att ladda profilbild, namn osv
     });
 
     if(profileParameter !== STATE.mainUserID){
         checkAndMark();
+        //Kontrollerar om någon post är sparad hon den inloggade användaren och ger ifylld ikon om den är sparad osv.
     }
 
 }

@@ -3,6 +3,7 @@ let register = document.getElementById("register");
 register.addEventListener('submit', function(event){
     event.preventDefault();
 
+    //Hämtar värdet av nedan element
     let UserName = document.getElementById("newUsername").value;
     let UserPassword = document.getElementById("newPassword").value;
     let UserEmail = document.getElementById("newEmail").value;
